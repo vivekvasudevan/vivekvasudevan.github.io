@@ -376,6 +376,80 @@
 
     .about-intro { opacity: 0; transform: translateY(24px); animation: fadeUp 0.8s ease forwards 0.1s; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── HAMBURGER BUTTON ──────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 32px;
+      height: 4px;
+      background: #2b2b2b;
+      border-radius: 22px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ─── HAMBURGER MENU OVERLAY ────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      background: #fff;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 8px 0 16px;
+      position: absolute;
+      top: 82px;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .mobile-menu.open { display: flex; }
+    @media (min-width: 769px) { .mobile-menu { display: none !important; } }
+    .mobile-menu a, .mobile-menu button {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2b2b2b;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      text-align: left;
+      width: 100%;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .mobile-menu a:hover, .mobile-menu button:hover { opacity: 0.6; }
+
+    /* ─── TABLET ≤ 768px ────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-wrap { padding: 0; }
+      nav { padding: 0 20px; max-width: 100%; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* ─── MOBILE ≤ 480px ────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .nav-name { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -394,7 +468,16 @@
         <li class="active"><a href="about.html">About</a></li>
         <li><button onclick="document.getElementById('footer').scrollIntoView({behavior:'smooth'})">Let's Connect</button></li>
       </ul>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+    <div class="mobile-menu" id="mobileMenu" role="menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#case-studies">Case Studies</a>
+      <a href="about.html" onclick="closeMobileMenu()">About</a>
+      <button onclick="closeMobileMenu(); document.getElementById('footer').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
+    </div>
   </div>
 
   <!-- ═══ ABOUT INTRO ══════════════════════════════════════ -->
@@ -713,6 +796,21 @@
   }
   updatePos();
   window.addEventListener('resize', updatePos);
+
+  /* Hamburger menu */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburgerBtn?.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open', open);
+    hamburgerBtn.setAttribute('aria-expanded', open);
+  });
+  function closeMobileMenu() {
+    mobileMenu?.classList.remove('open');
+    hamburgerBtn?.classList.remove('open');
+    hamburgerBtn?.setAttribute('aria-expanded', 'false');
+  }
+  window.addEventListener('scroll', closeMobileMenu, { passive: true });
 </script>
 </body>
 </html>
