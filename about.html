@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – Vivek Vasudevan Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Variables ──────────────────────────────────────── */
+    :root {
+      --page-max: 1440px;
+      --content-width: 1200px;
+      --inner-width: 1160px;
+    }
+
+    /* ─── Reset ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: #2b2b2b;
+      background: linear-gradient(180deg, #f9f6f6 0%, #fff 30.3%, #fff 85%, #f9f6f6 100%);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 71px;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      padding: 0 20px;
+    }
+    nav {
+      background: #fff;
+      border-radius: 0 0 20px 20px;
+      height: 82px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+    .nav-logo {
+      width: 48px; height: 48px;
+      background: #000;
+      border-radius: 8px;
+      padding: 4px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      position: absolute;
+      top: 29.17%; right: 8.33%; bottom: 29.17%; left: 8.33%;
+      width: auto; height: auto;
+      max-width: 100%; max-height: 100%;
+      object-fit: contain;
+    }
+    .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
+
+    .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+    .nav-links a, .nav-links button {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px; font-weight: 500;
+      color: #2b2b2b;
+      text-decoration: none;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; opacity: 0.4;
+      transition: opacity 0.2s;
+      display: block;
+    }
+    .nav-links li.active a { opacity: 1; border-bottom: 2px solid #2b2b2b; }
+    .nav-links a:hover, .nav-links button:hover { opacity: 0.8; }
+
+    /* ─── SECTION HEADERS ────────────────────────────────── */
+    .section-header { display: flex; flex-direction: column; gap: 12px; width: var(--inner-width); }
+    .section-title {
+      font-size: 40px; font-weight: 600;
+      line-height: 50px; color: #000;
+    }
+    .section-subtitle {
+      font-size: 24px; font-weight: 400;
+      line-height: 34px; color: #2b2b2b;
+      opacity: 0.8;
+    }
+
+    /* ─── ABOUT INTRO ────────────────────────────────────── */
+    .about-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      align-items: flex-start;
+      padding-top: 96px;
+      width: var(--inner-width);
+    }
+    .about-page-title {
+      font-size: 64px; font-weight: 600;
+      line-height: 76px; color: #000;
+    }
+    .about-content-wrap { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+    .about-row-1 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      align-items: flex-start;
+    }
+    .about-text {
+      flex: 1 0 0;
+      font-size: 24px; font-weight: 400;
+      line-height: 34px; color: #2b2b2b;
+      opacity: 0.8;
+      min-width: 300px;
+    }
+    .about-photo-wrap {
+      width: 606px; height: 403px;
+      border: 2px solid #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .about-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about-row-2 .about-text { opacity: 0.8; }
+
+    /* ─── ENDORSEMENTS ───────────────────────────────────── */
+    .endorsements-section {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      align-items: center;
+      padding-top: 137px;
+    }
+    .endorsements-inner { display: flex; flex-direction: column; gap: 32px; align-items: center; }
+    .endorsements-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .endorsement-card {
+      background: #f9f6f6;
+      border-radius: 40px;
+      padding: 32px;
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      box-shadow: 0 39px 58.5px -30px rgba(0,0,0,0.11);
+      overflow: hidden;
+    }
+    .endorsement-avatar {
+      width: 132px; height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .endorsement-quote {
+      font-size: 20px; font-weight: 400;
+      line-height: 30px; color: #2b2b2b;
+      opacity: 0.8;
+      text-align: center;
+    }
+    .endorsement-author { display: flex; flex-direction: column; gap: 12px; width: 100%; text-align: center; }
+    .endorsement-name { font-size: 20px; font-weight: 700; line-height: 28px; color: #2b2b2b; }
+    .endorsement-role {
+      font-size: 16px; font-weight: 500;
+      line-height: 24px; color: #2b2b2b;
+      opacity: 0.6;
+    }
+
+    /* ─── CLIENTS ────────────────────────────────────────── */
+    .clients-section { display: flex; flex-direction: column; gap: 64px; width: 100%; }
+    .clients-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    .client-item { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    .client-logo {
+      width: 100px; height: 100px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .client-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .client-logo.black-bg { background: #000; border-radius: 4px; padding: 10px; }
+    .client-name {
+      font-size: 24px; font-weight: 500;
+      line-height: 1.6; color: #000;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    /* ─── SKILLSET ───────────────────────────────────────── */
+    .skills-section { display: flex; flex-direction: column; gap: 64px; width: 100%; }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 64px 120px;
+      width: var(--inner-width);
+    }
+    .skill-group { display: flex; flex-direction: column; gap: 20px; }
+    .skill-title { font-size: 24px; font-weight: 700; line-height: 32px; color: #2b2b2b; }
+    .skill-items { display: flex; flex-direction: column; gap: 12px; }
+    .skill-item { font-size: 16px; font-weight: 400; line-height: 24px; color: #2b2b2b; }
+
+    /* ─── TOOLKIT ────────────────────────────────────────── */
+    .toolkit-section { display: flex; flex-direction: column; gap: 80px; width: 100%; }
+    .toolkit-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .tool-item { display: flex; flex-direction: column; gap: 19px; align-items: center; }
+    .tool-icon { width: 64px; height: 64px; object-fit: contain; }
+    .tool-name { font-size: 24px; font-weight: 400; line-height: 34px; color: #000; white-space: nowrap; }
+
+    /* ─── OUTER SECTIONS WRAPPER ─────────────────────────── */
+    .sections-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 150px;
+      align-items: center;
+      padding-top: 120px;
+      padding-left: 20px;
+      padding-right: 20px;
+      width: var(--content-width);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      width: var(--content-width);
+      padding-top: 120px;
+    }
+    .footer-cta { display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%; }
+    .footer-eyebrow {
+      font-size: 24px; font-weight: 500;
+      color: #2b2b2b; opacity: 0.8;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .footer-headline-wrap {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+      height: 192px; justify-content: flex-start;
+    }
+    .footer-headline { font-size: 80px; font-weight: 700; color: #2b2b2b; text-align: center; line-height: 100px; }
+    .footer-btns { display: flex; gap: 24px; align-items: center; }
+    .btn-filled {
+      background: #2b2b2b; color: #fff;
+      padding: 16px 24px; border-radius: 8px;
+      font-size: 24px; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-filled:hover { background: #444; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid #2b2b2b; color: #2b2b2b;
+      padding: 16px 24px; border-radius: 8px;
+      font-size: 24px; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: #f5f5f5; transform: translateY(-2px); }
+
+    .footer-bottom-area { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
+    .footer-email-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px; text-decoration: none;
+      color: #2b2b2b; font-size: 16px; font-weight: 500;
+      border-radius: 8px; transition: opacity 0.2s;
+    }
+    .footer-email-link:hover { opacity: 0.6; }
+    .footer-email-link img { width: 16px; height: 16px; }
+
+    .footer-bottom-nav {
+      width: var(--content-width);
+      padding: 16px 20px;
+      border-radius: 20px 20px 0 0;
+      background: #f8f7f4;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .footer-logo {
+      width: 48px; height: 48px;
+      background: #000; border-radius: 8px;
+      position: relative; flex-shrink: 0;
+    }
+    .footer-logo img {
+      position: absolute;
+      top: 29.17%; right: 8.33%; bottom: 29.17%; left: 8.33%;
+      width: auto; height: auto; max-width: 100%; max-height: 100%;
+      object-fit: contain;
+    }
+    .footer-brand-text { display: flex; flex-direction: column; gap: 4px; }
+    .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
+    .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
+
+    .footer-nav-links { display: flex; gap: 24px; list-style: none; }
+    .footer-nav-links a {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px; font-weight: 500;
+      color: #2b2b2b; opacity: 0.4;
+      text-decoration: none; padding: 8px;
+      transition: opacity 0.2s;
+    }
+    .footer-nav-links a:hover { opacity: 0.8; }
+
+    /* ─── LINKEDIN BUTTON ────────────────────────────────── */
+    .linkedin-btn {
+      background: #2b2b2b; color: #fff;
+      padding: 16px 24px; border-radius: 8px;
+      font-size: 24px; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .linkedin-btn:hover { background: #444; transform: translateY(-2px); }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+    .scroll-top {
+      position: fixed;
+      right: 20px; bottom: 40px;
+      width: 60px; height: 60px;
+      background: #fff; border: none;
+      border-radius: 8px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 9px 18.8px rgba(0,0,0,0.15);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+      z-index: 99;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.2); transform: translateY(-2px); }
+    .scroll-top svg { width: 28px; height: 28px; }
+
+    /* ─── REVEAL ANIMATIONS ──────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .about-intro { opacity: 0; transform: translateY(24px); animation: fadeUp 0.8s ease forwards 0.1s; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+  <div class="nav-wrap" style="width:100%;">
+    <nav id="main-nav">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+        <span class="nav-name">Vivek Vasudevan</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#case-studies">Case Studies</a></li>
+        <li class="active"><a href="about.html">About</a></li>
+        <li><button onclick="document.getElementById('footer').scrollIntoView({behavior:'smooth'})">Let's Connect</button></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ═══ ABOUT INTRO ══════════════════════════════════════ -->
+  <div class="about-intro">
+    <h1 class="about-page-title">About Me</h1>
+    <div class="about-content-wrap">
+      <div class="about-row-1">
+        <div class="about-text">
+          <p>I'm a product designer and design leader who turns complex problems into clear, scalable experiences.</p>
+          <p>&nbsp;</p>
+          <p>I began my career in the game industry as a game designer, where I learned how systems thinking, behavioural psychology, and intuitive interactions shape engagement. That foundation continues to influence how I approach product design today, balancing creativity with structure, and vision with execution.</p>
+        </div>
+        <div class="about-photo-wrap">
+          <img src="assets/images/AboutMe.png" alt="Vivek Vasudevan" />
+        </div>
+      </div>
+      <div class="about-row-2">
+        <div class="about-text" style="width:100%;opacity:0.8;">
+          <p>Over the years, I've led end-to-end design across AI-powered platforms, SaaS ecosystems, and mobile applications. I thrive at the intersection of product strategy and user experience, aligning business goals, technology, and human needs to build solutions that are not only usable, but impactful.</p>
+          <p>&nbsp;</p>
+          <p>For me, design is about clarity, momentum, and measurable outcomes. I enjoy leading teams, mentoring designers, and collaborating cross-functionally to ship products that scale and genuinely serve their users.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ENDORSEMENTS ════════════════════════════════════ -->
+  <section class="endorsements-section">
+    <div class="endorsements-inner">
+      <div class="section-header reveal">
+        <h2 class="section-title">Endorsements</h2>
+        <p class="section-subtitle">What others have to say about me</p>
+      </div>
+      <div class="endorsements-grid reveal">
+
+        <div class="endorsement-card">
+          <img class="endorsement-avatar" src="assets/images/Hersh_ProfilePic.png" alt="Hersh Bhatt" />
+          <p class="endorsement-quote">"Vivek's incredible personality is only matched by his contributions to Atisfy and Game Marketing Genie. He's a creative and user-centric leader who excels in UX/UI design, team growth, and gaming/gamification knowledge. Vivek's trustworthiness and friendly demeanor make him a fantastic asset to any team."</p>
+          <div class="endorsement-author">
+            <p class="endorsement-name">Hersh Bhatt</p>
+            <p class="endorsement-role">Founder and Chief Visionary Officer<br>Atisfy Pte. Ltd.</p>
+          </div>
+        </div>
+
+        <div class="endorsement-card">
+          <img class="endorsement-avatar" src="assets/images/Yogesh_ProfilePic.png" alt="Yogesh Tomar" />
+          <p class="endorsement-quote">"Vivek is an exceptional leader who consistently exceeds expectations. His strategic vision, deep understanding of UX/UI, and collaborative approach create a positive and productive work environment. Their dedication to excellence and commitment to team success make them an invaluable asset to any organization."</p>
+          <div class="endorsement-author">
+            <p class="endorsement-name">Yogesh Tomar</p>
+            <p class="endorsement-role">Head of UX<br>Atisfy Pte. Ltd.</p>
+          </div>
+        </div>
+
+        <div class="endorsement-card">
+          <img class="endorsement-avatar" src="assets/images/Pierre_ProfilePic.png" alt="Pierre Dumas" />
+          <p class="endorsement-quote">"Vivek is a multitalented, fast and hard worker that understands and accomplishes advanced tasks. His humility, talent and positive attitude are a great pleasure on top of it all!"</p>
+          <div class="endorsement-author">
+            <p class="endorsement-name">Pierre Dumas</p>
+            <p class="endorsement-role">Founder and CEO<br>kickAlive</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <a class="linkedin-btn reveal" href="https://www.linkedin.com/in/vivek-vasudevan/details/recommendations/?detailScreenTabIndex=0" target="_blank" rel="noopener">
+      View more endorsements on LinkedIn
+    </a>
+  </section>
+
+  <!-- ═══ MAIN SECTIONS (Clients / Skillset / Toolkit / Footer) ═══ -->
+  <div class="sections-wrapper">
+
+    <!-- ─── CLIENTS ──────────────────────────────────────── -->
+    <div class="clients-section reveal">
+      <div class="section-header">
+        <h2 class="section-title">Clients I have worked with</h2>
+        <p class="section-subtitle">Over the years, I've had the privilege of partnering with a diverse range of organisations, from global conglomerates to innovative startups. My work spans industries including energy and infrastructure, healthcare and pharmaceuticals, retail and consumer electronics, automotive, sports technology, gaming, and social impact.</p>
+      </div>
+      <div class="clients-grid">
+
+        <div class="client-item">
+          <div class="client-logo" style="position:relative;">
+            <img src="assets/images/Incolink_Logo.svg" alt="Incolink" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">Incolink</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/GMG_Logo.svg" alt="Game Marketing Genie" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">Game Marketing Genie</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/kickAlive_Logo.svg" alt="kickAlive" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">kickAlive</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo black-bg">
+            <img src="assets/images/SportSim_Logo.svg" alt="SportSim" style="max-width:100%;max-height:100%;object-fit:contain;filter:invert(1);" />
+          </div>
+          <span class="client-name">SportSim</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/LnT_Logo.svg" alt="Larsen &amp; Tubro" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">Larsen &amp; Tubro (India)</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/RelaiceDigital_Logo.svg" alt="Reliance Digital" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">Reliance Digital</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/TataPower_Logo.svg" alt="Tata Power" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">Tata Power</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/SunPharma_Logo.svg" alt="Sun Pharma" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">Sun Pharma</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/Hella_Logo.svg" alt="Hella" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">Hella</span>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img src="assets/images/ShareAPet_Logo.svg" alt="ShareAPet" style="max-width:100%;max-height:100%;object-fit:contain;" />
+          </div>
+          <span class="client-name">ShareAPet</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── SKILLSET ──────────────────────────────────────── -->
+    <div class="skills-section reveal">
+      <div style="display:flex;flex-direction:column;align-items:center;width:100%;">
+        <div class="section-header">
+          <h2 class="section-title">Skillset</h2>
+          <p class="section-subtitle">I always strive to bring together the proper techniques and methodologies to achieve the best possible outcome by working collaboratively. Here are some of my core skills</p>
+        </div>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group" style="width:317px;">
+          <p class="skill-title">Product Thinking</p>
+          <div class="skill-items">
+            <p class="skill-item">0 → 1 discovery &amp; definition</p>
+            <p class="skill-item">Opportunity mapping &amp; problem framing</p>
+            <p class="skill-item">Feature prioritisation &amp; roadmap input</p>
+            <p class="skill-item">Speed-quality-scale trade-offs</p>
+          </div>
+        </div>
+
+        <div class="skill-group" style="width:213px;">
+          <p class="skill-title">UX Design</p>
+          <div class="skill-items">
+            <p class="skill-item">End-to-end journey design</p>
+            <p class="skill-item">IA &amp; interaction design</p>
+            <p class="skill-item">Usability testing &amp; iteration</p>
+            <p class="skill-item">Qual + quant insights</p>
+          </div>
+        </div>
+
+        <div class="skill-group" style="width:279px;">
+          <p class="skill-title">UI &amp; Systems Design</p>
+          <div class="skill-items">
+            <p class="skill-item">Design systems &amp; component</p>
+            <p class="skill-item">Visual design &amp; interaction patterns</p>
+            <p class="skill-item">Rapid prototyping (lo/hi-fi)</p>
+            <p class="skill-item">Dev-ready design handoff</p>
+          </div>
+        </div>
+
+        <div class="skill-group" style="width:324px;">
+          <p class="skill-title">Collaboration &amp; Facilitation</p>
+          <div class="skill-items">
+            <p class="skill-item">Cross-functional collaboration</p>
+            <p class="skill-item">Workshops &amp; design critiques</p>
+            <p class="skill-item">Agile design workflows</p>
+            <p class="skill-item">Translating business → UX</p>
+          </div>
+        </div>
+
+        <div class="skill-group" style="width:226px;">
+          <p class="skill-title">Emerging Tech &amp; AI</p>
+          <div class="skill-items">
+            <p class="skill-item">AI-assisted workflows</p>
+            <p class="skill-item">Automation-driven UX</p>
+            <p class="skill-item">Value vs noise evaluation</p>
+            <p class="skill-item">Human-centered AI design</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── TOOLKIT ───────────────────────────────────────── -->
+    <div class="toolkit-section reveal">
+      <div style="display:flex;flex-direction:column;align-items:center;width:100%;">
+        <div class="section-header">
+          <h2 class="section-title">Toolkit</h2>
+          <p class="section-subtitle">A curated set of tools I use to streamline and elevate my creative process. I'm constantly exploring new methodologies, approaches, and strategies to refine my craft and stay adaptable.</p>
+        </div>
+      </div>
+      <div class="toolkit-row">
+        <div class="tool-item">
+          <img class="tool-icon" src="assets/images/Logo_Figma.svg" alt="Figma" />
+          <span class="tool-name">Figma</span>
+        </div>
+        <div class="tool-item">
+          <img class="tool-icon" src="assets/images/Logo_Adobe.svg" alt="Adobe" style="width:72px;" />
+          <span class="tool-name">Adobe</span>
+        </div>
+        <div class="tool-item">
+          <img class="tool-icon" src="assets/images/Miro_Logo.svg" alt="Miro" />
+          <span class="tool-name">Miro</span>
+        </div>
+        <div class="tool-item">
+          <img class="tool-icon" src="assets/images/Logo_LucidChart.svg" alt="Lucid Charts" />
+          <span class="tool-name">Lucid Charts</span>
+        </div>
+        <div class="tool-item">
+          <img class="tool-icon" src="assets/images/Logo_Jira.svg" alt="Jira" />
+          <span class="tool-name">Jira</span>
+        </div>
+        <div class="tool-item">
+          <img class="tool-icon" src="assets/images/Logo_Protopie.svg" alt="Protopie" style="width:63px;" />
+          <span class="tool-name">Protopie</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── FOOTER ────────────────────────────────────────── -->
+    <footer class="footer" id="footer">
+      <div class="footer-cta reveal">
+        <p class="footer-eyebrow">Like what you see?</p>
+        <div class="footer-headline-wrap">
+          <h2 class="footer-headline">Let's Connect!</h2>
+          <div class="footer-btns">
+            <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn-outline" href="https://drive.google.com/uc?export=download&id=1M83IXrkA5TnbnnoIDzwx2d1z875CXilI" target="_blank" rel="noopener">Resume</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-area reveal">
+        <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          vivek.vasudevan.design@gmail.com
+        </a>
+        <div class="footer-bottom-nav">
+          <a href="index.html" class="footer-brand">
+            <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">Vivek Vasudevan Design</span>
+              <span class="footer-brand-copy">© 2026 All rights reserved</span>
+            </div>
+          </a>
+          <ul class="footer-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#case-studies">Case Studies</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /sections-wrapper -->
+</div><!-- /page -->
+
+<!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#2b2b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  /* Intersection observer for reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* Scroll-to-top position for wide viewports */
+  function updatePos() {
+    const vw = window.innerWidth;
+    scrollTopBtn.style.right = vw > 1440 ? ((vw - 1440) / 2 + 20) + 'px' : '20px';
+  }
+  updatePos();
+  window.addEventListener('resize', updatePos);
+</script>
+</body>
+</html>

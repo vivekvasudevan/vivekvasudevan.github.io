@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivek Vasudevan Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Grid system ───────────────────────────────────── */
+    :root {
+      --page-max:      1440px;
+      --page-margin:   120px;          /* left & right margin */
+      --content-width: 1200px;         /* 1440 - 2×120 */
+      --cols:          12;
+      --gutter:        16px;
+      /* column width: (1200 - 11×16) / 12 = 85.33px */
+      --col-width:     calc((var(--content-width) - 11 * var(--gutter)) / var(--cols));
+      /* 6-col span (each card): 576px = (content - 3-gutter gap) / 2 */
+      --card-cols:     6;
+      --card-gap:      calc(3 * var(--gutter));   /* 48px — 3 gutters between columns */
+      --card-width:    calc((var(--content-width) - var(--card-gap)) / 2); /* 576px */
+      --card-row-gap:  80px;
+    }
+
+    /* ─── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ─── Base ──────────────────────────────────────────── */
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: #2b2b2b;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* ─── Page wrapper (1440px) ─────────────────────────── */
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ─── NAVIGATION ────────────────────────────────────── */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 var(--page-margin);
+    }
+    nav {
+      background: #ffffff;
+      border-radius: 0 0 20px 20px;
+      height: 82px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled {
+      box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+    .nav-logo {
+      width: 48px;
+      height: 48px;
+      background: #000;
+      border-radius: 8px;
+      padding: 4px;
+      position: relative;         /* anchor the absolutely-placed image */
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      /* Sit at the correct inset (mirrors Figma: 29.17% top/bottom, 8.33% left/right)
+         so the WD mark is never stretched or squished */
+      position: absolute;
+      top: 29.17%;
+      right: 8.33%;
+      bottom: 29.17%;
+      left: 8.33%;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .nav-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a, .nav-links button {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2b2b2b;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      opacity: 0.4;
+      transition: opacity 0.2s;
+      display: block;
+    }
+    .nav-links li.active a,
+    .nav-links li.active button {
+      opacity: 1;
+      border-bottom: 2px solid #2b2b2b;
+    }
+    .nav-links a:hover, .nav-links button:hover { opacity: 0.8; }
+
+    /* ─── CONTENT CARD ──────────────────────────────────── */
+    .content-card {
+      margin: 8px var(--page-margin) 0;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* ─── HERO ──────────────────────────────────────────── */
+    .hero {
+      /* 795px ≈ 9 cols + 8 gutters: 9×85.33 + 8×16 = 896px → Figma value kept exactly */
+      width: 795px;
+      margin: 0 auto;
+      padding: 237px 0 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 232px;
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 55px;
+      width: 100%;
+    }
+    .hero-headline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .hero-hi, .hero-name {
+      font-size: 80px;
+      font-weight: 700;
+      color: #2b2b2b;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .hero-photo-wrap {
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 24px;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+      object-fit: cover;
+      transform: rotate(4deg);
+      transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
+    }
+    .hero-photo:hover { transform: rotate(0deg) scale(1.05); }
+    .hero-tagline {
+      font-size: 32px;
+      font-weight: 400;
+      color: #2b2b2b;
+      opacity: 0.6;
+      line-height: 1.4;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Arrow down — no bounding box, fully transparent */
+    .arrow-down {
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;           /* no fill */
+      border: none;               /* no border */
+      outline: none;
+      box-shadow: none;
+      padding: 0;
+      animation: bounce 2s ease-in-out infinite;
+      transition: opacity 0.3s;
+    }
+    .arrow-down:hover { opacity: 0.6; }
+    .arrow-down img { width: 100%; height: 100%; object-fit: contain; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    /* ─── CASE STUDIES ──────────────────────────────────── */
+    .case-studies {
+      padding: 0 0 100px;
+    }
+    .section-title {
+      font-size: 56px;
+      font-weight: 700;
+      color: #2b2b2b;
+      text-align: center;
+      padding: 20px 0 95px;
+      line-height: 1.35;
+    }
+    .cs-grid {
+      display: grid;
+      /* 2 × 6-col cards separated by a 3-gutter (48px) gap */
+      grid-template-columns: repeat(2, var(--card-width));
+      column-gap: var(--card-gap);
+      row-gap: var(--card-row-gap);
+      padding: 0;
+      align-items: start;
+    }
+
+    /* Case Study Card */
+    .cs-card {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      text-decoration: none;
+      cursor: pointer;
+      /* scroll-reveal initial state */
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .cs-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cs-card:nth-child(2) { transition-delay: 0.15s; }
+    .cs-card:nth-child(4) { transition-delay: 0.15s; }
+    .cs-card:nth-child(6) { transition-delay: 0.15s; }
+
+    .cs-image {
+      width: var(--card-width);
+      height: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+    }
+    .cs-card:hover .cs-image { transform: scale(1.02); }
+    .cs-image img.bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cs-image .bg-fill {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .cs-image .overlay-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Image-specific positioning */
+    .cs-img-atisfyreach .laptop {
+      position: absolute;
+      bottom: -5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110%;
+      object-fit: contain;
+    }
+    .cs-img-atisfyre .phones {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cs-img-jinance .macbook {
+      position: absolute;
+      inset: -11% -13.5%;
+      width: calc(100% + 27%);
+      height: calc(100% + 22%);
+      object-fit: cover;
+    }
+    .cs-img-coinloop .coinloop-img {
+      position: absolute;
+      right: -10%;
+      top: -10%;
+      width: 110%;
+      height: 120%;
+      object-fit: cover;
+      object-position: right top;
+    }
+    .cs-img-mantro .phone1 {
+      position: absolute;
+      left: 27%;
+      bottom: -5%;
+      width: 47%;
+      object-fit: contain;
+    }
+    .cs-img-mantro .phone2 {
+      position: absolute;
+      right: 0;
+      bottom: -5%;
+      width: 32%;
+      object-fit: contain;
+    }
+    .cs-img-mantro .mantro-bg-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .cs-img-mantro .mantro-title-text {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: rgba(217,217,217,0.1);
+      white-space: nowrap;
+    }
+    .cs-img-mantro .mantro-sub-text {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: rgba(217,217,217,0.2);
+      text-align: center;
+    }
+    .cs-img-cosmic .cosmic-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cs-img-cosmic .cosmic-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cs-img-cosmic .cosmic-title-text {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    /* Card body */
+    .cs-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+    .cs-category {
+      font-size: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .cs-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      color: #2b2b2b;
+    }
+    .cs-title {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+    .cs-desc {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px;
+      color: #2b2b2b;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      padding-bottom: 0;
+    }
+
+    /* CTA block */
+    .footer-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      width: 100%;
+    }
+    .footer-eyebrow {
+      font-size: 24px;
+      font-weight: 500;
+      color: #2b2b2b;
+      opacity: 0.8;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .footer-headline-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      height: 192px;
+      justify-content: flex-start;
+    }
+    .footer-headline {
+      font-size: 80px;
+      font-weight: 700;
+      color: #2b2b2b;
+      text-align: center;
+      line-height: 100px;
+    }
+    .footer-btns {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .btn-filled {
+      background: #2b2b2b;
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-size: 24px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-filled:hover { background: #444; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid #2b2b2b;
+      color: #2b2b2b;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-size: 24px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: #f5f5f5; transform: translateY(-2px); }
+
+    /* Footer bottom area */
+    .footer-bottom-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+    .footer-email-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: opacity 0.2s;
+    }
+    .footer-email-link:hover { opacity: 0.6; }
+    .footer-email-link img { width: 16px; height: 16px; }
+
+    .footer-bottom-nav {
+      width: var(--content-width);
+      padding: 16px 20px;
+      border-radius: 20px 20px 0 0;
+      background: #f8f7f4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .footer-logo {
+      width: 48px;
+      height: 48px;
+      background: #000;
+      border-radius: 8px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .footer-logo img {
+      position: absolute;
+      top: 29.17%;
+      right: 8.33%;
+      bottom: 29.17%;
+      left: 8.33%;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .footer-brand-text { display: flex; flex-direction: column; gap: 4px; }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #2b2b2b;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .footer-brand-copy {
+      font-size: 12px;
+      font-weight: 500;
+      color: #2b2b2b;
+      opacity: 0.6;
+      text-align: center;
+    }
+    .footer-nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-nav-links a, .footer-nav-links button {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2b2b2b;
+      opacity: 0.4;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      transition: opacity 0.2s;
+    }
+    .footer-nav-links a:hover, .footer-nav-links button:hover { opacity: 0.8; }
+
+    /* ─── SCROLL TO TOP ─────────────────────────────────── */
+    .scroll-top {
+      position: fixed;
+      right: calc((100vw - 1440px) / 2 + 14px);
+      bottom: 40px;
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+      z-index: 99;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scroll-top:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+    .scroll-top svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ─── REVEAL ANIMATIONS ─────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero reveal (load animation) */
+    .hero-hi, .hero-photo-wrap, .hero-name {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+    .hero-hi      { animation-delay: 0.2s; }
+    .hero-photo-wrap { animation-delay: 0.35s; }
+    .hero-name    { animation-delay: 0.5s; }
+    .hero-tagline {
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards 0.7s;
+    }
+    .arrow-down {
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards 1s;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    /* Arrow down uses its own bounce after fadeIn */
+    .arrow-down { animation: fadeIn 0.8s ease forwards 1s, bounce 2s ease-in-out 1.8s infinite; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════ -->
+  <div class="nav-wrap">
+    <nav id="main-nav">
+      <a href="#" class="nav-brand" onclick="scrollToTop(event)">
+        <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+        <span class="nav-name">Vivek Vasudevan</span>
+      </a>
+      <ul class="nav-links">
+        <li class="active" id="nav-home"><a href="#" onclick="scrollToTop(event)">Home</a></li>
+        <li id="nav-cs"><a href="#case-studies" onclick="navClick(event,'nav-cs')">Case Studies</a></li>
+        <li id="nav-about"><a href="about.html">About</a></li>
+        <li id="nav-connect"><button onclick="scrollToFooter()">Let's Connect</button></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ═══ CONTENT CARD ═══════════════════════════════════════ -->
+  <div class="content-card">
+
+    <!-- ─── HERO ─────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-headline">
+          <span class="hero-hi">Hi,</span>
+          <div class="hero-photo-wrap">
+            <img
+              class="hero-photo"
+              src="assets/images/ProfilePic.png"
+              alt="Vivek Vasudevan"
+            />
+          </div>
+          <span class="hero-name">I'm Vivek</span>
+        </div>
+        <p class="hero-tagline">
+          I spend my time removing friction so people can<br>
+          just use products, not think about them.
+        </p>
+      </div>
+      <button class="arrow-down" onclick="document.getElementById('case-studies').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
+        <img src="assets/images/arrow-down-line.svg" alt="Scroll down" />
+      </button>
+    </section>
+
+    <!-- ─── CASE STUDIES ─────────────────────────────────── -->
+    <section class="case-studies" id="case-studies">
+      <h2 class="section-title reveal">Case Studies</h2>
+      <div class="cs-grid">
+
+        <!-- 1. Atisfyreach -->
+        <a class="cs-card" href="#" aria-label="Atisfyreach case study">
+          <div class="cs-image">
+            <img class="bg-img" src="assets/images/AtisfyReach_CaseStudy_Thumbnail.png" alt="Atisfyreach website on laptop" />
+          </div>
+          <div class="cs-body">
+            <p class="cs-category" style="color:#175cfe;">Web App</p>
+            <div class="cs-info">
+              <p class="cs-title">Atisfyreach</p>
+              <p class="cs-desc">End-to-end design of a machine-learning platform transforming creator discovery from manual search to smart matchmaking.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2. Atisfyre -->
+        <a class="cs-card" href="#" aria-label="Atisfyre case study">
+          <div class="cs-image">
+            <img class="bg-img" src="assets/images/Atisfyre_CaseStudy_Thumbnail.png" alt="Atisfyre app screens" />
+          </div>
+          <div class="cs-body">
+            <p class="cs-category" style="color:#ab0000;">Mobile Application</p>
+            <div class="cs-info">
+              <p class="cs-title">Atisfyre</p>
+              <p class="cs-desc">Crafted an AI-powered marketplace that simplifies how creators discover brands, set rates, and get paid — all in one streamlined experience.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3. Jinance -->
+        <a class="cs-card" href="#" aria-label="Jinance case study">
+          <div class="cs-image">
+            <img class="bg-img" src="assets/images/Jinance_CaseStudy_Thumbnail.png" alt="Jinance on MacBook" />
+          </div>
+          <div class="cs-body">
+            <p class="cs-category" style="color:#d3a200;">Cryptocurrency Trading Platform</p>
+            <div class="cs-info">
+              <p class="cs-title">Jinance</p>
+              <p class="cs-desc">Reimagined the platform to increase visitor conversion and simplify entry into blockchain with clarity and trust.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 4. Coinloop -->
+        <a class="cs-card" href="#" aria-label="Coinloop case study">
+          <div class="cs-image">
+            <img class="bg-img" src="assets/images/CoinLoop_CaseStudy_Thumbnail.png" alt="Coinloop wallet app" />
+          </div>
+          <div class="cs-body">
+            <p class="cs-category" style="color:#0264b6;">Software and Hardware Wallet</p>
+            <div class="cs-info">
+              <p class="cs-title">Coinloop</p>
+              <p class="cs-desc">Led and launched the world's first direct-to-mobile hardware wallet application.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 5. Mantro -->
+        <a class="cs-card" href="#" aria-label="Mantro case study">
+          <div class="cs-image">
+            <img class="bg-img" src="assets/images/Mantro_CaseStudy_Thumbnail.png" alt="Mantro app screens" />
+          </div>
+          <div class="cs-body">
+            <p class="cs-category" style="color:#ebc956;">Mobile SaaS Application</p>
+            <div class="cs-info">
+              <p class="cs-title">Mantro</p>
+              <p class="cs-desc">Spearheaded the creation of a mobile-first SaaS platform empowering restaurants to streamline operations and boost efficiency.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 6. Cosmic Sentry -->
+        <a class="cs-card" href="#" aria-label="Cosmic Sentry case study">
+          <div class="cs-image">
+            <img class="bg-img" src="assets/images/CosmicSentry_CaseStudy_Thumbnail.png" alt="Cosmic Sentry mobile game" />
+          </div>
+          <div class="cs-body">
+            <p class="cs-category" style="color:#7c3aed;">Mobile Game</p>
+            <div class="cs-info">
+              <p class="cs-title">Cosmic Sentry</p>
+              <p class="cs-desc">Built a hyper-casual experience for Cosmic Sentry that prioritised simplicity, rapid engagement, and replayability.</p>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /cs-grid -->
+    </section>
+
+    <!-- ─── FOOTER ────────────────────────────────────────── -->
+    <footer class="footer" id="footer">
+      <div class="footer-cta reveal">
+        <p class="footer-eyebrow">Like what you see?</p>
+        <div class="footer-headline-wrap">
+          <h2 class="footer-headline">Let's Connect!</h2>
+          <div class="footer-btns">
+            <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn-outline" href="https://drive.google.com/uc?export=download&id=1M83IXrkA5TnbnnoIDzwx2d1z875CXilI" target="_blank" rel="noopener">Resume</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-area reveal">
+        <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          vivek.vasudevan.design@gmail.com
+        </a>
+        <div class="footer-bottom-nav">
+          <a href="#" class="footer-brand" onclick="scrollToTop(event)">
+            <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">Vivek Vasudevan Design</span>
+              <span class="footer-brand-copy">© 2026 All rights reserved</span>
+            </div>
+          </a>
+          <ul class="footer-nav-links">
+            <li><a href="#" onclick="scrollToTop(event)">Home</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /content-card -->
+</div><!-- /page -->
+
+<!-- ═══ SCROLL TO TOP BUTTON ═══════════════════════════════ -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" width="28" height="28" />
+</button>
+
+<!-- ═══ SCRIPTS ═════════════════════════════════════════════ -->
+<script>
+  /* Nav scroll shadow */
+  const nav = document.getElementById('main-nav');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 20);
+    scrollTopBtn.classList.toggle('visible', y > 400);
+
+    /* Active nav highlight */
+    const csTop = document.getElementById('case-studies').getBoundingClientRect().top;
+    const footerTop = document.getElementById('footer').getBoundingClientRect().top;
+    const navH = 100;
+    ['nav-home','nav-cs','nav-about','nav-connect'].forEach(id =>
+      document.getElementById(id)?.classList.remove('active')
+    );
+    if (footerTop < navH + 200) {
+      document.getElementById('nav-about')?.classList.add('active');
+    } else if (csTop < navH + 100) {
+      document.getElementById('nav-cs')?.classList.add('active');
+    } else {
+      document.getElementById('nav-home')?.classList.add('active');
+    }
+  });
+
+  /* Scroll-to-top position for viewports wider than 1440px */
+  function updateScrollTopPos() {
+    const vw = window.innerWidth;
+    if (vw > 1440) {
+      const offset = (vw - 1440) / 2 + 14;
+      scrollTopBtn.style.right = offset + 'px';
+    } else {
+      scrollTopBtn.style.right = '14px';
+    }
+  }
+  updateScrollTopPos();
+  window.addEventListener('resize', updateScrollTopPos);
+
+  /* Nav helpers */
+  function scrollToTop(e) {
+    e?.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function scrollToFooter() {
+    document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });
+  }
+  function navClick(e, activeId) {
+    /* let default anchor scroll happen */
+  }
+
+  /* Intersection Observer – scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.cs-card, .reveal').forEach(el => observer.observe(el));
+
+  /* Stagger cs-card siblings that appear together */
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        /* check if sibling is also visible — add slight delay for right column */
+        setTimeout(() => card.classList.add('visible'), card.dataset.delay || 0);
+        cardObserver.unobserve(card);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.cs-card').forEach((card, i) => {
+    card.dataset.delay = (i % 2 === 1) ? 150 : 0;
+    cardObserver.observe(card);
+  });
+</script>
+</body>
+</html>
