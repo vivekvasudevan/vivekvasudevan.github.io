@@ -715,18 +715,25 @@
 
     /* ─── TABLET ≤ 768px ────────────────────────────────────── */
     @media (max-width: 768px) {
-      /* Nav: full-width, hamburger visible, links hidden */
+      /* Nav */
       .nav-wrap { padding: 0; }
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
 
+      /* Layout */
       .content-card { margin: 8px 40px 0; }
 
-      /* Cards: single column, 576px centred, 400px image, 40px gap — per Figma */
-      .cs-grid { grid-template-columns: 1fr; justify-items: center; row-gap: 40px; }
-      .cs-image { width: min(576px, 100%); height: 400px; }
+      /* Hero: constrain width so it doesn't overflow the 688px container */
+      .hero { width: 100%; }
 
+      /* Case studies: single column, cards centred at 576px, 400px image, 40px gap */
+      .cs-grid { grid-template-columns: 1fr; justify-items: center; row-gap: 40px; }
+      .cs-card { max-width: 576px; width: 100%; }
+      .cs-image { width: 100%; height: 400px; }
+
+      /* Footer */
+      .footer-headline { font-size: 64px; line-height: 1.2; }
       .footer-headline-wrap { height: auto; }
       .footer-bottom-nav { width: 100%; }
       .scroll-top { right: 14px; }
@@ -734,10 +741,13 @@
 
     /* ─── MOBILE ≤ 480px ────────────────────────────────────── */
     @media (max-width: 480px) {
+      /* Nav */
       .nav-name { display: none; }
 
+      /* Layout */
       .content-card { margin: 8px 16px 0; border-radius: 20px; }
 
+      /* Hero: stack vertically */
       .hero { width: 100%; padding: 80px 0 80px; gap: 80px; }
       .hero-text { gap: 24px; }
       .hero-headline { flex-direction: column; gap: 16px; align-items: center; }
@@ -745,19 +755,21 @@
       .hero-tagline { font-size: 20px; line-height: 1.6; padding: 0 24px; }
       .hero-tagline br { display: none; }
 
+      /* Case studies: full-width cards, 238px image, 24px gap — per Figma */
       .section-title { font-size: 56px; padding: 20px 0 80px; }
+      .cs-card { max-width: 100%; }
+      .cs-grid { row-gap: 24px; }
+      .cs-image { height: 238px; }
+      .cs-info { gap: 12px; }
+      .cs-title { font-size: 32px; }
+      .cs-desc { font-size: 16px; line-height: 32px; }
+      .cs-category { font-size: 20px; }
 
-      .cs-grid { grid-template-columns: 1fr; row-gap: 40px; }
-      .cs-image { width: 100%; height: 220px; }
-      .cs-title { font-size: 28px; }
-      .cs-desc { font-size: 16px; line-height: 24px; }
-      .cs-category { font-size: 16px; }
-
+      /* Footer */
       .footer-eyebrow { font-size: 18px; }
       .footer-headline { font-size: 48px; line-height: 1.2; }
       .footer-headline-wrap { height: auto; gap: 24px; }
       .btn-filled, .btn-outline { font-size: 20px; padding: 14px 20px; }
-
       .footer-bottom-nav {
         width: 100%;
         flex-direction: column;
