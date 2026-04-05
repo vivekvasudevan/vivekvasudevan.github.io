@@ -354,18 +354,17 @@
     .scroll-top {
       position: fixed;
       right: 20px; bottom: 40px;
-      width: 60px; height: 60px;
-      background: #fff; border: none;
-      border-radius: 8px; cursor: pointer;
+      width: 98px; height: 98px;
+      background: none; border: none;
+      padding: 0; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 9px 18.8px rgba(0,0,0,0.15);
       opacity: 0; transform: translateY(20px);
-      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+      transition: opacity 0.3s, transform 0.3s;
       z-index: 99;
     }
     .scroll-top.visible { opacity: 1; transform: translateY(0); }
-    .scroll-top:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.2); transform: translateY(-2px); }
-    .scroll-top svg { width: 28px; height: 28px; }
+    .scroll-top:hover { transform: translateY(-4px); }
+    .scroll-top img { width: 98px; height: 98px; display: block; }
 
     /* ─── REVEAL ANIMATIONS ──────────────────────────────── */
     .reveal {
@@ -465,7 +464,8 @@
       .footer-headline { font-size: 64px; line-height: 1.2; }
       .footer-headline-wrap { height: auto; }
       .footer-bottom-nav { width: 100%; }
-      .scroll-top { right: 14px; }
+      .scroll-top { right: 14px; width: 72px; height: 72px; }
+      .scroll-top img { width: 72px; height: 72px; }
     }
 
     /* ─── MOBILE ≤ 480px ────────────────────────────────────── */
@@ -521,7 +521,8 @@
       .footer-nav-links { display: none; }
       .footer-brand { justify-content: center; }
       .footer-brand-text { align-items: center; }
-      .scroll-top { right: 8px; }
+      .scroll-top { right: 8px; width: 60px; height: 60px; }
+      .scroll-top img { width: 60px; height: 60px; }
     }
   </style>
 </head>
@@ -842,9 +843,7 @@
 
 <!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
 <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#2b2b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
 </button>
 
 <script>

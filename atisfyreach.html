@@ -504,10 +504,17 @@
     .footer-nav-links a { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
     .footer-nav-links a:hover { opacity: 0.8; }
 
+    /* ─── BACK BUTTON ────────────────────────────────────── */
+    .back-btn-wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 24px 80px 0; box-sizing: border-box; }
+    .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: none; border-radius: 8px; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); cursor: pointer; padding: 12px 20px; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .back-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
+    .back-btn svg { flex-shrink: 0; }
+
     /* ─── SCROLL TO TOP ──────────────────────────────────── */
-    .scroll-top { position: fixed; right: 20px; bottom: 40px; width: 60px; height: 60px; background: #fff; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s; z-index: 99; }
+    .scroll-top { position: fixed; right: calc((100vw - 1440px) / 2 + 14px); bottom: 40px; width: 98px; height: 98px; background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; z-index: 99; }
     .scroll-top.visible { opacity: 1; transform: translateY(0); }
-    .scroll-top:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.2); transform: translateY(-2px); }
+    .scroll-top:hover { transform: translateY(-4px); }
+    .scroll-top img { width: 98px; height: 98px; display: block; }
 
     /* ─── REVEAL ─────────────────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -539,6 +546,9 @@
       .footer-headline { font-size: 64px; line-height: 1.2; }
       .footer-headline-wrap { height: auto; }
       .footer-bottom-nav { width: 100%; }
+      .back-btn-wrap { padding: 24px 20px 0; }
+      .scroll-top { right: 14px; width: 72px; height: 72px; }
+      .scroll-top img { width: 72px; height: 72px; }
     }
 
     /* ─── MOBILE ≤ 480px ─────────────────────────────────── */
@@ -575,6 +585,9 @@
       .footer-bottom-nav { flex-direction: column; gap: 12px; align-items: center; border-radius: 20px 20px 0 0; padding: 16px; }
       .footer-nav-links { display: none; }
       .footer-brand { justify-content: center; }
+      .back-btn-wrap { padding: 20px 16px 0; }
+      .scroll-top { right: 8px; width: 60px; height: 60px; }
+      .scroll-top img { width: 60px; height: 60px; }
       .footer-brand-text { align-items: center; }
     }
   </style>
@@ -605,6 +618,16 @@
       <a href="about.html">About</a>
       <button onclick="closeMobileMenu(); document.getElementById('footer').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
     </div>
+  </div>
+
+  <!-- ═══ BACK BUTTON ════════════════════════════════════ -->
+  <div class="back-btn-wrap">
+    <button class="back-btn" onclick="history.back()" aria-label="Go back">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </button>
   </div>
 
   <!-- ═══ CASE STUDY CONTENT ══════════════════════════════ -->
@@ -1080,9 +1103,7 @@
 
 <!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
 <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#2b2b2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
 </button>
 
 <script>
