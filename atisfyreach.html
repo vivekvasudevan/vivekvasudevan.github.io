@@ -381,40 +381,59 @@
     }
 
     /* ─── DESIGN: ADOPTION ───────────────────────────────── */
-    .design-principles { display: flex; flex-direction: column; gap: 40px; }
-    .principle-heading {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500; font-size: 24px; line-height: 32px;
+    .design-principles { display: flex; flex-direction: column; gap: 20px; }
+    .principle-card {
+      border-radius: 40px; padding: 40px 101px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .principle-heading-row {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; line-height: 32px;
       color: #2b2b2b;
     }
-
-    /* Modularity card */
-    .modularity-card {
-      background: #dce9f5; border-radius: 16px; padding: 40px;
-      display: flex; flex-direction: column; gap: 24px;
+    .principle-num { flex-shrink: 0; white-space: nowrap; }
+    .principle-body {
+      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 24px; color: #2b2b2b;
     }
-    .modularity-flow {
-      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    .principle-flow {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
     }
-    .flow-pill {
-      background: rgba(255,255,255,0.65); border-radius: 100px;
-      padding: 12px 24px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500; font-size: 16px; color: #1a3a5c;
+    .flow-pill-dp {
+      background: rgba(47,68,118,0.2); border-radius: 92px;
+      padding: 16px 24px;
+      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 24px;
+      color: #2f4476; white-space: nowrap;
     }
-    .flow-arrow { font-size: 20px; color: #1a3a5c; opacity: 0.7; }
-    .modularity-bullets {
-      list-style: disc; padding-left: 22px;
-      font-family: 'Lato', sans-serif;
-      font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #1a3a5c; opacity: 0.8;
+    .flow-arrow-dp {
+      display: flex; align-items: center; flex-shrink: 0;
     }
-    .modularity-bullets li + li { margin-top: 4px; }
-    .modularity-footer {
-      font-family: 'Lato', sans-serif;
-      font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #1a3a5c; opacity: 0.8;
+    .flow-arrow-dp::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: #2f4476;
     }
+    .flow-arrow-dp::after {
+      content: '';
+      display: inline-block;
+      width: 0; height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #2f4476;
+    }
+    .principle-footer {
+      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 24px;
+      color: #2b2b2b; opacity: 0.6;
+    }
+    .principle-footer-list {
+      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 24px;
+      color: #2b2b2b; opacity: 0.6;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .principle-footer-list ul { list-style: disc; padding-left: 24px; }
 
     /* ─── CREATING STRUCTURE ─────────────────────────────── */
     .ia-list {
@@ -524,15 +543,60 @@
 
     /* ─── PROBLEM BANNER ─────────────────────────────────── */
     .cs-problem {
-      background: #f0f5ff; border-radius: 20px;
+      background: rgba(23,92,254,0.05); border-radius: 20px;
       padding: 48px 80px;
-      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      display: flex; flex-direction: column; align-items: center; gap: 32px;
     }
     .cs-problem-statement {
       font-family: 'Poppins', sans-serif;
       font-weight: 500; font-size: 32px; line-height: 1.5;
       color: #2b2b2b; text-align: center; max-width: 998px;
     }
+
+    /* ─── FEATURE CAROUSEL ──────────────────────────────── */
+    .feature-carousel-wrap {
+      width: 100%; overflow: hidden;
+    }
+    .feature-carousel {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 8px;
+    }
+    .feature-carousel::-webkit-scrollbar { display: none; }
+    .feature-card {
+      flex-shrink: 0;
+      width: 1080px;
+      max-width: 92vw;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0px 4px 32px rgba(0,0,0,0.08);
+      padding: 48px 56px;
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+    .feature-card-text {
+      flex: 1; display: flex; flex-direction: column; gap: 16px;
+    }
+    .feature-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700; font-size: 20px; line-height: 28px;
+      color: var(--blue); text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .feature-card-desc {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 18px; line-height: 28px;
+      color: #2b2b2b; opacity: 0.75;
+    }
+    .feature-card-img {
+      flex-shrink: 0; width: 540px; border-radius: 12px; overflow: hidden;
+    }
+    .feature-card-img img { width: 100%; display: block; }
 
     /* ─── DIAGRAM ────────────────────────────────────────── */
     .cs-diagram { display: flex; flex-direction: column; gap: 16px; align-items: center; }
@@ -604,32 +668,33 @@
       font-family: 'Lato', sans-serif; font-size: 16px; color: #2b2b2b; text-align: center;
     }
     .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .swot-box { display: flex; flex-direction: column; gap: 12px; }
+    .swot-box { display: flex; flex-direction: column; gap: 20px; }
     .swot-label {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; gap: 10px;
     }
     .swot-icon {
-      width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 700;
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 32px; color: #000;
+      border: 2px solid;      justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 700;
       font-size: 16px; color: #fff; flex-shrink: 0;
     }
-    .swot-s .swot-icon { background: #22c55e; }
-    .swot-w .swot-icon { background: #1e293b; }
-    .swot-o .swot-icon { background: #175cfe; }
-    .swot-t .swot-icon { background: #ef4444; }
+    .swot-s .swot-icon { background: rgba(92,227,177,0.3);  border-color: #5ce3b1; }
+    .swot-w .swot-icon { background: rgba(255,251,129,0.3); border-color: #ffe189; }
+    .swot-o .swot-icon { background: rgba(123,219,255,0.3); border-color: #7bdbff; }
+    .swot-t .swot-icon { background: rgba(255,144,131,0.3); border-color: #ff9083; }
     .swot-title {
-      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px;
+      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 32px; line-height: 56px;
       line-height: 32px; color: #2b2b2b;
     }
     .swot-list {
-      list-style: disc; padding-left: 20px;
+      list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 0;
       display: flex; flex-direction: column; gap: 8px;
     }
     .swot-list li {
-      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 24px;
+      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 32px;
       color: #2b2b2b; opacity: 0.7;
     }
-    .swot-list li strong { font-weight: 700; opacity: 1; }
+    .swot-list li strong { font-family: 'Poppins', sans-serif; font-weight: 700; opacity: 1; }
 
     /* ─── HOW MIGHT WE ───────────────────────────────────── */
     .hmw-box {
@@ -688,6 +753,9 @@
       .cs-diagram-row { width: 100%; }
       .bg-arrows { width: 100%; }
       .swot-grid { grid-template-columns: 1fr; }
+      .principle-card { padding: 32px 40px; border-radius: 24px; }
+      .feature-card { width: 90vw; padding: 32px; flex-direction: column; gap: 24px; }
+      .feature-card-img { width: 100%; }
     }
 
     /* ─── MOBILE ≤ 480px ─────────────────────────────────── */
@@ -734,6 +802,10 @@
       .hmw-question { font-size: 24px; line-height: 1.5; }
       .swot-grid { grid-template-columns: 1fr; }
       .competitor-logos { gap: 32px; }
+      .principle-card { padding: 24px 20px; border-radius: 20px; }
+      .principle-heading-row { font-size: 18px; }
+      .feature-card { width: 88vw; padding: 24px 20px; flex-direction: column; gap: 20px; }
+      .feature-card-img { width: 100%; }
     }
   </style>
 </head>
@@ -782,19 +854,21 @@
     <div class="cs-hero">
       <div class="cs-hero-left">
         <p class="cs-hero-label">AtisfyReach</p>
-        <h1 class="cs-hero-heading">Designing a new operational model for influencer marketing</h1>
-        <p class="cs-hero-sub">AtisfyReach is an AI-powered platform that replaces manual brand–creator negotiations with a structured, trust-driven campaign workflow.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <h1 class="cs-hero-heading">Designing a new operational model for influencer marketing</h1>
+          <p class="cs-hero-sub">AtisfyReach is an AI-powered platform that replaces manual brand–creator negotiations with a structured, trust-driven campaign workflow.</p>
+        </div>
       </div>
       <div class="cs-hero-meta">
-        <div class="cs-meta-row">
+        <div class="cs-meta-row" style="gap:38px;">
           <span class="cs-meta-label role">Role</span>
           <span class="cs-meta-value">Lead Product Designer</span>
         </div>
-        <div class="cs-meta-row">
+        <div class="cs-meta-row" style="gap:24px;">
           <span class="cs-meta-label scope">Scope</span>
           <span class="cs-meta-value">Product Design, UX Strategy, UI</span>
         </div>
-        <div class="cs-meta-row">
+        <div class="cs-meta-row" style="gap:34px;align-items:flex-start;">
           <span class="cs-meta-label team">Team</span>
           <span class="cs-meta-value">Product Owner, Solution Architect, Lead Engineer, Data Scientist</span>
         </div>
@@ -824,14 +898,68 @@
 
     <!-- ─── THE SOLUTION ─────────────────────────────────── -->
     <div class="cs-section reveal">
-      <div>
+      <div style="text-align:center;">
         <p class="cs-section-label">The solution</p>
-        <h2 class="cs-section-heading">AtisfyReach: A scalable influencer marketing platform that unifies fragmented workflows into one intelligent, standardized system.</h2>
+        <h2 class="cs-section-heading" style="text-align:center;margin-top:8px;">AtisfyReach: A scalable influencer marketing platform that unifies fragmented workflows into one intelligent, standardized system.</h2>
       </div>
       <p class="cs-body">Creator discovery, campaign setup, contracting, payments, and performance tracking are integrated into a structured, automated workflow. Brands define objectives and budgets; AI-driven optimisation recommends creators and forecasts outcomes in real time, with full transparency into the underlying metrics. It transforms influencer marketing from manual coordination into predictable, data-backed execution.</p>
       <!-- Solution diagram -->
       <div style="width:100%;display:flex;justify-content:center;">
         <img src="assets/images/AtisfyReach-Solution.svg" alt="AtisfyReach solution diagram" style="max-width:100%;display:block;" />
+      </div>
+      <!-- Feature cards carousel -->
+      <div class="feature-carousel-wrap">
+        <div class="feature-carousel">
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Campaign Configuration</p>
+              <p class="feature-card-desc">Create and configure your campaign by defining the value proposition, campaign name, and objectives. This step establishes the foundation for the campaign and ensures influencers clearly understand the brand's expectations and goals.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/CampaignConfiguration.png" alt="Campaign Configuration" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Audience Targeting</p>
+              <p class="feature-card-desc">Define the ideal audience for your campaign with precision targeting based on demographics, interests, and behaviours — maximising campaign reach and relevance for your brand.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/AudienceTargeting.png" alt="Audience Targeting" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Promotion Groups</p>
+              <p class="feature-card-desc">Organise your influencer campaigns into strategic promotion groups, enabling targeted outreach and clear management of different campaign segments across your team.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/PromotionGroups.png" alt="Promotion Groups" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Secure Billing</p>
+              <p class="feature-card-desc">Streamline payment processing with secure, automated billing workflows that protect both brands and creators throughout every stage of the campaign lifecycle.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/SecureBilling.png" alt="Secure Billing" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Brand Protection</p>
+              <p class="feature-card-desc">Safeguard your brand with built-in content guidelines, approval workflows, and compliance checks that ensure every campaign aligns with your brand standards.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/BrandProtection.png" alt="Brand Protection" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Campaign Preview &amp; Final Review</p>
+              <p class="feature-card-desc">Preview your complete campaign setup before launch, reviewing all configurations, influencer selections, and content briefs in one consolidated view.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/CampaignPreviewFinalReview.png" alt="Campaign Preview and Final Review" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Campaign Budgeting</p>
+              <p class="feature-card-desc">Set, track, and optimise your campaign budget with real-time visibility into spend allocation across influencers, ensuring maximum ROI within your budget constraints.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/CampaignBudgeting.png" alt="Campaign Budgeting" /></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1216,9 +1344,36 @@
     <!-- ─── IDEATION ──────────────────────────────────────── -->
     <div class="cs-section reveal">
       <div>
-        <p class="cs-section-label">Ideation</p>
         <h2 class="cs-section-heading">To turn Pain Points into Features</h2>
         <p class="cs-section-sub" style="margin-top:8px;">With three clearly defined user personas, I explored solutions that addressed their key challenges while enabling influencer marketing to scale effectively for different types of businesses.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:40px;">
+
+        <!-- Importance of Automation -->
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <p class="cs-subheading">Importance of Automation</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p class="cs-body">Automation plays a critical role in simplifying the influencer marketing workflow. By reducing repetitive tasks, it allows brands to focus on what matters most — achieving their marketing objectives and driving revenue.</p>
+            <ul class="ia-list">
+              <li><b>Manual Overload → Automated Workflows</b>: Automating repetitive processes such as influencer discovery, outreach, and campaign tracking saves significant time and effort for users.</li>
+              <li><b>Lack of guidance → Assisted User Journeys</b>: Automation can provide contextual assistance throughout the platform, helping users navigate influencer marketing without requiring deep expertise.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Why AI? -->
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <p class="cs-subheading">Why AI?</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p class="cs-body">AI provides powerful, fast, and scalable capabilities that address several key challenges within influencer marketing</p>
+            <ul class="ia-list">
+              <li><b>Cumbersome and inconsistent scaling → AI-driven campaign optimization</b>: AI enables campaigns to scale intelligently by learning from past performance and identifying high-performing influencers.</li>
+              <li><b>Uncertain ROI and performance → Data-driven insights</b>: AI analyzes campaign data to optimize performance and deliver more reliable outcomes tied directly to platform insights.</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1230,18 +1385,72 @@
         <p class="cs-section-sub" style="margin-top:8px;">Instead of starting with features, I defined the behavioural conditions users needed to feel confident enough to adopt the platform.</p>
       </div>
       <div class="design-principles">
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <p class="principle-heading">Simplicity – Reduce decision anxiety.</p>
-          <img src="assets/images/Simplicity-Flow.svg" alt="Simplicity flow" style="width:100%;display:block;" />
+
+        <!-- Principle 1: Simplicity -->
+        <div class="principle-card" style="background:#def8f0;">
+          <div class="principle-heading-row">
+            <span class="principle-num">1.</span>
+            <span>Simplicity - Reduce decision anxiety.</span>
+          </div>
+          <p class="principle-body">The biggest barrier to adoption wasn't capability — it was overwhelm. To counter this, we collapsed complex influencer evaluation into a guided campaign flow.</p>
+          <div class="principle-flow">
+            <div class="flow-pill-dp">Goals</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Criteria and Promotions</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Budget &amp; optimization</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Launch</div>
+          </div>
+          <p class="principle-footer">Rather than asking users to explore an open system, we guided them toward commitment. Simplicity wasn't a minimal interface — it was a simplified mental model.</p>
         </div>
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <p class="principle-heading">Modularity – Commit in stages, collaborate in parallel.</p>
-          <img src="assets/images/Modulatiry-Flow.svg" alt="Modularity flow" style="width:100%;display:block;" />
+
+        <!-- Principle 2: Modularity -->
+        <div class="principle-card" style="background:#e1f5fa;">
+          <div class="principle-heading-row">
+            <span class="principle-num">2.</span>
+            <span>Modularity - Commit in stages, collaborate in parallel.</span>
+          </div>
+          <p class="principle-body">Campaigns aren't built in one sitting, and enterprise teams don't work sequentially. I structured the platform as independent but connected modules:</p>
+          <div class="principle-flow">
+            <div class="flow-pill-dp">Strategy</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Marketing</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Finance &amp; Legal</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Performance</div>
+          </div>
+          <div class="principle-footer-list">
+            <p>Each module could be:</p>
+            <ul>
+              <li>Saved independently, so progress was never lost mid-session</li>
+              <li>Assignable across team members, enabling parallel work without handoff delays</li>
+              <li>Updated in isolation, without breaking the state of the broader campaign</li>
+            </ul>
+            <p>This gave brands the flexibility to adopt the platform incrementally, reducing friction at scale.</p>
+          </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <p class="principle-heading">Feedback-Based Learning – Build confidence through transparency.</p>
-          <img src="assets/images/FeedbackbasedLearing-Flow.svg" alt="Feedback-based learning flow" style="width:100%;display:block;" />
+
+        <!-- Principle 3: Feedback-Based Learning -->
+        <div class="principle-card" style="background:#fff7df;">
+          <div class="principle-heading-row">
+            <span class="principle-num">3.</span>
+            <span>Feedback-Based Learning - Build confidence through consequence</span>
+          </div>
+          <p class="principle-body">Every interaction was designed to teach. Selecting creators updated projected engagement, adjusting a budget recalculated estimated reach, and filtering audiences refined performance expectations in real time.</p>
+          <div class="principle-flow">
+            <div class="flow-pill-dp">Action</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Projection</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Adjustment</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Improvement</div>
+          </div>
+          <p class="principle-footer">The platform became both an execution tool and a learning environment. Trust grew not because we told users the system worked — but because the system showed them why, at every step.</p>
         </div>
+
       </div>
     </div>
 
@@ -1276,12 +1485,13 @@
     <!-- ─── PROTOTYPE TESTING ─────────────────────────────── -->
     <div class="cs-section reveal">
       <div>
-        <h2 class="cs-section-heading">Understanding What Users Find Intuitive</h2>
+        <p class="cs-section-label">Testing &amp; Iterations</p>
+        <h2 class="cs-section-heading" style="margin-top:8px;">Surfacing New Issues &amp; Refining for Maximum Impact</h2>
         <p class="cs-section-sub" style="margin-top:8px;">The prototype provided a near-real experience, revealing insights beyond the initial usability goals. While users successfully completed onboarding, testing surfaced deeper concerns around influencer rejections and campaign uncertainty.</p>
-        <p class="cs-section-sub" style="margin-top:8px;">Further discussions revealed an overlooked need — the ability to clearly understand each influencer's potential value and impact on brand outcomes. This insight highlighted opportunities to improve transparency, build trust, and support better decision-making within the platform.</p>
+        <p class="cs-section-sub" style="margin-top:8px;">Further discussions revealed an overlooked need - the ability to clearly understand each influencer's potential value and impact on brand outcomes. This insight highlighted opportunities to improve transparency, build trust, and support better decision-making within the platform.</p>
       </div>
       <div class="wireframes-box">
-        <img src="assets/images/UnserstandingWhat.png" alt="Understanding what users find intuitive — prototype testing" />
+        <img src="assets/images/UnserstandingWhat.png" alt="Prototype testing insights" />
       </div>
       <div class="wireframes-box">
         <img src="assets/images/Prototype.png" alt="AtisfyReach prototype" />
@@ -1290,6 +1500,7 @@
 
     <!-- ─── OUTCOMES ──────────────────────────────────────── -->
     <div class="cs-section reveal" id="outcomes">
+      <p class="cs-section-label">Results</p>
       <h2 class="outcomes-heading">Successful launch of AtisfyReach</h2>
       <p class="cs-body">Our launch saw strong adoption that continued to accelerate as the platform matured. Early feedback emphasized the intuitive onboarding experience, allowing brands to quickly set up and run influencer campaigns with minimal support.</p>
       <div class="stats-card">
