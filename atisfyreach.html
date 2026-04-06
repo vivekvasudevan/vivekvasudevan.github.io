@@ -516,6 +516,138 @@
     .scroll-top:hover { transform: translateY(-4px); }
     .scroll-top img { width: 98px; height: 98px; display: block; }
 
+    /* ─── AT A GLANCE ───────────────────────────────────── */
+    .cs-glance {
+      border: 1.5px dashed #175cfe; border-radius: 8px;
+      padding: 40px; display: flex; flex-direction: column; gap: 24px;
+    }
+    .cs-link { color: #175cfe; font-weight: 700; text-decoration: underline; opacity: 1; }
+
+    /* ─── PROBLEM BANNER ─────────────────────────────────── */
+    .cs-problem {
+      background: #f0f5ff; border-radius: 20px;
+      padding: 48px 80px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .cs-problem-statement {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 32px; line-height: 1.5;
+      color: #2b2b2b; text-align: center; max-width: 998px;
+    }
+
+    /* ─── DIAGRAM ────────────────────────────────────────── */
+    .cs-diagram { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+    .cs-diagram-row {
+      display: flex; align-items: center; gap: 0;
+      width: 840px; max-width: 100%;
+    }
+    .cs-diagram-pill {
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px; border-radius: 20px;
+      font-family: 'Lato', sans-serif; font-size: 24px; line-height: 34px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .pill-brand { background: rgba(249,152,183,0.3); border: 1px solid #f998b7; min-width: 95px; }
+    .pill-agency { background: rgba(104,206,232,0.3); border: 1px solid #68cee8; min-width: 95px; }
+    .pill-influencer { background: rgba(255,225,137,0.3); border: 1px solid #ffe189; min-width: 135px; }
+    .pill-ar { background: #175cfe; color: #fff; min-width: 190px; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 20px; border-radius: 20px; }
+    .pill-plain { background: rgba(249,152,183,0.15); border: 1px solid rgba(0,0,0,0.12); min-width: 95px; }
+    .cs-diagram-arrow {
+      flex: 1; display: flex; align-items: center; position: relative;
+    }
+    .cs-diagram-arrow::before {
+      content: ''; flex: 1; display: block; border-top: 1.5px solid #2b2b2b;
+    }
+    .arr-left::after {
+      content: ''; width: 0; height: 0;
+      border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+      border-right: 8px solid #2b2b2b; flex-shrink: 0;
+      display: block; order: -1;
+    }
+    .arr-right::after {
+      content: ''; width: 0; height: 0;
+      border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+      border-left: 8px solid #2b2b2b; flex-shrink: 0; display: block;
+    }
+    .cs-diagram-dots {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Lato', sans-serif; font-size: 16px; color: #2b2b2b;
+    }
+    .cs-diagram-dot { width: 3px; height: 3px; background: #2b2b2b; border-radius: 50%; display: inline-block; }
+    .bg-arrows { display: flex; justify-content: space-between; width: 840px; max-width: 100%; }
+    .bg-arrow-down { display: flex; flex-direction: column; align-items: center; }
+    .bg-arrow-down::before { content: ''; width: 1.5px; height: 20px; background: #2b2b2b; display: block; }
+    .bg-arrow-down::after { content: ''; width: 0; height: 0; border-top: 8px solid #2b2b2b; border-left: 5px solid transparent; border-right: 5px solid transparent; display: block; }
+
+    /* ─── BACKGROUND QUOTE ───────────────────────────────── */
+    .bg-quote-box {
+      background: rgba(23,92,254,0.05); border-radius: 20px;
+      padding: 40px 101px;
+    }
+    .bg-quote {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-style: italic; font-size: 24px; line-height: 32px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+
+    /* ─── COMPETITOR ANALYSIS ────────────────────────────── */
+    .competitor-logos {
+      display: flex; gap: 56px; align-items: flex-end; flex-wrap: wrap;
+    }
+    .competitor-logo-item {
+      display: flex; flex-direction: column; gap: 8px; align-items: center;
+    }
+    .competitor-logo-icon {
+      width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+      border-radius: 8px;
+    }
+    .competitor-name {
+      font-family: 'Lato', sans-serif; font-size: 16px; color: #2b2b2b; text-align: center;
+    }
+    .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .swot-box { display: flex; flex-direction: column; gap: 12px; }
+    .swot-label {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .swot-icon {
+      width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 16px; color: #fff; flex-shrink: 0;
+    }
+    .swot-s .swot-icon { background: #22c55e; }
+    .swot-w .swot-icon { background: #1e293b; }
+    .swot-o .swot-icon { background: #175cfe; }
+    .swot-t .swot-icon { background: #ef4444; }
+    .swot-title {
+      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px;
+      line-height: 32px; color: #2b2b2b;
+    }
+    .swot-list {
+      list-style: disc; padding-left: 20px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .swot-list li {
+      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 24px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+    .swot-list li strong { font-weight: 700; opacity: 1; }
+
+    /* ─── HOW MIGHT WE ───────────────────────────────────── */
+    .hmw-box {
+      background: #eef2ff; border-radius: 20px;
+      padding: 48px 80px;
+      display: flex; flex-direction: column; gap: 16px; align-items: center;
+      text-align: center;
+    }
+    .hmw-label {
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 20px;
+      line-height: 28px; color: #175cfe;
+    }
+    .hmw-question {
+      font-family: 'Poppins', sans-serif; font-weight: 500;
+      font-size: 32px; line-height: 48px; color: #2b2b2b; max-width: 840px;
+    }
+
     /* ─── REVEAL ─────────────────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -549,6 +681,14 @@
       .back-btn-wrap { padding: 24px 20px 0; }
       .scroll-top { right: 14px; width: 72px; height: 72px; }
       .scroll-top img { width: 72px; height: 72px; }
+      .cs-problem { padding: 40px 32px; }
+      .cs-glance { padding: 28px; }
+      .hmw-box { padding: 40px 28px; }
+      .cs-section[style*="padding:0 101px"] { padding: 0 !important; }
+      .bg-quote-box { padding: 32px 40px; }
+      .cs-diagram-row { width: 100%; }
+      .bg-arrows { width: 100%; }
+      .swot-grid { grid-template-columns: 1fr; }
     }
 
     /* ─── MOBILE ≤ 480px ─────────────────────────────────── */
@@ -589,6 +729,12 @@
       .scroll-top { right: 8px; width: 60px; height: 60px; }
       .scroll-top img { width: 60px; height: 60px; }
       .footer-brand-text { align-items: center; }
+      .cs-problem { padding: 32px 20px; }
+      .cs-problem-statement { font-size: 24px; }
+      .hmw-box { padding: 32px 20px; }
+      .hmw-question { font-size: 24px; line-height: 1.5; }
+      .swot-grid { grid-template-columns: 1fr; }
+      .competitor-logos { gap: 32px; }
     }
   </style>
 </head>
@@ -636,7 +782,7 @@
     <!-- ─── HERO ─────────────────────────────────────────── -->
     <div class="cs-hero">
       <div class="cs-hero-left">
-        <p class="cs-hero-label">atisfyreach</p>
+        <p class="cs-hero-label">AtisfyReach</p>
         <h1 class="cs-hero-heading">Designing a new operational model for influencer marketing</h1>
         <p class="cs-hero-sub">AtisfyReach is an AI-powered platform that replaces manual brand–creator negotiations with a structured, trust-driven campaign workflow.</p>
       </div>
@@ -661,10 +807,234 @@
       <img src="assets/images/AtisfyReach_CaseStudy_Thumbnail.png" alt="AtisfyReach case study" />
     </div>
 
-    <!-- ─── SOLUTION STATEMENT ───────────────────────────── -->
-    <div class="cs-solution reveal">
-      <h2 class="cs-solution-heading">AtisfyReach: A scalable influencer marketing platform that unifies fragmented workflows into one intelligent, standardized system.</h2>
+    <!-- ─── AT A GLANCE ──────────────────────────────────── -->
+    <div class="cs-glance reveal">
+      <p class="cs-section-label">At a glance</p>
+      <h2 class="cs-subheading" style="font-size:32px;line-height:1.3;">AtisfyReach – Influencer Marketing Platform</h2>
+      <p class="cs-body">Influencer marketing was broken, fragmented across tools, opaque in pricing, and inaccessible to brands without agency relationships or large budgets. AtisfyReach was built to change that.</p>
+      <p class="cs-body">As Lead Product Designer, I designed a scalable, AI-powered platform that unifies creator discovery, campaign configuration, contracting, payments, and performance tracking into a single structured workflow. The design focused on reducing decision anxiety through guided simplicity, enabling team collaboration through modular campaign management, and building user confidence through real-time, data-backed feedback at every step.</p>
+      <p class="cs-body">The launch validated both the product and the approach. <a href="#outcomes" class="cs-link">50+ brands onboarded</a> during the launch phase, and campaigns achieved <a href="#outcomes" class="cs-link">6× lower costs through optimised ad budgets</a>, delivering measurably stronger ROI.</p>
+      <p class="cs-body">The project reinforced two lasting lessons. Simplicity is never surface-deep; designing a straightforward campaign workflow revealed the intricate dependencies beneath influencer marketing systems, and every simplification required deliberate, thoughtful decisions. It also became clear that trust is the real product. Both brands and influencers needed transparency and reliability before they were willing to commit, making trust a foundational design requirement rather than a nice-to-have.</p>
+    </div>
+
+    <!-- ─── THE PROBLEM ───────────────────────────────────── -->
+    <div class="cs-problem reveal">
+      <p class="cs-section-label">The Problem</p>
+      <p class="cs-problem-statement">Influencer marketing was broken; fragmented across tools, opaque in pricing, and inaccessible to brands without agency relationships or large budgets.</p>
+    </div>
+
+    <!-- ─── THE SOLUTION ─────────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div>
+        <p class="cs-section-label">The solution</p>
+        <h2 class="cs-section-heading">AtisfyReach: A scalable influencer marketing platform that unifies fragmented workflows into one intelligent, standardized system.</h2>
+      </div>
       <p class="cs-body">Creator discovery, campaign setup, contracting, payments, and performance tracking are integrated into a structured, automated workflow. Brands define objectives and budgets; AI-driven optimisation recommends creators and forecasts outcomes in real time, with full transparency into the underlying metrics. It transforms influencer marketing from manual coordination into predictable, data-backed execution.</p>
+      <!-- Diagram -->
+      <div class="cs-diagram">
+        <div class="cs-diagram-row" style="justify-content:center;gap:0;">
+          <div class="cs-diagram-pill pill-plain">Brand</div>
+          <div class="cs-diagram-arrow arr-left arr-right" style="flex:1;min-width:60px;"></div>
+          <div class="cs-diagram-pill pill-ar">AtisfyReach</div>
+          <div class="cs-diagram-arrow arr-left arr-right" style="flex:1;min-width:60px;"></div>
+          <div class="cs-diagram-pill pill-plain">Influencer</div>
+        </div>
+        <div class="cs-diagram-dots">
+          <span>Structured</span>
+          <span class="cs-diagram-dot"></span>
+          <span>Data-backed</span>
+          <span class="cs-diagram-dot"></span>
+          <span>Scalable</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── BACKGROUND ────────────────────────────────────── -->
+    <div class="cs-section reveal" style="padding:0 101px;">
+      <div style="display:flex;flex-direction:column;gap:32px;">
+        <div>
+          <p class="cs-section-label">Background</p>
+          <h2 class="cs-section-heading">Influencer marketing was manual, opaque, and relationship-driven.</h2>
+        </div>
+        <p class="cs-body" style="font-size:20px;line-height:40px;"><strong style="font-weight:700;font-style:normal;opacity:1;">Imagine:</strong> It's early October. Halloween is weeks away.</p>
+        <p class="cs-body" style="font-size:20px;line-height:40px;">Clayton, a jewellery brand owner is preparing a Halloween collection launch. With only weeks to go, Instagram and TikTok are critical channels. Agencies are overbooked during peak season, and his campaign budget is too small to prioritise. Without support, he faces the complexity of <strong style="font-weight:700;font-style:normal;color:#175cfe;opacity:1;">creator discovery, outreach, contracting, payments, and performance tracking alone</strong>, all under time pressure.</p>
+        <p class="cs-body" style="font-size:20px;line-height:40px;">This scenario reflects a broader systemic gap: influencer marketing was <strong style="font-weight:700;font-style:normal;color:#175cfe;opacity:1;">relationship-driven rather than system-driven</strong>. Access depended on networks and budget size, not merit or readiness. The opportunity was clear – to create an AI-powered, unified creator network that standardises workflows, automates execution, and makes influencer marketing transparent, scalable, and accessible to businesses of all sizes.</p>
+        <!-- Old model diagram -->
+        <div class="cs-diagram">
+          <div style="display:flex;justify-content:space-between;width:620px;max-width:100%;margin-bottom:4px;">
+            <div class="bg-arrow-down" style="margin-left:47px;"></div>
+            <div class="bg-arrow-down" style="margin-right:69px;"></div>
+          </div>
+          <div class="cs-diagram-row" style="justify-content:center;gap:0;width:620px;">
+            <div class="cs-diagram-pill pill-brand">Brand</div>
+            <div class="cs-diagram-arrow arr-left arr-right" style="flex:1;min-width:60px;"></div>
+            <div class="cs-diagram-pill pill-agency">Agency</div>
+            <div class="cs-diagram-arrow arr-left arr-right" style="flex:1;min-width:60px;"></div>
+            <div class="cs-diagram-pill pill-influencer">Influencer</div>
+          </div>
+          <div class="cs-diagram-dots">
+            <span>Manual</span>
+            <span class="cs-diagram-dot"></span>
+            <span>Opaque</span>
+            <span class="cs-diagram-dot"></span>
+            <span>Relationship-driven</span>
+          </div>
+        </div>
+      </div>
+      <!-- Quote box -->
+      <div class="bg-quote-box">
+        <p class="bg-quote">"AtisfyReach was built for Clayton and the thousands of brand owners like him."</p>
+      </div>
+    </div>
+
+    <!-- ─── RESEARCH ──────────────────────────────────────── -->
+    <div class="cs-section reveal" style="padding:0 101px;">
+      <div>
+        <p class="cs-section-label">Research</p>
+        <h2 class="cs-section-heading">Leading Discovery with Empathy</h2>
+        <p class="cs-section-sub" style="margin-top:16px;">To validate the hypothesis, I conducted in-depth interviews with brands actively running, or planning to run, influencer marketing campaigns to understand their workflows, constraints, and success criteria. In parallel, I analysed existing influencer marketing platforms to uncover gaps in transparency, automation, and scalability, helping define a clearer, more differentiated value proposition.</p>
+      </div>
+
+      <!-- User Interviews -->
+      <div style="display:flex;flex-direction:column;gap:80px;">
+        <div>
+          <p class="cs-subheading">User Interviews</p>
+          <p class="cs-body" style="margin-top:16px;">I conducted <strong style="font-weight:700;font-style:normal;opacity:1;">11 in-person and virtual interviews</strong> with internal team members (who were marketers themselves) and external brands to understand their decision-making processes and existing workflows. I focused on uncovering how they evaluated creators, allocated budgets, and navigated operational challenges at different stages of their campaign journey.</p>
+        </div>
+
+        <div class="sticky-grid">
+          <!-- Row 1 -->
+          <div class="sticky-row">
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Manual Overload &amp; Friction</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Heavy reliance on manual process for contracts</div>
+                <div class="sticky-note sn-2">Inefficient campaign management</div>
+                <div class="sticky-note sn-3">Lack of automation for payments and contracts</div>
+                <div class="sticky-note sn-4">Friction in payment processing</div>
+              </div>
+            </div>
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Optimization Needs &amp; ROI Gap</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Clear desire for tools to manage spend</div>
+                <div class="sticky-note sn-2">Need to track ROI accurately</div>
+                <div class="sticky-note sn-3">Difficult to compare influencer effectiveness</div>
+                <div class="sticky-note sn-4">Improve campaign performance</div>
+              </div>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="sticky-row">
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Lack of Strategic Guidance</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Brands struggle to identify right influencers</div>
+                <div class="sticky-note sn-2">Lack of guidance for both brands and influencers</div>
+                <div class="sticky-note sn-3">Uncertainty about fair influencer rates</div>
+                <div class="sticky-note sn-4">Difficult to assess campaign value effectively</div>
+              </div>
+            </div>
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Untapped Data Potential</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Influencer marketing holds strong promise</div>
+                <div class="sticky-note sn-2">Lack support for data-driven decisions</div>
+                <div class="sticky-note sn-3">Strong promise but untapped potential</div>
+                <div class="sticky-note sn-4">Unable to make scalable decisions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="interviews-conclusion">Across all interviews, one pattern was clear: <em>brands were spending more time managing the process than running the campaign.</em></p>
+      </div>
+
+      <!-- Competitor Analysis -->
+      <div style="display:flex;flex-direction:column;gap:32px;">
+        <div>
+          <p class="cs-subheading">Competitor Analysis</p>
+          <p class="cs-body" style="margin-top:16px;">I reviewed several competitors, but the following four stood out as the most relevant.</p>
+        </div>
+        <div class="competitor-logos">
+          <div class="competitor-logo-item">
+            <div class="competitor-logo-icon" style="background:#2d1b6e;">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><text x="4" y="26" font-family="serif" font-weight="700" font-size="22" fill="#fff">IJ</text></svg>
+            </div>
+            <span class="competitor-name">Upfluencer</span>
+          </div>
+          <div class="competitor-logo-item">
+            <div class="competitor-logo-icon" style="background:#1a1a2e;">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><polygon points="18,4 34,32 2,32" fill="none" stroke="#6a5acd" stroke-width="2.5"/><line x1="18" y1="4" x2="18" y2="20" stroke="#6a5acd" stroke-width="2.5"/></svg>
+            </div>
+            <span class="competitor-name">Afluencer</span>
+          </div>
+          <div class="competitor-logo-item">
+            <div class="competitor-logo-icon" style="background:#0d47a1;border-radius:50%;">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="10" stroke="#fff" stroke-width="2.5" fill="none"/><circle cx="18" cy="18" r="4" fill="#fff"/></svg>
+            </div>
+            <span class="competitor-name">CreatorIQ</span>
+          </div>
+          <div class="competitor-logo-item">
+            <div class="competitor-logo-icon" style="background:#2e7d32;border-radius:50% 50% 50% 0;">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><ellipse cx="18" cy="20" rx="10" ry="13" fill="#fff" opacity="0.9"/></svg>
+            </div>
+            <span class="competitor-name">PearPop</span>
+          </div>
+        </div>
+        <div class="swot-grid">
+          <div class="swot-box swot-s">
+            <div class="swot-label">
+              <div class="swot-icon">S</div>
+              <span class="swot-title">Strengths</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>AI-driven influencer discovery</strong> simplified the process of finding relevant creators.</li>
+              <li><strong>End-to-end campaign workflow</strong> reduced reliance on multiple tools.</li>
+              <li><strong>Growing market demand</strong> as influencer marketing rapidly expanded.</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-w">
+            <div class="swot-label">
+              <div class="swot-icon">W</div>
+              <span class="swot-title">Weaknesses</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>Low early brand recognition</strong> compared to established platforms.</li>
+              <li><strong>Limited analytics maturity</strong> relative to larger competitors.</li>
+              <li><strong>Dependence on social platform APIs</strong> for data and integrations.</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-o">
+            <div class="swot-label">
+              <div class="swot-icon">O</div>
+              <span class="swot-title">Opportunities</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>Rapid growth of influencer marketing</strong> as brands increased digital spend.</li>
+              <li><strong>Rise of micro- and nano-influencers</strong> requiring scalable discovery tools.</li>
+              <li><strong>COVID-19 accelerating digital campaigns</strong> and creator partnerships.</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-t">
+            <div class="swot-label">
+              <div class="swot-icon">T</div>
+              <span class="swot-title">Threats</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>Strong competition</strong> from established influencer platforms.</li>
+              <li><strong>Influencer fraud and fake followers</strong> impacting brand trust.</li>
+              <li><strong>Rapid social media platform changes</strong> requiring constant adaptation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- How Might We -->
+      <div class="hmw-box">
+        <p class="hmw-label">How might we...</p>
+        <p class="hmw-question">Simplify influencer discovery and campaign management so that brands of all sizes can easily find authentic influencers, run campaigns efficiently, and measure their impact?</p>
+      </div>
     </div>
 
     <!-- ─── DEFINE: PERSONAS ──────────────────────────────── -->
@@ -882,67 +1252,13 @@
       </div><!-- /personas-outer -->
     </div>
 
-    <!-- ─── DEFINE: USER INTERVIEWS ───────────────────────── -->
+    <!-- ─── IDEATION ──────────────────────────────────────── -->
     <div class="cs-section reveal">
-      <div class="interviews-outer" style="padding-left:0;padding-right:0;">
-        <div>
-          <p class="cs-subheading">User Interviews</p>
-          <p class="cs-body" style="margin-top:16px;">I conducted <strong style="font-weight:700;font-style:normal;">11 in-person and virtual interviews</strong> with internal team members (who were marketers themselves) and external brands to understand their decision-making processes and existing workflows. I focused on uncovering how they evaluated creators, allocated budgets, and navigated operational challenges at different stages of their campaign journey.</p>
-        </div>
-
-        <div class="sticky-grid">
-          <!-- Row 1 -->
-          <div class="sticky-row">
-            <div class="sticky-cluster">
-              <p class="sticky-cluster-title">Manual Overload &amp; Friction</p>
-              <div class="sticky-notes-container">
-                <div class="sticky-note sn-1">Heavy reliance on manual process for contracts</div>
-                <div class="sticky-note sn-2">Inefficient campaign management</div>
-                <div class="sticky-note sn-3">Lack of automation for payments and contracts</div>
-                <div class="sticky-note sn-4">Friction in payment processing</div>
-              </div>
-            </div>
-            <div class="sticky-cluster">
-              <p class="sticky-cluster-title">Optimization Needs &amp; ROI Gap</p>
-              <div class="sticky-notes-container">
-                <div class="sticky-note sn-1">Clear desire for tools to manage spend</div>
-                <div class="sticky-note sn-2">Need to track ROI accurately</div>
-                <div class="sticky-note sn-3">Difficult to compare influencer effectiveness</div>
-                <div class="sticky-note sn-4">Improve campaign performance</div>
-              </div>
-            </div>
-          </div>
-          <!-- Row 2 -->
-          <div class="sticky-row">
-            <div class="sticky-cluster">
-              <p class="sticky-cluster-title">Lack of Strategic Guidance</p>
-              <div class="sticky-notes-container">
-                <div class="sticky-note sn-1">Brands struggle to identify right influencers</div>
-                <div class="sticky-note sn-2">Lack of guidance for both brands and influencers</div>
-                <div class="sticky-note sn-3">Uncertainty about fair influencer rates</div>
-                <div class="sticky-note sn-4">Difficult to assess campaign value effectively</div>
-              </div>
-            </div>
-            <div class="sticky-cluster">
-              <p class="sticky-cluster-title">Untapped Data Potential</p>
-              <div class="sticky-notes-container">
-                <div class="sticky-note sn-1">Influencer marketing holds strong promise</div>
-                <div class="sticky-note sn-2">Lack support for data-driven decisions</div>
-                <div class="sticky-note sn-3">Strong promise but untapped potential</div>
-                <div class="sticky-note sn-4">Unable to make scalable decisions</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p class="interviews-conclusion">Across all interviews, one pattern was clear: <em>brands were spending more time managing the process than running the campaign.</em></p>
+      <div>
+        <p class="cs-section-label">Ideation</p>
+        <h2 class="cs-section-heading">To turn Pain Points into Features</h2>
+        <p class="cs-section-sub" style="margin-top:8px;">With three clearly defined user personas, I explored solutions that addressed their key challenges while enabling influencer marketing to scale effectively for different types of businesses.</p>
       </div>
-    </div>
-
-    <!-- ─── IDEATE ─────────────────────────────────────────── -->
-    <div class="cs-section reveal">
-      <h2 class="ideate-heading">To turn Pain Points into Features</h2>
-      <p class="cs-body">With three clearly defined user personas, I explored solutions that addressed their key challenges while enabling influencer marketing to scale effectively for different types of businesses.</p>
     </div>
 
     <!-- ─── DESIGN: DESIGNING FOR ADOPTION ───────────────── -->
@@ -999,13 +1315,15 @@
       <p class="cs-body">The framework established through the site map, combined with the user insights gathered during research, guided key design decisions throughout the product development process.</p>
     </div>
 
-    <!-- ─── WIREFRAMES ────────────────────────────────────── -->
+    <!-- ─── VISUALIZING ──────────────────────────────────── -->
     <div class="cs-section reveal">
-      <h2 class="cs-section-heading">Visualizing a User-Centric Experience</h2>
-      <p class="cs-body">Through rapid sketching, I explored common design patterns across competing platforms to identify familiar interactions for AtisfyReach. This helped uncover key interface elements and flexible screen structures that could support multiple tasks.</p>
-      <p class="cs-body">Leveraging these insights allowed the design to reduce the learning curve, streamline interactions, and create a more intuitive user experience.</p>
+      <div>
+        <h2 class="cs-section-heading">Visualizing a User-Centric Experience</h2>
+        <p class="cs-section-sub" style="margin-top:8px;">Through rapid sketching, I explored common design patterns across competing platforms to identify familiar interactions for AtisfyReach. This helped uncover key interface elements and flexible screen structures that could support multiple tasks.</p>
+        <p class="cs-section-sub" style="margin-top:8px;">Leveraging these insights allowed the design to reduce the learning curve, streamline interactions, and create a more intuitive user experience.</p>
+      </div>
       <div class="wireframes-box">
-        <img src="assets/images/AtisfyReach_CaseStudy_Thumbnail.png" alt="AtisfyReach wireframes and design exploration" />
+        <img src="assets/images/AR_Wireframes.png" alt="AtisfyReach wireframes and design exploration" />
       </div>
     </div>
 
@@ -1016,7 +1334,7 @@
     </div>
 
     <!-- ─── OUTCOMES ──────────────────────────────────────── -->
-    <div class="cs-section reveal">
+    <div class="cs-section reveal" id="outcomes">
       <h2 class="outcomes-heading">Successful launch of AtisfyReach</h2>
       <p class="cs-body">Our launch saw strong adoption that continued to accelerate as the platform matured. Early feedback emphasized the intuitive onboarding experience, allowing brands to quickly set up and run influencer campaigns with minimal support.</p>
       <div class="stats-card">
