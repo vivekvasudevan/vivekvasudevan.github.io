@@ -1693,11 +1693,11 @@
 
     prevBtn.addEventListener('click', () => {
       const cur = getActiveIndex();
-      scrollTo(Math.max(0, cur - 1));
+      scrollTo(cur === 0 ? total - 1 : cur - 1);
     });
     nextBtn.addEventListener('click', () => {
       const cur = getActiveIndex();
-      scrollTo(Math.min(total - 1, cur + 1));
+      scrollTo(cur === total - 1 ? 0 : cur + 1);
     });
 
     carousel.addEventListener('scroll', () => {
