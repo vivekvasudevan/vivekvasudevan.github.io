@@ -321,6 +321,7 @@
 
     /* ─── USER INTERVIEWS ────────────────────────────────── */
     .interviews-outer {
+      background: #f9f9f9;
       padding: 40px 101px;
       display: flex; flex-direction: column; gap: 80px;
     }
@@ -775,6 +776,7 @@
       .cs-glance { padding: 28px; }
       .hmw-box { padding: 40px 28px; }
       .cs-section[style*="padding:0 101px"] { padding: 0 !important; }
+      .interviews-outer { padding: 40px 20px; }
       .bg-quote-box { padding: 32px 40px; }
       .cs-diagram-row { width: 100%; }
       .bg-arrows { width: 100%; }
@@ -1024,9 +1026,10 @@
         <h2 class="cs-section-heading">Leading Discovery with Empathy</h2>
         <p class="cs-section-sub" style="margin-top:16px;">To validate the hypothesis, I conducted in-depth interviews with brands actively running, or planning to run, influencer marketing campaigns to understand their workflows, constraints, and success criteria. In parallel, I analysed existing influencer marketing platforms to uncover gaps in transparency, automation, and scalability, helping define a clearer, more differentiated value proposition.</p>
       </div>
+    </div>
 
-      <!-- User Interviews -->
-      <div style="display:flex;flex-direction:column;gap:80px;">
+    <!-- User Interviews -->
+    <div class="interviews-outer reveal">
         <div>
           <p class="cs-subheading">User Interviews</p>
           <p class="cs-body" style="margin-top:16px;">I conducted <strong style="font-weight:700;font-style:normal;opacity:1;">11 in-person and virtual interviews</strong> with internal team members (who were marketers themselves) and external brands to understand their decision-making processes and existing workflows. I focused on uncovering how they evaluated creators, allocated budgets, and navigated operational challenges at different stages of their campaign journey.</p>
@@ -1078,10 +1081,10 @@
         </div>
 
         <p class="interviews-conclusion">Across all interviews, one pattern was clear: <em>brands were spending more time managing the process than running the campaign.</em></p>
-      </div>
+    </div><!-- /interviews-outer -->
 
-      <!-- Competitor Analysis -->
-      <div style="display:flex;flex-direction:column;gap:32px;">
+    <!-- Competitor Analysis -->
+    <div class="interviews-outer reveal" style="gap:32px;">
         <div>
           <p class="cs-subheading">Competitor Analysis</p>
           <p class="cs-body" style="margin-top:16px;">I reviewed several competitors, but the following four stood out as the most relevant.</p>
@@ -1151,8 +1154,10 @@
           </div>
         </div>
       </div>
+    </div><!-- /competitor-analysis interviews-outer -->
 
-      <!-- How Might We -->
+    <!-- How Might We -->
+    <div class="cs-section reveal" style="padding:0 101px;">
       <div class="hmw-box">
         <p class="hmw-label">How might we...</p>
         <p class="hmw-question">Simplify influencer discovery and campaign management so that brands of all sizes can easily find authentic influencers, run campaigns efficiently, and measure their impact?</p>
