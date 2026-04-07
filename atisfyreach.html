@@ -1655,7 +1655,7 @@
   }
   window.addEventListener('scroll', closeMobileMenu, { passive: true });
 
-  // ── Feature Carousel ────────────────────────────────────
+  // ── Feature Carousel (infinite, same-direction) ──────────
   (function() {
     const carousel = document.getElementById('featureCarousel');
     const prevBtn  = document.getElementById('carouselPrev');
@@ -1663,21 +1663,40 @@
     const dotsWrap = document.getElementById('carouselDots');
     if (!carousel) return;
 
-    const cards = carousel.querySelectorAll('.feature-card');
-    const total = cards.length;
+    const origCards = [...carousel.querySelectorAll('.feature-card')];
+    const N = origCards.length;
 
-    // Build dots
-    cards.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      dot.addEventListener('click', () => scrollTo(i));
-      dotsWrap.appendChild(dot);
+    // Prepend clones so scrolling left from card 0 reveals card N-1
+    [...origCards].reverse().forEach(c => {
+      const clone = c.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      carousel.prepend(clone);
     });
+    // Append clones so scrolling right from card N-1 reveals card 0
+    origCards.forEach(c => {
+      const clone = c.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      carousel.appendChild(clone);
+    });
+    // Track: [clones 0..N-1] [real N..2N-1] [clones 2N..3N-1]
 
-    function getActiveIndex() {
-      const cardWidth = cards[0].offsetWidth + 24; // card + gap
-      return Math.round(carousel.scrollLeft / cardWidth);
+    let current = N; // start on real card 0
+    let animating = false;
+
+    function cw() { return carousel.querySelectorAll('.feature-card')[0].offsetWidth + 24; }
+    function dotIdx(pos) { return ((pos - N) % N + N) % N; }
+
+    function jumpTo(pos) {
+      carousel.style.scrollSnapType = 'none';
+      carousel.scrollLeft = pos * cw();
+      current = pos;
+      requestAnimationFrame(() => { carousel.style.scrollSnapType = ''; });
+    }
+
+    function slideTo(pos) {
+      carousel.scrollTo({ left: pos * cw(), behavior: 'smooth' });
+      current = pos;
+      updateDots(dotIdx(pos));
     }
 
     function updateDots(idx) {
@@ -1686,23 +1705,48 @@
       });
     }
 
-    function scrollTo(idx) {
-      const cardWidth = cards[0].offsetWidth + 24;
-      carousel.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+    // Build dots
+    origCards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => { if (!animating) slideTo(N + i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    // Init at real card 0 without animation
+    requestAnimationFrame(() => jumpTo(N));
+
+    // After scroll fully settles, silently reposition back into real-card zone
+    function onScrollSettled() {
+      if (current < N)        jumpTo(current + N);
+      else if (current >= 2 * N) jumpTo(current - N);
+      animating = false;
+    }
+
+    // scrollend fires exactly when smooth scroll stops — no timing guesswork
+    // Fall back to scroll-silence detection for older browsers
+    let scrollTimer;
+    if ('onscrollend' in carousel) {
+      carousel.addEventListener('scrollend', onScrollSettled);
+    } else {
+      carousel.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(onScrollSettled, 80);
+      }, { passive: true });
     }
 
     prevBtn.addEventListener('click', () => {
-      const cur = getActiveIndex();
-      scrollTo(cur === 0 ? total - 1 : cur - 1);
-    });
-    nextBtn.addEventListener('click', () => {
-      const cur = getActiveIndex();
-      scrollTo(cur === total - 1 ? 0 : cur + 1);
+      if (animating) return;
+      animating = true;
+      slideTo(current - 1);
     });
 
-    carousel.addEventListener('scroll', () => {
-      updateDots(getActiveIndex());
-    }, { passive: true });
+    nextBtn.addEventListener('click', () => {
+      if (animating) return;
+      animating = true;
+      slideTo(current + 1);
+    });
   })();
 </script>
 </body>
