@@ -324,6 +324,7 @@
       background: #f9f9f9;
       padding: 40px 101px;
       display: flex; flex-direction: column; gap: 80px;
+      width: 100%; align-self: stretch;
     }
     .sticky-grid {
       display: flex; flex-direction: column; gap: 64px;
@@ -724,9 +725,14 @@
     .swot-list li strong { font-family: 'Poppins', sans-serif; font-weight: 700; opacity: 1; }
 
     /* ─── HOW MIGHT WE ───────────────────────────────────── */
+    .hmw-outer {
+      background: #eef2ff;
+      padding: 64px 101px;
+      display: flex; flex-direction: column; gap: 16px; align-items: center;
+      text-align: center;
+      width: 100%; align-self: stretch;
+    }
     .hmw-box {
-      background: #eef2ff; border-radius: 20px;
-      padding: 48px 80px;
       display: flex; flex-direction: column; gap: 16px; align-items: center;
       text-align: center;
     }
@@ -774,7 +780,7 @@
       .scroll-top img { width: 72px; height: 72px; }
       .cs-problem { padding: 40px 32px; }
       .cs-glance { padding: 28px; }
-      .hmw-box { padding: 40px 28px; }
+      .hmw-outer { padding: 40px 28px; }
       .cs-section[style*="padding:0 101px"] { padding: 0 !important; }
       .interviews-outer { padding: 40px 20px; }
       .bg-quote-box { padding: 32px 40px; }
@@ -825,7 +831,7 @@
       .footer-brand-text { align-items: center; }
       .cs-problem { padding: 32px 20px; }
       .cs-problem-statement { font-size: 24px; }
-      .hmw-box { padding: 32px 20px; }
+      .hmw-outer { padding: 32px 20px; }
       .hmw-question { font-size: 24px; line-height: 1.5; }
       .swot-grid { grid-template-columns: 1fr; }
       .competitor-logos { gap: 32px; }
@@ -1028,8 +1034,10 @@
       </div>
     </div>
 
-    <!-- User Interviews -->
-    <div class="interviews-outer reveal">
+  </div><!-- /cs-wrap -->
+
+  <!-- User Interviews (full-bleed) -->
+  <div class="interviews-outer reveal" style="margin-top:80px;">
         <div>
           <p class="cs-subheading">User Interviews</p>
           <p class="cs-body" style="margin-top:16px;">I conducted <strong style="font-weight:700;font-style:normal;opacity:1;">11 in-person and virtual interviews</strong> with internal team members (who were marketers themselves) and external brands to understand their decision-making processes and existing workflows. I focused on uncovering how they evaluated creators, allocated budgets, and navigated operational challenges at different stages of their campaign journey.</p>
@@ -1083,8 +1091,8 @@
         <p class="interviews-conclusion">Across all interviews, one pattern was clear: <em>brands were spending more time managing the process than running the campaign.</em></p>
     </div><!-- /interviews-outer -->
 
-    <!-- Competitor Analysis -->
-    <div class="interviews-outer reveal" style="gap:32px;">
+  <!-- Competitor Analysis (full-bleed) -->
+  <div class="interviews-outer reveal" style="gap:32px;margin-top:80px;">
         <div>
           <p class="cs-subheading">Competitor Analysis</p>
           <p class="cs-body" style="margin-top:16px;">I reviewed several competitors, but the following four stood out as the most relevant.</p>
@@ -1154,9 +1162,10 @@
           </div>
         </div>
       </div>
-    </div><!-- /competitor-analysis interviews-outer -->
+  </div><!-- /competitor-analysis interviews-outer -->
 
-    <!-- ─── DEFINE: PERSONAS ──────────────────────────────── -->
+  <!-- ─── DEFINE: PERSONAS ──────────────────────────────── -->
+  <div class="cs-wrap" style="margin-top:80px;">
     <div class="cs-section reveal">
       <div>
         <p class="cs-section-label">Define</p>
@@ -1371,15 +1380,16 @@
       </div><!-- /personas-outer -->
     </div>
 
-    <!-- How Might We -->
-    <div class="cs-section reveal" style="padding:0 101px;">
-      <div class="hmw-box">
-        <p class="hmw-label">How might we...</p>
-        <p class="hmw-question">Simplify influencer discovery and campaign management so that brands of all sizes can easily find authentic influencers, run campaigns efficiently, and measure their impact?</p>
-      </div>
-    </div>
+  </div><!-- /cs-wrap (define) -->
 
-    <!-- ─── IDEATION ──────────────────────────────────────── -->
+  <!-- How Might We (full-bleed) -->
+  <div class="hmw-outer reveal" style="margin-top:80px;">
+    <p class="hmw-label">How might we...</p>
+    <p class="hmw-question">Simplify influencer discovery and campaign management so that brands of all sizes can easily find authentic influencers, run campaigns efficiently, and measure their impact?</p>
+  </div>
+
+  <!-- ─── IDEATION onwards ──────────────────────────────── -->
+  <div class="cs-wrap" style="margin-top:80px;">
     <div class="cs-section reveal">
       <div>
         <p class="cs-section-label">Ideation</p>
