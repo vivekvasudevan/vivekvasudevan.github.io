@@ -319,9 +319,16 @@
       width: 998px; max-width: 100%;
     }
 
-    /* ─── USER INTERVIEWS ────────────────────────────────── */
+    /* ─── RESEARCH HEADER BAND ──────────────────────────── */
+    .research-section {
+      background: #f3f6ff; border-radius: 20px;
+      padding: 40px;
+      max-width: 1200px; width: calc(100% - 240px);
+      align-self: center;
+    }
+
+    /* ─── USER INTERVIEWS / COMPETITOR ANALYSIS ─────────── */
     .interviews-outer {
-      background: #f9f9f9;
       padding: 40px 120px;
       display: flex; flex-direction: column; gap: 80px;
       width: 100%; align-self: stretch;
@@ -726,11 +733,12 @@
 
     /* ─── HOW MIGHT WE ───────────────────────────────────── */
     .hmw-outer {
-      background: #eef2ff;
-      padding: 64px 120px;
+      background: #175cfe; border-radius: 20px;
+      padding: 64px;
       display: flex; flex-direction: column; gap: 16px; align-items: center;
       text-align: center;
-      width: 100%; align-self: stretch;
+      max-width: 1200px; width: calc(100% - 240px);
+      align-self: center;
     }
     .hmw-box {
       display: flex; flex-direction: column; gap: 16px; align-items: center;
@@ -738,7 +746,7 @@
     }
     .hmw-label {
       font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 20px;
-      line-height: 28px; color: #175cfe;
+      line-height: 28px; color: #fff;
     }
     .hmw-question {
       font-family: 'Poppins', sans-serif; font-weight: 500;
@@ -780,7 +788,8 @@
       .scroll-top img { width: 72px; height: 72px; }
       .cs-problem { padding: 40px 32px; }
       .cs-glance { padding: 28px; }
-      .hmw-outer { padding: 40px 28px; }
+      .hmw-outer { padding: 40px 28px; width: calc(100% - 80px); }
+      .research-section { padding: 32px 20px; width: calc(100% - 80px); }
       .cs-section[style*="padding:0 101px"] { padding: 0 !important; }
       .interviews-outer { padding: 40px 20px; }
       .bg-quote-box { padding: 32px 40px; }
@@ -831,7 +840,8 @@
       .footer-brand-text { align-items: center; }
       .cs-problem { padding: 32px 20px; }
       .cs-problem-statement { font-size: 24px; }
-      .hmw-outer { padding: 32px 20px; }
+      .hmw-outer { padding: 32px 20px; width: calc(100% - 40px); }
+      .research-section { padding: 24px 16px; width: calc(100% - 32px); }
       .hmw-question { font-size: 24px; line-height: 1.5; }
       .swot-grid { grid-template-columns: 1fr; }
       .competitor-logos { gap: 32px; }
@@ -1025,18 +1035,16 @@
       </div>
     </div>
 
-    <!-- ─── RESEARCH ──────────────────────────────────────── -->
-    <div class="cs-section reveal" style="padding:0 101px;">
-      <div>
-        <p class="cs-section-label">Research</p>
-        <h2 class="cs-section-heading">Leading Discovery with Empathy</h2>
-        <p class="cs-section-sub" style="margin-top:16px;">To validate the hypothesis, I conducted in-depth interviews with brands actively running, or planning to run, influencer marketing campaigns to understand their workflows, constraints, and success criteria. In parallel, I analysed existing influencer marketing platforms to uncover gaps in transparency, automation, and scalability, helping define a clearer, more differentiated value proposition.</p>
-      </div>
-    </div>
-
   </div><!-- /cs-wrap -->
 
-  <!-- User Interviews (full-bleed) -->
+  <!-- ─── RESEARCH HEADING ───────────────────────────────── -->
+  <div class="research-section reveal" style="margin-top:80px;">
+    <p class="cs-section-label">Research</p>
+    <h2 class="cs-section-heading">Leading Discovery with Empathy</h2>
+    <p class="cs-section-sub" style="margin-top:16px;">To validate the hypothesis, I conducted in-depth interviews with brands actively running, or planning to run, influencer marketing campaigns to understand their workflows, constraints, and success criteria. In parallel, I analysed existing influencer marketing platforms to uncover gaps in transparency, automation, and scalability, helping define a clearer, more differentiated value proposition.</p>
+  </div>
+
+  <!-- User Interviews -->
   <div class="interviews-outer reveal" style="margin-top:80px;">
         <div>
           <p class="cs-subheading">User Interviews</p>
