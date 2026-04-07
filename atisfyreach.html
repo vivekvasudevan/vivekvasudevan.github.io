@@ -569,8 +569,8 @@
       z-index: 10; transition: box-shadow 0.2s, transform 0.2s;
     }
     .carousel-btn:hover { box-shadow: 0 4px 20px rgba(0,56,186,0.28); transform: translateY(-50%) scale(1.08); }
-    .carousel-btn.prev { left: -24px; }
-    .carousel-btn.next { right: -24px; }
+    .carousel-btn.prev { left: max(8px, calc((100% - 794px) / 4)); }
+    .carousel-btn.next { right: max(8px, calc((100% - 794px) / 4)); }
     .carousel-btn svg { flex-shrink: 0; }
     .carousel-dots {
       display: flex; justify-content: center; gap: 8px; margin-top: 20px;
@@ -589,6 +589,8 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
       padding-bottom: 8px;
+      /* Centre active card and expose peek on both sides */
+      padding-inline: max(16px, calc((100% - 794px) / 2));
     }
     .feature-carousel::-webkit-scrollbar { display: none; }
     .feature-card {
@@ -602,7 +604,7 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
-      scroll-snap-align: start;
+      scroll-snap-align: center;
     }
     .feature-card-text {
       display: flex; flex-direction: column; gap: 16px;
