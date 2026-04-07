@@ -569,19 +569,19 @@
     .feature-carousel::-webkit-scrollbar { display: none; }
     .feature-card {
       flex-shrink: 0;
-      width: 1080px;
+      width: 794px;
       max-width: 92vw;
       background: #fff;
       border-radius: 20px;
-      box-shadow: 0px 4px 32px rgba(0,0,0,0.08);
-      padding: 48px 56px;
+      box-shadow: 0px 1px 10px rgba(0, 56, 186, 0.25);
+      padding: 64px;
       display: flex;
-      gap: 56px;
-      align-items: center;
+      flex-direction: column;
+      gap: 24px;
       scroll-snap-align: start;
     }
     .feature-card-text {
-      flex: 1; display: flex; flex-direction: column; gap: 16px;
+      display: flex; flex-direction: column; gap: 16px;
     }
     .feature-card-title {
       font-family: 'Poppins', sans-serif;
@@ -594,7 +594,7 @@
       color: #2b2b2b; opacity: 0.75;
     }
     .feature-card-img {
-      flex-shrink: 0; width: 540px; border-radius: 12px; overflow: hidden;
+      width: 100%; border-radius: 12px; overflow: hidden;
     }
     .feature-card-img img { width: 100%; display: block; }
 
@@ -754,8 +754,7 @@
       .bg-arrows { width: 100%; }
       .swot-grid { grid-template-columns: 1fr; }
       .principle-card { padding: 32px 40px; border-radius: 24px; }
-      .feature-card { width: 90vw; padding: 32px; flex-direction: column; gap: 24px; }
-      .feature-card-img { width: 100%; }
+      .feature-card { width: 90vw; padding: 32px; }
     }
 
     /* ─── MOBILE ≤ 480px ─────────────────────────────────── */
@@ -804,8 +803,7 @@
       .competitor-logos { gap: 32px; }
       .principle-card { padding: 24px 20px; border-radius: 20px; }
       .principle-heading-row { font-size: 18px; }
-      .feature-card { width: 88vw; padding: 24px 20px; flex-direction: column; gap: 20px; }
-      .feature-card-img { width: 100%; }
+      .feature-card { width: 88vw; padding: 24px 20px; }
     }
   </style>
 </head>
@@ -883,7 +881,7 @@
     <!-- ─── AT A GLANCE ──────────────────────────────────── -->
     <div class="cs-glance reveal">
       <p class="cs-section-label">At a glance</p>
-      <h2 class="cs-subheading" style="font-size:32px;line-height:1.3;">AtisfyReach – Influencer Marketing Platform</h2>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:48px;line-height:58px;color:#2b2b2b;">AtisfyReach – Influencer Marketing Platform</h2>
       <p class="cs-body">Influencer marketing was broken, fragmented across tools, opaque in pricing, and inaccessible to brands without agency relationships or large budgets. AtisfyReach was built to change that.</p>
       <p class="cs-body">As Lead Product Designer, I designed a scalable, AI-powered platform that unifies creator discovery, campaign configuration, contracting, payments, and performance tracking into a single structured workflow. The design focused on reducing decision anxiety through guided simplicity, enabling team collaboration through modular campaign management, and building user confidence through real-time, data-backed feedback at every step.</p>
       <p class="cs-body">The launch validated both the product and the approach. <a href="#outcomes" class="cs-link">50+ brands onboarded</a> during the launch phase, and campaigns achieved <a href="#outcomes" class="cs-link">6× lower costs through optimised ad budgets</a>, delivering measurably stronger ROI.</p>
@@ -1344,6 +1342,7 @@
     <!-- ─── IDEATION ──────────────────────────────────────── -->
     <div class="cs-section reveal">
       <div>
+        <p class="cs-section-label">Ideation</p>
         <h2 class="cs-section-heading">To turn Pain Points into Features</h2>
         <p class="cs-section-sub" style="margin-top:8px;">With three clearly defined user personas, I explored solutions that addressed their key challenges while enabling influencer marketing to scale effectively for different types of businesses.</p>
       </div>
