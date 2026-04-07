@@ -524,7 +524,7 @@
     .footer-nav-links a:hover { opacity: 0.8; }
 
     /* ─── BACK BUTTON ────────────────────────────────────── */
-    .back-btn-wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 24px 80px 0; box-sizing: border-box; }
+    .back-btn-wrap { width: var(--inner-width); padding-top: 24px; }
     .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: none; border-radius: 8px; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); cursor: pointer; padding: 12px 20px; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
     .back-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
     .back-btn svg { flex-shrink: 0; }
@@ -554,9 +554,33 @@
     }
 
     /* ─── FEATURE CAROUSEL ──────────────────────────────── */
+    .feature-carousel-outer {
+      position: relative; width: 100%;
+    }
     .feature-carousel-wrap {
       width: 100%; overflow: hidden;
     }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: #fff; border: none; cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,56,186,0.18);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .carousel-btn:hover { box-shadow: 0 4px 20px rgba(0,56,186,0.28); transform: translateY(-50%) scale(1.08); }
+    .carousel-btn.prev { left: -24px; }
+    .carousel-btn.next { right: -24px; }
+    .carousel-btn svg { flex-shrink: 0; }
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(23,92,254,0.2); border: none; cursor: pointer; padding: 0;
+      transition: background 0.2s, width 0.2s;
+    }
+    .carousel-dot.active { background: #175cfe; width: 24px; border-radius: 4px; }
     .feature-carousel {
       display: flex;
       gap: 24px;
@@ -655,10 +679,10 @@
 
     /* ─── COMPETITOR ANALYSIS ────────────────────────────── */
     .competitor-logos {
-      display: flex; gap: 56px; align-items: flex-end; flex-wrap: wrap;
+      display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px;
     }
     .competitor-logo-item {
-      display: flex; flex-direction: column; gap: 8px; align-items: center;
+      display: flex; flex-direction: column; gap: 8px; align-items: center; flex: 1; min-width: 120px;
     }
     .competitor-logo-icon {
       width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
@@ -673,10 +697,10 @@
       display: flex; align-items: center; gap: 10px;
     }
     .swot-icon {
-      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 32px; color: #000;
-      border: 2px solid;      justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 700;
-      font-size: 16px; color: #fff; flex-shrink: 0;
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 28px;
+      color: #2b2b2b; border: 2px solid;
     }
     .swot-s .swot-icon { background: rgba(92,227,177,0.3);  border-color: #5ce3b1; }
     .swot-w .swot-icon { background: rgba(255,251,129,0.3); border-color: #ffe189; }
@@ -742,7 +766,7 @@
       .footer-headline { font-size: 64px; line-height: 1.2; }
       .footer-headline-wrap { height: auto; }
       .footer-bottom-nav { width: 100%; }
-      .back-btn-wrap { padding: 24px 20px 0; }
+      .back-btn-wrap { width: 100%; padding: 24px 20px 0; }
       .scroll-top { right: 14px; width: 72px; height: 72px; }
       .scroll-top img { width: 72px; height: 72px; }
       .cs-problem { padding: 40px 32px; }
@@ -791,7 +815,7 @@
       .footer-bottom-nav { flex-direction: column; gap: 12px; align-items: center; border-radius: 20px 20px 0 0; padding: 16px; }
       .footer-nav-links { display: none; }
       .footer-brand { justify-content: center; }
-      .back-btn-wrap { padding: 20px 16px 0; }
+      .back-btn-wrap { width: 100%; padding: 20px 16px 0; }
       .scroll-top { right: 8px; width: 60px; height: 60px; }
       .scroll-top img { width: 60px; height: 60px; }
       .footer-brand-text { align-items: center; }
@@ -906,8 +930,15 @@
         <img src="assets/images/AtisfyReach-Solution.svg" alt="AtisfyReach solution diagram" style="max-width:100%;display:block;" />
       </div>
       <!-- Feature cards carousel -->
+      <div class="feature-carousel-outer">
+        <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carousel-btn next" id="carouselNext" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       <div class="feature-carousel-wrap">
-        <div class="feature-carousel">
+        <div class="feature-carousel" id="featureCarousel">
           <div class="feature-card">
             <div class="feature-card-text">
               <p class="feature-card-title">Campaign Configuration</p>
@@ -959,6 +990,8 @@
           </div>
         </div>
       </div>
+      </div><!-- /feature-carousel-outer -->
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
     <!-- ─── BACKGROUND ────────────────────────────────────── -->
@@ -1053,19 +1086,19 @@
         </div>
         <div class="competitor-logos">
           <div class="competitor-logo-item">
-            <img src="assets/images/Upfluecne.svg" alt="Upfluencer logo" style="height:56px;display:block;" />
+            <img src="assets/images/Upfluecne.svg" alt="Upfluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">Upfluencer</span>
           </div>
           <div class="competitor-logo-item">
-            <img src="assets/images/Afluencer.svg" alt="Afluencer logo" style="height:56px;display:block;" />
+            <img src="assets/images/Afluencer.svg" alt="Afluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">Afluencer</span>
           </div>
           <div class="competitor-logo-item">
-            <img src="assets/images/CreatorIQ.svg" alt="CreatorIQ logo" style="height:56px;display:block;" />
+            <img src="assets/images/CreatorIQ.svg" alt="CreatorIQ logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">CreatorIQ</span>
           </div>
           <div class="competitor-logo-item">
-            <img src="assets/images/PearPop.svg" alt="PearPop logo" style="height:56px;display:block;" />
+            <img src="assets/images/PearPop.svg" alt="PearPop logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">PearPop</span>
           </div>
         </div>
@@ -1455,6 +1488,7 @@
 
     <!-- ─── CREATING STRUCTURE ────────────────────────────── -->
     <div class="cs-section reveal">
+      <p class="cs-section-label">Information Architecture</p>
       <h2 class="cs-section-heading">Creating Structure</h2>
       <p class="cs-body">Informed by insights gathered through surveys and user interviews, the site map was designed to support three core user tasks that form the foundation of the high-fidelity prototype. The structure focuses on creating an intuitive navigation system that enables users to move through the platform efficiently and accomplish their goals with minimal friction.</p>
       <p class="cs-body">The site map organizes the platform into three key task streams:</p>
@@ -1472,6 +1506,7 @@
     <!-- ─── VISUALIZING ──────────────────────────────────── -->
     <div class="cs-section reveal">
       <div>
+        <p class="cs-section-label">Low-Fi Prototype</p>
         <h2 class="cs-section-heading">Visualizing a User-Centric Experience</h2>
         <p class="cs-section-sub" style="margin-top:8px;">Through rapid sketching, I explored common design patterns across competing platforms to identify familiar interactions for AtisfyReach. This helped uncover key interface elements and flexible screen structures that could support multiple tasks.</p>
         <p class="cs-section-sub" style="margin-top:8px;">Leveraging these insights allowed the design to reduce the learning curve, streamline interactions, and create a more intuitive user experience.</p>
@@ -1619,6 +1654,56 @@
     hamburgerBtn?.setAttribute('aria-expanded', 'false');
   }
   window.addEventListener('scroll', closeMobileMenu, { passive: true });
+
+  // ── Feature Carousel ────────────────────────────────────
+  (function() {
+    const carousel = document.getElementById('featureCarousel');
+    const prevBtn  = document.getElementById('carouselPrev');
+    const nextBtn  = document.getElementById('carouselNext');
+    const dotsWrap = document.getElementById('carouselDots');
+    if (!carousel) return;
+
+    const cards = carousel.querySelectorAll('.feature-card');
+    const total = cards.length;
+
+    // Build dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => scrollTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    function getActiveIndex() {
+      const cardWidth = cards[0].offsetWidth + 24; // card + gap
+      return Math.round(carousel.scrollLeft / cardWidth);
+    }
+
+    function updateDots(idx) {
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === idx);
+      });
+    }
+
+    function scrollTo(idx) {
+      const cardWidth = cards[0].offsetWidth + 24;
+      carousel.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      const cur = getActiveIndex();
+      scrollTo(Math.max(0, cur - 1));
+    });
+    nextBtn.addEventListener('click', () => {
+      const cur = getActiveIndex();
+      scrollTo(Math.min(total - 1, cur + 1));
+    });
+
+    carousel.addEventListener('scroll', () => {
+      updateDots(getActiveIndex());
+    }, { passive: true });
+  })();
 </script>
 </body>
 </html>
