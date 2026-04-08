@@ -523,6 +523,35 @@
       color: #2b2b2b; opacity: 0.7;
     }
 
+    /* ─── THANK YOU ──────────────────────────────────────── */
+    .thankyou-box {
+      background: #eef2ff; border-radius: 20px;
+      padding: 48px 80px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .thankyou-heading {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 20px; line-height: 28px;
+      color: #175cfe; text-align: center;
+    }
+    .thankyou-body {
+      display: flex; align-items: center; gap: 80px;
+    }
+    .thankyou-logo {
+      width: 220px; flex-shrink: 0; display: block;
+    }
+    .thankyou-text {
+      display: flex; flex-direction: column; gap: 16px;
+      font-family: 'Work Sans', sans-serif; font-size: 18px;
+      line-height: 28px; color: #2b2b2b;
+    }
+    @media (max-width: 768px) {
+      .thankyou-box { padding: 40px 28px; }
+      .thankyou-body { flex-direction: column; gap: 32px; align-items: flex-start; }
+      .thankyou-logo { width: 160px; }
+      .thankyou-text { font-size: 16px; }
+    }
+
     /* ─── FOOTER ─────────────────────────────────────────── */
     .footer {
       display: flex; flex-direction: column; align-items: center; gap: 64px;
@@ -1616,6 +1645,20 @@
             <li>Designing for System Harmony - Even simple features require thoughtful integration to maintain stability across the platform.</li>
             <li>Depth Over Brevity - Users valued deeper, actionable insights over high-level metrics.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── THANK YOU ───────────────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div class="thankyou-box">
+        <p class="thankyou-heading">Thank you</p>
+        <div class="thankyou-body">
+          <img src="assets/images/AtisfyReach_CaseStudy_Thumbnail.svg" alt="AtisfyReach logo" class="thankyou-logo" />
+          <div class="thankyou-text">
+            <p>The diagrams/screens/typography may not reflect the latest version of AtisfyReach due to ongoing development.</p>
+            <p>All rights reserved by Atisfy Pte. Ltd.</p>
+          </div>
         </div>
       </div>
     </div>
