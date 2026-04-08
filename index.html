@@ -605,6 +605,25 @@
     }
     .scroll-top:hover { transform: translateY(-4px); }
     .scroll-top img { width: 98px; height: 98px; display: block; }
+    .scroll-top::after {
+      content: 'Back to top';
+      position: absolute;
+      bottom: calc(100% + 10px);
+      right: 0;
+      background: #fff;
+      color: #2b2b2b;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      padding: 14px 24px;
+      border-radius: 16px;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .scroll-top.visible:hover::after { opacity: 1; }
 
     /* ─── REVEAL ANIMATIONS ─────────────────────────────── */
     .reveal {
