@@ -524,10 +524,9 @@
     }
 
     /* ─── SCROLL TO TOP ──────────────────────────────────── */
-    /* Sits in the right gutter outside the 1440px content area */
     .scroll-top {
       position: fixed;
-      right: max(16px, calc((100vw - 1440px) / 2 - 114px));
+      right: 20px;
       bottom: 40px;
       width: 98px;
       height: 98px;
@@ -549,7 +548,7 @@
     /* Tooltip — separate fixed div, avoids ::after clipping issues */
     .scroll-top-tooltip {
       position: fixed;
-      right: max(16px, calc((100vw - 1440px) / 2 - 114px));
+      right: 20px;
       bottom: calc(40px + 98px + 12px);
       background: #fff;
       color: #2b2b2b;
