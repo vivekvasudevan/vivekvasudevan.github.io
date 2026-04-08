@@ -52,82 +52,62 @@
     .hero-section {
       width: 100%;
       background: var(--red);
-      display: flex;
-      align-items: stretch;
-      min-height: 560px;
+      position: relative;
       overflow: hidden;
+      padding: 116px 0;
     }
-    .hero-left {
+    /* Yellow panel: in Figma, left:1008px, width:305px within 1440px canvas
+       = right: 1440-1008-305 = 127px from right edge */
+    .hero-yellow-panel {
+      position: absolute;
+      top: 0; bottom: 0;
+      right: 127px;
+      width: 305px;
       background: var(--yellow);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 60px 80px;
-      flex: 0 0 520px;
-      gap: 32px;
+      pointer-events: none;
     }
-    .hero-logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .hero-logo-wrap img {
-      height: 56px;
-      width: auto;
-    }
-    .hero-app-name {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 40px;
-      color: var(--dark-red);
-      line-height: 1;
-    }
-    .hero-tagline {
-      font-family: 'Work Sans', sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      color: var(--dark-red);
-      line-height: 1.6;
-      max-width: 320px;
-    }
-    .hero-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .hero-meta-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .hero-meta-label {
-      font-family: 'Work Sans', sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      color: var(--dark-red);
-      opacity: 0.7;
-      min-width: 64px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .hero-meta-value {
-      font-family: 'Work Sans', sans-serif;
-      font-weight: 500;
-      font-size: 14px;
-      color: var(--dark-red);
-    }
-    .hero-right {
-      flex: 1;
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: flex;
       align-items: flex-end;
-      justify-content: center;
-      padding-top: 40px;
+      gap: 137px;
+      position: relative;
+      z-index: 1;
     }
-    .hero-right img {
-      max-height: 520px;
-      width: auto;
+    .hero-left {
+      flex: 0 0 630px;
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+    }
+    .hero-logo-area {
+      width: 333px;
+    }
+    .hero-logo-area img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+    .hero-description {
+      color: #fff;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+      text-align: justify;
+    }
+    .hero-right {
+      flex: 0 0 415px;
+      align-self: flex-end;
+    }
+    .hero-phone-img {
+      width: 415px;
+      max-height: 848px;
       object-fit: contain;
+      display: block;
     }
 
     /* ─── TABLE OF CONTENTS ──────────────────────────────── */
@@ -435,9 +415,14 @@
       .nav-wrap { padding: 0; }
       nav { padding: 0 20px; max-width: 100%; }
 
-      .hero-section { flex-direction: column; min-height: auto; }
-      .hero-left { flex: none; padding: 48px 32px; width: 100%; }
-      .hero-right { padding: 0 32px 40px; justify-content: center; }
+      .hero-section { padding: 60px 0 0; }
+      .hero-yellow-panel { display: none; }
+      .hero-inner { flex-direction: column; gap: 40px; align-items: center; padding: 0 24px; }
+      .hero-left { flex: none; width: 100%; gap: 20px; }
+      .hero-logo-area { width: 200px; }
+      .hero-description { font-size: 18px; text-align: left; }
+      .hero-right { flex: none; width: 100%; display: flex; justify-content: center; }
+      .hero-phone-img { width: 280px; max-height: none; }
 
       .toc-grid { grid-template-columns: repeat(2, 1fr); }
       .colours-grid { grid-template-columns: repeat(2, 1fr); }
@@ -470,28 +455,20 @@
 
   <!-- ═══ HERO ════════════════════════════════════════════ -->
   <div class="hero-section">
-    <div class="hero-left">
-      <div class="hero-logo-wrap">
-        <img src="assets/images/Atisfyre-Logo.svg" alt="Atisfyre logo" />
+    <!-- Yellow panel: 305px wide, sitting 127px from right within 1440px canvas -->
+    <div class="hero-yellow-panel" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <!-- Left: logo + description (630px column) -->
+      <div class="hero-left">
+        <div class="hero-logo-area">
+          <img src="assets/images/Atisfyre-Logo.svg" alt="Atisfyre" />
+        </div>
+        <p class="hero-description">Atisfyre, an influencer marketing platform, helps social media creators monetize their content, analyzes channels for growth, and simplifies getting paid – all on their existing platforms.</p>
       </div>
-      <p class="hero-tagline">An AI-powered marketplace connecting creators with brands — simplifying discovery, rate-setting, and payments in one streamlined mobile experience.</p>
-      <div class="hero-meta">
-        <div class="hero-meta-row">
-          <span class="hero-meta-label">Role</span>
-          <span class="hero-meta-value">Lead Product Designer</span>
-        </div>
-        <div class="hero-meta-row">
-          <span class="hero-meta-label">Scope</span>
-          <span class="hero-meta-value">UI Design, Design System, Mobile App</span>
-        </div>
-        <div class="hero-meta-row">
-          <span class="hero-meta-label">Platform</span>
-          <span class="hero-meta-value">iOS &amp; Android</span>
-        </div>
+      <!-- Right: phone mockup (415px column, bottom-aligned) -->
+      <div class="hero-right">
+        <img src="assets/images/Atisfyre-Phone-Hero.svg" alt="Atisfyre app on mobile phone" class="hero-phone-img" />
       </div>
-    </div>
-    <div class="hero-right">
-      <img src="assets/images/Atisfyre-Phone-Hero.svg" alt="Atisfyre app on mobile phone" />
     </div>
   </div>
 
