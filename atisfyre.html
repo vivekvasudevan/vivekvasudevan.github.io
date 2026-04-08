@@ -580,6 +580,26 @@
       color: rgba(255,255,255,0.5);
     }
 
+    /* ─── JOBS SECTION ──────────────────────────────────── */
+    .jobs-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .jobs-top {
+      background: #fff;
+      padding: 80px 0 60px;
+    }
+    .jobs-bottom {
+      background: var(--red);
+      padding: 60px 0 80px;
+    }
+    .jobs-inner {
+      max-width: var(--inner-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-wrap { padding: 0; }
@@ -612,6 +632,8 @@
       .phones-section-title { font-size: 36px; }
       .phones-grid-3, .phones-grid-4 { grid-template-columns: repeat(2, 1fr); }
       .screen-section-outer { padding: 32px 24px; }
+      .jobs-top { padding: 60px 0 40px; }
+      .jobs-bottom { padding: 40px 0 60px; }
     }
   </style>
 </head>
@@ -666,6 +688,7 @@
         <a href="#jobready" class="toc-item"><span class="toc-num">06</span> Getting Job Ready</a>
         <a href="#earnings" class="toc-item"><span class="toc-num">07</span> Earnings Manager</a>
         <a href="#audience" class="toc-item"><span class="toc-num">08</span> Audience Interests</a>
+        <a href="#jobs" class="toc-item"><span class="toc-num">09</span> Jobs</a>
       </div>
     </div>
   </div>
@@ -793,9 +816,11 @@
     <!-- ─── INFLUENCER ONBOARDING ───────────────────────── -->
     <div id="onboarding" class="reveal">
       <div class="onboarding-inner">
-        <h2 class="onboarding-title">Influencer Onboarding</h2>
-        <div class="onboarding-bar"></div>
-        <p class="onboarding-sub">Atisfyre's streamlined onboarding empowers influencers for success in the influencer economy.</p>
+        <div class="section-header" style="align-items:center;text-align:center;">
+          <p class="section-label">Screens</p>
+          <h2 class="section-heading">Influencer Onboarding</h2>
+          <p class="section-sub" style="text-align:center;">Atisfyre's streamlined onboarding empowers influencers for success in the influencer economy.</p>
+        </div>
         <div class="onboarding-phones">
           <img src="assets/images/Atisfyre-InfluencerOnboarding.svg" alt="Atisfyre Influencer Onboarding screens" onerror="this.src='assets/images/Atisfyre-InfluencerOnboarding.png'" />
         </div>
@@ -805,11 +830,11 @@
     <!-- ─── GETTING JOB READY ───────────────────────────── -->
     <div id="jobready" class="reveal">
       <div class="jobready-inner">
-        <div class="jobready-heading-block">
-          <h2 class="jobready-title">Getting the influencers job ready</h2>
-          <div class="screen-split-bar"></div>
+        <div class="section-header">
+          <p class="section-label">Screens</p>
+          <h2 class="section-heading">Getting the influencers job ready</h2>
+          <p class="section-sub">Atisfyre guides the influencers through the influencer marketing journey with easy-to-follow instructions setting them up for success.</p>
         </div>
-        <p class="jobready-desc">Atisfyre guides the influencers through the influencer marketing journey with easy-to-follow instructions setting them up for success.</p>
         <div class="jobready-phones-grid">
           <div class="jobready-phone-item">
             <img src="assets/images/Atisfyre-JobReady-01.png" alt="Job ready step 1" />
@@ -830,8 +855,10 @@
     <!-- ─── EARNINGS MANAGER ────────────────────────────── -->
     <div id="earnings" class="reveal">
       <div class="phones-section-inner">
-        <h2 class="phones-section-title">Earnings Manager</h2>
-        <div class="onboarding-bar"></div>
+        <div class="section-header" style="align-items:center;text-align:center;">
+          <p class="section-label">Screens</p>
+          <h2 class="section-heading">Earnings Manager</h2>
+        </div>
         <div class="phones-grid-3">
           <img src="assets/images/Atisfyre-EarnignManager-01.png" alt="Earnings Manager screen 1" />
           <img src="assets/images/Atisfyre-EarnignManager-02.png" alt="Earnings Manager screen 2" />
@@ -843,8 +870,10 @@
     <!-- ─── AUDIENCE INTERESTS ──────────────────────────── -->
     <div id="audience" class="reveal">
       <div class="phones-section-inner">
-        <h2 class="phones-section-title">Audience Interests</h2>
-        <div class="onboarding-bar"></div>
+        <div class="section-header" style="align-items:center;text-align:center;">
+          <p class="section-label">Screens</p>
+          <h2 class="section-heading">Audience Interests</h2>
+        </div>
         <div class="phones-grid-4">
           <img src="assets/images/Atisfyre-AudienceInterest-01.png" alt="Audience Interests screen 1" />
           <img src="assets/images/Atisfyre-AudienceInterest-02.png" alt="Audience Interests screen 2" />
@@ -855,6 +884,36 @@
     </div>
 
   </div><!-- /cs-wrap -->
+
+  <!-- ═══ JOBS ════════════════════════════════════════════ -->
+  <div id="jobs" class="jobs-section reveal">
+    <!-- Top row: white background -->
+    <div class="jobs-top">
+      <div class="jobs-inner">
+        <div class="section-header">
+          <p class="section-label">Screens</p>
+          <h2 class="section-heading">Jobs (Offered, My and Past)</h2>
+        </div>
+        <div class="phones-grid-4">
+          <img src="assets/images/Atisfyre-Jobs-Top-01.png" alt="Jobs screen 1" />
+          <img src="assets/images/Atisfyre-Jobs-Top-02.png" alt="Jobs screen 2" />
+          <img src="assets/images/Atisfyre-Jobs-Top-03.png" alt="Jobs screen 3" />
+          <img src="assets/images/Atisfyre-Jobs-Top-04.png" alt="Jobs screen 4" />
+        </div>
+      </div>
+    </div>
+    <!-- Bottom row: red background -->
+    <div class="jobs-bottom">
+      <div class="jobs-inner">
+        <div class="phones-grid-4">
+          <img src="assets/images/Atisfyre-Jobs-Bottom-01.png" alt="Jobs screen 5" />
+          <img src="assets/images/Atisfyre-Jobs-Bottom-02.png" alt="Jobs screen 6" />
+          <img src="assets/images/Atisfyre-Jobs-Bottom-03.png" alt="Jobs screen 7" />
+          <img src="assets/images/Atisfyre-Jobs-Bottom-04.png" alt="Jobs screen 8" />
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══ THANKS / FOOTER ══════════════════════════════════ -->
   <div class="thanks-section">
