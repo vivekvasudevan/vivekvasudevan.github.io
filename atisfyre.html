@@ -1165,7 +1165,9 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   function updatePos() {
     const vw = window.innerWidth;
-    scrollTopBtn.style.right = vw > 1440 ? ((vw - 1440) / 2 + 20) + 'px' : '20px';
+    const right = vw > 1440 ? ((vw - 1440) / 2 + 20) + 'px' : '20px';
+    scrollTopBtn.style.right = right;
+    scrollTooltip.style.right = right;
   }
   updatePos();
   window.addEventListener('resize', updatePos);
