@@ -176,6 +176,60 @@
       width: 100%;
     }
 
+    /* ─── PROCESS ───────────────────────────────────────── */
+    .jn-process-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      gap: 8px;
+    }
+    .jn-process-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      flex: 1;
+    }
+    .jn-process-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    .jn-process-name {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #000;
+    }
+    .jn-process-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .jn-process-items li {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--body-text);
+      line-height: 1.5;
+    }
+    .jn-process-connector {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 28px;
+      flex-shrink: 0;
+    }
+    .jn-process-connector img {
+      width: 20px;
+      height: auto;
+      transform: rotate(-90deg);
+      opacity: 0.4;
+    }
+
     /* ─── TOOLS ──────────────────────────────────────────── */
     .jn-tools-row {
       display: flex;
@@ -595,6 +649,78 @@
         <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Illustrator.png" alt="Illustrator" />
         <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Atlassian.svg" alt="Atlassian" />
         <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Lanhu.svg" alt="Lanhu" />
+      </div>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- PROCESS -->
+    <section class="reveal">
+      <h2 class="jn-label">Process</h2>
+      <div class="jn-process-row">
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Understand.svg" alt="Understand" />
+          <div class="jn-process-name">Understand</div>
+          <ul class="jn-process-items">
+            <li>Research</li>
+            <li>1 on 1 Interviews</li>
+            <li>Surveys</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Define.svg" alt="Define" />
+          <div class="jn-process-name">Define</div>
+          <ul class="jn-process-items">
+            <li>User Personas</li>
+            <li>Journey Map</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Ideate.svg" alt="Ideate" />
+          <div class="jn-process-name">Ideate</div>
+          <ul class="jn-process-items">
+            <li>Wireframes</li>
+            <li>Lo-fi Sketches</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Prototype.svg" alt="Prototype" />
+          <div class="jn-process-name">Prototype</div>
+          <ul class="jn-process-items">
+            <li>Hi-fi mock-ups</li>
+            <li>Clickable prototype</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Validate.svg" alt="Validate" />
+          <div class="jn-process-name">Validate</div>
+          <ul class="jn-process-items">
+            <li>Presentation</li>
+            <li>Analysis</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
