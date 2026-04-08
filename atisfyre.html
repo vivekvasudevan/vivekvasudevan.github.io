@@ -535,43 +535,23 @@
     .scroll-top.visible { opacity: 1; pointer-events: auto; }
     .scroll-top img { width: 56px; height: 56px; display: block; }
 
-    /* ─── FOOTER / THANKS ────────────────────────────────── */
-    .thanks-section {
+    /* ─── ATISFYRE THANKS BANNER ─────────────────────────── */
+    .thanks-banner {
       width: 100%;
       background: var(--red);
-      padding: 80px 40px;
+      padding: 64px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 16px;
       text-align: center;
-    }
-    .thanks-logo {
-      height: 64px;
-      width: auto;
-      filter: brightness(0) invert(1);
     }
     .thanks-heading {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: 40px;
-      color: var(--yellow);
-      line-height: 1.2;
-    }
-    .thanks-sub {
-      font-family: 'Work Sans', sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      color: rgba(255,255,255,0.8);
-      max-width: 480px;
-      line-height: 1.7;
-    }
-    .thanks-divider {
-      width: 100%;
-      max-width: 400px;
-      height: 1px;
-      background: rgba(255,255,255,0.2);
-      margin: 8px 0;
+      font-size: 48px;
+      color: #fff;
+      line-height: 1.15;
     }
     .thanks-disclaimer {
       font-family: 'Work Sans', sans-serif;
@@ -582,12 +562,148 @@
       line-height: 1.7;
       text-align: center;
     }
-    .thanks-copy {
-      font-family: 'Work Sans', sans-serif;
-      font-weight: 400;
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
+
+    /* ─── LET'S CONNECT FOOTER ───────────────────────────── */
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom: 0;
+      background: #fff;
     }
+    .footer-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      width: 100%;
+    }
+    .footer-eyebrow {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: #2b2b2b;
+      opacity: 0.8;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .footer-headline-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: #2b2b2b;
+      text-align: center;
+      line-height: 100px;
+    }
+    .footer-btns {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .btn-filled {
+      background: #2b2b2b;
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-filled:hover { background: #444; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid #2b2b2b;
+      color: #2b2b2b;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: #f5f5f5; transform: translateY(-2px); }
+    .footer-bottom-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+    .footer-email-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: opacity 0.2s;
+    }
+    .footer-email-link:hover { opacity: 0.6; }
+    .footer-bottom-nav {
+      width: var(--inner-width);
+      max-width: 100%;
+      padding: 16px 20px;
+      border-radius: 20px 20px 0 0;
+      background: #f8f7f4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .footer-brand-text { display: flex; flex-direction: column; gap: 4px; }
+    .footer-brand-name {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2b2b2b;
+      white-space: nowrap;
+    }
+    .footer-brand-copy {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #2b2b2b;
+      opacity: 0.6;
+    }
+    .footer-nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-nav-links a {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2b2b2b;
+      opacity: 0.4;
+      text-decoration: none;
+      padding: 8px;
+      transition: opacity 0.2s;
+    }
+    .footer-nav-links a:hover { opacity: 0.8; }
 
     /* ─── JOBS SECTION ──────────────────────────────────── */
     .jobs-section {
@@ -665,6 +781,14 @@
       .jobs-top { padding: 60px 0 40px; }
       .jobs-bottom { padding: 40px 0 60px; }
       .jobs-title { font-size: 32px; }
+      .footer { padding-top: 60px; gap: 48px; }
+      .footer-headline { font-size: 48px; line-height: 1.2; }
+      .footer-eyebrow { font-size: 18px; }
+      .footer-btns { gap: 16px; }
+      .btn-filled, .btn-outline { font-size: 18px; padding: 12px 20px; }
+      .footer-bottom-nav { width: 100%; border-radius: 12px 12px 0 0; }
+      .footer-nav-links { display: none; }
+      .footer-brand { justify-content: center; }
     }
   </style>
 </head>
@@ -946,13 +1070,46 @@
     </div>
   </div>
 
-  <!-- ═══ THANKS / FOOTER ══════════════════════════════════ -->
-  <div class="thanks-section">
+  <!-- ═══ ATISFYRE THANKS BANNER ═══════════════════════════ -->
+  <div class="thanks-banner">
     <h2 class="thanks-heading">Thanks for viewing!</h2>
     <p class="thanks-disclaimer">The diagrams/screens may not reflect the latest features of AtisfyReach due to ongoing development.<br>All rights reserved by Atisfy Pte. Ltd.</p>
-    <div class="thanks-divider"></div>
-    <p class="thanks-copy">© 2026 Vivek Vasudevan Design. All rights reserved.</p>
   </div>
+
+  <!-- ═══ LET'S CONNECT FOOTER ════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-cta reveal">
+      <p class="footer-eyebrow">Like what you see?</p>
+      <div class="footer-headline-wrap">
+        <h2 class="footer-headline">Let's Connect!</h2>
+        <div class="footer-btns">
+          <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn-outline" href="https://drive.google.com/uc?export=download&id=1M83IXrkA5TnbnnoIDzwx2d1z875CXilI" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-area reveal">
+      <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        vivek.vasudevan.design@gmail.com
+      </a>
+      <div class="footer-bottom-nav">
+        <a href="index.html" class="footer-brand">
+          <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Vivek Vasudevan Design</span>
+            <span class="footer-brand-copy">© 2026 All rights reserved</span>
+          </div>
+        </a>
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#case-studies">Case Studies</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
 </div><!-- /page -->
 
