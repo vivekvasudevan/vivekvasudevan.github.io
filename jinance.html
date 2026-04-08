@@ -63,7 +63,7 @@
       background: var(--dark);
       background-image: url('assets/images/Jinance-Hero.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -73,7 +73,7 @@
     .jn-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, white 37%, white 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 20%, rgba(255,255,255,0) 40%, white 65%, white 100%);
       pointer-events: none;
     }
     .jn-hero-content {
@@ -390,7 +390,7 @@
       border-radius: 4px;
     }
 
-    /* ─── RESULTS ────────────────────────────────────────── */
+    /* ─── RESULTS / OUTCOME ─────────────────────────────── */
     .jn-results-text {
       font-family: 'Work Sans', sans-serif;
       font-weight: 400;
@@ -403,6 +403,33 @@
       font-weight: 700;
       font-size: 32px;
       color: var(--body-text);
+    }
+    .jn-outcome-card {
+      background: #EDB702;
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+    }
+    .jn-section-label {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-size: 25px;
+      color: #000;
+      margin-bottom: 24px;
+    }
+    .jn-outcome-text {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 40px;
+      color: #000;
+      opacity: 0.7;
+    }
+    .jn-outcome-highlight {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 40px;
+      color: #000;
     }
 
     /* ─── THANKS BANNER ──────────────────────────────────── */
@@ -560,12 +587,12 @@
     <section class="reveal">
       <h2 class="jn-label">Tools</h2>
       <div class="jn-tools-row">
-        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-01.png" alt="Tool 1" />
-        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-02.png" alt="Tool 2" />
-        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-03.png" alt="Tool 3" />
-        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-04.png" alt="Tool 4" />
-        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-05.png" alt="Tool 5" />
-        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-06.png" alt="Tool 6" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Sketch.png" alt="Sketch" style="width:100px;height:100px;object-fit:contain;" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-XD.png" alt="Adobe XD" style="width:100px;height:100px;object-fit:contain;" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Photoshop.png" alt="Photoshop" style="width:100px;height:100px;object-fit:contain;" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Illustrator.png" alt="Illustrator" style="width:100px;height:100px;object-fit:contain;" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Lanhu.png" alt="Lanhu" style="width:100px;height:100px;object-fit:contain;" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Atlassian.png" alt="Atlassian" style="width:100px;height:100px;object-fit:contain;" />
       </div>
     </section>
 
@@ -617,7 +644,7 @@
       <div class="jn-persona-section" style="margin-bottom: 64px;">
         <h3 class="jn-persona-heading">Casual Trader</h3>
         <div class="jn-persona-intro-row">
-          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Casual.jpg" alt="Casual Trader persona photo" />
+          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Justin.jpg" alt="Casual Trader persona photo" style="width:192px;height:192px;border-radius:50%;border:2px solid #EDB702;" />
           <div class="jn-persona-details">
             <p class="jn-persona-name">"Just for fun" Justin</p>
             <p class="jn-persona-detail">Age: 25–30</p>
@@ -645,14 +672,14 @@
             <div class="jn-persona-cell-body">Social: Facebook, LinkedIn, Google, Telegram. Online channels: CoinTelegraf, CoinMarketCap, and BitcoinTalk.</div>
           </div>
         </div>
-        <img class="jn-persona-map reveal" src="assets/images/Jinance-PersonaMap-01.png" alt="Casual Trader persona map" />
+        <img class="jn-persona-map reveal" src="assets/images/Jinance-JourneyMap.jpg" alt="Jinance journey map" style="width:100%;" />
       </div>
 
       <!-- Persona 2: Frequent Trader -->
       <div class="jn-persona-section" style="margin-bottom: 64px;">
         <h3 class="jn-persona-heading">Frequent Trader</h3>
         <div class="jn-persona-intro-row">
-          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Frequent.jpg" alt="Frequent Trader persona photo" />
+          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Freddie.jpg" alt="Frequent Trader persona photo" style="width:192px;height:192px;border-radius:50%;border:2px solid #EDB702;" />
           <div class="jn-persona-details">
             <p class="jn-persona-name">"Frequent Freddie"</p>
             <p class="jn-persona-detail">Age: 30–40</p>
@@ -686,7 +713,7 @@
       <div class="jn-persona-section">
         <h3 class="jn-persona-heading">Advanced Trader</h3>
         <div class="jn-persona-intro-row">
-          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Advanced.jpg" alt="Advanced Trader persona photo" />
+          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Sam.jpg" alt="Advanced Trader persona photo" style="width:192px;height:192px;border-radius:50%;border:2px solid #EDB702;" />
           <div class="jn-persona-details">
             <p class="jn-persona-name">"Sophisticated Sam"</p>
             <p class="jn-persona-detail">Age: 30–45</p>
@@ -725,10 +752,8 @@
       <p class="jn-body">I had a brainstorming session with my colleague and came with rough designs for the new look of the website. I made a paper prototype of the home page and tested it out with a few of my colleagues to see if it was having the desired result.</p>
 
       <div class="jn-paper-images">
-        <img class="jn-paper-img" src="assets/images/Jinance-Paper-01.jpg" alt="Paper prototype sketch 1" />
-        <img class="jn-paper-img" src="assets/images/Jinance-Paper-02.jpg" alt="Paper prototype sketch 2" />
-        <img class="jn-paper-img" src="assets/images/Jinance-Paper-03.jpg" alt="Paper prototype sketch 3" />
-        <img class="jn-paper-img" src="assets/images/Jinance-Paper-04.jpg" alt="Paper prototype sketch 4" />
+        <img class="jn-paper-img" src="assets/images/Jinance-Sketch.jpg" alt="Jinance sketch" style="max-width:468px;width:100%;display:block;margin:0 auto;" />
+        <img class="jn-paper-img" src="assets/images/Jinance-Sketch-Group.jpg" alt="Jinance sketch group" style="max-width:468px;width:100%;display:block;margin:0 auto;" />
       </div>
 
       <div class="jn-ideate-row">
@@ -736,7 +761,7 @@
           <p class="jn-body"><strong>After this I created wireframes for the new landing page.</strong> The wireframes covered the key sections including the hero, navigation, features, trading information, and the call to action. I used both Sketch and Adobe XD throughout the process to explore layout options and iterate quickly based on feedback from the team and stakeholders. <strong>There have been many revisions to the design and the website has come a long way from the original design.</strong></p>
         </div>
         <div class="jn-ideate-right">
-          <img class="jn-wireframe-img" src="assets/images/Jinance-Wireframe.jpg" alt="Jinance wireframe" />
+          <img class="jn-wireframe-img" src="assets/images/Jinance-Wireframes.jpg" alt="Jinance wireframes" style="width:549px;" />
         </div>
       </div>
     </section>
@@ -755,10 +780,16 @@
 
     <hr class="jn-divider" />
 
-    <!-- RESULTS -->
+    <!-- OUTCOME -->
     <section class="reveal">
-      <h2 class="jn-label">Results</h2>
-      <p class="jn-results-text">I was able to validate the design by checking the analytics and finding that there was a <span class="jn-results-highlight">20% increase in the number of conversions</span> after the new homepage went live.</p>
+      <div class="jn-outcome-card">
+        <h3 class="jn-section-label">Outcome</h3>
+        <p class="jn-outcome-text">
+          I was able to validate the design by checking the analytics and finding that there was a
+          <strong class="jn-outcome-highlight">20% increase in the number of conversions</strong>
+          after the new homepage went live.
+        </p>
+      </div>
     </section>
 
   </div><!-- /jn-inner -->
