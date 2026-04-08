@@ -43,6 +43,7 @@
     }
     nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
     .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; }
     .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
     .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
     .nav-links a, .nav-links button {
@@ -322,6 +323,7 @@
     /* ─── USER INTERVIEWS ────────────────────────────────── */
     .interviews-outer {
       background: #f9f9f9;
+      border-radius: 20px;
       padding: 40px 101px;
       display: flex; flex-direction: column; gap: 80px;
     }
@@ -727,16 +729,16 @@
     .hmw-box {
       background: #eef2ff; border-radius: 20px;
       padding: 48px 80px;
-      display: flex; flex-direction: column; gap: 16px; align-items: center;
+      display: flex; flex-direction: column; gap: 24px; align-items: center;
       text-align: center;
     }
     .hmw-label {
-      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 20px;
-      line-height: 28px; color: #175cfe;
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px;
+      line-height: 26px; color: #175cfe;
     }
     .hmw-question {
-      font-family: 'Poppins', sans-serif; font-weight: 500;
-      font-size: 32px; line-height: 48px; color: #2b2b2b; max-width: 840px;
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 32px; line-height: 48px; color: #2b2b2b;
     }
 
     /* ─── REVEAL ─────────────────────────────────────────── */
@@ -841,36 +843,17 @@
   <!-- ═══ NAVIGATION ══════════════════════════════════════ -->
   <div class="nav-wrap" style="width:100%;">
     <nav id="main-nav">
+      <a href="index.html" class="cs-back-link" aria-label="Go back">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back
+      </a>
       <a href="index.html" class="nav-brand">
         <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
         <span class="nav-name">Vivek Vasudevan</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li class="active"><a href="index.html#case-studies">Case Studies</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><button onclick="document.getElementById('footer').scrollIntoView({behavior:'smooth'})">Let's Connect</button></li>
-      </ul>
-      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </nav>
-    <div class="mobile-menu" id="mobileMenu" role="menu">
-      <a href="index.html">Home</a>
-      <a href="index.html#case-studies">Case Studies</a>
-      <a href="about.html">About</a>
-      <button onclick="closeMobileMenu(); document.getElementById('footer').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
-    </div>
-  </div>
-
-  <!-- ═══ BACK BUTTON ════════════════════════════════════ -->
-  <div class="back-btn-wrap">
-    <button class="back-btn" onclick="history.back()" aria-label="Go back">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Back
-    </button>
   </div>
 
   <!-- ═══ CASE STUDY CONTENT ══════════════════════════════ -->
@@ -1153,7 +1136,6 @@
             </ul>
           </div>
         </div>
-      </div>
     </div><!-- /competitor-analysis interviews-outer -->
 
     <!-- ─── DEFINE: PERSONAS ──────────────────────────────── -->
@@ -1372,7 +1354,7 @@
     </div>
 
     <!-- How Might We -->
-    <div class="cs-section reveal" style="padding:0 101px;">
+    <div class="cs-section reveal">
       <div class="hmw-box">
         <p class="hmw-label">How might we...</p>
         <p class="hmw-question">Simplify influencer discovery and campaign management so that brands of all sizes can easily find authentic influencers, run campaigns efficiently, and measure their impact?</p>
@@ -1494,17 +1476,19 @@
     </div>
 
     <!-- ─── CREATING STRUCTURE ────────────────────────────── -->
-    <div class="cs-section reveal">
-      <p class="cs-section-label">Information Architecture</p>
-      <h2 class="cs-section-heading">Creating Structure</h2>
-      <p class="cs-body">Informed by insights gathered through surveys and user interviews, the site map was designed to support three core user tasks that form the foundation of the high-fidelity prototype. The structure focuses on creating an intuitive navigation system that enables users to move through the platform efficiently and accomplish their goals with minimal friction.</p>
-      <p class="cs-body">The site map organizes the platform into three key task streams:</p>
-      <ul class="ia-list">
-        <li>Onboarding and Registration – enabling new users to quickly set up their accounts and begin using the platform.</li>
-        <li>Campaign &amp; Profile Management – allowing users to manage their profiles, create campaigns, and collaborate with influencers.</li>
-        <li>Campaign Analytics – providing detailed insights and performance metrics to help users evaluate and optimize their campaigns.</li>
-      </ul>
-      <p class="cs-body">The framework established through the site map, combined with the user insights gathered during research, guided key design decisions throughout the product development process.</p>
+    <div class="interviews-outer reveal" style="gap:32px;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <p class="cs-section-label">Information Architecture</p>
+        <h2 class="cs-section-heading">Creating Structure</h2>
+        <p class="cs-body">Informed by insights gathered through surveys and user interviews, the site map was designed to support three core user tasks that form the foundation of the high-fidelity prototype. The structure focuses on creating an intuitive navigation system that enables users to move through the platform efficiently and accomplish their goals with minimal friction.</p>
+        <p class="cs-body">The site map organizes the platform into three key task streams:</p>
+        <ul class="ia-list">
+          <li>Onboarding and Registration – enabling new users to quickly set up their accounts and begin using the platform.</li>
+          <li>Campaign &amp; Profile Management – allowing users to manage their profiles, create campaigns, and collaborate with influencers.</li>
+          <li>Campaign Analytics – providing detailed insights and performance metrics to help users evaluate and optimize their campaigns.</li>
+        </ul>
+        <p class="cs-body">The framework established through the site map, combined with the user insights gathered during research, guided key design decisions throughout the product development process.</p>
+      </div>
       <div class="wireframes-box">
         <img src="assets/images/InformationArchitecture_AtisfyReach.png" alt="AtisfyReach information architecture" />
       </div>
