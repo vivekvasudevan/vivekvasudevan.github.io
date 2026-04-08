@@ -548,19 +548,19 @@
     .scroll-top img { width: 98px; height: 98px; display: block; }
     /* Tooltip */
     .scroll-top::after {
-      content: 'Scroll to top';
+      content: 'Back to top';
       position: absolute;
-      right: calc(100% + 10px);
-      top: 50%;
-      transform: translateY(-50%);
-      background: #2b2b2b;
-      color: #fff;
+      bottom: calc(100% + 10px);
+      right: 0;
+      background: #fff;
+      color: #2b2b2b;
       font-family: 'Work Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 400;
+      padding: 14px 24px;
+      border-radius: 16px;
       white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.2s;
