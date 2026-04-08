@@ -403,6 +403,41 @@
       display: block;
     }
 
+    /* ─── CENTRED PHONE-GRID SECTIONS (Earnings, Audience) ── */
+    .phones-section-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+    .phones-section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      color: #1a1a1a;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .phones-grid-3 {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+    .phones-grid-4 {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .phones-grid-3 img,
+    .phones-grid-4 img {
+      width: 100%;
+      display: block;
+    }
+
     /* ─── GETTING JOB READY ─────────────────────────────── */
     .jobready-inner {
       display: flex;
@@ -574,6 +609,8 @@
       .onboarding-title { font-size: 32px; }
       .jobready-title { font-size: 36px; }
       .jobready-phones-grid { grid-template-columns: 1fr; }
+      .phones-section-title { font-size: 36px; }
+      .phones-grid-3, .phones-grid-4 { grid-template-columns: repeat(2, 1fr); }
       .screen-section-outer { padding: 32px 24px; }
     }
   </style>
@@ -792,25 +829,28 @@
 
     <!-- ─── EARNINGS MANAGER ────────────────────────────── -->
     <div id="earnings" class="reveal">
-      <div class="section-header">
-        <p class="section-label">Screens</p>
-        <h2 class="section-heading">Earnings Manager</h2>
-        <p class="section-sub">A transparent earnings dashboard that gives creators a real-time view of their income, pending payments, and payout history — all in one place.</p>
-      </div>
-      <div class="screen-section-outer" style="min-height:240px; align-items:center; justify-content:center;">
-        <p style="font-family:'Work Sans',sans-serif; font-size:15px; color:#aaa; text-align:center;">Screens coming soon</p>
+      <div class="phones-section-inner">
+        <h2 class="phones-section-title">Earnings Manager</h2>
+        <div class="onboarding-bar"></div>
+        <div class="phones-grid-3">
+          <img src="assets/images/Atisfyre-EarnignManager-01.png" alt="Earnings Manager screen 1" />
+          <img src="assets/images/Atisfyre-EarnignManager-02.png" alt="Earnings Manager screen 2" />
+          <img src="assets/images/Atisfyre-EarnignManager-03.png" alt="Earnings Manager screen 3" />
+        </div>
       </div>
     </div>
 
     <!-- ─── AUDIENCE INTERESTS ──────────────────────────── -->
     <div id="audience" class="reveal">
-      <div class="section-header">
-        <p class="section-label">Screens</p>
-        <h2 class="section-heading">Audience Interests</h2>
-        <p class="section-sub">Deep audience insights that let creators understand who follows them, what content resonates, and how to position themselves to brands more effectively.</p>
-      </div>
-      <div class="screen-section-outer" style="min-height:240px; align-items:center; justify-content:center;">
-        <p style="font-family:'Work Sans',sans-serif; font-size:15px; color:#aaa; text-align:center;">Screens coming soon</p>
+      <div class="phones-section-inner">
+        <h2 class="phones-section-title">Audience Interests</h2>
+        <div class="onboarding-bar"></div>
+        <div class="phones-grid-4">
+          <img src="assets/images/Atisfyre-AudienceInterest-01.png" alt="Audience Interests screen 1" />
+          <img src="assets/images/Atisfyre-AudienceInterest-02.png" alt="Audience Interests screen 2" />
+          <img src="assets/images/Atisfyre-AudienceInterest-03.png" alt="Audience Interests screen 3" />
+          <img src="assets/images/Atisfyre-AudienceInterest-04.png" alt="Audience Interests screen 4" />
+        </div>
       </div>
     </div>
 
