@@ -573,6 +573,15 @@
       background: rgba(255,255,255,0.2);
       margin: 8px 0;
     }
+    .thanks-disclaimer {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      line-height: 1.7;
+      text-align: center;
+    }
     .thanks-copy {
       font-family: 'Work Sans', sans-serif;
       font-weight: 400;
@@ -598,6 +607,27 @@
       max-width: var(--inner-width);
       margin: 0 auto;
       padding: 0 20px;
+    }
+    .jobs-heading-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+    .jobs-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      color: #1a1a1a;
+      line-height: 1.15;
+      text-align: center;
+    }
+    .jobs-bar {
+      width: 160px;
+      height: 4px;
+      background: var(--red);
     }
 
     /* ─── RESPONSIVE ─────────────────────────────────────── */
@@ -634,6 +664,7 @@
       .screen-section-outer { padding: 32px 24px; }
       .jobs-top { padding: 60px 0 40px; }
       .jobs-bottom { padding: 40px 0 60px; }
+      .jobs-title { font-size: 32px; }
     }
   </style>
 </head>
@@ -890,9 +921,9 @@
     <!-- Top row: white background -->
     <div class="jobs-top">
       <div class="jobs-inner">
-        <div class="section-header">
-          <p class="section-label">Screens</p>
-          <h2 class="section-heading">Jobs (Offered, My and Past)</h2>
+        <div class="jobs-heading-block">
+          <h2 class="jobs-title">Jobs (Offered, My and Past)</h2>
+          <div class="jobs-bar"></div>
         </div>
         <div class="phones-grid-4">
           <img src="assets/images/Atisfyre-Jobs-Top-01.png" alt="Jobs screen 1" />
@@ -917,9 +948,8 @@
 
   <!-- ═══ THANKS / FOOTER ══════════════════════════════════ -->
   <div class="thanks-section">
-    <img src="assets/images/Atisfyre-Logo.svg" alt="Atisfyre logo" class="thanks-logo" />
     <h2 class="thanks-heading">Thanks for viewing!</h2>
-    <p class="thanks-sub">This showcase covers the core UI design and design system built for the Atisfyre mobile application.</p>
+    <p class="thanks-disclaimer">The diagrams/screens may not reflect the latest features of AtisfyReach due to ongoing development.<br>All rights reserved by Atisfy Pte. Ltd.</p>
     <div class="thanks-divider"></div>
     <p class="thanks-copy">© 2026 Vivek Vasudevan Design. All rights reserved.</p>
   </div>
