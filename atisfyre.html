@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atisfyre – Vivek Vasudevan Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Variables ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --page-max: 1440px;
+      --content-width: 1200px;
+      --inner-width: 1160px;
+      --red: #A00003;
+      --red-bright: #F7161D;
+      --yellow: #FFE600;
+      --dark-red: #5A0003;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: #2b2b2b;
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    .nav-wrap { position: sticky; top: 0; z-index: 100; width: 100%; padding: 0 20px; }
+    nav {
+      background: #fff; border-radius: 0 0 20px 20px; height: 82px;
+      padding: 0 20px; display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--content-width); margin: 0 auto;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
+    .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; }
+    .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero-section {
+      width: 100%;
+      background: var(--red);
+      display: flex;
+      align-items: stretch;
+      min-height: 560px;
+      overflow: hidden;
+    }
+    .hero-left {
+      background: var(--yellow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 80px;
+      flex: 0 0 520px;
+      gap: 32px;
+    }
+    .hero-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-logo-wrap img {
+      height: 56px;
+      width: auto;
+    }
+    .hero-app-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      color: var(--dark-red);
+      line-height: 1;
+    }
+    .hero-tagline {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--dark-red);
+      line-height: 1.6;
+      max-width: 320px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .hero-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-meta-label {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--dark-red);
+      opacity: 0.7;
+      min-width: 64px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero-meta-value {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--dark-red);
+    }
+    .hero-right {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-top: 40px;
+    }
+    .hero-right img {
+      max-height: 520px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ─── TABLE OF CONTENTS ──────────────────────────────── */
+    .toc-section {
+      width: 100%;
+      background: #EFEFEF;
+      padding: 60px 0;
+    }
+    .toc-inner {
+      max-width: var(--inner-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .toc-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: #1a1a1a;
+      margin-bottom: 32px;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1a1a1a;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 16px 20px;
+      background: #fff;
+      border-radius: 12px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .toc-item:hover {
+      background: var(--yellow);
+      transform: translateY(-2px);
+    }
+    .toc-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--red);
+      min-width: 24px;
+    }
+
+    /* ─── MAIN CONTENT WRAPPER ───────────────────────────── */
+    .cs-wrap {
+      width: var(--inner-width);
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+      padding: 100px 0 80px;
+    }
+
+    /* ─── SECTION HEADER ─────────────────────────────────── */
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .section-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 36px;
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.7;
+      max-width: 640px;
+      margin-top: 8px;
+    }
+
+    /* ─── COLOURS SECTION ────────────────────────────────── */
+    .colours-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .colour-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .colour-swatch {
+      width: 100%;
+      aspect-ratio: 1 / 0.8;
+      object-fit: cover;
+    }
+    .colour-info {
+      padding: 20px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .colour-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #1a1a1a;
+    }
+    .colour-hex {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      color: #888;
+    }
+    .colour-role {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* ─── TYPOGRAPHY SECTION ─────────────────────────────── */
+    .type-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .type-card {
+      background: #f9f9f9;
+      border-radius: 20px;
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .type-meta {
+      min-width: 200px;
+    }
+    .type-font-name {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .type-usage {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      color: #888;
+    }
+    .type-divider {
+      width: 1px;
+      height: 80px;
+      background: #ddd;
+      flex-shrink: 0;
+    }
+    .type-sample-montserrat-eb {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .type-sample-worksans-m {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 32px;
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+    .type-sample-worksans-r {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: #555;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+    .type-alphabet {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── SCREEN SECTION (full-bleed grey) ───────────────── */
+    .screen-section-outer {
+      width: 100%;
+      background: #f9f9f9;
+      border-radius: 20px;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .screen-section-outer.white {
+      background: transparent;
+      padding: 0;
+    }
+    .screen-img-full {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+    .screen-img-full.no-radius {
+      border-radius: 0;
+    }
+
+    /* ─── REVEAL ANIMATION ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+    .scroll-top {
+      position: fixed;
+      bottom: 32px;
+      right: 20px;
+      z-index: 200;
+      background: none;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      padding: 0;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top img { width: 56px; height: 56px; display: block; }
+
+    /* ─── FOOTER / THANKS ────────────────────────────────── */
+    .thanks-section {
+      width: 100%;
+      background: var(--red);
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+    .thanks-logo {
+      height: 64px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .thanks-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      color: var(--yellow);
+      line-height: 1.2;
+    }
+    .thanks-sub {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .thanks-divider {
+      width: 100%;
+      max-width: 400px;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      margin: 8px 0;
+    }
+    .thanks-copy {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-wrap { padding: 0; }
+      nav { padding: 0 20px; max-width: 100%; }
+
+      .hero-section { flex-direction: column; min-height: auto; }
+      .hero-left { flex: none; padding: 48px 32px; width: 100%; }
+      .hero-right { padding: 0 32px 40px; justify-content: center; }
+
+      .toc-grid { grid-template-columns: repeat(2, 1fr); }
+      .colours-grid { grid-template-columns: repeat(2, 1fr); }
+      .type-card { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px; }
+      .type-divider { width: 100%; height: 1px; }
+
+      .cs-wrap { width: 100%; padding: 60px 24px 60px; gap: 80px; }
+      .screen-section-outer { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+  <div class="nav-wrap" style="width:100%;">
+    <nav id="main-nav">
+      <a href="index.html" class="cs-back-link" aria-label="Go back">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back
+      </a>
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+        <span class="nav-name">Vivek Vasudevan</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- ═══ HERO ════════════════════════════════════════════ -->
+  <div class="hero-section">
+    <div class="hero-left">
+      <div class="hero-logo-wrap">
+        <img src="assets/images/Atisfyre-Logo.svg" alt="Atisfyre logo" />
+      </div>
+      <p class="hero-tagline">An AI-powered marketplace connecting creators with brands — simplifying discovery, rate-setting, and payments in one streamlined mobile experience.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-row">
+          <span class="hero-meta-label">Role</span>
+          <span class="hero-meta-value">Lead Product Designer</span>
+        </div>
+        <div class="hero-meta-row">
+          <span class="hero-meta-label">Scope</span>
+          <span class="hero-meta-value">UI Design, Design System, Mobile App</span>
+        </div>
+        <div class="hero-meta-row">
+          <span class="hero-meta-label">Platform</span>
+          <span class="hero-meta-value">iOS &amp; Android</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="assets/images/Atisfyre-Phone-Hero.svg" alt="Atisfyre app on mobile phone" />
+    </div>
+  </div>
+
+  <!-- ═══ TABLE OF CONTENTS ════════════════════════════════ -->
+  <div class="toc-section">
+    <div class="toc-inner">
+      <p class="toc-title">Table of contents</p>
+      <div class="toc-grid">
+        <a href="#colours" class="toc-item"><span class="toc-num">01</span> Colours</a>
+        <a href="#typography" class="toc-item"><span class="toc-num">02</span> Typography</a>
+        <a href="#signup" class="toc-item"><span class="toc-num">03</span> Sign Up Screen</a>
+        <a href="#login" class="toc-item"><span class="toc-num">04</span> Login Screen</a>
+        <a href="#onboarding" class="toc-item"><span class="toc-num">05</span> Influencer Onboarding</a>
+        <a href="#jobready" class="toc-item"><span class="toc-num">06</span> Getting Job Ready</a>
+        <a href="#earnings" class="toc-item"><span class="toc-num">07</span> Earnings Manager</a>
+        <a href="#audience" class="toc-item"><span class="toc-num">08</span> Audience Interests</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═════════════════════════════════════ -->
+  <div class="cs-wrap">
+
+    <!-- ─── COLOURS ─────────────────────────────────────── -->
+    <div id="colours" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Design System</p>
+        <h2 class="section-heading">Colours</h2>
+        <p class="section-sub">A bold, energetic palette built around red as the primary brand expression, with yellow for warmth and contrast, and deep red for depth and authority.</p>
+      </div>
+      <div class="colours-grid">
+        <div class="colour-card">
+          <img src="assets/images/RedAmber.svg" alt="Red Amber colour swatch" class="colour-swatch" />
+          <div class="colour-info">
+            <p class="colour-name">Red Amber</p>
+            <p class="colour-hex">#A00003</p>
+            <p class="colour-role">Primary Brand Colour</p>
+          </div>
+        </div>
+        <div class="colour-card">
+          <img src="assets/images/CayennedRed.svg" alt="Cayenne Red colour swatch" class="colour-swatch" />
+          <div class="colour-info">
+            <p class="colour-name">Cayenne Red</p>
+            <p class="colour-hex">#F7161D</p>
+            <p class="colour-role">Action &amp; Accent</p>
+          </div>
+        </div>
+        <div class="colour-card">
+          <img src="assets/images/SandStone.svg" alt="Sandstone colour swatch" class="colour-swatch" />
+          <div class="colour-info">
+            <p class="colour-name">Sandstone</p>
+            <p class="colour-hex">#FFE600</p>
+            <p class="colour-role">Highlight &amp; Energy</p>
+          </div>
+        </div>
+        <div class="colour-card">
+          <img src="assets/images/DeepRedDhalia.svg" alt="Deep Red Dahlia colour swatch" class="colour-swatch" />
+          <div class="colour-info">
+            <p class="colour-name">Deep Red Dahlia</p>
+            <p class="colour-hex">#5A0003</p>
+            <p class="colour-role">Depth &amp; Authority</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── TYPOGRAPHY ──────────────────────────────────── -->
+    <div id="typography" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Design System</p>
+        <h2 class="section-heading">Typography</h2>
+        <p class="section-sub">A dual-typeface system — Montserrat for bold, assertive headings and Work Sans for clear, readable body copy.</p>
+      </div>
+      <div class="type-grid">
+        <div class="type-card">
+          <div class="type-meta">
+            <p class="type-font-name">Montserrat</p>
+            <p class="type-usage">Extra Bold · Headings</p>
+          </div>
+          <div class="type-divider"></div>
+          <div>
+            <p class="type-sample-montserrat-eb">Aa Bb Cc</p>
+            <p class="type-alphabet">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+          </div>
+        </div>
+        <div class="type-card">
+          <div class="type-meta">
+            <p class="type-font-name">Work Sans</p>
+            <p class="type-usage">Medium · Subheadings</p>
+          </div>
+          <div class="type-divider"></div>
+          <div>
+            <p class="type-sample-worksans-m">Aa Bb Cc Dd</p>
+            <p class="type-alphabet">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+          </div>
+        </div>
+        <div class="type-card">
+          <div class="type-meta">
+            <p class="type-font-name">Work Sans</p>
+            <p class="type-usage">Regular · Body Copy</p>
+          </div>
+          <div class="type-divider"></div>
+          <div>
+            <p class="type-sample-worksans-r">Atisfyre connects creators and brands through smart AI matching — making collaboration effortless.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── SIGN UP SCREEN ──────────────────────────────── -->
+    <div id="signup" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Screens</p>
+        <h2 class="section-heading">Sign Up Screen</h2>
+        <p class="section-sub">A clean, guided onboarding flow that gets creators signed up and ready to connect with brands in just a few taps.</p>
+      </div>
+      <img src="assets/images/Atisfyre-SignUp.png" alt="Atisfyre Sign Up screens" class="screen-img-full" />
+    </div>
+
+    <!-- ─── LOGIN SCREEN ────────────────────────────────── -->
+    <div id="login" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Screens</p>
+        <h2 class="section-heading">Login Screen</h2>
+        <p class="section-sub">A seamless login experience designed for speed — returning users are back in the app in seconds.</p>
+      </div>
+      <div class="screen-section-outer">
+        <img src="assets/images/Atisfyre-Login.png" alt="Atisfyre Login screens" class="screen-img-full" />
+      </div>
+    </div>
+
+    <!-- ─── INFLUENCER ONBOARDING ───────────────────────── -->
+    <div id="onboarding" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Screens</p>
+        <h2 class="section-heading">Influencer Onboarding</h2>
+        <p class="section-sub">A step-by-step onboarding experience that helps influencers set up their profile, connect their social accounts, and prepare for their first brand collaboration.</p>
+      </div>
+      <img src="assets/images/Atisfyre-InfluencerOnboarding.svg" alt="Atisfyre Influencer Onboarding screens" class="screen-img-full" onerror="this.src='assets/images/Atisfyre-InfluencerOnboarding.png'" />
+    </div>
+
+    <!-- ─── GETTING JOB READY ───────────────────────────── -->
+    <div id="jobready" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Screens</p>
+        <h2 class="section-heading">Getting Job Ready</h2>
+        <p class="section-sub">Helping influencers complete their profile, set their rates, and showcase their best work — so brands can find and trust them immediately.</p>
+      </div>
+      <div class="screen-section-outer">
+        <img src="assets/images/Atisfyre-JobReady-01.svg" alt="Atisfyre Getting Job Ready screens" class="screen-img-full" />
+      </div>
+    </div>
+
+    <!-- ─── EARNINGS MANAGER ────────────────────────────── -->
+    <div id="earnings" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Screens</p>
+        <h2 class="section-heading">Earnings Manager</h2>
+        <p class="section-sub">A transparent earnings dashboard that gives creators a real-time view of their income, pending payments, and payout history — all in one place.</p>
+      </div>
+      <div class="screen-section-outer" style="min-height:240px; align-items:center; justify-content:center;">
+        <p style="font-family:'Work Sans',sans-serif; font-size:15px; color:#aaa; text-align:center;">Screens coming soon</p>
+      </div>
+    </div>
+
+    <!-- ─── AUDIENCE INTERESTS ──────────────────────────── -->
+    <div id="audience" class="reveal">
+      <div class="section-header">
+        <p class="section-label">Screens</p>
+        <h2 class="section-heading">Audience Interests</h2>
+        <p class="section-sub">Deep audience insights that let creators understand who follows them, what content resonates, and how to position themselves to brands more effectively.</p>
+      </div>
+      <div class="screen-section-outer" style="min-height:240px; align-items:center; justify-content:center;">
+        <p style="font-family:'Work Sans',sans-serif; font-size:15px; color:#aaa; text-align:center;">Screens coming soon</p>
+      </div>
+    </div>
+
+  </div><!-- /cs-wrap -->
+
+  <!-- ═══ THANKS / FOOTER ══════════════════════════════════ -->
+  <div class="thanks-section">
+    <img src="assets/images/Atisfyre-Logo.svg" alt="Atisfyre logo" class="thanks-logo" />
+    <h2 class="thanks-heading">Thanks for viewing!</h2>
+    <p class="thanks-sub">This showcase covers the core UI design and design system built for the Atisfyre mobile application.</p>
+    <div class="thanks-divider"></div>
+    <p class="thanks-copy">© 2026 Vivek Vasudevan Design. All rights reserved.</p>
+  </div>
+
+</div><!-- /page -->
+
+<!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
+</button>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  function updatePos() {
+    const vw = window.innerWidth;
+    scrollTopBtn.style.right = vw > 1440 ? ((vw - 1440) / 2 + 20) + 'px' : '20px';
+  }
+  updatePos();
+  window.addEventListener('resize', updatePos);
+</script>
+</body>
+</html>
