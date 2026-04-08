@@ -403,6 +403,52 @@
       display: block;
     }
 
+    /* ─── GETTING JOB READY ─────────────────────────────── */
+    .jobready-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .jobready-heading-block {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .jobready-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      color: #1a1a1a;
+      line-height: 1.1;
+    }
+    .jobready-desc {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: #333;
+      text-align: center;
+      max-width: 820px;
+      align-self: center;
+    }
+    .jobready-phones-img {
+      width: 100%;
+      display: block;
+    }
+    .jobready-captions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .jobready-caption {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #333;
+      text-align: center;
+    }
+
     /* ─── SCREEN SECTION (legacy, kept for other sections) ─ */
     .screen-section-outer {
       width: 100%;
@@ -519,6 +565,8 @@
       .screen-split-title { font-size: 32px; }
       .screen-split-phone { flex: none; width: 100%; }
       .onboarding-title { font-size: 32px; }
+      .jobready-title { font-size: 36px; }
+      .jobready-captions { grid-template-columns: 1fr; }
       .screen-section-outer { padding: 32px 24px; }
     }
   </style>
@@ -712,13 +760,18 @@
 
     <!-- ─── GETTING JOB READY ───────────────────────────── -->
     <div id="jobready" class="reveal">
-      <div class="section-header">
-        <p class="section-label">Screens</p>
-        <h2 class="section-heading">Getting Job Ready</h2>
-        <p class="section-sub">Helping influencers complete their profile, set their rates, and showcase their best work — so brands can find and trust them immediately.</p>
-      </div>
-      <div class="screen-section-outer">
-        <img src="assets/images/Atisfyre-JobReady-01.svg" alt="Atisfyre Getting Job Ready screens" class="screen-img-full" />
+      <div class="jobready-inner">
+        <div class="jobready-heading-block">
+          <h2 class="jobready-title">Getting the influencers job ready</h2>
+          <div class="screen-split-bar"></div>
+        </div>
+        <p class="jobready-desc">Atisfyre guides the influencers through the influencer marketing journey with easy-to-follow instructions setting them up for success.</p>
+        <img src="assets/images/Atisfyre-JobReady-01.svg" alt="Getting job ready phone screens" class="jobready-phones-img" />
+        <div class="jobready-captions">
+          <p class="jobready-caption">Atisfyre guides Influencers through the influencer marketing journey with easy-to-follow instructions.</p>
+          <p class="jobready-caption">Every step gets them closer to landing their first job.</p>
+          <p class="jobready-caption">When complete, they will unlock jobs and dip their toes into the influencer economy!</p>
+        </div>
       </div>
     </div>
 
