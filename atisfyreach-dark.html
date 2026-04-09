@@ -38,13 +38,15 @@
     nav {
       background: #fff; border-radius: 0 0 20px 20px; height: 82px;
       padding: 0 20px; display: flex; align-items: center; justify-content: space-between;
-      max-width: var(--content-width); margin: 0 auto;
+      max-width: var(--content-width); margin: 0 auto; position: relative;
       box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       transition: box-shadow 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
-    .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%); }
     .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; }
+    .mode-toggle { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; padding: 8px 4px; transition: opacity 0.2s; white-space: nowrap; }
+    .mode-toggle:hover { opacity: 0.6; }
     .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
     .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
     .nav-links a, .nav-links button {
@@ -1014,6 +1016,16 @@
     .footer-nav-links a { color: #fff; opacity: 0.45; }
     .footer-nav-links a:hover { opacity: 0.85; }
 
+    /* ─── Dark nav ──────────────────────────────────────── */
+    nav { background: #111111; box-shadow: none; }
+    nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.5); }
+    .cs-back-link { color: #fff; }
+    .cs-back-link svg path { stroke: #fff; }
+    .nav-name { color: #fff; }
+    .mode-toggle { color: #fff; }
+    .mode-toggle svg path { stroke: #fff; }
+    .nav-hamburger span { background: #fff; }
+
     /* ─── Scroll to top tooltip ─────────────────────────── */
     .scroll-top-tooltip { background: #1e1e2e; color: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.55); }
 
@@ -1030,13 +1042,17 @@
     <nav id="main-nav">
       <a href="index.html" class="cs-back-link" aria-label="Go back">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Back
       </a>
       <a href="index.html" class="nav-brand">
         <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
         <span class="nav-name">Vivek Vasudevan</span>
+      </a>
+      <a href="atisfyreach.html" class="mode-toggle" aria-label="Switch to light mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5" stroke="#fff" stroke-width="2"/><line x1="12" y1="2" x2="12" y2="4" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="22" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="12" x2="4" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="12" x2="22" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        Light Mode
       </a>
     </nav>
   </div>
