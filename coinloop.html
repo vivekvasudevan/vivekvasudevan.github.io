@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coinloop – Vivek Vasudevan Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     /* ─── Reset ──────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -103,7 +103,7 @@
     .cl-overview {
       width: 100%;
       background: #fff;
-      padding: 80px 40px;
+      padding: 120px 40px 80px;
     }
     .cl-overview-inner {
       max-width: 1003px;
@@ -153,12 +153,13 @@
       text-align: center;
     }
     .cl-feature-icon {
-      width: 48px;
       height: 64px;
+      width: auto;
       flex-shrink: 0;
+      display: block;
     }
     .cl-feature-text {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       font-weight: 500;
       font-size: 30px;
       line-height: 38px;
@@ -169,52 +170,61 @@
     .cl-process {
       width: 100%;
       background: #fff;
-      padding: 80px 40px;
     }
-    .cl-process-inner {
-      max-width: 1004px;
+    .cl-process-header {
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 80px 120px 60px;
     }
     .cl-process-title {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       font-weight: 700;
       font-size: 40px;
       line-height: 50px;
       color: #000;
-      margin-bottom: 60px;
     }
-    .cl-process-cards {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
+    .cl-process-stage {
+      width: 100%;
+      position: relative;
+    }
+    .cl-process-stage--overlap {
+      margin-top: calc(-17vw - 40px);
+      position: relative;
+      z-index: 2;
+    }
+    .cl-process-stage-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     .cl-process-card {
+      position: absolute;
       background: var(--cl-blue);
-      padding: 40px;
+      padding: 32px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-      flex: 1;
-      min-width: 280px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 26px;
+      z-index: 2;
     }
     .cl-process-num {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       font-weight: 500;
       font-size: 30px;
+      line-height: 38px;
       color: #fff;
     }
     .cl-process-items {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0;
     }
     .cl-process-items li {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       font-weight: 400;
-      font-size: 24px;
-      line-height: 32px;
+      font-size: 28px;
+      line-height: 40px;
       color: #fff;
     }
 
@@ -337,7 +347,7 @@
       text-align: center;
     }
     .cl-context-body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       font-weight: 500;
       font-size: 25px;
       line-height: 40px;
@@ -543,23 +553,12 @@
   <div class="cl-features-inner reveal">
     <!-- Card 1 -->
     <div class="cl-feature-card">
-      <svg class="cl-feature-icon" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="2" y="10" width="44" height="44" rx="6" stroke="#000" stroke-width="3"/>
-        <path d="M14 10V6a10 10 0 0 1 20 0v4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="24" cy="32" r="6" stroke="#000" stroke-width="3"/>
-        <line x1="24" y1="38" x2="24" y2="44" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-      </svg>
+      <img class="cl-feature-icon" src="assets/images/Coinloop-Bitcoin-Crypto-Logo.svg" alt="" aria-hidden="true" />
       <p class="cl-feature-text">Hold all crypto currencies in one place</p>
     </div>
     <!-- Card 2 -->
     <div class="cl-feature-card">
-      <svg class="cl-feature-icon" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="2" y="14" width="44" height="28" rx="6" stroke="#000" stroke-width="3"/>
-        <rect x="8" y="20" width="12" height="16" rx="3" stroke="#000" stroke-width="3"/>
-        <line x1="26" y1="26" x2="40" y2="26" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="26" y1="32" x2="36" y2="32" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <path d="M24 42v8M16 50h16" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-      </svg>
+      <img class="cl-feature-icon" src="assets/images/Coinloop-Bitcoin-Software-Wallet-Logo.svg" alt="" aria-hidden="true" />
       <p class="cl-feature-text">Seamlessly connect to your hardware wallet</p>
     </div>
   </div>
@@ -567,35 +566,23 @@
 
 <!-- ═══ PROCESS ═════════════════════════════════════════ -->
 <section class="cl-process">
-  <div class="cl-process-inner reveal">
+  <div class="cl-process-header reveal">
     <h2 class="cl-process-title">Process</h2>
-    <div class="cl-process-cards">
-      <!-- Card 01 -->
-      <div class="cl-process-card">
-        <span class="cl-process-num">01</span>
-        <ul class="cl-process-items">
-          <li>User Personas</li>
-          <li>Journey maps</li>
-          <li>Surveys</li>
-        </ul>
-      </div>
-      <!-- Card 02 -->
-      <div class="cl-process-card">
-        <span class="cl-process-num">02</span>
-        <ul class="cl-process-items">
-          <li>User Flows</li>
-          <li>Information Architecture</li>
-        </ul>
-      </div>
-      <!-- Card 03 -->
-      <div class="cl-process-card">
-        <span class="cl-process-num">03</span>
-        <ul class="cl-process-items">
-          <li>Sketches</li>
-          <li>Wireframes</li>
-        </ul>
-      </div>
-    </div>
+  </div>
+
+  <!-- Stage 01 -->
+  <div class="cl-process-stage reveal">
+    <img class="cl-process-stage-img" src="assets/images/Coinloop-Process-01.png" alt="Process stage 01 – research" />
+  </div>
+
+  <!-- Stage 02 -->
+  <div class="cl-process-stage reveal">
+    <img class="cl-process-stage-img" src="assets/images/Coinloop-Process-02.png" alt="Process stage 02 – define" />
+  </div>
+
+  <!-- Stage 03 -->
+  <div class="cl-process-stage cl-process-stage--overlap reveal">
+    <img class="cl-process-stage-img" src="assets/images/Coinloop-Process-03.png" alt="Process stage 03 – ideate" />
   </div>
 </section>
 
