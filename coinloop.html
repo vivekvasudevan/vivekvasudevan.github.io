@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coinloop – Vivek Vasudevan Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --page-max: 1440px;
+      --content-width: 1004px;
+      --cl-blue: #0264B6;
+      --cl-blue-50: rgba(2, 100, 182, 0.5);
+      --cl-gray-bg: #B3B3B3;
+      --dark: #2b2b2b;
+    }
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: var(--dark);
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    .cl-nav-wrap {
+      position: sticky; top: 0; z-index: 100;
+      width: 100%;
+      background: var(--cl-blue);
+      /* matches hero image background colour */
+    }
+    .cl-nav {
+      height: 82px;
+      padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto;
+      background: #fff;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s;
+    }
+    .cl-nav-wrap.scrolled .cl-nav {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .cl-back-link {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 15px; font-weight: 500;
+      color: var(--dark);
+      transition: opacity 0.2s;
+    }
+    .cl-back-link:hover { opacity: 0.6; }
+    .cl-nav-brand {
+      display: flex; align-items: center; gap: 9px;
+      text-decoration: none;
+    }
+    .cl-nav-name {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--dark); white-space: nowrap;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .cl-hero {
+      width: 100%;
+      height: 1272px;
+      background: url('assets/images/Coinloop-Hero-Section.png') center top / 1440px 1272px no-repeat;
+      position: relative;
+    }
+    .cl-hero-content {
+      position: absolute;
+      left: 220px;
+      top: 335px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      z-index: 2;
+      width: 450px;
+    }
+    .cl-hero-logo { width: 390px; height: auto; display: block; }
+    .cl-hero-tagline {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 30px;
+      color: #fff;
+      margin-top: 100px;
+      white-space: nowrap;
+    }
+    .cl-hero-sub {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: #fff;
+      line-height: 30px;
+      margin-top: 14px;
+    }
+
+    /* ─── PROJECT OVERVIEW ───────────────────────────────── */
+    .cl-overview {
+      width: 100%;
+      background: #fff;
+      padding: 80px 40px;
+    }
+    .cl-overview-inner {
+      max-width: 1003px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+    .cl-overview-title {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 50px;
+      color: #000;
+      text-align: center;
+    }
+    .cl-overview-body {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 34px;
+      color: #000;
+      text-align: center;
+    }
+
+    /* ─── FEATURES STRIP ─────────────────────────────────── */
+    .cl-features {
+      width: 100%;
+      background: var(--cl-blue-50);
+      padding: 80px 40px;
+    }
+    .cl-features-inner {
+      max-width: 1003px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .cl-feature-card {
+      max-width: 376px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+    .cl-feature-icon {
+      width: 48px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .cl-feature-text {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 38px;
+      color: #000;
+    }
+
+    /* ─── PROCESS ───────────────────────────────────────── */
+    .cl-process {
+      width: 100%;
+      background: #fff;
+      padding: 80px 40px;
+    }
+    .cl-process-inner {
+      max-width: 1004px;
+      margin: 0 auto;
+    }
+    .cl-process-title {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 50px;
+      color: #000;
+      margin-bottom: 60px;
+    }
+    .cl-process-cards {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cl-process-card {
+      background: var(--cl-blue);
+      padding: 40px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .cl-process-num {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 30px;
+      color: #fff;
+    }
+    .cl-process-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cl-process-items li {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 32px;
+      color: #fff;
+    }
+
+    /* ─── PHONE MOCKUP (shared style) ───────────────────── */
+    .cl-phone-img {
+      width: 247px;
+      height: 439px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+      display: block;
+      flex-shrink: 0;
+    }
+    .cl-phones-row {
+      display: flex;
+      justify-content: center;
+      gap: 44px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── INITIALIZATION PROCESS ─────────────────────────── */
+    .cl-init {
+      width: 100%;
+      background: var(--cl-blue);
+      padding: 80px 40px;
+    }
+    .cl-init-inner {
+      max-width: 1004px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .cl-section-title-white {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      color: #fff;
+    }
+
+    /* ─── PORTFOLIO SCREEN ───────────────────────────────── */
+    .cl-portfolio {
+      width: 100%;
+      background: var(--cl-gray-bg);
+      padding: 80px 40px;
+    }
+    .cl-portfolio-inner {
+      max-width: 1004px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .cl-portfolio-desc {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 32px;
+      color: #fff;
+    }
+
+    /* ─── SEND AND RECEIVE ───────────────────────────────── */
+    .cl-sendreceive {
+      width: 100%;
+      background: #fff;
+      padding: 80px 40px;
+    }
+    .cl-sendreceive-inner {
+      max-width: 1004px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .cl-section-title-dark {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      color: #000;
+    }
+    .cl-phones-row-left {
+      display: flex;
+      justify-content: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cl-phones-row-right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cl-sendreceive-desc {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 32px;
+      color: #000;
+    }
+
+    /* ─── PROJECT CONTEXT BANNER ─────────────────────────── */
+    .cl-context {
+      width: 100%;
+      background: var(--cl-blue);
+      padding: 80px 40px;
+    }
+    .cl-context-inner {
+      max-width: 1012px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .cl-context-title {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      color: #fff;
+      text-align: center;
+    }
+    .cl-context-body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 40px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* ─── THANKS BANNER ──────────────────────────────────── */
+    .cl-thanks {
+      width: 100%;
+      background: var(--cl-blue);
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .cl-thanks-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 72px;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .cl-thanks-sub {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      display: flex; flex-direction: column; align-items: center; gap: 64px;
+      width: 100%; max-width: 1200px; padding-top: 0; margin-top: 40px;
+    }
+    .footer-cta { display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%; }
+    .footer-eyebrow { font-size: 24px; font-weight: 500; color: #2b2b2b; opacity: 0.8; text-transform: uppercase; text-align: center; letter-spacing: 0.05em; }
+    .footer-headline-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 192px; justify-content: flex-start; }
+    .footer-headline { font-size: 80px; font-weight: 700; color: #2b2b2b; text-align: center; line-height: 100px; }
+    .footer-btns { display: flex; gap: 24px; align-items: center; }
+    .btn-filled { background: #2b2b2b; color: #fff; padding: 16px 24px; border-radius: 8px; font-size: 24px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-filled:hover { background: #444; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid #2b2b2b; color: #2b2b2b; padding: 16px 24px; border-radius: 8px; font-size: 24px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-outline:hover { background: #f5f5f5; transform: translateY(-2px); }
+    .footer-bottom-area { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
+    .footer-email-link { display: flex; align-items: center; gap: 10px; padding: 16px; text-decoration: none; color: #2b2b2b; font-size: 16px; font-weight: 500; border-radius: 8px; transition: opacity 0.2s; }
+    .footer-email-link:hover { opacity: 0.6; }
+    .footer-bottom-nav { width: 1200px; padding: 16px 20px; border-radius: 20px 20px 0 0; background: #f8f7f4; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .footer-brand-text { display: flex; flex-direction: column; gap: 4px; }
+    .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
+    .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
+    .footer-nav-links { display: flex; gap: 24px; list-style: none; }
+    .footer-nav-links a { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
+    .footer-nav-links a:hover { opacity: 0.8; }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+    .scroll-top { position: fixed; right: 20px; bottom: 40px; width: 98px; height: 98px; background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; z-index: 99; }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { transform: translateY(-4px); }
+    .scroll-top img { width: 98px; height: 98px; display: block; }
+    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
+    .scroll-top-tooltip.visible { opacity: 1; }
+
+    /* ─── REVEAL ANIMATION ───────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── PAGE WRAPPER ───────────────────────────────────── */
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .cl-hero-content {
+        left: 40px;
+        right: 40px;
+        top: 260px;
+      }
+      .cl-overview { padding: 60px 40px; }
+      .cl-overview-title { font-size: 42px; }
+    }
+    @media (max-width: 900px) {
+      .cl-hero {
+        height: auto;
+        min-height: 500px;
+        padding-bottom: 400px;
+        background-size: cover;
+        background-position: right bottom;
+      }
+      .cl-hero-content {
+        left: 40px;
+        top: 60px;
+      }
+      .cl-features-inner {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cl-feature-card {
+        max-width: 100%;
+      }
+      .cl-phone-img {
+        width: 200px;
+        height: 355px;
+      }
+      .cl-phones-row { gap: 24px; }
+      .cl-phones-row-left { gap: 24px; }
+      .cl-phones-row-right { gap: 24px; justify-content: flex-start; }
+      nav, .cl-nav { padding: 0 20px; }
+      .cl-thanks-heading { font-size: 48px; }
+      .footer-bottom-nav { width: 100%; }
+      .footer { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .cl-hero-content { left: 20px; top: 40px; }
+      .cl-hero-logo { height: 60px; }
+      .cl-hero-tagline { font-size: 22px; margin-top: 40px; }
+      .cl-hero-sub { font-size: 16px; }
+      .cl-phone-img {
+        width: 150px;
+        height: 266px;
+      }
+      .cl-phones-row { gap: 16px; }
+      .cl-phones-row-left { gap: 16px; }
+      .cl-phones-row-right { gap: 16px; }
+      .cl-hero-tagline { font-size: 22px; }
+      .cl-hero-sub { font-size: 16px; }
+      .cl-overview { padding: 48px 20px; }
+      .cl-overview-title { font-size: 36px; }
+      .cl-overview-body { font-size: 18px; line-height: 28px; }
+      .cl-features { padding: 60px 20px; }
+      .cl-feature-text { font-size: 22px; }
+      .cl-process { padding: 60px 20px; }
+      .cl-process-title { font-size: 32px; }
+      .cl-process-items li { font-size: 18px; }
+      .cl-init { padding: 60px 20px; }
+      .cl-portfolio { padding: 60px 20px; }
+      .cl-portfolio-desc { font-size: 18px; }
+      .cl-sendreceive { padding: 60px 20px; }
+      .cl-sendreceive-desc { font-size: 18px; }
+      .cl-context { padding: 60px 20px; }
+      .cl-context-title { font-size: 32px; }
+      .cl-context-body { font-size: 18px; line-height: 30px; }
+      .cl-thanks { padding: 60px 20px; }
+      .cl-thanks-heading { font-size: 36px; }
+      .cl-section-title-white { font-size: 32px; }
+      .cl-section-title-dark { font-size: 32px; }
+      .cl-nav { padding: 0 16px; }
+      .cl-nav-name { font-size: 16px; }
+      .footer-headline { font-size: 48px; line-height: 1.2; }
+      .footer-headline-wrap { height: auto; gap: 24px; }
+      .footer-btns { flex-direction: column; gap: 12px; align-items: stretch; }
+      .footer-bottom-nav { flex-direction: column; gap: 12px; align-items: center; border-radius: 20px 20px 0 0; padding: 16px; }
+      .footer-nav-links { display: none; }
+      .footer-brand { justify-content: center; }
+      .footer-brand-text { align-items: center; }
+      .scroll-top { right: 8px; width: 60px; height: 60px; }
+      .scroll-top img { width: 60px; height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+<div class="cl-nav-wrap" id="nav-wrap">
+  <div class="cl-nav">
+    <a href="index.html" class="cl-back-link" aria-label="Go back to home">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </a>
+    <a href="index.html" class="cl-nav-brand">
+      <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+      <span class="cl-nav-name">Vivek Vasudevan</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ HERO SECTION ════════════════════════════════════ -->
+<section class="cl-hero">
+  <div class="cl-hero-content">
+    <img class="cl-hero-logo" src="assets/images/Coinloop-Logo.svg" alt="Coinloop" />
+    <p class="cl-hero-tagline">Mobile Hardware/Software Wallet</p>
+    <p class="cl-hero-sub">World's first hardware wallet app - 2018</p>
+  </div>
+</section>
+
+<!-- ═══ PROJECT OVERVIEW ════════════════════════════════ -->
+<section class="cl-overview">
+  <div class="cl-overview-inner reveal">
+    <h2 class="cl-overview-title">Project Overview</h2>
+    <p class="cl-overview-body">Coinloop is a mobile application which acts as an interface for hardware wallets like Trezor and Octowallet as well as a software wallet. This is the world's first mobile app which interfaces directly with the hardware wallet. Focusing on an intuitive interface, the app's main objective is to act as the perfect crypto wallet to be used anywhere on the go!</p>
+  </div>
+</section>
+
+<!-- ═══ FEATURES STRIP ══════════════════════════════════ -->
+<section class="cl-features">
+  <div class="cl-features-inner reveal">
+    <!-- Card 1 -->
+    <div class="cl-feature-card">
+      <svg class="cl-feature-icon" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="10" width="44" height="44" rx="6" stroke="#000" stroke-width="3"/>
+        <path d="M14 10V6a10 10 0 0 1 20 0v4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="24" cy="32" r="6" stroke="#000" stroke-width="3"/>
+        <line x1="24" y1="38" x2="24" y2="44" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <p class="cl-feature-text">Hold all crypto currencies in one place</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="cl-feature-card">
+      <svg class="cl-feature-icon" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="14" width="44" height="28" rx="6" stroke="#000" stroke-width="3"/>
+        <rect x="8" y="20" width="12" height="16" rx="3" stroke="#000" stroke-width="3"/>
+        <line x1="26" y1="26" x2="40" y2="26" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        <line x1="26" y1="32" x2="36" y2="32" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        <path d="M24 42v8M16 50h16" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <p class="cl-feature-text">Seamlessly connect to your hardware wallet</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═════════════════════════════════════════ -->
+<section class="cl-process">
+  <div class="cl-process-inner reveal">
+    <h2 class="cl-process-title">Process</h2>
+    <div class="cl-process-cards">
+      <!-- Card 01 -->
+      <div class="cl-process-card">
+        <span class="cl-process-num">01</span>
+        <ul class="cl-process-items">
+          <li>User Personas</li>
+          <li>Journey maps</li>
+          <li>Surveys</li>
+        </ul>
+      </div>
+      <!-- Card 02 -->
+      <div class="cl-process-card">
+        <span class="cl-process-num">02</span>
+        <ul class="cl-process-items">
+          <li>User Flows</li>
+          <li>Information Architecture</li>
+        </ul>
+      </div>
+      <!-- Card 03 -->
+      <div class="cl-process-card">
+        <span class="cl-process-num">03</span>
+        <ul class="cl-process-items">
+          <li>Sketches</li>
+          <li>Wireframes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INITIALIZATION PROCESS ══════════════════════════ -->
+<section class="cl-init">
+  <div class="cl-init-inner reveal">
+    <h2 class="cl-section-title-white">Initialization Process</h2>
+    <div class="cl-phones-row">
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-WalletLoading.png" alt="Wallet Loading screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-BitcoinWallet.png" alt="Bitcoin Wallet screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-ConfirmAddress.png" alt="Confirm Address screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-SelectFee.png" alt="Select Fee screen" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PORTFOLIO SCREEN ═════════════════════════════════ -->
+<section class="cl-portfolio">
+  <div class="cl-portfolio-inner reveal">
+    <h2 class="cl-section-title-white">Portfolio Screen</h2>
+    <div class="cl-phones-row">
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Assets.png" alt="Assets screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Send.png" alt="Send screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Receive.png" alt="Receive screen" />
+    </div>
+    <p class="cl-portfolio-desc">The Portfolio Screen shows the user all the crypto assets they hold. They can tap on any one of them for details about all the transactions for that particular asset. The bottom navigation bar makes it easy for the user to use all the features of the app</p>
+  </div>
+</section>
+
+<!-- ═══ SEND AND RECEIVE ═════════════════════════════════ -->
+<section class="cl-sendreceive">
+  <div class="cl-sendreceive-inner reveal">
+    <h2 class="cl-section-title-dark">Send and Receive</h2>
+    <!-- Row 1: Send, SelectFee -->
+    <div class="cl-phones-row-left">
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Send.png" alt="Send screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-SelectFee.png" alt="Select Fee screen" />
+    </div>
+    <p class="cl-sendreceive-desc">Send and receive crypto assets were the two of the most important actions the user could make using the app, simple to use but with several layers of security.</p>
+    <!-- Row 2: ConfirmAddress, Receive — aligned right -->
+    <div class="cl-phones-row-right">
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-ConfirmAddress.png" alt="Confirm Address screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Receive.png" alt="Receive screen" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECT CONTEXT BANNER ═══════════════════════════ -->
+<section class="cl-context">
+  <div class="cl-context-inner reveal">
+    <h2 class="cl-context-title">About the Project</h2>
+    <p class="cl-context-body">This project was for Coin Loop Pty. Ltd. in Melbourne, Australia. There are two versions of the app — a React Native app as well as an Android Native app. I worked on both but this details the work only for the Android Native app.</p>
+  </div>
+</section>
+
+<!-- ═══ THANKS BANNER ════════════════════════════════════ -->
+<div class="cl-thanks reveal" style="margin-top: 0;">
+  <h2 class="cl-thanks-heading">Thanks for viewing!</h2>
+  <p class="cl-thanks-sub">All rights reserved by Coin Loop Pty. Ltd.</p>
+</div>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<div class="page" style="width:100%;padding-bottom:0;">
+  <footer class="footer" id="footer">
+    <div class="footer-cta reveal">
+      <p class="footer-eyebrow">Like what you see?</p>
+      <div class="footer-headline-wrap">
+        <h2 class="footer-headline">Let's Connect!</h2>
+        <div class="footer-btns">
+          <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn-outline" href="https://drive.google.com/uc?export=download&id=1M83IXrkA5TnbnnoIDzwx2d1z875CXilI" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area reveal">
+      <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        vivek.vasudevan.design@gmail.com
+      </a>
+      <div class="footer-bottom-nav">
+        <a href="index.html" class="footer-brand">
+          <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Vivek Vasudevan Design</span>
+            <span class="footer-brand-copy">© 2026 All rights reserved</span>
+          </div>
+        </a>
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#case-studies">Case Studies</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
+<div class="scroll-top-tooltip" id="scrollTooltip">Back to top</div>
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
+</button>
+
+<script>
+  const navWrap = document.getElementById('nav-wrap');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const scrollTooltip = document.getElementById('scrollTooltip');
+
+  // Nav scrolled class
+  window.addEventListener('scroll', () => {
+    navWrap.classList.toggle('scrolled', window.scrollY > 20);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Scroll-to-top tooltip
+  scrollTopBtn.addEventListener('mouseenter', () => {
+    if (scrollTopBtn.classList.contains('visible')) scrollTooltip.classList.add('visible');
+  });
+  scrollTopBtn.addEventListener('mouseleave', () => scrollTooltip.classList.remove('visible'));
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Scroll-to-top position (fixed right: 20px — no dynamic calc needed)
+  function updatePos() {
+    scrollTopBtn.style.right = '20px';
+    scrollTooltip.style.right = '20px';
+  }
+  updatePos();
+  window.addEventListener('resize', updatePos);
+</script>
+</body>
+</html>
