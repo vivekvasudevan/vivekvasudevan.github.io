@@ -71,6 +71,14 @@
       background: url('assets/images/Coinloop-Hero-Section.png') center top / 1440px 1272px no-repeat;
       position: relative;
     }
+    .cl-hero-centering {
+      position: absolute;
+      inset: 0;
+      max-width: 1440px;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     .cl-hero-content {
       position: absolute;
       left: 220px;
@@ -541,10 +549,12 @@
 
 <!-- ═══ HERO SECTION ════════════════════════════════════ -->
 <section class="cl-hero">
-  <div class="cl-hero-content">
-    <img class="cl-hero-logo" src="assets/images/Coinloop-Logo.svg" alt="Coinloop" />
-    <p class="cl-hero-tagline">Mobile Hardware/Software Wallet</p>
-    <p class="cl-hero-sub">World's first hardware wallet app - 2018</p>
+  <div class="cl-hero-centering">
+    <div class="cl-hero-content">
+      <img class="cl-hero-logo" src="assets/images/Coinloop-Logo.svg" alt="Coinloop" />
+      <p class="cl-hero-tagline">Mobile Hardware/Software Wallet</p>
+      <p class="cl-hero-sub">World's first hardware wallet app - 2018</p>
+    </div>
   </div>
 </section>
 
