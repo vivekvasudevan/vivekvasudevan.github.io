@@ -82,22 +82,38 @@
       margin: 0 auto;
       height: 810px;
     }
-    /* Large outline "Mantro" text */
+    /* Hero text common style */
+    .mt-hero-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      line-height: 1.05;
+      color: rgba(217, 217, 217, 0.10);
+      -webkit-text-stroke: 1.5px #FFFFFF;
+      user-select: none;
+      white-space: nowrap;
+    }
+    /* Large "Mantro" wordmark top-left */
     .mt-hero-wordmark {
       position: absolute;
       top: 0;
-      left: 0;
-      right: 0;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 800;
+      left: 4vw;
       font-size: 22vw;
-      line-height: 1;
-      color: transparent;
-      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
-      white-space: nowrap;
-      user-select: none;
-      padding-left: 4vw;
       letter-spacing: -0.02em;
+    }
+    /* "Restaurant Management System" – stacked lines, centered */
+    .mt-hero-subtext {
+      position: absolute;
+      top: 52%;
+      left: 0; right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      z-index: 1;
+    }
+    .mt-hero-subtext span {
+      font-size: 9vw;
+      display: block;
     }
     /* Yellow logo badge */
     .mt-hero-logo-wrap {
@@ -111,13 +127,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 2;
+      z-index: 3;
     }
     .mt-hero-logo {
       width: 72px;
       height: auto;
     }
-    /* Phone mockup image */
+    /* Phone mockup image — slides in */
     .mt-hero-phones {
       position: absolute;
       right: 0;
@@ -125,6 +141,13 @@
       height: 810px;
       width: auto;
       z-index: 2;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+    }
+    .mt-hero-phones.slide-in {
+      transform: translateX(0);
+      opacity: 1;
     }
 
     /* ─── ABOUT ──────────────────────────────────────────── */
@@ -556,11 +579,16 @@
 <section class="mt-hero">
   <div class="mt-hero-bg"></div>
   <div class="mt-hero-inner">
-    <span class="mt-hero-wordmark" aria-hidden="true">Mantro</span>
+    <span class="mt-hero-wordmark mt-hero-text" aria-hidden="true">Mantro</span>
+    <div class="mt-hero-subtext" aria-hidden="true">
+      <span class="mt-hero-text">Restaurant</span>
+      <span class="mt-hero-text">Management</span>
+      <span class="mt-hero-text">System</span>
+    </div>
     <div class="mt-hero-logo-wrap">
       <img class="mt-hero-logo" src="assets/images/Mantro-Logo.svg" alt="Mantro" />
     </div>
-    <img class="mt-hero-phones" src="assets/images/Mantro-HeroImage.png" alt="Mantro app screens" />
+    <img class="mt-hero-phones" id="heroPhones" src="assets/images/Mantro-HeroImage.png" alt="Mantro app screens" />
   </div>
 </section>
 
@@ -966,6 +994,11 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Phone slide-in after short delay on load
+  setTimeout(() => {
+    document.getElementById('heroPhones').classList.add('slide-in');
+  }, 500);
 </script>
 </body>
 </html>
