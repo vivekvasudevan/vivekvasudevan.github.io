@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mantro – Vivek Vasudevan Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --page-max: 1440px;
+      --content-width: 1004px;
+      --mt-dark: #0D0D0D;
+      --mt-yellow: #E8B84B;
+      --mt-yellow-dim: rgba(232, 184, 75, 0.15);
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--mt-dark);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    .mt-nav-wrap {
+      position: sticky; top: 0; z-index: 100;
+      width: 100%;
+      background: transparent;
+      transition: background 0.3s;
+    }
+    .mt-nav {
+      height: 82px;
+      padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto;
+      background: #fff;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s;
+    }
+    .mt-nav-wrap.scrolled .mt-nav {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .mt-back-link {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 15px; font-weight: 500;
+      color: #2b2b2b;
+      transition: opacity 0.2s;
+    }
+    .mt-back-link:hover { opacity: 0.6; }
+    .mt-nav-brand {
+      display: flex; align-items: center; gap: 9px;
+      text-decoration: none;
+    }
+    .mt-nav-name {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: #2b2b2b; white-space: nowrap;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .mt-hero {
+      width: 100%;
+      position: relative;
+      background: var(--mt-dark);
+      overflow: hidden;
+    }
+    .mt-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/images/Mantro-BG.png') center center / cover no-repeat;
+      opacity: 0.25;
+    }
+    .mt-hero-inner {
+      position: relative;
+      max-width: 1440px;
+      margin: 0 auto;
+      height: 810px;
+    }
+    /* Large outline "Mantro" text */
+    .mt-hero-wordmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 22vw;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
+      white-space: nowrap;
+      user-select: none;
+      padding-left: 4vw;
+      letter-spacing: -0.02em;
+    }
+    /* Yellow logo badge */
+    .mt-hero-logo-wrap {
+      position: absolute;
+      top: 40px;
+      left: 60px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #302818;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .mt-hero-logo {
+      width: 72px;
+      height: auto;
+    }
+    /* Phone mockup image */
+    .mt-hero-phones {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 810px;
+      width: auto;
+      z-index: 2;
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .mt-about {
+      width: 100%;
+      position: relative;
+      background: var(--mt-dark);
+      overflow: hidden;
+      min-height: 792px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mt-about-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/images/Mantro-BG.png') center center / cover no-repeat;
+      opacity: 0.3;
+      filter: blur(4px);
+    }
+    .mt-about-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 900px;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .mt-about-logo {
+      width: 150px;
+      height: auto;
+    }
+    .mt-about-meta {
+      display: flex;
+      gap: 32px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      margin-top: 8px;
+    }
+    .mt-about-meta strong { color: #fff; font-weight: 600; }
+    .mt-about-tagline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.4;
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    /* ─── LOGOS ───────────────────────────────────────────── */
+    .mt-logos {
+      width: 100%;
+      background: #1a1a1a;
+      padding: 80px 40px;
+    }
+    .mt-logos-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    .mt-logo-card {
+      width: 320px;
+      height: 320px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .mt-logo-card img {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+    }
+    .mt-logo-card--yellow { background: #D0AF51; }
+    .mt-logo-card--white  { background: #ffffff; }
+    .mt-logo-card--dark   { background: #383838; }
+
+    /* ─── OBJECTIVE ──────────────────────────────────────── */
+    .mt-objective {
+      width: 100%;
+      position: relative;
+      height: 810px;
+      background: url('assets/images/Mantro-ObjectiveBG.png') center center / cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .mt-objective-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85) 60%, #0D0D0D 100%);
+    }
+    .mt-objective-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+      padding: 0 40px 60px;
+    }
+    .mt-objective-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--mt-yellow);
+      margin-bottom: 20px;
+    }
+    .mt-objective-body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.6;
+      color: #fff;
+    }
+
+    /* ─── OVERVIEW ───────────────────────────────────────── */
+    .mt-overview {
+      width: 100%; background: var(--mt-dark); padding: 100px 40px;
+    }
+    .mt-overview-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .mt-section-label {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 40px;
+      color: var(--mt-yellow); margin-bottom: 28px;
+    }
+    .mt-overview-body {
+      font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 18px;
+      line-height: 1.8; color: rgba(255,255,255,0.85); max-width: 900px; margin-bottom: 64px;
+    }
+    .mt-features-title {
+      font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 60px;
+    }
+    /* Circular features diagram */
+    .mt-features-wheel {
+      position: relative; width: 600px; height: 600px; margin: 0 auto 60px;
+    }
+    .mt-wheel-ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 2px solid var(--mt-yellow); opacity: 0.4;
+    }
+    .mt-wheel-center {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 130px; height: 130px; border-radius: 50%;
+      background: #1E1912; display: flex; align-items: center; justify-content: center;
+    }
+    .mt-wheel-center img { width: 80px; height: auto; }
+    .mt-wheel-item {
+      position: absolute; display: flex; flex-direction: column; align-items: center;
+      gap: 8px; text-align: center; width: 140px;
+    }
+    .mt-wheel-dot {
+      width: 14px; height: 14px; border-radius: 50%; background: var(--mt-yellow); flex-shrink: 0;
+    }
+    .mt-wheel-label {
+      font-size: 14px; font-weight: 600; color: var(--mt-yellow); white-space: nowrap;
+    }
+    .mt-wheel-desc {
+      font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.4;
+    }
+    /* 5 items evenly spaced at 72° intervals starting from top */
+    .mt-wheel-item:nth-child(1) { top: -60px; left: 50%; transform: translateX(-50%); }
+    .mt-wheel-item:nth-child(2) { top: 120px; right: -100px; }
+    .mt-wheel-item:nth-child(3) { bottom: 60px; right: -40px; }
+    .mt-wheel-item:nth-child(4) { bottom: 60px; left: -40px; }
+    .mt-wheel-item:nth-child(5) { top: 120px; left: -100px; }
+
+    /* ─── ROLES ───────────────────────────────────────────── */
+    .mt-roles {
+      width: 100%; background: #111; padding: 100px 40px;
+    }
+    .mt-roles-inner { max-width: 1200px; margin: 0 auto; }
+    .mt-roles-columns {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 80px;
+    }
+    .mt-roles-col h3 {
+      font-size: 20px; font-weight: 700; color: var(--mt-yellow); margin-bottom: 20px;
+      padding-bottom: 12px; border-bottom: 1px solid rgba(232,184,75,0.3);
+    }
+    .mt-roles-col ul { list-style: none; }
+    .mt-roles-col ul li {
+      font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.8;
+      padding-left: 16px; position: relative;
+    }
+    .mt-roles-col ul li::before {
+      content: '—'; position: absolute; left: 0; color: var(--mt-yellow); font-size: 12px;
+    }
+    /* Double diamond */
+    .mt-diamond-title {
+      font-size: 24px; font-weight: 600; color: #fff; margin-bottom: 48px;
+    }
+    .mt-diamond-row {
+      display: flex; align-items: flex-start; gap: 0; justify-content: center;
+    }
+    .mt-diamond-phase { flex: 1; text-align: center; position: relative; }
+    .mt-diamond-shape {
+      width: 120px; height: 120px; background: transparent;
+      border: 2px solid var(--mt-yellow); transform: rotate(45deg);
+      margin: 0 auto 24px; display: flex; align-items: center; justify-content: center;
+    }
+    .mt-diamond-name {
+      font-size: 16px; font-weight: 700; color: var(--mt-yellow); transform: rotate(-45deg); display: block;
+    }
+    .mt-diamond-label {
+      font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 12px;
+    }
+    .mt-diamond-desc {
+      font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 200px; margin: 0 auto;
+    }
+    .mt-diamond-connector {
+      width: 60px; height: 2px; background: var(--mt-yellow); opacity: 0.4;
+      align-self: center; margin-top: -60px; flex-shrink: 0;
+    }
+
+    /* ─── PROBLEM STATEMENT ───────────────────────────────── */
+    .mt-problem {
+      width: 100%; background: var(--mt-dark); padding: 100px 40px;
+    }
+    .mt-problem-inner { max-width: 1200px; margin: 0 auto; }
+    .mt-problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px;
+    }
+    .mt-problem-col h3 {
+      font-size: 22px; font-weight: 700; color: var(--mt-yellow); margin-bottom: 28px;
+    }
+    .mt-problem-col ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .mt-problem-col ul li {
+      font-size: 16px; color: rgba(255,255,255,0.82); line-height: 1.7;
+      padding-left: 20px; position: relative;
+    }
+    .mt-problem-col ul li::before {
+      content: '●'; position: absolute; left: 0; color: var(--mt-yellow); font-size: 8px; top: 6px;
+    }
+    .mt-problem-col--solutions ul li strong {
+      display: block; color: #fff; font-weight: 600; margin-bottom: 4px;
+    }
+
+    /* ─── COMPETITOR ANALYSIS ─────────────────────────────── */
+    .mt-competitor {
+      width: 100%; background: #111; padding: 100px 40px;
+    }
+    .mt-competitor-inner { max-width: 1200px; margin: 0 auto; }
+    .mt-comp-table-wrap { overflow-x: auto; margin-top: 48px; }
+    .mt-comp-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+    }
+    .mt-comp-table th {
+      padding: 14px 16px; text-align: left; font-weight: 600;
+      background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .mt-comp-table th.mt-highlight { background: rgba(232,184,75,0.15); color: var(--mt-yellow); }
+    .mt-comp-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.75); vertical-align: top;
+    }
+    .mt-comp-table td.mt-highlight { background: rgba(232,184,75,0.08); color: #fff; font-weight: 500; }
+    .mt-comp-table tr:first-child td { font-weight: 600; color: rgba(255,255,255,0.5); font-size: 12px; text-transform: uppercase; }
+    .mt-synthesis { margin-top: 64px; }
+    .mt-synthesis h3 { font-size: 24px; font-weight: 700; color: var(--mt-yellow); margin-bottom: 24px; }
+    .mt-synthesis p { font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.8; }
+
+    /* ─── WRITEUP ─────────────────────────────────────────── */
+    .mt-writeup {
+      width: 100%; background: var(--mt-dark); padding: 100px 40px;
+    }
+    .mt-writeup-inner { max-width: 1000px; margin: 0 auto; }
+    .mt-writeup-text p {
+      font-size: 17px; color: rgba(255,255,255,0.8); line-height: 1.9; margin-bottom: 24px;
+    }
+    .mt-writeup-phones {
+      display: flex; justify-content: center; gap: 40px; margin-top: 60px; flex-wrap: wrap;
+    }
+    .mt-writeup-phones .mt-phone-placeholder {
+      width: 220px; height: 440px; background: #1a1a2e;
+      border-radius: 28px; flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ─── TYPOGRAPHY ──────────────────────────────────────── */
+    .mt-typography {
+      width: 100%; background: #111; padding: 100px 40px;
+    }
+    .mt-typography-inner { max-width: 1200px; margin: 0 auto; }
+    .mt-final-label {
+      font-size: 14px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--mt-yellow); margin-bottom: 6px;
+    }
+    .mt-type-sub { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+    .mt-poppins-display {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: clamp(80px, 14vw, 200px); color: #fff; line-height: 1;
+      margin-bottom: 40px;
+    }
+    .mt-type-scale {
+      display: flex; gap: 48px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .mt-type-weight { display: flex; flex-direction: column; gap: 6px; }
+    .mt-type-weight-name { font-size: 13px; color: var(--mt-yellow); font-weight: 600; }
+    .mt-type-weight-sizes { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .mt-type-desc {
+      font-size: 14px; color: rgba(255,255,255,0.5); max-width: 600px; line-height: 1.7;
+    }
+
+    /* ─── COLOURS ─────────────────────────────────────────── */
+    .mt-colours {
+      width: 100%; background: var(--mt-dark); padding: 100px 40px;
+    }
+    .mt-colours-inner { max-width: 1200px; margin: 0 auto; }
+    .mt-colours-primary { margin-top: 48px; margin-bottom: 64px; }
+    .mt-colours-primary h3 { font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+    .mt-primary-circles {
+      display: flex; align-items: center; gap: -60px; position: relative;
+      height: 220px; width: 400px;
+    }
+    .mt-circle {
+      width: 200px; height: 200px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 4px;
+    }
+    .mt-circle:first-child { background: #E9BC48; margin-right: -60px; z-index: 1; }
+    .mt-circle:last-child { background: #FF3D3D; }
+    .mt-circle-label { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.6); }
+    .mt-circle-hex { font-size: 12px; font-weight: 700; color: rgba(0,0,0,0.8); }
+    .mt-gradient-note {
+      position: absolute; left: 150px; bottom: -24px;
+      font-size: 12px; color: rgba(255,255,255,0.4); white-space: nowrap;
+    }
+    .mt-colours-secondary h3 { font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    .mt-swatches { display: flex; gap: 16px; flex-wrap: wrap; }
+    .mt-swatch {
+      width: 120px; height: 80px; border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-end; padding-bottom: 10px; gap: 2px;
+    }
+    .mt-swatch span { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); }
+
+    /* ─── SCREENS ─────────────────────────────────────────── */
+    .mt-screens {
+      width: 100%; background: #111; padding: 80px 40px 100px;
+    }
+    .mt-screens-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .mt-screens-count {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(36px, 5vw, 72px);
+      color: var(--mt-yellow); margin-top: 48px;
+    }
+
+    /* ─── THANKS ──────────────────────────────────────────── */
+    .mt-thanks {
+      width: 100%; background: var(--mt-dark);
+      padding: 80px 40px; text-align: center;
+    }
+    .mt-thanks-heading {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(40px, 6vw, 96px); color: #fff; margin-bottom: 16px;
+    }
+    .mt-thanks-sub {
+      font-size: 16px; color: rgba(255,255,255,0.5); max-width: 600px; margin: 0 auto; line-height: 1.7;
+    }
+
+    /* ─── FOOTER (shared) ────────────────────────────────── */
+    .footer {
+      display: flex; flex-direction: column; align-items: center; gap: 64px;
+      width: 100%; max-width: 1200px; padding-top: 0; margin-top: 40px;
+    }
+    .footer-cta { display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%; }
+    .footer-eyebrow { font-size: 24px; font-weight: 500; color: #2b2b2b; opacity: 0.8; text-transform: uppercase; text-align: center; letter-spacing: 0.05em; }
+    .footer-headline-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .footer-headline { font-size: 80px; font-weight: 700; color: #2b2b2b; text-align: center; line-height: 100px; }
+    .footer-btns { display: flex; gap: 24px; align-items: center; }
+    .btn-filled { background: #2b2b2b; color: #fff; padding: 16px 24px; border-radius: 8px; font-size: 24px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-filled:hover { background: #444; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid #2b2b2b; color: #2b2b2b; padding: 16px 24px; border-radius: 8px; font-size: 24px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-outline:hover { background: #f5f5f5; transform: translateY(-2px); }
+    .footer-bottom-area { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
+    .footer-email-link { display: flex; align-items: center; gap: 10px; padding: 16px; text-decoration: none; color: #2b2b2b; font-size: 16px; font-weight: 500; border-radius: 8px; transition: opacity 0.2s; }
+    .footer-email-link:hover { opacity: 0.6; }
+    .footer-bottom-nav { width: 1200px; padding: 16px 20px; border-radius: 20px 20px 0 0; background: #f8f7f4; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .footer-brand-text { display: flex; flex-direction: column; gap: 4px; }
+    .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
+    .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
+    .footer-nav-links { display: flex; gap: 24px; list-style: none; }
+    .footer-nav-links a { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
+    .footer-nav-links a:hover { opacity: 0.8; }
+    .footer-page-wrap { width: 100%; background: #fff; display: flex; flex-direction: column; align-items: center; padding-bottom: 0; }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+    .scroll-top { position: fixed; right: 20px; bottom: 40px; width: 98px; height: 98px; background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; z-index: 99; }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { transform: translateY(-4px); }
+    .scroll-top img { width: 98px; height: 98px; display: block; }
+    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
+    .scroll-top-tooltip.visible { opacity: 1; }
+
+    /* ─── REVEAL ANIMATION ───────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+<div class="mt-nav-wrap" id="nav-wrap">
+  <div class="mt-nav">
+    <a href="index.html" class="mt-back-link" aria-label="Go back to home">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </a>
+    <a href="index.html" class="mt-nav-brand">
+      <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+      <span class="mt-nav-name">Vivek Vasudevan</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ HERO SECTION ════════════════════════════════════ -->
+<section class="mt-hero">
+  <div class="mt-hero-bg"></div>
+  <div class="mt-hero-inner">
+    <span class="mt-hero-wordmark" aria-hidden="true">Mantro</span>
+    <div class="mt-hero-logo-wrap">
+      <img class="mt-hero-logo" src="assets/images/Mantro-Logo.svg" alt="Mantro" />
+    </div>
+    <img class="mt-hero-phones" src="assets/images/Mantro-HeroImage.png" alt="Mantro app screens" />
+  </div>
+</section>
+
+<!-- ═══ ABOUT ════════════════════════════════════════════ -->
+<section class="mt-about">
+  <div class="mt-about-bg"></div>
+  <div class="mt-about-inner reveal">
+    <img class="mt-about-logo" src="assets/images/Mantro-Logo.svg" alt="Mantro" />
+    <div class="mt-about-meta">
+      <span>Project: <strong>Mantro</strong></span>
+      <span>Category: <strong>Mobile App</strong></span>
+    </div>
+    <p class="mt-about-tagline">Streamlining your restaurant operations with our intuitive, mobile-friendly platform, with access to essential tools and real-time insights boosting efficiency and productivity.</p>
+  </div>
+</section>
+
+<!-- ═══ LOGOS ════════════════════════════════════════════ -->
+<section class="mt-logos reveal">
+  <div class="mt-logos-inner">
+    <div class="mt-logo-card mt-logo-card--yellow">
+      <img src="assets/images/Mantro-Logo-Yellow.svg" alt="Mantro logo on yellow" />
+    </div>
+    <div class="mt-logo-card mt-logo-card--white">
+      <img src="assets/images/Mantro-Logo-Black.svg" alt="Mantro logo on white" />
+    </div>
+    <div class="mt-logo-card mt-logo-card--dark">
+      <img src="assets/images/Mantro-Logo-White.svg" alt="Mantro logo on dark" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OBJECTIVE ════════════════════════════════════════ -->
+<section class="mt-objective">
+  <div class="mt-objective-overlay"></div>
+  <div class="mt-objective-content reveal">
+    <h2 class="mt-objective-title">Objective</h2>
+    <p class="mt-objective-body">Mantro aims to optimize restaurant operations in Tier 2 and Tier 3 cities (India) through a user-friendly, cloud-based platform, providing real-time insights and efficient tools for growth.</p>
+  </div>
+</section>
+
+<!-- ═══ OVERVIEW ════════════════════════════════════════ -->
+<section class="mt-overview">
+  <div class="mt-overview-inner reveal">
+    <h2 class="mt-section-label">Overview</h2>
+    <p class="mt-overview-body">Mantro is a comprehensive hospitality management platform designed to streamline restaurant operations. It provides real-time insights, efficient inventory tools, billing management, and staff coordination features built for restaurants in Tier 2 and Tier 3 cities across India.</p>
+    <h3 class="mt-features-title">Key Features</h3>
+    <div class="mt-features-wheel">
+      <div class="mt-wheel-ring"></div>
+      <div class="mt-wheel-center">
+        <img src="assets/images/Mantro-Logo.svg" alt="Mantro" />
+      </div>
+      <div class="mt-wheel-item">
+        <div class="mt-wheel-dot"></div>
+        <span class="mt-wheel-label">Accessibility</span>
+        <span class="mt-wheel-desc">Intuitive interface for all skill levels</span>
+      </div>
+      <div class="mt-wheel-item">
+        <div class="mt-wheel-dot"></div>
+        <span class="mt-wheel-label">Real-time Insights</span>
+        <span class="mt-wheel-desc">Live data on sales, stock & staff</span>
+      </div>
+      <div class="mt-wheel-item">
+        <div class="mt-wheel-dot"></div>
+        <span class="mt-wheel-label">Business Intelligence</span>
+        <span class="mt-wheel-desc">Analytics to drive growth decisions</span>
+      </div>
+      <div class="mt-wheel-item">
+        <div class="mt-wheel-dot"></div>
+        <span class="mt-wheel-label">Sustainability</span>
+        <span class="mt-wheel-desc">Reduce waste, optimise resources</span>
+      </div>
+      <div class="mt-wheel-item">
+        <div class="mt-wheel-dot"></div>
+        <span class="mt-wheel-label">Inclusivity</span>
+        <span class="mt-wheel-desc">Multi-language, regional support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ROLES ════════════════════════════════════════════ -->
+<section class="mt-roles">
+  <div class="mt-roles-inner reveal">
+    <h2 class="mt-section-label">Roles & Process</h2>
+    <div class="mt-roles-columns">
+      <div class="mt-roles-col">
+        <h3>My Roles</h3>
+        <ul>
+          <li>Product Designer</li>
+          <li>UX Designer</li>
+          <li>IxD Designer</li>
+          <li>UI Designer</li>
+        </ul>
+      </div>
+      <div class="mt-roles-col">
+        <h3>My Deliverables</h3>
+        <ul>
+          <li>Competitive Analysis</li>
+          <li>User Personas</li>
+          <li>Journey Maps</li>
+          <li>Wireframes</li>
+          <li>Mockups</li>
+          <li>Design System</li>
+          <li>Prototype</li>
+        </ul>
+      </div>
+      <div class="mt-roles-col">
+        <h3>Project Specifications</h3>
+        <ul>
+          <li>UX + UI Design</li>
+          <li>Figma</li>
+          <li>yED</li>
+          <li>Adobe Illustrator</li>
+          <li>Photoshop</li>
+          <li>Pen and Paper</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="mt-diamond-title">Design Process</h3>
+    <div class="mt-diamond-row">
+      <div class="mt-diamond-phase">
+        <div class="mt-diamond-shape"><span class="mt-diamond-name">Discover</span></div>
+        <p class="mt-diamond-label">Discover</p>
+        <p class="mt-diamond-desc">Research, user interviews, surveys, and market analysis</p>
+      </div>
+      <div class="mt-diamond-connector"></div>
+      <div class="mt-diamond-phase">
+        <div class="mt-diamond-shape"><span class="mt-diamond-name">Define</span></div>
+        <p class="mt-diamond-label">Define</p>
+        <p class="mt-diamond-desc">Synthesise insights, personas, problem statements</p>
+      </div>
+      <div class="mt-diamond-connector"></div>
+      <div class="mt-diamond-phase">
+        <div class="mt-diamond-shape"><span class="mt-diamond-name">Design</span></div>
+        <p class="mt-diamond-label">Design</p>
+        <p class="mt-diamond-desc">Ideation, wireframes, prototyping, design system</p>
+      </div>
+      <div class="mt-diamond-connector"></div>
+      <div class="mt-diamond-phase">
+        <div class="mt-diamond-shape"><span class="mt-diamond-name">Deliver</span></div>
+        <p class="mt-diamond-label">Deliver</p>
+        <p class="mt-diamond-desc">High-fidelity mockups, developer handoff, iteration</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM STATEMENT ════════════════════════════════ -->
+<section class="mt-problem">
+  <div class="mt-problem-inner reveal">
+    <h2 class="mt-section-label">Problem Statement</h2>
+    <div class="mt-problem-grid">
+      <div class="mt-problem-col">
+        <h3>Business Challenges</h3>
+        <ul>
+          <li>Limited existing solutions tailored for Tier 2/3 city restaurant markets in India</li>
+          <li>High cost of current POS systems makes adoption difficult for small operators</li>
+          <li>Language and literacy barriers in regional markets restrict software usability</li>
+          <li>Unreliable hardware and internet connectivity in semi-urban areas</li>
+          <li>Fear of job displacement among staff due to technology adoption</li>
+        </ul>
+      </div>
+      <div class="mt-problem-col mt-problem-col--solutions">
+        <h3>Proposed Solutions</h3>
+        <ul>
+          <li><strong>Tailored Solutions</strong>Purpose-built features for the regional restaurant context</li>
+          <li><strong>Affordability and Simplicity</strong>Low-cost, easy-to-use platform requiring minimal training</li>
+          <li><strong>Operational Efficiency</strong>Streamline ordering, billing, and inventory in one place</li>
+          <li><strong>Technical Reliability</strong>Offline-capable features with graceful sync on reconnect</li>
+          <li><strong>Human-Centric Approach</strong>Design that empowers staff rather than replaces them</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMPETITOR ANALYSIS ══════════════════════════════ -->
+<section class="mt-competitor">
+  <div class="mt-competitor-inner reveal">
+    <h2 class="mt-section-label">Competitor Analysis</h2>
+    <div class="mt-comp-table-wrap">
+      <table class="mt-comp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="mt-highlight">Mantro</th>
+            <th>SlickPOS</th>
+            <th>Posist</th>
+            <th>Petpooja</th>
+            <th>Torqus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Core Functionality</td>
+            <td class="mt-highlight">Full-stack restaurant mgmt</td>
+            <td>POS + billing</td>
+            <td>Cloud POS</td>
+            <td>Billing + inventory</td>
+            <td>Enterprise POS</td>
+          </tr>
+          <tr>
+            <td>Pricing</td>
+            <td class="mt-highlight">Affordable / tiered</td>
+            <td>Moderate</td>
+            <td>Premium</td>
+            <td>Low–Moderate</td>
+            <td>Enterprise</td>
+          </tr>
+          <tr>
+            <td>Ease of Use</td>
+            <td class="mt-highlight">★★★★★</td>
+            <td>★★★★</td>
+            <td>★★★</td>
+            <td>★★★★</td>
+            <td>★★★</td>
+          </tr>
+          <tr>
+            <td>Cloud-based</td>
+            <td class="mt-highlight">Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Mobile App</td>
+            <td class="mt-highlight">Yes (native)</td>
+            <td>Yes</td>
+            <td>Limited</td>
+            <td>Yes</td>
+            <td>Limited</td>
+          </tr>
+          <tr>
+            <td>Target Market</td>
+            <td class="mt-highlight">Tier 2/3 India</td>
+            <td>Tier 1 India</td>
+            <td>Enterprise</td>
+            <td>SME India</td>
+            <td>Enterprise</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-synthesis">
+      <h3>Synthesis</h3>
+      <p>Existing solutions either target enterprise clients at premium price points or focus solely on billing without broader operational features. Mantro's key differentiator is its holistic approach — combining inventory, billing, staff management, and real-time analytics in an affordable, offline-ready package purpose-built for India's growing regional restaurant market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WRITEUP ═══════════════════════════════════════════ -->
+<section class="mt-writeup">
+  <div class="mt-writeup-inner reveal">
+    <h2 class="mt-section-label">Design Journey</h2>
+    <div class="mt-writeup-text">
+      <p>The project began with extensive low-fidelity wireframing tested against real restaurant owners and staff in Tier 2 cities. Early adopters provided invaluable feedback on workflow priorities — billing speed and inventory visibility consistently emerged as the most critical needs.</p>
+      <p>Leveraging Google Material Design as a foundation allowed rapid iteration without reinventing fundamental UI patterns. This freed the design effort to focus on context-specific flows: table management, kitchen display routing, and multi-role access levels that matched the actual hierarchy of a regional Indian restaurant.</p>
+      <p>Each round of user testing refined the information architecture. The final design consolidated 70+ screens into a coherent system with consistent navigation, predictable interaction patterns, and a visual language that remained legible across varying device quality and lighting conditions.</p>
+    </div>
+    <div class="mt-writeup-phones">
+      <div class="mt-phone-placeholder"></div>
+      <div class="mt-phone-placeholder"></div>
+      <div class="mt-phone-placeholder"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TYPOGRAPHY ════════════════════════════════════════ -->
+<section class="mt-typography">
+  <div class="mt-typography-inner reveal">
+    <p class="mt-final-label">Final Designs</p>
+    <p class="mt-type-sub">Typography</p>
+    <div class="mt-poppins-display">Poppins</div>
+    <div class="mt-type-scale">
+      <div class="mt-type-weight">
+        <span class="mt-type-weight-name">Regular</span>
+        <span class="mt-type-weight-sizes">14 / 12 / 10</span>
+      </div>
+      <div class="mt-type-weight">
+        <span class="mt-type-weight-name">Medium</span>
+        <span class="mt-type-weight-sizes">16</span>
+      </div>
+      <div class="mt-type-weight">
+        <span class="mt-type-weight-name">Semi Bold</span>
+        <span class="mt-type-weight-sizes">22</span>
+      </div>
+      <div class="mt-type-weight">
+        <span class="mt-type-weight-name">Bold</span>
+        <span class="mt-type-weight-sizes">16</span>
+      </div>
+    </div>
+    <p class="mt-type-desc">Poppins is a geometric sans-serif typeface supporting both Latin and Devanagari scripts — a deliberate choice to ensure the product can serve Hindi-speaking users across regional markets.</p>
+  </div>
+</section>
+
+<!-- ═══ COLOURS ═══════════════════════════════════════════ -->
+<section class="mt-colours">
+  <div class="mt-colours-inner reveal">
+    <h2 class="mt-section-label">Colours</h2>
+    <div class="mt-colours-primary">
+      <h3>Primary</h3>
+      <div class="mt-primary-circles">
+        <div class="mt-circle">
+          <span class="mt-circle-label">Gold</span>
+          <span class="mt-circle-hex">#E9BC48</span>
+        </div>
+        <div class="mt-circle">
+          <span class="mt-circle-label">Red</span>
+          <span class="mt-circle-hex">#FF3D3D</span>
+        </div>
+        <span class="mt-gradient-note">↑ Linear Gradient</span>
+      </div>
+    </div>
+    <div class="mt-colours-secondary">
+      <h3>Secondary</h3>
+      <div class="mt-swatches">
+        <div class="mt-swatch" style="background:#383838;"><span>#383838</span></div>
+        <div class="mt-swatch" style="background:#545252;"><span>#545252</span></div>
+        <div class="mt-swatch" style="background:#54A5DA;"><span>#54A5DA</span></div>
+        <div class="mt-swatch" style="background:#1976D2;"><span>#1976D2</span></div>
+        <div class="mt-swatch" style="background:#A02FBC;"><span>#A02FBC</span></div>
+        <div class="mt-swatch" style="background:#ECC86F;"><span style="color:#333;">#ECC86F</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCREENS ═══════════════════════════════════════════ -->
+<section class="mt-screens">
+  <div class="mt-screens-inner reveal">
+    <h2 class="mt-section-label">Final Screens</h2>
+    <p class="mt-screens-count">Over 70+ Screens</p>
+  </div>
+</section>
+
+<!-- ═══ THANKS ════════════════════════════════════════════ -->
+<div class="mt-thanks reveal">
+  <h2 class="mt-thanks-heading">Thanks for viewing!</h2>
+  <p class="mt-thanks-sub">The diagrams/screens may not reflect the latest features of Mantro due to ongoing development.<br>All rights reserved by One Eyed Octopus Studio Ptv. Ltd.</p>
+</div>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<div class="footer-page-wrap">
+  <div class="page" style="width:100%;padding-bottom:0;max-width:1440px;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
+    <footer class="footer" id="footer">
+      <div class="footer-cta reveal">
+        <p class="footer-eyebrow">Like what you see?</p>
+        <div class="footer-headline-wrap">
+          <h2 class="footer-headline">Let's Connect!</h2>
+          <div class="footer-btns">
+            <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn-outline" href="https://drive.google.com/uc?export=download&id=1M83IXrkA5TnbnnoIDzwx2d1z875CXilI" target="_blank" rel="noopener">Resume</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-area reveal">
+        <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          vivek.vasudevan.design@gmail.com
+        </a>
+        <div class="footer-bottom-nav">
+          <a href="index.html" class="footer-brand">
+            <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">Vivek Vasudevan Design</span>
+              <span class="footer-brand-copy">© 2026 All rights reserved</span>
+            </div>
+          </a>
+          <ul class="footer-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#case-studies">Case Studies</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
+<div class="scroll-top-tooltip" id="scrollTooltip">Back to top</div>
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
+</button>
+
+<script>
+  const navWrap = document.getElementById('nav-wrap');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const scrollTooltip = document.getElementById('scrollTooltip');
+
+  window.addEventListener('scroll', () => {
+    navWrap.classList.toggle('scrolled', window.scrollY > 20);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  scrollTopBtn.addEventListener('mouseenter', () => {
+    if (scrollTopBtn.classList.contains('visible')) scrollTooltip.classList.add('visible');
+  });
+  scrollTopBtn.addEventListener('mouseleave', () => scrollTooltip.classList.remove('visible'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
