@@ -67,8 +67,8 @@
     /* ─── HERO ───────────────────────────────────────────── */
     .cl-hero {
       width: 100%;
-      height: 1272px;
-      background: url('assets/images/Coinloop-Hero-Section.png') center top / 1440px 1272px no-repeat;
+      height: 88.33vw; /* 1272/1440 × 100vw — matches image aspect ratio */
+      background: url('assets/images/Coinloop-Hero-Section.png') center top / 100% auto no-repeat;
       position: relative;
     }
     .cl-hero-centering {
@@ -81,30 +81,30 @@
     }
     .cl-hero-content {
       position: absolute;
-      left: 220px;
-      top: 335px;
+      left: 15.28vw;  /* 220/1440 — tracks with image */
+      top: 23.26vw;   /* 335/1440 — tracks with image */
       display: flex;
       flex-direction: column;
       gap: 0;
       z-index: 2;
-      width: 450px;
+      width: 31.25vw; /* 450/1440 */
     }
-    .cl-hero-logo { width: 390px; height: auto; display: block; }
+    .cl-hero-logo { width: 27.08vw; max-width: 390px; height: auto; display: block; }
     .cl-hero-tagline {
       font-family: 'Work Sans', sans-serif;
       font-weight: 400;
-      font-size: 30px;
+      font-size: clamp(18px, 2.08vw, 30px);
       color: #fff;
-      margin-top: 100px;
+      margin-top: 6.94vw; /* 100/1440 */
       white-space: nowrap;
     }
     .cl-hero-sub {
       font-family: 'Work Sans', sans-serif;
       font-weight: 400;
-      font-size: 20px;
+      font-size: clamp(14px, 1.39vw, 20px);
       color: #fff;
-      line-height: 30px;
-      margin-top: 14px;
+      line-height: 1.5;
+      margin-top: 0.97vw; /* 14/1440 */
     }
 
     /* ─── PROJECT OVERVIEW ───────────────────────────────── */
@@ -452,15 +452,14 @@
     }
     @media (max-width: 900px) {
       .cl-hero {
-        height: auto;
-        min-height: 500px;
-        padding-bottom: 400px;
-        background-size: cover;
-        background-position: right bottom;
+        height: 88.33vw;
+        background-size: 100% auto;
+        background-position: center top;
       }
       .cl-hero-content {
-        left: 40px;
-        top: 60px;
+        left: 5vw;
+        top: 15vw;
+        width: 55vw;
       }
       .cl-features-inner {
         flex-direction: column;
@@ -482,10 +481,10 @@
       .footer { max-width: 100%; }
     }
     @media (max-width: 600px) {
-      .cl-hero-content { left: 20px; top: 40px; }
-      .cl-hero-logo { height: 60px; }
-      .cl-hero-tagline { font-size: 22px; margin-top: 40px; }
-      .cl-hero-sub { font-size: 16px; }
+      .cl-hero-content { left: 4vw; top: 12vw; width: 65vw; }
+      .cl-hero-logo { width: 45vw; max-width: 390px; }
+      .cl-hero-tagline { font-size: 3.5vw; margin-top: 8vw; }
+      .cl-hero-sub { font-size: 2.8vw; }
       .cl-phone-img {
         width: 150px;
         height: 266px;
