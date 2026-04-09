@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AtisfyReach Dark Mode – Vivek Vasudevan Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Lato:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Variables ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --page-max: 1440px;
+      --content-width: 1200px;
+      --inner-width: 1160px;
+      --blue: #175cfe;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: #2b2b2b;
+      background: linear-gradient(180deg, #f9f6f6 0%, #fff 30.3%, #fff 85%, #f9f6f6 100%);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 71px;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    .nav-wrap { position: sticky; top: 0; z-index: 100; width: 100%; padding: 0 20px; }
+    nav {
+      background: #fff; border-radius: 0 0 20px 20px; height: 82px;
+      padding: 0 20px; display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--content-width); margin: 0 auto;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
+    .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; }
+    .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
+    .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+    .nav-links a, .nav-links button {
+      font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500;
+      color: #2b2b2b; text-decoration: none; background: none; border: none;
+      cursor: pointer; padding: 8px; opacity: 0.4; transition: opacity 0.2s; display: block;
+    }
+    .nav-links li.active a { opacity: 1; border-bottom: 2px solid #2b2b2b; }
+    .nav-links a:hover, .nav-links button:hover { opacity: 0.8; }
+
+    /* ─── HAMBURGER ──────────────────────────────────────── */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 4px; background: none; border: none;
+      cursor: pointer; padding: 8px; flex-shrink: 0; width: 48px; height: 48px;
+      align-items: center; justify-content: center;
+    }
+    .nav-hamburger span { display: block; width: 32px; height: 4px; background: #2b2b2b; border-radius: 22px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 12px; background: #fff;
+      border-top: 1px solid rgba(0,0,0,0.08); padding: 8px 0 16px;
+      position: absolute; top: 82px; left: 0; right: 0; z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .mobile-menu.open { display: flex; }
+    @media (min-width: 769px) { .mobile-menu { display: none !important; } }
+    .mobile-menu a, .mobile-menu button {
+      font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500;
+      color: #2b2b2b; text-decoration: none; background: none; border: none;
+      cursor: pointer; padding: 10px 20px; text-align: left; width: 100%; display: block;
+      transition: opacity 0.2s;
+    }
+    .mobile-menu a:hover, .mobile-menu button:hover { opacity: 0.6; }
+
+    /* ─── CASE STUDY WRAPPER ─────────────────────────────── */
+    .cs-wrap {
+      width: var(--inner-width);
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+      padding: 80px 0 0;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .cs-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .cs-hero-left {
+      display: flex; flex-direction: column; gap: 16px; flex: 1;
+    }
+    .cs-hero-label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 20px; line-height: 28px;
+      color: var(--blue);
+    }
+    .cs-hero-heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 40px; line-height: normal;
+      color: #2b2b2b;
+    }
+    .cs-hero-sub {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+    .cs-hero-meta {
+      background: #fff; border-radius: 20px;
+      padding: 20px 24px;
+      display: flex; flex-direction: column; gap: 24px;
+      flex-shrink: 0; width: 403px;
+    }
+    .cs-meta-row { display: flex; gap: 24px; align-items: flex-start; }
+    .cs-meta-label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 16px; line-height: 22px;
+      color: #000; white-space: nowrap; flex-shrink: 0;
+    }
+    .cs-meta-label.role  { min-width: 62px; }
+    .cs-meta-label.scope { min-width: 62px; }
+    .cs-meta-label.team  { min-width: 62px; }
+    .cs-meta-value {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 16px; line-height: 24px;
+      color: #000; opacity: 0.7;
+    }
+
+    /* ─── COVER IMAGE ────────────────────────────────────── */
+    .cs-cover {
+      width: 100%; border-radius: 20px; overflow: hidden;
+    }
+    .cs-cover img { width: 100%; display: block; }
+
+    /* ─── SOLUTION STATEMENT ─────────────────────────────── */
+    .cs-solution {
+      display: flex; flex-direction: column; gap: 16px; align-items: flex-start;
+    }
+    .cs-solution-heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 32px; line-height: 1.3;
+      color: #2b2b2b; text-align: center; width: 100%;
+    }
+    .cs-solution-body {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+
+    /* ─── SECTION WRAPPER (full-width padded) ────────────── */
+    .cs-section {
+      display: flex; flex-direction: column; gap: 32px;
+    }
+
+    .cs-section-label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 20px; line-height: 28px;
+      color: var(--blue);
+    }
+    .cs-section-heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 32px; line-height: 48px;
+      color: #2b2b2b;
+    }
+    .cs-section-sub {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+    .cs-body {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+    .cs-body strong { font-weight: 700; font-style: italic; opacity: 1; }
+    .cs-body b { font-weight: 700; font-style: normal; }
+    .cs-subheading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 24px; line-height: 32px;
+      color: #2b2b2b;
+    }
+
+    /* ─── PERSONA OUTER BOX ──────────────────────────────── */
+    .personas-outer {
+      background: #f9f9f9; border-radius: 20px;
+      padding: 40px 20px;
+      display: flex; flex-direction: column; gap: 72px;
+      align-items: center;
+    }
+    .personas-header {
+      display: flex; flex-direction: column; gap: 24px;
+      width: 998px; max-width: 100%;
+    }
+
+    /* ─── PERSONA CARD ───────────────────────────────────── */
+    .persona-wrap {
+      display: flex; flex-direction: column; gap: 16px;
+      width: 998px; max-width: 100%;
+    }
+    .persona-intro {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+    .persona-card {
+      background: #fff; border-radius: 20px;
+      box-shadow: 0px 1px 10px 0px rgba(0,56,186,0.25);
+      padding: 32px;
+      display: flex; gap: 32px; align-items: flex-start;
+      position: relative;
+    }
+    .persona-photo-col {
+      flex-shrink: 0; width: 256px; height: 712px;
+      border-radius: 20px; overflow: hidden; position: relative;
+    }
+    .persona-photo-col img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .persona-photo-gradient {
+      position: absolute; inset: 0; border-radius: 20px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 60.4%, rgba(0,0,0,1) 100%);
+    }
+    .persona-photo-info {
+      position: absolute; bottom: 32px; left: 32px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .persona-photo-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 24px; line-height: normal;
+      color: #fff;
+    }
+    .persona-photo-role {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400; font-size: 12px; line-height: normal;
+      color: #fff;
+    }
+    .persona-photo-role span { font-weight: 600; }
+    .persona-photo-location {
+      display: flex; gap: 8px; align-items: center;
+    }
+    .persona-photo-location svg { flex-shrink: 0; }
+    .persona-photo-location span {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400; font-size: 12px; line-height: 18px;
+      color: #fff; white-space: nowrap;
+    }
+
+    .persona-content {
+      flex: 1; display: flex; flex-direction: column; gap: 64px;
+      min-width: 0;
+    }
+    .persona-content.gap-32 { gap: 32px; }
+    .persona-quote {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 32px;
+      color: #000;
+    }
+    .persona-quote .q-mark {
+      font-weight: 700; color: var(--blue);
+    }
+    .persona-sections {
+      display: flex; flex-direction: column; gap: 72px;
+    }
+    .persona-sections.gap-48 { gap: 48px; }
+    .persona-details { display: flex; flex-direction: column; gap: 24px; }
+    .persona-detail { display: flex; flex-direction: column; gap: 8px; }
+    .persona-detail-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 20px; line-height: normal;
+      color: var(--blue); text-transform: uppercase;
+    }
+    .persona-detail-body {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 16px; line-height: 24px;
+      color: #000; opacity: 0.6;
+    }
+    .persona-detail ul {
+      list-style: disc; padding-left: 24px;
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .persona-detail ul li {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 16px; line-height: 24px;
+      color: #000; opacity: 0.6;
+    }
+
+    /* Motivations bars */
+    .persona-motivations { display: flex; flex-direction: column; gap: 8px; }
+    .motivation-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 20px; line-height: 28px;
+      color: var(--blue);
+    }
+    .motivation-bars { display: flex; flex-direction: column; gap: 12px; }
+    .motivation-row { display: flex; gap: 20px; align-items: center; }
+    .motivation-label {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 16px; line-height: 24px;
+      color: #000; width: 146px; flex-shrink: 0;
+    }
+    .motivation-bar-track {
+      flex: 1; height: 16px; background: #f0f0f0; position: relative; overflow: hidden;
+    }
+    .motivation-bar-fill {
+      height: 100%; background: var(--blue); position: absolute; left: 0; top: 0;
+    }
+
+    /* Learnings box */
+    .learnings-box {
+      display: flex; flex-direction: column; gap: 24px;
+      width: 998px; max-width: 100%;
+    }
+
+    /* ─── USER INTERVIEWS ────────────────────────────────── */
+    .interviews-outer {
+      background: #f9f9f9;
+      border-radius: 20px;
+      padding: 40px 101px;
+      display: flex; flex-direction: column; gap: 80px;
+    }
+    .sticky-grid {
+      display: flex; flex-direction: column; gap: 64px;
+    }
+    .sticky-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .sticky-cluster {
+      display: flex; flex-direction: column; gap: 10px; align-items: center;
+    }
+    .sticky-cluster-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 24px; line-height: 32px;
+      color: #2b2b2b;
+    }
+    /* Staggered sticky notes using a relative positioned container */
+    .sticky-notes-container {
+      position: relative;
+      width: 388px; height: 370px;
+    }
+    .sticky-note {
+      position: absolute;
+      width: 180px; height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 14px;
+      box-shadow: 0px 2.553px 2.553px 0px rgba(0,0,0,0.25);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400; font-size: 16px; line-height: normal;
+      color: #000; text-align: center;
+    }
+    /* Positions matching Figma: note1 coral top-left, note2 yellow top-right, note4 blue bottom-left, note3 teal bottom-right */
+    .sn-1 { background: #ff9083; left: 0px;   top: 23px; }
+    .sn-2 { background: #fffb81; left: 166px; top: 0px; }
+    .sn-3 { background: #5ce3b1; left: 208px; top: 157px; }
+    .sn-4 { background: #7bdbff; left: 41px;  top: 189px; }
+
+    .interviews-conclusion {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 24px; line-height: 40px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+    .interviews-conclusion em {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700; font-style: italic;
+      color: #2b2b2b; opacity: 1;
+    }
+
+    /* ─── IDEATE / PAIN POINTS ───────────────────────────── */
+    .ideate-section {
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .ideate-heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 32px; line-height: normal;
+      color: #2b2b2b;
+    }
+
+    /* ─── DESIGN: ADOPTION ───────────────────────────────── */
+    .design-principles { display: flex; flex-direction: column; gap: 20px; }
+    .principle-card {
+      border-radius: 40px; padding: 40px 101px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .principle-heading-row {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; line-height: 32px;
+      color: #2b2b2b;
+    }
+    .principle-num { flex-shrink: 0; white-space: nowrap; }
+    .principle-body {
+      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 24px; color: #2b2b2b;
+    }
+    .principle-flow {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
+    }
+    .flow-pill-dp {
+      background: rgba(47,68,118,0.2); border-radius: 92px;
+      padding: 16px 24px;
+      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 24px;
+      color: #2f4476; white-space: nowrap;
+    }
+    .flow-arrow-dp {
+      display: flex; align-items: center; flex-shrink: 0;
+    }
+    .flow-arrow-dp::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: #2f4476;
+    }
+    .flow-arrow-dp::after {
+      content: '';
+      display: inline-block;
+      width: 0; height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #2f4476;
+    }
+    .principle-footer {
+      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 24px;
+      color: #2b2b2b; opacity: 0.6;
+    }
+    .principle-footer-list {
+      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 24px;
+      color: #2b2b2b; opacity: 0.6;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .principle-footer-list ul { list-style: disc; padding-left: 24px; }
+
+    /* ─── DESIGN SYSTEM ─────────────────────────────────── */
+    .ds-white-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0px 12px 41px rgba(0,0,0,0.25);
+      overflow: hidden;
+      width: 100%;
+    }
+    .ds-white-card img { width: 100%; display: block; }
+    .ds-sub-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700; font-size: 20px; color: #000;
+    }
+    .ds-examples-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .ds-examples-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── CREATING STRUCTURE ─────────────────────────────── */
+    .ia-list {
+      list-style: disc; padding-left: 22px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .ia-list li {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+
+    /* ─── WIREFRAMES ─────────────────────────────────────── */
+    .wireframes-box {
+      background: #f5f5f5; border-radius: 20px;
+      overflow: hidden; width: 100%;
+      padding: 20px 0;
+    }
+    .wireframes-box img { width: 100%; display: block; }
+
+    /* ─── OUTCOMES ───────────────────────────────────────── */
+    .outcomes-heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 40px; line-height: 50px;
+      color: #2b2b2b;
+    }
+    .stats-card {
+      background: #def8f0; border-radius: 40px;
+      padding: 40px;
+      display: flex; gap: 32px; align-items: flex-start;
+      justify-content: center; text-align: center;
+    }
+    .stat-item {
+      display: flex; flex-direction: column; gap: 21px;
+      align-items: center; width: 250px;
+    }
+    .stat-number {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800; font-size: 40px; line-height: normal;
+      color: #000;
+    }
+    .stat-desc {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b;
+    }
+
+    /* ─── FINAL THOUGHTS ─────────────────────────────────── */
+    .final-block { display: flex; flex-direction: column; gap: 16px; }
+    .final-heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 40px; line-height: normal;
+      color: #2b2b2b;
+    }
+    .final-list {
+      list-style: disc; padding-left: 22px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .final-list li {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 20px; line-height: 30px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+
+    /* ─── THANK YOU ──────────────────────────────────────── */
+    .thankyou-box {
+      background: #eef2ff; border-radius: 20px;
+      padding: 48px 80px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .thankyou-heading {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 20px; line-height: 28px;
+      color: #175cfe; text-align: center;
+    }
+    .thankyou-body {
+      display: flex; align-items: center; gap: 80px;
+    }
+    .thankyou-logo {
+      width: 220px; flex-shrink: 0; display: block;
+    }
+    .thankyou-text {
+      display: flex; flex-direction: column; gap: 16px;
+      font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 500;
+      line-height: 28px; color: #2b2b2b;
+    }
+    @media (max-width: 768px) {
+      .thankyou-box { padding: 40px 28px; }
+      .thankyou-body { flex-direction: column; gap: 32px; align-items: flex-start; }
+      .thankyou-logo { width: 160px; }
+      .thankyou-text { font-size: 16px; }
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      display: flex; flex-direction: column; align-items: center; gap: 64px;
+      width: var(--content-width); padding-top: 0; margin-top: -40px;
+    }
+    .footer-cta { display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%; }
+    .footer-eyebrow { font-size: 24px; font-weight: 500; color: #2b2b2b; opacity: 0.8; text-transform: uppercase; text-align: center; letter-spacing: 0.05em; }
+    .footer-headline-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 192px; justify-content: flex-start; }
+    .footer-headline { font-size: 80px; font-weight: 700; color: #2b2b2b; text-align: center; line-height: 100px; }
+    .footer-btns { display: flex; gap: 24px; align-items: center; }
+    .btn-filled { background: #2b2b2b; color: #fff; padding: 16px 24px; border-radius: 8px; font-size: 24px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-filled:hover { background: #444; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid #2b2b2b; color: #2b2b2b; padding: 16px 24px; border-radius: 8px; font-size: 24px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-outline:hover { background: #f5f5f5; transform: translateY(-2px); }
+    .footer-bottom-area { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
+    .footer-email-link { display: flex; align-items: center; gap: 10px; padding: 16px; text-decoration: none; color: #2b2b2b; font-size: 16px; font-weight: 500; border-radius: 8px; transition: opacity 0.2s; }
+    .footer-email-link:hover { opacity: 0.6; }
+    .footer-bottom-nav { width: var(--content-width); padding: 16px 20px; border-radius: 20px 20px 0 0; background: #f8f7f4; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .footer-brand-text { display: flex; flex-direction: column; gap: 4px; }
+    .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
+    .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
+    .footer-nav-links { display: flex; gap: 24px; list-style: none; }
+    .footer-nav-links a { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
+    .footer-nav-links a:hover { opacity: 0.8; }
+
+    /* ─── BACK BUTTON ────────────────────────────────────── */
+    .back-btn-wrap { width: var(--inner-width); padding-top: 24px; }
+    .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: none; border-radius: 8px; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); cursor: pointer; padding: 12px 20px; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .back-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
+    .back-btn svg { flex-shrink: 0; }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+    .scroll-top { position: fixed; right: 20px; bottom: 40px; width: 98px; height: 98px; background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; z-index: 99; }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { transform: translateY(-4px); }
+    .scroll-top img { width: 98px; height: 98px; display: block; }
+    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
+    .scroll-top-tooltip.visible { opacity: 1; }
+
+    /* ─── AT A GLANCE ───────────────────────────────────── */
+    .cs-glance {
+      padding: 40px; display: flex; flex-direction: column; gap: 24px;
+    }
+    .cs-link { color: #175cfe; font-weight: 700; text-decoration: underline; opacity: 1; }
+
+    /* ─── PROBLEM BANNER ─────────────────────────────────── */
+    .cs-problem {
+      background: rgba(23,92,254,0.05); border-radius: 20px;
+      padding: 48px 80px;
+      display: flex; flex-direction: column; align-items: center; gap: 32px;
+    }
+    .cs-problem-statement {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500; font-size: 32px; line-height: 1.5;
+      color: #2b2b2b; text-align: center; max-width: 998px;
+    }
+
+    /* ─── FEATURE CAROUSEL ──────────────────────────────── */
+    .feature-carousel-outer {
+      position: relative; width: 100%;
+    }
+    .feature-carousel-wrap {
+      width: 100%; overflow: hidden;
+    }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: #fff; border: none; cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,56,186,0.18);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .carousel-btn:hover { box-shadow: 0 4px 20px rgba(0,56,186,0.28); transform: translateY(-50%) scale(1.08); }
+    .carousel-btn.prev { left: max(8px, calc((100% - 794px) / 4)); }
+    .carousel-btn.next { right: max(8px, calc((100% - 794px) / 4)); }
+    .carousel-btn svg { flex-shrink: 0; }
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(23,92,254,0.2); border: none; cursor: pointer; padding: 0;
+      transition: background 0.2s, width 0.2s;
+    }
+    .carousel-dot.active { background: #175cfe; width: 24px; border-radius: 4px; }
+    .feature-carousel {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 8px;
+      /* Centre active card and expose peek on both sides */
+      padding-inline: max(16px, calc((100% - 794px) / 2));
+    }
+    .feature-carousel::-webkit-scrollbar { display: none; }
+    .feature-card {
+      flex-shrink: 0;
+      width: 794px;
+      max-width: 92vw;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0px 1px 10px rgba(0, 56, 186, 0.25);
+      padding: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      scroll-snap-align: center;
+    }
+    .feature-card-text {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .feature-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700; font-size: 20px; line-height: 28px;
+      color: var(--blue); text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .feature-card-desc {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400; font-size: 18px; line-height: 28px;
+      color: #2b2b2b; opacity: 0.75;
+    }
+    .feature-card-img {
+      width: 100%; border-radius: 12px; overflow: hidden;
+    }
+    .feature-card-img img { width: 100%; display: block; }
+
+    /* ─── DIAGRAM ────────────────────────────────────────── */
+    .cs-diagram { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+    .cs-diagram-row {
+      display: flex; align-items: center; gap: 0;
+      width: 840px; max-width: 100%;
+    }
+    .cs-diagram-pill {
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px; border-radius: 20px;
+      font-family: 'Lato', sans-serif; font-size: 24px; line-height: 34px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .pill-brand { background: rgba(249,152,183,0.3); border: 1px solid #f998b7; min-width: 95px; }
+    .pill-agency { background: rgba(104,206,232,0.3); border: 1px solid #68cee8; min-width: 95px; }
+    .pill-influencer { background: rgba(255,225,137,0.3); border: 1px solid #ffe189; min-width: 135px; }
+    .pill-ar { background: #175cfe; color: #fff; min-width: 190px; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 20px; border-radius: 20px; }
+    .pill-plain { background: rgba(249,152,183,0.15); border: 1px solid rgba(0,0,0,0.12); min-width: 95px; }
+    .cs-diagram-arrow {
+      flex: 1; display: flex; align-items: center; position: relative;
+    }
+    .cs-diagram-arrow::before {
+      content: ''; flex: 1; display: block; border-top: 1.5px solid #2b2b2b;
+    }
+    .arr-left::after {
+      content: ''; width: 0; height: 0;
+      border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+      border-right: 8px solid #2b2b2b; flex-shrink: 0;
+      display: block; order: -1;
+    }
+    .arr-right::after {
+      content: ''; width: 0; height: 0;
+      border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+      border-left: 8px solid #2b2b2b; flex-shrink: 0; display: block;
+    }
+    .cs-diagram-dots {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Lato', sans-serif; font-size: 16px; color: #2b2b2b;
+    }
+    .cs-diagram-dot { width: 3px; height: 3px; background: #2b2b2b; border-radius: 50%; display: inline-block; }
+    .bg-arrows { display: flex; justify-content: space-between; width: 840px; max-width: 100%; }
+    .bg-arrow-down { display: flex; flex-direction: column; align-items: center; }
+    .bg-arrow-down::before { content: ''; width: 1.5px; height: 20px; background: #2b2b2b; display: block; }
+    .bg-arrow-down::after { content: ''; width: 0; height: 0; border-top: 8px solid #2b2b2b; border-left: 5px solid transparent; border-right: 5px solid transparent; display: block; }
+
+    /* ─── BACKGROUND QUOTE ───────────────────────────────── */
+    .bg-quote-box {
+      background: rgba(23,92,254,0.05); border-radius: 20px;
+      padding: 40px 101px;
+    }
+    .bg-quote {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-style: italic; font-size: 24px; line-height: 32px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+
+    /* ─── COMPETITOR ANALYSIS ────────────────────────────── */
+    .competitor-logos {
+      display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px;
+    }
+    .competitor-logo-item {
+      display: flex; flex-direction: column; gap: 8px; align-items: center; flex: 1; min-width: 120px;
+    }
+    .competitor-logo-icon {
+      width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+      border-radius: 8px;
+    }
+    .competitor-name {
+      font-family: 'Lato', sans-serif; font-size: 16px; color: #2b2b2b; text-align: center;
+    }
+    .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .swot-box { display: flex; flex-direction: column; gap: 20px; }
+    .swot-label {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .swot-icon {
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 28px;
+      color: #2b2b2b; border: 2px solid;
+    }
+    .swot-s .swot-icon { background: rgba(92,227,177,0.3);  border-color: #5ce3b1; }
+    .swot-w .swot-icon { background: rgba(255,251,129,0.3); border-color: #ffe189; }
+    .swot-o .swot-icon { background: rgba(123,219,255,0.3); border-color: #7bdbff; }
+    .swot-t .swot-icon { background: rgba(255,144,131,0.3); border-color: #ff9083; }
+    .swot-title {
+      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 32px; line-height: 56px;
+      line-height: 32px; color: #2b2b2b;
+    }
+    .swot-list {
+      list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .swot-list li {
+      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 32px;
+      color: #2b2b2b; opacity: 0.7;
+    }
+    .swot-list li strong { font-family: 'Poppins', sans-serif; font-weight: 700; opacity: 1; }
+
+    /* ─── HOW MIGHT WE ───────────────────────────────────── */
+    .hmw-box {
+      background: #eef2ff; border-radius: 20px;
+      padding: 48px 80px;
+      display: flex; flex-direction: column; gap: 24px; align-items: center;
+      text-align: center;
+    }
+    .hmw-label {
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px;
+      line-height: 26px; color: #175cfe;
+    }
+    .hmw-question {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 32px; line-height: 48px; color: #2b2b2b;
+    }
+
+    /* ─── REVEAL ─────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .cs-hero { animation: fadeUp 0.8s ease forwards 0.1s; opacity: 0; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── TABLET ≤ 768px ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-wrap { padding: 0; }
+      nav { padding: 0 20px; max-width: 100%; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .cs-wrap { width: 100%; padding: 60px 40px 0; gap: 80px; }
+      .cs-hero { flex-direction: column; }
+      .cs-hero-meta { width: 100%; }
+      .personas-header { width: 100%; }
+      .persona-wrap { width: 100%; }
+      .learnings-box { width: 100%; }
+      .personas-outer { padding: 32px 20px; }
+      .interviews-outer { padding: 40px 20px; }
+      .sticky-row { flex-direction: column; gap: 40px; }
+      .sticky-notes-container { width: 100%; height: 370px; }
+      .stats-card { flex-wrap: wrap; }
+      .stat-item { width: calc(50% - 16px); }
+
+      .footer { width: 100%; }
+      .footer-headline { font-size: 64px; line-height: 1.2; }
+      .footer-headline-wrap { height: auto; }
+      .footer-bottom-nav { width: 100%; }
+      .back-btn-wrap { width: 100%; padding: 24px 20px 0; }
+      .scroll-top { right: 14px; width: 72px; height: 72px; }
+      .scroll-top img { width: 72px; height: 72px; }
+      .cs-problem { padding: 40px 32px; }
+      .cs-glance { padding: 28px; }
+      .hmw-box { padding: 40px 28px; }
+      .cs-section[style*="padding:0 101px"] { padding: 0 !important; }
+      .interviews-outer { padding: 40px 20px; }
+      .bg-quote-box { padding: 32px 40px; }
+      .cs-diagram-row { width: 100%; }
+      .bg-arrows { width: 100%; }
+      .swot-grid { grid-template-columns: 1fr; }
+      .principle-card { padding: 32px 40px; border-radius: 24px; }
+      .feature-card { width: 90vw; padding: 32px; }
+    }
+
+    /* ─── MOBILE ≤ 480px ─────────────────────────────────── */
+    @media (max-width: 480px) {
+      .nav-name { display: none; }
+      .cs-wrap { padding: 40px 16px 0; gap: 64px; }
+      .cs-hero-heading { font-size: 28px; }
+      .cs-hero-sub { font-size: 17px; }
+      .cs-solution-heading { font-size: 22px; }
+      .cs-section-heading { font-size: 24px; }
+      .cs-body { font-size: 16px; }
+
+      .persona-card { flex-direction: column; padding: 20px; }
+      .persona-photo-col { width: 100%; height: 300px; }
+      .persona-content { gap: 32px; }
+      .persona-sections { gap: 32px; }
+
+      .sticky-row { flex-direction: column; gap: 32px; }
+      .sticky-notes-container { width: 350px; max-width: 100%; }
+
+      .stats-card { flex-direction: column; align-items: center; padding: 28px; }
+      .stat-item { width: 100%; }
+      .stat-number { font-size: 32px; }
+
+      .final-heading { font-size: 28px; }
+      .outcomes-heading { font-size: 28px; }
+
+      .footer { padding-top: 60px; }
+      .footer-eyebrow { font-size: 18px; }
+      .footer-headline { font-size: 48px; line-height: 1.2; }
+      .footer-headline-wrap { height: auto; gap: 24px; }
+      .btn-filled, .btn-outline { font-size: 20px; padding: 14px 20px; }
+      .footer-btns { flex-direction: column; gap: 12px; align-items: stretch; }
+      .footer-bottom-nav { flex-direction: column; gap: 12px; align-items: center; border-radius: 20px 20px 0 0; padding: 16px; }
+      .footer-nav-links { display: none; }
+      .footer-brand { justify-content: center; }
+      .back-btn-wrap { width: 100%; padding: 20px 16px 0; }
+      .scroll-top { right: 8px; width: 60px; height: 60px; }
+      .scroll-top img { width: 60px; height: 60px; }
+      .footer-brand-text { align-items: center; }
+      .cs-problem { padding: 32px 20px; }
+      .cs-problem-statement { font-size: 24px; }
+      .hmw-box { padding: 32px 20px; }
+      .hmw-question { font-size: 24px; line-height: 1.5; }
+      .swot-grid { grid-template-columns: 1fr; }
+      .competitor-logos { gap: 32px; }
+      .principle-card { padding: 24px 20px; border-radius: 20px; }
+      .principle-heading-row { font-size: 18px; }
+      .feature-card { width: 88vw; padding: 24px 20px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       DARK MODE OVERRIDES
+    ═══════════════════════════════════════════════════════ */
+
+    /* ─── Page base ─────────────────────────────────────── */
+    body {
+      background: #13131e;
+      color: #fff;
+    }
+
+    /* ─── Back button ───────────────────────────────────── */
+    .back-btn {
+      background: #1e1e2e; color: #fff;
+      box-shadow: 0 9px 18.8px rgba(0,0,0,0.45);
+    }
+    .back-btn svg path { stroke: #fff; }
+
+    /* ─── Hero text ─────────────────────────────────────── */
+    .cs-hero-heading { color: #fff; }
+    .cs-hero-sub { color: rgba(255,255,255,0.70); opacity: 1; }
+
+    /* ─── Meta card ─────────────────────────────────────── */
+    .cs-hero-meta { background: #1e1e2e; }
+    .cs-meta-label { color: #fff; }
+    .cs-meta-value { color: rgba(255,255,255,0.70); opacity: 1; }
+
+    /* ─── Section text ──────────────────────────────────── */
+    .cs-section-heading { color: #fff; }
+    .cs-section-sub { color: rgba(255,255,255,0.70); opacity: 1; }
+    .cs-body { color: rgba(255,255,255,0.70); opacity: 1; }
+    .cs-body strong, .cs-body b { color: #fff; opacity: 1; }
+    .cs-body strong[style*="color:#175cfe"], .cs-body b[style*="color:#175cfe"] { color: #4d87ff !important; }
+    .cs-subheading { color: #fff; }
+    .outcomes-heading { color: #fff; }
+    .final-heading { color: #fff; }
+    .final-list li { color: rgba(255,255,255,0.70); opacity: 1; }
+    .ia-list li { color: rgba(255,255,255,0.70); opacity: 1; }
+
+    /* ─── At-a-glance heading ───────────────────────────── */
+    .cs-glance > h2 { color: #fff !important; }
+    .cs-glance > p { color: rgba(255,255,255,0.70); opacity: 1; }
+
+    /* ─── Problem banner ────────────────────────────────── */
+    .cs-problem { background: rgba(23,92,254,0.12); border: 1px solid rgba(23,92,254,0.25); }
+    .cs-problem-statement { color: #fff; }
+
+    /* ─── Feature carousel ──────────────────────────────── */
+    .feature-card { background: #1e1e2e; box-shadow: 0 1px 10px rgba(0,0,0,0.45); }
+    .feature-card-desc { color: rgba(255,255,255,0.75); opacity: 1; }
+    .carousel-btn { background: #1e1e2e; box-shadow: 0 2px 12px rgba(0,0,0,0.55); }
+    .carousel-dot { background: rgba(23,92,254,0.40); }
+    .carousel-dot.active { background: #175cfe; }
+
+    /* ─── Background section ────────────────────────────── */
+    .bg-quote-box { background: rgba(23,92,254,0.10); border: 1px solid rgba(23,92,254,0.20); }
+    .bg-quote { color: rgba(255,255,255,0.70); opacity: 1; }
+    .cs-diagram-arrow::before { border-top-color: rgba(255,255,255,0.55); }
+    .arr-left::after { border-right-color: rgba(255,255,255,0.55); }
+    .arr-right::after { border-left-color: rgba(255,255,255,0.55); }
+    .bg-arrow-down::before { background: rgba(255,255,255,0.55); }
+    .bg-arrow-down::after { border-top-color: rgba(255,255,255,0.55); }
+    .cs-diagram-dot { background: rgba(255,255,255,0.55); }
+    .cs-diagram-dots { color: rgba(255,255,255,0.55); }
+
+    /* ─── Interviews & competitor box ───────────────────── */
+    .interviews-outer { background: #1e1e2e; }
+    .sticky-cluster-title { color: #fff; }
+    .interviews-conclusion { color: rgba(255,255,255,0.70); opacity: 1; }
+    .interviews-conclusion em { color: #fff; opacity: 1; }
+    .competitor-name { color: rgba(255,255,255,0.80); }
+    .swot-title { color: #fff; }
+    .swot-list li { color: rgba(255,255,255,0.70); opacity: 1; }
+    .swot-list li strong { color: #fff; opacity: 1; }
+
+    /* ─── Personas ──────────────────────────────────────── */
+    .personas-outer { background: #1e1e2e; }
+    .persona-intro { color: rgba(255,255,255,0.70); opacity: 1; }
+    .persona-card { background: #252538; box-shadow: 0 1px 10px rgba(0,0,0,0.55); }
+    .persona-quote { color: #fff; }
+    .persona-detail-body { color: rgba(255,255,255,0.60); opacity: 1; }
+    .persona-detail ul li { color: rgba(255,255,255,0.60); opacity: 1; }
+    .motivation-label { color: rgba(255,255,255,0.70); }
+    .motivation-bar-track { background: rgba(255,255,255,0.10); }
+
+    /* ─── How Might We ──────────────────────────────────── */
+    .hmw-box { background: rgba(23,92,254,0.15); border: 1px solid rgba(23,92,254,0.30); }
+    .hmw-question { color: #fff; }
+
+    /* ─── Design principles (keep light cards) ──────────── */
+    .principle-heading-row { color: #2b2b2b; }
+    .principle-body { color: #2b2b2b; }
+    .principle-footer { color: rgba(0,0,0,0.65); opacity: 1; }
+    .principle-footer-list { color: rgba(0,0,0,0.65); opacity: 1; }
+
+    /* ─── Wireframes ────────────────────────────────────── */
+    .wireframes-box { background: #1e1e2e; }
+
+    /* ─── Stats card ────────────────────────────────────── */
+    .stats-card { background: rgba(5,150,105,0.15); border: 1px solid rgba(5,150,105,0.30); }
+    .stat-number { color: #fff; }
+    .stat-desc { color: rgba(255,255,255,0.80); }
+
+    /* ─── Thank you ─────────────────────────────────────── */
+    .thankyou-box { background: #1a2a5e; }
+    .thankyou-heading { color: #5b8fff; }
+    .thankyou-text { color: rgba(255,255,255,0.90); }
+
+    /* ─── Footer ────────────────────────────────────────── */
+    .footer-eyebrow { color: rgba(255,255,255,0.80); opacity: 1; }
+    .footer-headline { color: #fff; }
+    .btn-filled { background: #fff; color: #2b2b2b; }
+    .btn-filled:hover { background: #e8e8e8; }
+    .btn-outline { border-color: #fff; color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.10); }
+    .footer-email-link { color: #fff; }
+    .footer-email-link svg rect,
+    .footer-email-link svg path { stroke: #fff; }
+    .footer-bottom-nav { background: #1e1e2e; }
+    .footer-brand-name { color: #fff; }
+    .footer-brand-copy { color: rgba(255,255,255,0.50); opacity: 1; }
+    .footer-nav-links a { color: #fff; opacity: 0.45; }
+    .footer-nav-links a:hover { opacity: 0.85; }
+
+    /* ─── Scroll to top tooltip ─────────────────────────── */
+    .scroll-top-tooltip { background: #1e1e2e; color: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.55); }
+
+    /* ─── Mobile menu ───────────────────────────────────── */
+    .mobile-menu { background: #1e1e2e; border-top-color: rgba(255,255,255,0.10); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .mobile-menu a, .mobile-menu button { color: #fff; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+  <div class="nav-wrap" style="width:100%;">
+    <nav id="main-nav">
+      <a href="index.html" class="cs-back-link" aria-label="Go back">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back
+      </a>
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+        <span class="nav-name">Vivek Vasudevan</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- ═══ CASE STUDY CONTENT ══════════════════════════════ -->
+  <div class="cs-wrap">
+
+    <!-- ─── HERO ─────────────────────────────────────────── -->
+    <div class="cs-hero">
+      <div class="cs-hero-left">
+        <p class="cs-hero-label">AtisfyReach</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <h1 class="cs-hero-heading">Designing a new operational model for influencer marketing</h1>
+          <p class="cs-hero-sub">AtisfyReach is an AI-powered platform that replaces manual brand–creator negotiations with a structured, trust-driven campaign workflow.</p>
+        </div>
+      </div>
+      <div class="cs-hero-meta">
+        <div class="cs-meta-row" style="gap:38px;">
+          <span class="cs-meta-label role">Role</span>
+          <span class="cs-meta-value">Lead Product Designer</span>
+        </div>
+        <div class="cs-meta-row" style="gap:24px;">
+          <span class="cs-meta-label scope">Scope</span>
+          <span class="cs-meta-value">Product Design, UX Strategy, UI</span>
+        </div>
+        <div class="cs-meta-row" style="gap:34px;align-items:flex-start;">
+          <span class="cs-meta-label team">Team</span>
+          <span class="cs-meta-value">Product Owner, Solution Architect, Lead Engineer, Data Scientist</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── COVER IMAGE ───────────────────────────────────── -->
+    <div class="cs-cover reveal">
+      <img src="assets/images/AtisfyReach%20Laptop%20Mockup%201.png" alt="AtisfyReach case study" />
+    </div>
+
+    <!-- ─── AT A GLANCE ──────────────────────────────────── -->
+    <div class="cs-glance reveal">
+      <p class="cs-section-label">At a glance</p>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:48px;line-height:58px;color:#2b2b2b;">AtisfyReach – Influencer Marketing Platform</h2>
+      <p class="cs-body">Influencer marketing was broken, fragmented across tools, opaque in pricing, and inaccessible to brands without agency relationships or large budgets. AtisfyReach was built to change that.</p>
+      <p class="cs-body">As Lead Product Designer, I designed a scalable, AI-powered platform that unifies creator discovery, campaign configuration, contracting, payments, and performance tracking into a single structured workflow. The design focused on reducing decision anxiety through guided simplicity, enabling team collaboration through modular campaign management, and building user confidence through real-time, data-backed feedback at every step.</p>
+      <p class="cs-body">The launch validated both the product and the approach. <a href="#outcomes" class="cs-link">50+ brands onboarded</a> during the launch phase, and campaigns achieved <a href="#outcomes" class="cs-link">6× lower costs through optimised ad budgets</a>, delivering measurably stronger ROI.</p>
+      <p class="cs-body">The project reinforced two lasting lessons. Simplicity is never surface-deep; designing a straightforward campaign workflow revealed the intricate dependencies beneath influencer marketing systems, and every simplification required deliberate, thoughtful decisions. It also became clear that trust is the real product. Both brands and influencers needed transparency and reliability before they were willing to commit, making trust a foundational design requirement rather than a nice-to-have.</p>
+    </div>
+
+    <!-- ─── THE PROBLEM ───────────────────────────────────── -->
+    <div class="cs-problem reveal">
+      <p class="cs-section-label">The Problem</p>
+      <p class="cs-problem-statement">Influencer marketing was broken; fragmented across tools, opaque in pricing, and inaccessible to brands without agency relationships or large budgets.</p>
+    </div>
+
+    <!-- ─── THE SOLUTION ─────────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div style="text-align:center;">
+        <p class="cs-section-label">The solution</p>
+        <h2 class="cs-section-heading" style="text-align:center;margin-top:8px;">AtisfyReach: A scalable influencer marketing platform that unifies fragmented workflows into one intelligent, standardized system.</h2>
+      </div>
+      <p class="cs-body">Creator discovery, campaign setup, contracting, payments, and performance tracking are integrated into a structured, automated workflow. Brands define objectives and budgets; AI-driven optimisation recommends creators and forecasts outcomes in real time, with full transparency into the underlying metrics. It transforms influencer marketing from manual coordination into predictable, data-backed execution.</p>
+      <!-- Solution diagram -->
+      <div style="width:100%;display:flex;justify-content:center;">
+        <img src="assets/images/AtisfyReach-Solution.svg" alt="AtisfyReach solution diagram" style="max-width:100%;display:block;" />
+      </div>
+      <!-- Feature cards carousel -->
+      <div class="feature-carousel-outer">
+        <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carousel-btn next" id="carouselNext" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      <div class="feature-carousel-wrap">
+        <div class="feature-carousel" id="featureCarousel">
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Campaign Configuration</p>
+              <p class="feature-card-desc">Create and configure your campaign by defining the value proposition, campaign name, and objectives. This step establishes the foundation for the campaign and ensures influencers clearly understand the brand's expectations and goals.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/CampaignConfiguration.png" alt="Campaign Configuration" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Audience Targeting</p>
+              <p class="feature-card-desc">Define the ideal audience for your campaign with precision targeting based on demographics, interests, and behaviours — maximising campaign reach and relevance for your brand.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/AudienceTargeting.png" alt="Audience Targeting" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Promotion Groups</p>
+              <p class="feature-card-desc">Organise your influencer campaigns into strategic promotion groups, enabling targeted outreach and clear management of different campaign segments across your team.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/PromotionGroups.png" alt="Promotion Groups" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Secure Billing</p>
+              <p class="feature-card-desc">Streamline payment processing with secure, automated billing workflows that protect both brands and creators throughout every stage of the campaign lifecycle.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/SecureBilling.png" alt="Secure Billing" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Brand Protection</p>
+              <p class="feature-card-desc">Safeguard your brand with built-in content guidelines, approval workflows, and compliance checks that ensure every campaign aligns with your brand standards.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/BrandProtection.png" alt="Brand Protection" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Campaign Preview &amp; Final Review</p>
+              <p class="feature-card-desc">Preview your complete campaign setup before launch, reviewing all configurations, influencer selections, and content briefs in one consolidated view.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/CampaignPreviewFinalReview.png" alt="Campaign Preview and Final Review" /></div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-text">
+              <p class="feature-card-title">Campaign Budgeting</p>
+              <p class="feature-card-desc">Set, track, and optimise your campaign budget with real-time visibility into spend allocation across influencers, ensuring maximum ROI within your budget constraints.</p>
+            </div>
+            <div class="feature-card-img"><img src="assets/images/CampaignBudgeting.png" alt="Campaign Budgeting" /></div>
+          </div>
+        </div>
+      </div>
+      </div><!-- /feature-carousel-outer -->
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <!-- ─── BACKGROUND ────────────────────────────────────── -->
+    <div class="cs-section reveal" style="padding:0 101px;">
+      <div style="display:flex;flex-direction:column;gap:32px;">
+        <div>
+          <p class="cs-section-label">Background</p>
+          <h2 class="cs-section-heading">Influencer marketing was manual, opaque, and relationship-driven.</h2>
+        </div>
+        <p class="cs-body" style="font-size:20px;line-height:40px;"><strong style="font-weight:700;font-style:normal;opacity:1;">Imagine:</strong> It's early October. Halloween is weeks away.</p>
+        <p class="cs-body" style="font-size:20px;line-height:40px;">Clayton, a jewellery brand owner is preparing a Halloween collection launch. With only weeks to go, Instagram and TikTok are critical channels. Agencies are overbooked during peak season, and his campaign budget is too small to prioritise. Without support, he faces the complexity of <strong style="font-weight:700;font-style:normal;color:#175cfe;opacity:1;">creator discovery, outreach, contracting, payments, and performance tracking alone</strong>, all under time pressure.</p>
+        <p class="cs-body" style="font-size:20px;line-height:40px;">This scenario reflects a broader systemic gap: influencer marketing was <strong style="font-weight:700;font-style:normal;color:#175cfe;opacity:1;">relationship-driven rather than system-driven</strong>. Access depended on networks and budget size, not merit or readiness. The opportunity was clear – to create an AI-powered, unified creator network that standardises workflows, automates execution, and makes influencer marketing transparent, scalable, and accessible to businesses of all sizes.</p>
+        <!-- Old model diagram -->
+        <div style="display:flex;justify-content:center;">
+          <img src="assets/images/Background%20Flow.svg" alt="Brand–Agency–Influencer old model" style="max-width:100%;display:block;" />
+        </div>
+      </div>
+      <!-- Quote box -->
+      <div class="bg-quote-box">
+        <p class="bg-quote">"AtisfyReach was built for Clayton and the thousands of brand owners like him."</p>
+      </div>
+    </div>
+
+    <!-- ─── RESEARCH ──────────────────────────────────────── -->
+    <div class="cs-section reveal" style="padding:0 101px;">
+      <div>
+        <p class="cs-section-label">Research</p>
+        <h2 class="cs-section-heading">Leading Discovery with Empathy</h2>
+        <p class="cs-section-sub" style="margin-top:16px;">To validate the hypothesis, I conducted in-depth interviews with brands actively running, or planning to run, influencer marketing campaigns to understand their workflows, constraints, and success criteria. In parallel, I analysed existing influencer marketing platforms to uncover gaps in transparency, automation, and scalability, helping define a clearer, more differentiated value proposition.</p>
+      </div>
+    </div>
+
+    <!-- User Interviews -->
+    <div class="interviews-outer reveal">
+        <div>
+          <p class="cs-subheading">User Interviews</p>
+          <p class="cs-body" style="margin-top:16px;">I conducted <strong style="font-weight:700;font-style:normal;opacity:1;">11 in-person and virtual interviews</strong> with internal team members (who were marketers themselves) and external brands to understand their decision-making processes and existing workflows. I focused on uncovering how they evaluated creators, allocated budgets, and navigated operational challenges at different stages of their campaign journey.</p>
+        </div>
+
+        <div class="sticky-grid">
+          <!-- Row 1 -->
+          <div class="sticky-row">
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Manual Overload &amp; Friction</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Heavy reliance on manual process for contracts</div>
+                <div class="sticky-note sn-2">Inefficient campaign management</div>
+                <div class="sticky-note sn-3">Lack of automation for payments and contracts</div>
+                <div class="sticky-note sn-4">Friction in payment processing</div>
+              </div>
+            </div>
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Optimization Needs &amp; ROI Gap</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Clear desire for tools to manage spend</div>
+                <div class="sticky-note sn-2">Need to track ROI accurately</div>
+                <div class="sticky-note sn-3">Difficult to compare influencer effectiveness</div>
+                <div class="sticky-note sn-4">Improve campaign performance</div>
+              </div>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="sticky-row">
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Lack of Strategic Guidance</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Brands struggle to identify right influencers</div>
+                <div class="sticky-note sn-2">Lack of guidance for both brands and influencers</div>
+                <div class="sticky-note sn-3">Uncertainty about fair influencer rates</div>
+                <div class="sticky-note sn-4">Difficult to assess campaign value effectively</div>
+              </div>
+            </div>
+            <div class="sticky-cluster">
+              <p class="sticky-cluster-title">Untapped Data Potential</p>
+              <div class="sticky-notes-container">
+                <div class="sticky-note sn-1">Influencer marketing holds strong promise</div>
+                <div class="sticky-note sn-2">Lack support for data-driven decisions</div>
+                <div class="sticky-note sn-3">Strong promise but untapped potential</div>
+                <div class="sticky-note sn-4">Unable to make scalable decisions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="interviews-conclusion">Across all interviews, one pattern was clear: <em>brands were spending more time managing the process than running the campaign.</em></p>
+    </div><!-- /interviews-outer -->
+
+    <!-- Competitor Analysis -->
+    <div class="interviews-outer reveal" style="gap:32px;">
+        <div>
+          <p class="cs-subheading">Competitor Analysis</p>
+          <p class="cs-body" style="margin-top:16px;">I reviewed several competitors, but the following four stood out as the most relevant.</p>
+        </div>
+        <div class="competitor-logos">
+          <div class="competitor-logo-item">
+            <img src="assets/images/Upfluecne.svg" alt="Upfluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <span class="competitor-name">Upfluencer</span>
+          </div>
+          <div class="competitor-logo-item">
+            <img src="assets/images/Afluencer.svg" alt="Afluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <span class="competitor-name">Afluencer</span>
+          </div>
+          <div class="competitor-logo-item">
+            <img src="assets/images/CreatorIQ.svg" alt="CreatorIQ logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <span class="competitor-name">CreatorIQ</span>
+          </div>
+          <div class="competitor-logo-item">
+            <img src="assets/images/PearPop.svg" alt="PearPop logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <span class="competitor-name">PearPop</span>
+          </div>
+        </div>
+        <div class="swot-grid">
+          <div class="swot-box swot-s">
+            <div class="swot-label">
+              <div class="swot-icon">S</div>
+              <span class="swot-title">Strengths</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>AI-driven influencer discovery</strong> simplified the process of finding relevant creators.</li>
+              <li><strong>End-to-end campaign workflow</strong> reduced reliance on multiple tools.</li>
+              <li><strong>Growing market demand</strong> as influencer marketing rapidly expanded.</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-w">
+            <div class="swot-label">
+              <div class="swot-icon">W</div>
+              <span class="swot-title">Weaknesses</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>Low early brand recognition</strong> compared to established platforms.</li>
+              <li><strong>Limited analytics maturity</strong> relative to larger competitors.</li>
+              <li><strong>Dependence on social platform APIs</strong> for data and integrations.</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-o">
+            <div class="swot-label">
+              <div class="swot-icon">O</div>
+              <span class="swot-title">Opportunities</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>Rapid growth of influencer marketing</strong> as brands increased digital spend.</li>
+              <li><strong>Rise of micro- and nano-influencers</strong> requiring scalable discovery tools.</li>
+              <li><strong>COVID-19 accelerating digital campaigns</strong> and creator partnerships.</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-t">
+            <div class="swot-label">
+              <div class="swot-icon">T</div>
+              <span class="swot-title">Threats</span>
+            </div>
+            <ul class="swot-list">
+              <li><strong>Strong competition</strong> from established influencer platforms.</li>
+              <li><strong>Influencer fraud and fake followers</strong> impacting brand trust.</li>
+              <li><strong>Rapid social media platform changes</strong> requiring constant adaptation.</li>
+            </ul>
+          </div>
+        </div>
+    </div><!-- /competitor-analysis interviews-outer -->
+
+    <!-- ─── DEFINE: PERSONAS ──────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div>
+        <p class="cs-section-label">Define</p>
+        <h2 class="cs-section-heading">Rooting Design Decisions in Real User Needs</h2>
+        <p class="cs-section-sub" style="margin-top:16px;">To ensure the design was grounded in the needs and challenges of individuals with a need for marketing, I created user personas based on key insights from my research.</p>
+      </div>
+
+      <div class="personas-outer">
+        <div class="personas-header">
+          <p class="cs-subheading">Understanding our users</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:66px;width:998px;max-width:100%;">
+
+          <!-- PERSONA 1: Clayton Horn -->
+          <div class="persona-wrap">
+            <p class="persona-intro">Clayton represented a pattern that emerged consistently across small business interviews — someone with real enthusiasm for influencer marketing but no clear entry point. He needed a tool that demystified the process without straining a limited budget. His social media presence had already shown him what was possible, but he had little idea where to start or how to navigate it on his own.</p>
+            <div class="persona-card">
+              <div class="persona-photo-col">
+                <img src="assets/images/Clayton%20Horn.png" alt="Clayton Horn" />
+                <div class="persona-photo-gradient"></div>
+                <div class="persona-photo-info">
+                  <span class="persona-photo-name">Clayton Horn</span>
+                  <span class="persona-photo-role"><span>31,</span> Business Owner</span>
+                  <div class="persona-photo-location">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1C4.067 1 2.5 2.567 2.5 4.5C2.5 7 6 11 6 11C6 11 9.5 7 9.5 4.5C9.5 2.567 7.933 1 6 1ZM6 5.75C5.31 5.75 4.75 5.19 4.75 4.5C4.75 3.81 5.31 3.25 6 3.25C6.69 3.25 7.25 3.81 7.25 4.5C7.25 5.19 6.69 5.75 6 5.75Z" fill="white"/></svg>
+                    <span>Prahran, Melbourne</span>
+                  </div>
+                </div>
+              </div>
+              <div class="persona-content">
+                <p class="persona-quote"><span class="q-mark">" </span>I want to try influencer marketing, but it's hard to know who's authentic and who will actually bring customers.<span class="q-mark"> "</span></p>
+                <div class="persona-sections">
+                  <div class="persona-details">
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">About</p>
+                      <p class="persona-detail-body">Clayton had recently launched his own business, specialising in unique handmade jewellery. He brought a strong passion for creativity and craftsmanship, and was determined to establish his brand in a competitive market. Though new to the business world, he was eager to explore innovative marketing strategies to grow his customer base.</p>
+                    </div>
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">Goals</p>
+                      <ul>
+                        <li>To increase brand awareness for his handmade jewellery business</li>
+                        <li>Generate sales and expand customer base</li>
+                      </ul>
+                    </div>
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">Pain points</p>
+                      <ul>
+                        <li>Lack of experience in navigating the influencer marketing landscape</li>
+                        <li>Limited budget for marketing initiatives</li>
+                        <li>Identifying the right influencers whose audiences aligned with his target market</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="persona-motivations">
+                    <p class="motivation-title">Motivations</p>
+                    <div class="motivation-bars">
+                      <div class="motivation-row">
+                        <span class="motivation-label">Growth</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:86.82%"></div></div>
+                      </div>
+                      <div class="motivation-row">
+                        <span class="motivation-label">Social Network</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:97.11%"></div></div>
+                      </div>
+                      <div class="motivation-row">
+                        <span class="motivation-label">Fear</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:71.06%"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PERSONA 2: Emma Bridges -->
+          <div class="persona-wrap">
+            <p class="persona-intro">Emma reflected a challenge common among mid-level marketing professionals I spoke with. She needed a platform that consolidated influencer discovery, outreach, and campaign management into a single workflow. She understood the value influencer marketing could bring, but managing it manually across multiple tools was making the process inefficient and increasingly difficult to scale.</p>
+            <div class="persona-card">
+              <div class="persona-photo-col">
+                <img src="assets/images/Emma%20Bridges.png" alt="Emma Bridges" />
+                <div class="persona-photo-gradient"></div>
+                <div class="persona-photo-info">
+                  <span class="persona-photo-name">Emma Bridges</span>
+                  <span class="persona-photo-role"><span>29,</span> Marketing Manager</span>
+                  <div class="persona-photo-location">
+                    <svg width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1C4.067 1 2.5 2.567 2.5 4.5C2.5 7 6 11 6 11C6 11 9.5 7 9.5 4.5C9.5 2.567 7.933 1 6 1ZM6 5.75C5.31 5.75 4.75 5.19 4.75 4.5C4.75 3.81 5.31 3.25 6 3.25C6.69 3.25 7.25 3.81 7.25 4.5C7.25 5.19 6.69 5.75 6 5.75Z" fill="white"/></svg>
+                    <span>London, United Kingdom</span>
+                  </div>
+                </div>
+              </div>
+              <div class="persona-content gap-32">
+                <p class="persona-quote"><span class="q-mark">" </span>Influencer marketing could be powerful for our campaigns, but I need tools that make discovery, outreach, and reporting much easier.<span class="q-mark"> "</span></p>
+                <div class="persona-sections gap-48">
+                  <div class="persona-details">
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">About</p>
+                      <p class="persona-detail-body">Emma was a Marketing Manager at a mid-sized consumer brand, responsible for running digital campaigns and improving customer engagement. She was looking to incorporate influencer marketing into her strategy but needed efficient tools to manage discovery, outreach, and performance tracking without adding to an already demanding workload.</p>
+                    </div>
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">Goals</p>
+                      <ul>
+                        <li>Launch influencer campaigns that drive measurable engagement and brand awareness</li>
+                        <li>Streamline the process of finding, managing, and collaborating with influencers</li>
+                        <li>Track campaign performance and demonstrate ROI to leadership</li>
+                      </ul>
+                    </div>
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">Pain points</p>
+                      <ul>
+                        <li>Managing influencer outreach manually across multiple platforms</li>
+                        <li>Difficulty measuring ROI and campaign performance</li>
+                        <li>Limited time and resources to manage influencer relationships at scale</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="persona-motivations">
+                    <p class="motivation-title">Motivations</p>
+                    <div class="motivation-bars">
+                      <div class="motivation-row">
+                        <span class="motivation-label">Efficiency</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:86.82%"></div></div>
+                      </div>
+                      <div class="motivation-row">
+                        <span class="motivation-label">Growth</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:97.11%"></div></div>
+                      </div>
+                      <div class="motivation-row">
+                        <span class="motivation-label">Professional Success</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:87.92%"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PERSONA 3: Michael O'Neil -->
+          <div class="persona-wrap">
+            <p class="persona-intro">Michael represented the senior stakeholder perspective — one we knew would be critical to platform adoption at enterprise level. He needed a reliable, data-driven platform that could bring influencer marketing to scale while aligning with broader business objectives. He could see its potential as a growth channel, but required clear insights, measurable ROI, and strategic oversight before committing to it as a core part of the marketing mix.</p>
+            <div class="persona-card">
+              <div class="persona-photo-col">
+                <img src="assets/images/Michael%20O'Neil.png" alt="Michael O'Neil" />
+                <div class="persona-photo-gradient"></div>
+                <div class="persona-photo-info">
+                  <span class="persona-photo-name">Michael O'Neil</span>
+                  <span class="persona-photo-role"><span>43,</span> CMO (MarTecSys Pty. Ltd.)</span>
+                  <div class="persona-photo-location">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1C4.067 1 2.5 2.567 2.5 4.5C2.5 7 6 11 6 11C6 11 9.5 7 9.5 4.5C9.5 2.567 7.933 1 6 1ZM6 5.75C5.31 5.75 4.75 5.19 4.75 4.5C4.75 3.81 5.31 3.25 6 3.25C6.69 3.25 7.25 3.81 7.25 4.5C7.25 5.19 6.69 5.75 6 5.75Z" fill="white"/></svg>
+                    <span>Florida, USA</span>
+                  </div>
+                </div>
+              </div>
+              <div class="persona-content gap-32">
+                <p class="persona-quote"><span class="q-mark">"</span>Influencer marketing has potential, but I need reliable insights and scalable systems before making it a core part of our strategy.<span class="q-mark">"</span></p>
+                <div class="persona-sections gap-48">
+                  <div class="persona-details">
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">About</p>
+                      <p class="persona-detail-body">Michael was a Chief Marketing Officer with over 15 years of experience leading brand and growth strategy. He was exploring influencer marketing as a potential channel but needed reliable data, proven scalability, and clear ROI before integrating it into the company's broader marketing mix.</p>
+                    </div>
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">Goals</p>
+                      <ul>
+                        <li>Expand brand reach and improve customer engagement through modern marketing channels</li>
+                        <li>Integrate influencer marketing into the broader marketing strategy</li>
+                        <li>Ensure marketing investments deliver measurable business impact</li>
+                      </ul>
+                    </div>
+                    <div class="persona-detail">
+                      <p class="persona-detail-title">Pain points</p>
+                      <ul>
+                        <li>Lack of reliable data to evaluate influencer effectiveness</li>
+                        <li>Difficulty scaling influencer campaigns across markets</li>
+                        <li>Ensuring influencer partnerships align with brand reputation and strategy</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="persona-motivations">
+                    <p class="motivation-title">Motivations</p>
+                    <div class="motivation-bars">
+                      <div class="motivation-row">
+                        <span class="motivation-label">Growth</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:80.04%"></div></div>
+                      </div>
+                      <div class="motivation-row">
+                        <span class="motivation-label">Market Leadership</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:97.11%"></div></div>
+                      </div>
+                      <div class="motivation-row">
+                        <span class="motivation-label">Strategic Innovation</span>
+                        <div class="motivation-bar-track"><div class="motivation-bar-fill" style="width:92.92%"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /personas list -->
+
+        <!-- Learnings -->
+        <div class="learnings-box">
+          <p class="cs-subheading">Learnings</p>
+          <p class="cs-body">At first glance, it appeared that everyone shares the common goal of saving valuable time and money. However, upon closer examination, it became evident that there were divergent motivations among users.</p>
+          <p class="cs-body" style="margin-top:0;">As research and design progressed, my focus centered primarily on two personas due to their significant influence on two key functions: automating the tedious hunt for influencers and identifying the right influencer to suit specific needs.</p>
+        </div>
+
+      </div><!-- /personas-outer -->
+    </div>
+
+    <!-- How Might We -->
+    <div class="cs-section reveal">
+      <div class="hmw-box">
+        <p class="hmw-label">How might we...</p>
+        <p class="hmw-question">Simplify influencer discovery and campaign management so that brands of all sizes can easily find authentic influencers, run campaigns efficiently, and measure their impact?</p>
+      </div>
+    </div>
+
+    <!-- ─── IDEATION ──────────────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div>
+        <p class="cs-section-label">Ideation</p>
+        <h2 class="cs-section-heading">To turn Pain Points into Features</h2>
+        <p class="cs-section-sub" style="margin-top:8px;">With three clearly defined user personas, I explored solutions that addressed their key challenges while enabling influencer marketing to scale effectively for different types of businesses.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:40px;">
+
+        <!-- Importance of Automation -->
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <p class="cs-subheading">Importance of Automation</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p class="cs-body">Automation plays a critical role in simplifying the influencer marketing workflow. By reducing repetitive tasks, it allows brands to focus on what matters most — achieving their marketing objectives and driving revenue.</p>
+            <ul class="ia-list">
+              <li><b>Manual Overload → Automated Workflows</b>: Automating repetitive processes such as influencer discovery, outreach, and campaign tracking saves significant time and effort for users.</li>
+              <li><b>Lack of guidance → Assisted User Journeys</b>: Automation can provide contextual assistance throughout the platform, helping users navigate influencer marketing without requiring deep expertise.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Why AI? -->
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <p class="cs-subheading">Why AI?</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p class="cs-body">AI provides powerful, fast, and scalable capabilities that address several key challenges within influencer marketing</p>
+            <ul class="ia-list">
+              <li><b>Cumbersome and inconsistent scaling → AI-driven campaign optimization</b>: AI enables campaigns to scale intelligently by learning from past performance and identifying high-performing influencers.</li>
+              <li><b>Uncertain ROI and performance → Data-driven insights</b>: AI analyzes campaign data to optimize performance and deliver more reliable outcomes tied directly to platform insights.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── CREATING STRUCTURE ────────────────────────────── -->
+    <div class="interviews-outer reveal" style="gap:32px;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <p class="cs-section-label">Information Architecture</p>
+        <h2 class="cs-section-heading">Creating Structure</h2>
+        <p class="cs-body">Informed by insights gathered through surveys and user interviews, the site map was designed to support three core user tasks that form the foundation of the high-fidelity prototype. The structure focuses on creating an intuitive navigation system that enables users to move through the platform efficiently and accomplish their goals with minimal friction.</p>
+        <p class="cs-body">The site map organizes the platform into three key task streams:</p>
+        <ul class="ia-list">
+          <li>Onboarding and Registration – enabling new users to quickly set up their accounts and begin using the platform.</li>
+          <li>Campaign &amp; Profile Management – allowing users to manage their profiles, create campaigns, and collaborate with influencers.</li>
+          <li>Campaign Analytics – providing detailed insights and performance metrics to help users evaluate and optimize their campaigns.</li>
+        </ul>
+        <p class="cs-body">The framework established through the site map, combined with the user insights gathered during research, guided key design decisions throughout the product development process.</p>
+      </div>
+      <img src="assets/images/InformationArchitecture_AtisfyReach.png" alt="AtisfyReach information architecture" style="width:100%;display:block;" />
+    </div>
+
+    <!-- ─── DESIGN: DESIGNING FOR ADOPTION ───────────────── -->
+    <div class="cs-section reveal">
+      <div>
+        <p class="cs-section-label">Design</p>
+        <h2 class="cs-section-heading">Designing for Adoption</h2>
+        <p class="cs-section-sub" style="margin-top:8px;">Instead of starting with features, I defined the behavioural conditions users needed to feel confident enough to adopt the platform.</p>
+      </div>
+      <div class="design-principles">
+
+        <!-- Principle 1: Simplicity -->
+        <div class="principle-card" style="background:#def8f0;">
+          <div class="principle-heading-row">
+            <span class="principle-num">1.</span>
+            <span>Simplicity - Reduce decision anxiety.</span>
+          </div>
+          <p class="principle-body">The biggest barrier to adoption wasn't capability — it was overwhelm. To counter this, we collapsed complex influencer evaluation into a guided campaign flow.</p>
+          <div class="principle-flow">
+            <div class="flow-pill-dp">Goals</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Criteria and Promotions</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Budget &amp; optimization</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Launch</div>
+          </div>
+          <p class="principle-footer">Rather than asking users to explore an open system, we guided them toward commitment. Simplicity wasn't a minimal interface — it was a simplified mental model.</p>
+        </div>
+
+        <!-- Principle 2: Modularity -->
+        <div class="principle-card" style="background:#e1f5fa;">
+          <div class="principle-heading-row">
+            <span class="principle-num">2.</span>
+            <span>Modularity - Commit in stages, collaborate in parallel.</span>
+          </div>
+          <p class="principle-body">Campaigns aren't built in one sitting, and enterprise teams don't work sequentially. I structured the platform as independent but connected modules:</p>
+          <div class="principle-flow">
+            <div class="flow-pill-dp">Strategy</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Marketing</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Finance &amp; Legal</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Performance</div>
+          </div>
+          <div class="principle-footer-list">
+            <p>Each module could be:</p>
+            <ul>
+              <li>Saved independently, so progress was never lost mid-session</li>
+              <li>Assignable across team members, enabling parallel work without handoff delays</li>
+              <li>Updated in isolation, without breaking the state of the broader campaign</li>
+            </ul>
+            <p>This gave brands the flexibility to adopt the platform incrementally, reducing friction at scale.</p>
+          </div>
+        </div>
+
+        <!-- Principle 3: Feedback-Based Learning -->
+        <div class="principle-card" style="background:#fff7df;">
+          <div class="principle-heading-row">
+            <span class="principle-num">3.</span>
+            <span>Feedback-Based Learning - Build confidence through consequence</span>
+          </div>
+          <p class="principle-body">Every interaction was designed to teach. Selecting creators updated projected engagement, adjusting a budget recalculated estimated reach, and filtering audiences refined performance expectations in real time.</p>
+          <div class="principle-flow">
+            <div class="flow-pill-dp">Action</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Projection</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Adjustment</div>
+            <div class="flow-arrow-dp"></div>
+            <div class="flow-pill-dp">Improvement</div>
+          </div>
+          <p class="principle-footer">The platform became both an execution tool and a learning environment. Trust grew not because we told users the system worked — but because the system showed them why, at every step.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── VISUALIZING ──────────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div>
+        <p class="cs-section-label">Low-Fi Prototype</p>
+        <h2 class="cs-section-heading">Visualizing a User-Centric Experience</h2>
+        <p class="cs-section-sub" style="margin-top:8px;">Through rapid sketching, I explored common design patterns across competing platforms to identify familiar interactions for AtisfyReach. This helped uncover key interface elements and flexible screen structures that could support multiple tasks.</p>
+        <p class="cs-section-sub" style="margin-top:8px;">Leveraging these insights allowed the design to reduce the learning curve, streamline interactions, and create a more intuitive user experience.</p>
+      </div>
+      <div class="wireframes-box">
+        <img src="assets/images/Visualising.png" alt="AtisfyReach wireframes and design exploration" />
+      </div>
+    </div>
+
+    <!-- ─── UNDERSTANDING WHAT USERS FIND INTUITIVE ──────── -->
+    <div class="cs-section reveal">
+      <div>
+        <h2 class="cs-section-heading">Understanding What Users Find Intuitive</h2>
+        <p class="cs-section-sub" style="margin-top:8px;">Low- and mid-fidelity prototype testing helped uncover how users expected to complete tasks within the app. By observing interactions and gathering feedback, I identified key adjustments needed to strengthen the foundation for the high-fidelity prototype.</p>
+        <p class="cs-section-sub" style="margin-top:8px;">Small but important improvements - such as using clear, actionable iconography and maintaining consistent navigation pathways - emerged as critical elements in shaping the evolving design system.</p>
+      </div>
+      <div class="wireframes-box">
+        <img src="assets/images/UnserstandingWhat.png" alt="Prototype testing insights" />
+      </div>
+    </div>
+
+    <!-- ─── PROTOTYPE TESTING ─────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div>
+        <p class="cs-section-label">Testing &amp; Iterations</p>
+        <h2 class="cs-section-heading" style="margin-top:8px;">Surfacing New Issues &amp; Refining for Maximum Impact</h2>
+        <p class="cs-section-sub" style="margin-top:8px;">The prototype provided a near-real experience, revealing insights beyond the initial usability goals. While users successfully completed onboarding, testing surfaced deeper concerns around influencer rejections and campaign uncertainty.</p>
+        <p class="cs-section-sub" style="margin-top:8px;">Further discussions revealed an overlooked need - the ability to clearly understand each influencer's potential value and impact on brand outcomes. This insight highlighted opportunities to improve transparency, build trust, and support better decision-making within the platform.</p>
+      </div>
+      <a href="https://xd.adobe.com/view/bee99cb8-7abd-49d3-b1e2-e9309345148d-ebba/" target="_blank" rel="noopener">
+        <img src="assets/images/Prototype.png" alt="AtisfyReach prototype" style="width:100%;display:block;cursor:pointer;" />
+      </a>
+    </div>
+
+    <!-- ─── DESIGN SYSTEM ───────────────────────────────────── -->
+    <div class="interviews-outer reveal" style="gap:40px;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <p class="cs-section-label">Design System</p>
+        <h2 class="cs-section-heading">A Sneak Peak into the Design System</h2>
+      </div>
+
+      <!-- Primitives: Logo + Colours + Typography -->
+      <img src="assets/images/DesignSystem - Premitives.svg" alt="Design system primitives — logo, colour palette and typography" style="width:100%;display:block;" />
+
+      <!-- Icons -->
+      <img src="assets/images/DesignSystem - Icons.svg" alt="Design system icon library" style="width:100%;display:block;" />
+
+      <!-- Design System Examples -->
+      <img src="assets/images/DesignSystem - Examples.svg" alt="Design system component examples" style="width:100%;display:block;" />
+    </div>
+
+    <!-- ─── OUTCOMES ──────────────────────────────────────── -->
+    <div class="cs-section reveal" id="outcomes">
+      <p class="cs-section-label">Results</p>
+      <h2 class="outcomes-heading">Successful launch of AtisfyReach</h2>
+      <p class="cs-body">Our launch saw strong adoption that continued to accelerate as the platform matured. Early feedback emphasized the intuitive onboarding experience, allowing brands to quickly set up and run influencer campaigns with minimal support.</p>
+      <div class="stats-card">
+        <div class="stat-item">
+          <span class="stat-number">50+ Brands</span>
+          <span class="stat-desc">onboarded during the launch phase, validating the product's market readiness and usability.</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">41%</span>
+          <span class="stat-desc">increase in onboarding efficiency, reducing setup friction and accelerating campaign activation.</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1 mil+</span>
+          <span class="stat-desc">reached within the first 100 days of campaign launch, demonstrating platform scalability and engagement.</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">6x</span>
+          <span class="stat-desc">lower costs achieved through optimized ad budgets - driving better ROI even with higher campaign spends.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── FINAL THOUGHTS ────────────────────────────────── -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Final Thoughts &amp; The future</p>
+      <div style="display:flex;flex-direction:column;gap:48px;">
+        <div class="final-block">
+          <h2 class="final-heading">Opportunities for Product Growth</h2>
+          <ul class="final-list">
+            <li>Campaign Templates - &nbsp;Introduce reusable templates to reduce setup time and enable faster campaign launches.</li>
+            <li>Campaign Scheduling - Allow brands to schedule campaigns in advance for better planning and execution.</li>
+            <li>Advanced Analytics - Provide deeper insights through visualizations and detailed metric breakdowns.</li>
+            <li>Improved Data Exploration - Enable filtering, sorting, and deeper analysis to support more informed decision-making.</li>
+          </ul>
+        </div>
+        <div class="final-block">
+          <h2 class="final-heading">Key Learnings from the Design Process</h2>
+          <ul class="final-list">
+            <li>Complexity Behind Simplicity - Designing a simple campaign workflow revealed the intricate dependencies behind influencer marketing systems.</li>
+            <li>Trust as a Foundation - Both brands and influencers require transparency and reliability for successful collaborations.</li>
+            <li>Designing for System Harmony - Even simple features require thoughtful integration to maintain stability across the platform.</li>
+            <li>Depth Over Brevity - Users valued deeper, actionable insights over high-level metrics.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── THANK YOU ───────────────────────────────────────── -->
+    <div class="cs-section reveal">
+      <div class="thankyou-box">
+        <p class="thankyou-heading">Thank you</p>
+        <div class="thankyou-body">
+          <img src="assets/images/AtisfyReach-Logo.svg" alt="AtisfyReach logo" class="thankyou-logo" />
+          <div class="thankyou-text">
+            <p>The diagrams/screens/typography may not reflect the latest version of AtisfyReach due to ongoing development.</p>
+            <p>All rights reserved by Atisfy Pte. Ltd.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── FOOTER ────────────────────────────────────────── -->
+    <footer class="footer" id="footer">
+      <div class="footer-cta reveal">
+        <p class="footer-eyebrow">Like what you see?</p>
+        <div class="footer-headline-wrap">
+          <h2 class="footer-headline">Let's Connect!</h2>
+          <div class="footer-btns">
+            <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn-outline" href="assets/VivekVasudevan_Resume.pdf" download="VivekVasudevan_Resume.pdf">Resume</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-area reveal">
+        <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          vivek.vasudevan.design@gmail.com
+        </a>
+        <div class="footer-bottom-nav">
+          <a href="index.html" class="footer-brand">
+            <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">Vivek Vasudevan Design</span>
+              <span class="footer-brand-copy">© 2026 All rights reserved</span>
+            </div>
+          </a>
+          <ul class="footer-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#case-studies">Case Studies</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /cs-wrap -->
+</div><!-- /page -->
+
+<!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
+<div class="scroll-top-tooltip" id="scrollTooltip">Back to top</div>
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
+</button>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const scrollTooltip = document.getElementById('scrollTooltip');
+  scrollTopBtn.addEventListener('mouseenter', () => {
+    if (scrollTopBtn.classList.contains('visible')) scrollTooltip.classList.add('visible');
+  });
+  scrollTopBtn.addEventListener('mouseleave', () => scrollTooltip.classList.remove('visible'));
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  function updatePos() {
+    const vw = window.innerWidth;
+    const right = vw > 1440 ? ((vw - 1440) / 2 + 20) + 'px' : '20px';
+    scrollTopBtn.style.right = right;
+    scrollTooltip.style.right = right;
+  }
+  updatePos();
+  window.addEventListener('resize', updatePos);
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburgerBtn?.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open', open);
+    hamburgerBtn.setAttribute('aria-expanded', open);
+  });
+  function closeMobileMenu() {
+    mobileMenu?.classList.remove('open');
+    hamburgerBtn?.classList.remove('open');
+    hamburgerBtn?.setAttribute('aria-expanded', 'false');
+  }
+  window.addEventListener('scroll', closeMobileMenu, { passive: true });
+
+  // ── Feature Carousel (infinite, same-direction) ──────────
+  (function() {
+    const carousel = document.getElementById('featureCarousel');
+    const prevBtn  = document.getElementById('carouselPrev');
+    const nextBtn  = document.getElementById('carouselNext');
+    const dotsWrap = document.getElementById('carouselDots');
+    if (!carousel) return;
+
+    const origCards = [...carousel.querySelectorAll('.feature-card')];
+    const N = origCards.length;
+
+    // Prepend clones so scrolling left from card 0 reveals card N-1
+    [...origCards].reverse().forEach(c => {
+      const clone = c.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      carousel.prepend(clone);
+    });
+    // Append clones so scrolling right from card N-1 reveals card 0
+    origCards.forEach(c => {
+      const clone = c.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      carousel.appendChild(clone);
+    });
+    // Track: [clones 0..N-1] [real N..2N-1] [clones 2N..3N-1]
+
+    let current = N; // start on real card 0
+    let animating = false;
+
+    function cw() { return carousel.querySelectorAll('.feature-card')[0].offsetWidth + 24; }
+    function dotIdx(pos) { return ((pos - N) % N + N) % N; }
+
+    function jumpTo(pos) {
+      carousel.style.scrollSnapType = 'none';
+      carousel.scrollLeft = pos * cw();
+      current = pos;
+      requestAnimationFrame(() => { carousel.style.scrollSnapType = ''; });
+    }
+
+    function slideTo(pos) {
+      carousel.scrollTo({ left: pos * cw(), behavior: 'smooth' });
+      current = pos;
+      updateDots(dotIdx(pos));
+    }
+
+    function updateDots(idx) {
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === idx);
+      });
+    }
+
+    // Build dots
+    origCards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => { if (!animating) slideTo(N + i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    // Init at real card 0 without animation
+    requestAnimationFrame(() => jumpTo(N));
+
+    // After scroll fully settles, silently reposition back into real-card zone
+    function onScrollSettled() {
+      if (current < N)        jumpTo(current + N);
+      else if (current >= 2 * N) jumpTo(current - N);
+      animating = false;
+    }
+
+    // scrollend fires exactly when smooth scroll stops — no timing guesswork
+    // Fall back to scroll-silence detection for older browsers
+    let scrollTimer;
+    if ('onscrollend' in carousel) {
+      carousel.addEventListener('scrollend', onScrollSettled);
+    } else {
+      carousel.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(onScrollSettled, 80);
+      }, { passive: true });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (animating) return;
+      animating = true;
+      slideTo(current - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (animating) return;
+      animating = true;
+      slideTo(current + 1);
+    });
+  })();
+</script>
+</body>
+</html>
