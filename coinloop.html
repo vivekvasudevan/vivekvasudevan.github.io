@@ -234,7 +234,6 @@
       height: 439px;
       object-fit: cover;
       border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.16);
       display: block;
       flex-shrink: 0;
     }
@@ -249,14 +248,23 @@
     .cl-init {
       width: 100%;
       background: var(--cl-blue);
-      padding: 80px 40px;
+      padding: 80px 0;
+      overflow: hidden;
     }
     .cl-init-inner {
       max-width: 1004px;
       margin: 0 auto;
+      padding: 0 40px;
       display: flex;
       flex-direction: column;
       gap: 60px;
+    }
+    .cl-init-phones {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 44px;
+      padding-left: 32vw;
+      margin-top: 60px;
     }
     .cl-section-title-white {
       font-family: 'Work Sans', sans-serif;
@@ -590,12 +598,12 @@
 <section class="cl-init">
   <div class="cl-init-inner reveal">
     <h2 class="cl-section-title-white">Initialization Process</h2>
-    <div class="cl-phones-row">
-      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-WalletLoading.png" alt="Wallet Loading screen" />
-      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-BitcoinWallet.png" alt="Bitcoin Wallet screen" />
-      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-ConfirmAddress.png" alt="Confirm Address screen" />
-      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-SelectFee.png" alt="Select Fee screen" />
-    </div>
+  </div>
+  <div class="cl-init-phones reveal">
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-WalletLoading.png" alt="Wallet Loading screen" />
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-BitcoinWallet.png" alt="Bitcoin Wallet screen" />
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-ConfirmAddress.png" alt="Confirm Address screen" />
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-SelectFee.png" alt="Select Fee screen" />
   </div>
 </section>
 
