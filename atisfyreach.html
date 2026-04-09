@@ -932,7 +932,10 @@
     [data-theme="dark"] .cs-problem-statement { color: #fff; }
     [data-theme="dark"] .feature-card { background: #1e1e2e; box-shadow: 0 1px 10px rgba(0,0,0,0.45); }
     [data-theme="dark"] .feature-card-desc { color: rgba(255,255,255,0.75); opacity: 1; }
+    .carousel-arrow-dark { display: none; width: 20px; height: 20px; }
     [data-theme="dark"] .carousel-btn { background: #1e1e2e; box-shadow: 0 2px 12px rgba(0,0,0,0.55); }
+    [data-theme="dark"] .carousel-arrow-light { display: none; }
+    [data-theme="dark"] .carousel-arrow-dark { display: block; }
     [data-theme="dark"] .carousel-dot { background: rgba(23,92,254,0.40); }
     [data-theme="dark"] .carousel-dot.active { background: #175cfe; }
     [data-theme="dark"] .bg-quote-box { background: rgba(23,92,254,0.10); border: 1px solid rgba(23,92,254,0.20); }
@@ -1072,10 +1075,12 @@
       <!-- Feature cards carousel -->
       <div class="feature-carousel-outer">
         <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="carousel-arrow-light" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <img class="carousel-arrow-dark" src="assets/images/Carousel_Arrow_Dark.svg" alt="" style="transform: scaleX(-1);" />
         </button>
         <button class="carousel-btn next" id="carouselNext" aria-label="Next">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="carousel-arrow-light" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="#175cfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <img class="carousel-arrow-dark" src="assets/images/Carousel_Arrow_Dark.svg" alt="" />
         </button>
       <div class="feature-carousel-wrap">
         <div class="feature-carousel" id="featureCarousel">
