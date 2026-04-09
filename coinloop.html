@@ -28,8 +28,11 @@
     .cl-nav-wrap {
       position: sticky; top: 0; z-index: 100;
       width: 100%;
+      background: transparent;
+      transition: background 0.3s;
+    }
+    .cl-nav-wrap.over-hero {
       background: var(--cl-blue);
-      /* matches hero image background colour */
     }
     .cl-nav {
       height: 82px;
@@ -708,11 +711,18 @@
   const scrollTopBtn = document.getElementById('scrollTopBtn');
   const scrollTooltip = document.getElementById('scrollTooltip');
 
-  // Nav scrolled class
-  window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.cl-hero');
+
+  function updateNav() {
+    const heroBottom = hero.offsetTop + hero.offsetHeight;
+    const overHero = window.scrollY < heroBottom - 82;
+    navWrap.classList.toggle('over-hero', overHero);
     navWrap.classList.toggle('scrolled', window.scrollY > 20);
     scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-  });
+  }
+
+  window.addEventListener('scroll', updateNav);
+  updateNav(); // run on load
 
   // Scroll-to-top tooltip
   scrollTopBtn.addEventListener('mouseenter', () => {
