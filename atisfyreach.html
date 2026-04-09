@@ -588,10 +588,10 @@
     .back-btn svg { flex-shrink: 0; }
 
     /* ─── SCROLL TO TOP ──────────────────────────────────── */
-    .scroll-top { position: fixed; right: 20px; bottom: 40px; width: 72px; height: 72px; background: #f0f0f0; border: none; border-radius: 16px; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s, background 0.3s; z-index: 99; box-shadow: 0 4px 20px rgba(0,0,0,0.12); color: #2b2b2b; }
+    .scroll-top { position: fixed; right: 20px; bottom: 40px; width: 98px; height: 98px; background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; z-index: 99; color: #2b2b2b; }
     .scroll-top.visible { opacity: 1; transform: translateY(0); }
-    .scroll-top:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
-    [data-theme="dark"] .scroll-top { background: #2a2a2a; color: #6B7FFF; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    .scroll-top:hover { transform: translateY(-4px); }
+    [data-theme="dark"] .scroll-top { background: #2a2a2a; border-radius: 20px; color: #6B7FFF; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
     .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
     .scroll-top-tooltip.visible { opacity: 1; }
 
@@ -829,7 +829,7 @@
       .footer-headline-wrap { height: auto; }
       .footer-bottom-nav { width: 100%; }
       .back-btn-wrap { width: 100%; padding: 24px 20px 0; }
-      .scroll-top { right: 14px; width: 60px; height: 60px; border-radius: 14px; }
+      .scroll-top { right: 14px; width: 72px; height: 72px; }
   .scroll-top img { width: 72px; height: 72px; }
       .cs-problem { padding: 40px 32px; }
       .cs-glance { padding: 28px; }
@@ -879,7 +879,7 @@
       .footer-nav-links { display: none; }
       .footer-brand { justify-content: center; }
       .back-btn-wrap { width: 100%; padding: 20px 16px 0; }
-      .scroll-top { right: 8px; width: 52px; height: 52px; border-radius: 12px; }
+      .scroll-top { right: 8px; width: 60px; height: 60px; }
   .scroll-top img { width: 60px; height: 60px; }
       .footer-brand-text { align-items: center; }
       .cs-problem { padding: 32px 20px; }
