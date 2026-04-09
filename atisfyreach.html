@@ -935,6 +935,10 @@
     [data-theme="dark"] .feature-card { background: #1e1e2e; box-shadow: 0 1px 10px rgba(0,0,0,0.45); }
     [data-theme="dark"] .feature-card-desc { color: rgba(255,255,255,0.75); opacity: 1; }
     .carousel-arrow-dark { display: none; width: 48px; height: 48px; }
+    /* Theme-swapped images */
+    .theme-img-dark { display: none; }
+    [data-theme="dark"] .theme-img-light { display: none; }
+    [data-theme="dark"] .theme-img-dark { display: block; }
     [data-theme="dark"] .carousel-btn { background: transparent; box-shadow: none; padding: 0; }
     [data-theme="dark"] .carousel-btn:hover { box-shadow: none; }
     [data-theme="dark"] .carousel-arrow-light { display: none; }
@@ -1073,7 +1077,8 @@
       <p class="cs-body">Creator discovery, campaign setup, contracting, payments, and performance tracking are integrated into a structured, automated workflow. Brands define objectives and budgets; AI-driven optimisation recommends creators and forecasts outcomes in real time, with full transparency into the underlying metrics. It transforms influencer marketing from manual coordination into predictable, data-backed execution.</p>
       <!-- Solution diagram -->
       <div style="width:100%;display:flex;justify-content:center;">
-        <img src="assets/images/AtisfyReach-Solution.svg" alt="AtisfyReach solution diagram" style="max-width:100%;display:block;" />
+        <img class="theme-img-light" src="assets/images/AtisfyReach-Solution.svg" alt="AtisfyReach solution diagram" style="max-width:100%;display:block;" />
+        <img class="theme-img-dark" src="assets/images/Solution_Dark.svg" alt="AtisfyReach solution diagram" style="max-width:100%;display:block;" />
       </div>
       <!-- Feature cards carousel -->
       <div class="feature-carousel-outer">
@@ -1154,7 +1159,8 @@
         <p class="cs-body" style="font-size:20px;line-height:40px;">This scenario reflects a broader systemic gap: influencer marketing was <strong style="font-weight:700;font-style:normal;color:#175cfe;opacity:1;">relationship-driven rather than system-driven</strong>. Access depended on networks and budget size, not merit or readiness. The opportunity was clear – to create an AI-powered, unified creator network that standardises workflows, automates execution, and makes influencer marketing transparent, scalable, and accessible to businesses of all sizes.</p>
         <!-- Old model diagram -->
         <div style="display:flex;justify-content:center;">
-          <img src="assets/images/Background%20Flow.svg" alt="Brand–Agency–Influencer old model" style="max-width:100%;display:block;" />
+          <img class="theme-img-light" src="assets/images/Background%20Flow.svg" alt="Brand–Agency–Influencer old model" style="max-width:100%;display:block;" />
+          <img class="theme-img-dark" src="assets/images/Background_Dark.svg" alt="Brand–Agency–Influencer old model" style="max-width:100%;display:block;" />
         </div>
       </div>
       <!-- Quote box -->
@@ -1235,19 +1241,23 @@
         </div>
         <div class="competitor-logos">
           <div class="competitor-logo-item">
-            <img src="assets/images/Upfluecne.svg" alt="Upfluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-light" src="assets/images/Upfluecne.svg" alt="Upfluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-dark" src="assets/images/Upfluecne_Dark.svg" alt="Upfluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">Upfluencer</span>
           </div>
           <div class="competitor-logo-item">
-            <img src="assets/images/Afluencer.svg" alt="Afluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-light" src="assets/images/Afluencer.svg" alt="Afluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-dark" src="assets/images/Afluencer_dark.svg" alt="Afluencer logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">Afluencer</span>
           </div>
           <div class="competitor-logo-item">
-            <img src="assets/images/CreatorIQ.svg" alt="CreatorIQ logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-light" src="assets/images/CreatorIQ.svg" alt="CreatorIQ logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-dark" src="assets/images/CreatorIQ_Dark.svg" alt="CreatorIQ logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">CreatorIQ</span>
           </div>
           <div class="competitor-logo-item">
-            <img src="assets/images/PearPop.svg" alt="PearPop logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-light" src="assets/images/PearPop.svg" alt="PearPop logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
+            <img class="theme-img-dark" src="assets/images/PearPop_dark.svg" alt="PearPop logo" style="max-height:56px;width:auto;max-width:160px;object-fit:contain;display:block;margin:0 auto;" />
             <span class="competitor-name">PearPop</span>
           </div>
         </div>
