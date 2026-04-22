@@ -87,7 +87,6 @@
     /* ─── CASE STUDY WRAPPER ─────────────────────────────── */
     .cs-wrap {
       width: var(--inner-width);
-      max-width: 100%;
       display: flex;
       flex-direction: column;
       gap: 120px;
@@ -598,7 +597,6 @@
     [data-theme="dark"] .scroll-top img.scroll-top-dark { display: block; }
     .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
     .scroll-top-tooltip.visible { opacity: 1; }
-    @media (max-width: 1024px) { .scroll-top-tooltip { display: none !important; } }
 
     /* ─── AT A GLANCE ───────────────────────────────────── */
     .cs-glance {
@@ -811,20 +809,6 @@
     .cs-hero { animation: fadeUp 0.8s ease forwards 0.1s; opacity: 0; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── TABLET ≤ 1024px ───────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .cs-wrap { width: 100%; gap: 80px; padding: 60px 40px 0; }
-      .cs-hero { flex-direction: column; align-items: flex-start; }
-      .cs-hero-meta { width: 100%; max-width: 480px; }
-      .cs-solution-heading { font-size: 28px; }
-      .cs-section-heading { font-size: 28px; line-height: 1.3; }
-      .cs-hero-heading { font-size: 34px; }
-      .personas-header { width: 100%; }
-      .persona-wrap { width: 100%; }
-      .learnings-box { width: 100%; }
-      .cs-section[style*="padding:0 101px"] { padding: 0 !important; }
-    }
-
     /* ─── TABLET ≤ 768px ─────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-wrap { padding: 0; }
@@ -852,6 +836,7 @@
       .back-btn-wrap { width: 100%; padding: 24px 20px 0; }
       .scroll-top { right: 14px; width: 72px; height: 72px; }
       .scroll-top img { width: 72px; height: 72px; }
+  .scroll-top img { width: 72px; height: 72px; }
       .cs-problem { padding: 40px 32px; }
       .cs-glance { padding: 28px; }
       .hmw-box { padding: 40px 28px; }
@@ -902,6 +887,7 @@
       .back-btn-wrap { width: 100%; padding: 20px 16px 0; }
       .scroll-top { right: 8px; width: 60px; height: 60px; }
       .scroll-top img { width: 60px; height: 60px; }
+  .scroll-top img { width: 60px; height: 60px; }
       .footer-brand-text { align-items: center; }
       .cs-problem { padding: 32px 20px; }
       .cs-problem-statement { font-size: 24px; }
