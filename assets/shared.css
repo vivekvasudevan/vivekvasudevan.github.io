@@ -1,7 +1,7 @@
 /*
  * ─────────────────────────────────────────────────────────
  *  SHARED DESIGN SYSTEM — Vivek Vasudevan Portfolio
- *  shared.css  |  v1.0
+ *  shared.css  |  v2.0
  *
  *  HOW IT WORKS
  *  ────────────
@@ -135,13 +135,10 @@ html {
 }
 
 /* ═══════════════════════════════════════════════════════
-   5. SHARED UTILITY CLASSES
-      These are opt-in — only apply if the class is used.
-      Pages can adopt them gradually without breaking
-      existing styles.
+   5. REVEAL ANIMATION
+      Scroll-triggered entrance. JS adds .visible when
+      element enters the viewport.
    ═══════════════════════════════════════════════════════ */
-
-/* ── Reveal animation (already used on case study pages) */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -152,59 +149,166 @@ html {
   transform: none;
 }
 
-/* ── Scroll-to-top button (shared across all pages) ──── */
-.scroll-top {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
+/* ═══════════════════════════════════════════════════════
+   6. NAVIGATION
+      Shared across all pages. Pages with unique nav class
+      names (e.g. .cl-nav-wrap, .mt-nav) keep their own
+      styles for now.
+   ═══════════════════════════════════════════════════════ */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0 20px;
+}
+
+nav {
+  background: #ffffff;
+  border-radius: 0 0 20px 20px;
+  height: 82px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
-  z-index: 999;
+  justify-content: space-between;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s ease;
 }
-.scroll-top.visible {
-  opacity: 1;
-  pointer-events: auto;
+nav.scrolled {
+  box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1);
 }
-.scroll-top img {
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+.nav-logo {
   width: 48px;
   height: 48px;
+  background: #000;
+  border-radius: 8px;
+  padding: 4px;
+  position: relative;
+  flex-shrink: 0;
+}
+.nav-logo img {
+  position: absolute;
+  top: 29.17%;
+  right: 8.33%;
+  bottom: 29.17%;
+  left: 8.33%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.nav-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  list-style: none;
+}
+.nav-links a, .nav-links button {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  color: #2b2b2b;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
   display: block;
 }
-
-/* ── Tooltip (shared) ─────────────────────────────────── */
-.scroll-top-tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  right: 0;
-  background: #111;
-  color: #fff;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 5px 10px;
-  border-radius: var(--radius-chip);
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-.scroll-top:hover .scroll-top-tooltip {
+.nav-links li.active a,
+.nav-links li.active button {
   opacity: 1;
+  border-bottom: 2px solid #2b2b2b;
 }
-@media (max-width: 1024px) {
-  .scroll-top-tooltip { display: none !important; }
+.nav-links a:hover, .nav-links button:hover { opacity: 0.8; }
+
+/* ─── Hamburger button ───────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-hamburger span {
+  display: block;
+  width: 32px;
+  height: 4px;
+  background: #2b2b2b;
+  border-radius: 22px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ─── Mobile menu overlay ────────────────────────────── */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 8px 0 16px;
+  position: absolute;
+  top: 82px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.mobile-menu.open { display: flex; }
+@media (min-width: 769px) { .mobile-menu { display: none !important; } }
+.mobile-menu a, .mobile-menu button {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  color: #2b2b2b;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: left;
+  width: 100%;
+  display: block;
+  transition: opacity 0.2s;
+}
+.mobile-menu a:hover, .mobile-menu button:hover { opacity: 0.6; }
+
+/* ─── Nav responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-wrap { padding: 0; }
+  nav { padding: 0 20px; max-width: 100%; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
 }
 
-/* ── Back link (shared nav element on case study pages) ─ */
+/* ─── Back link (case study pages) ──────────────────── */
 .cs-back-link {
   display: flex;
   align-items: center;
@@ -217,7 +321,231 @@ html {
 }
 
 /* ═══════════════════════════════════════════════════════
-   6. MIGRATION NOTES
+   7. BUTTONS
+   ═══════════════════════════════════════════════════════ */
+.btn-filled {
+  background: #2b2b2b;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: var(--radius-btn);
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-filled:hover { background: #444; transform: translateY(-2px); }
+
+.btn-outline {
+  border: 1px solid #2b2b2b;
+  color: #2b2b2b;
+  padding: 16px 24px;
+  border-radius: var(--radius-btn);
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-outline:hover { background: #f5f5f5; transform: translateY(-2px); }
+
+/* ─── Button responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .btn-filled, .btn-outline { font-size: 20px; padding: 14px 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   8. SCROLL-TO-TOP BUTTON + TOOLTIP
+   ═══════════════════════════════════════════════════════ */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  width: 98px;
+  height: 98px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 99;
+}
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-top img {
+  width: 98px;
+  height: 98px;
+  display: block;
+}
+
+.scroll-top-tooltip {
+  position: fixed;
+  right: 20px;
+  bottom: calc(40px + 98px + 12px);
+  background: #fff;
+  color: #2b2b2b;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 400;
+  padding: 14px 24px;
+  border-radius: 16px;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 199;
+}
+.scroll-top-tooltip.visible { opacity: 1; }
+
+/* Hide tooltip below tablet — finger-tap replaces hover */
+@media (max-width: 1024px) {
+  .scroll-top-tooltip { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   9. FOOTER COMPONENTS
+      .footer itself is page-specific (width / margin-top
+      vary). All sub-components are shared.
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── CTA block ──────────────────────────────────────── */
+.footer-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+.footer-eyebrow {
+  font-size: 24px;
+  font-weight: 500;
+  color: #2b2b2b;
+  opacity: 0.8;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.footer-headline-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.footer-headline {
+  font-size: 80px;
+  font-weight: 700;
+  color: #2b2b2b;
+  text-align: center;
+  line-height: 100px;
+}
+.footer-btns {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+/* ─── Bottom area ────────────────────────────────────── */
+.footer-bottom-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+.footer-email-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  text-decoration: none;
+  color: #2b2b2b;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+.footer-email-link:hover { opacity: 0.6; }
+
+/* ─── Bottom bar ─────────────────────────────────────── */
+.footer-bottom-nav {
+  width: var(--content-width);
+  padding: 16px 20px;
+  border-radius: 20px 20px 0 0;
+  background: #f8f7f4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.footer-brand-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2b2b2b;
+  white-space: nowrap;
+}
+.footer-brand-copy {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2b2b2b;
+  opacity: 0.6;
+}
+.footer-nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+.footer-nav-links a {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  color: #2b2b2b;
+  opacity: 0.4;
+  text-decoration: none;
+  padding: 8px;
+  transition: opacity 0.2s;
+}
+.footer-nav-links a:hover { opacity: 0.8; }
+
+/* ─── Footer responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .footer-bottom-nav { width: 100%; }
+  .footer-nav-links { display: none; }
+  .footer-headline { font-size: 64px; line-height: 1.2; }
+}
+@media (max-width: 480px) {
+  .footer-headline { font-size: 48px; line-height: 1.2; }
+  .footer-headline-wrap { gap: 24px; }
+  .footer-btns { flex-direction: column; gap: 12px; align-items: stretch; }
+  .footer-bottom-nav {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    padding: 16px;
+  }
+  .footer-brand { justify-content: center; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   10. MIGRATION NOTES
    ═══════════════════════════════════════════════════════
    When updating a page to use this system:
 
@@ -226,12 +554,20 @@ html {
             <link rel="stylesheet" href="assets/shared.css" />
    Step C — Remove the duplicate Google Fonts <link> tag
              (this file handles all font loading).
-   Step D — Replace hardcoded font-family strings:
-            'Poppins'   → var(--font-heading)   [on heading elements]
-            'Lato'      → var(--font-body)       [on body copy elements]
-            'Work Sans' → var(--font-ui)         [on nav/UI chrome]
-   Step E — Replace hardcoded colour values gradually:
-            #2b2b2b → var(--color-text)
-            #175cfe → var(--color-accent)
-            #555    → var(--color-text-light)
+   Step D — Replace hardcoded font-family strings with
+             CSS variables (done in v1.0).
+   Step E — Remove CSS blocks for these shared components:
+            - .reveal / .reveal.visible
+            - .nav-wrap / nav / .nav-brand / .nav-logo /
+              .nav-name / .nav-links / .nav-hamburger /
+              .mobile-menu  (standard-named nav only)
+            - .btn-filled / .btn-outline
+            - .scroll-top / .scroll-top-tooltip
+            - .footer-cta / .footer-eyebrow /
+              .footer-headline-wrap / .footer-headline /
+              .footer-btns / .footer-bottom-area /
+              .footer-email-link / .footer-bottom-nav /
+              .footer-brand / .footer-brand-text /
+              .footer-brand-name / .footer-brand-copy /
+              .footer-nav-links
    ════════════════════════════════════════════════════════ */
