@@ -24,43 +24,9 @@
     }
 
     /* ─── NAVIGATION ─────────────────────────────────────── */
-    .mt-nav-wrap {
-      position: sticky; top: 0; z-index: 100;
-      width: 100%;
-      background: transparent;
-      transition: background 0.3s;
-    }
-    .mt-nav {
-      height: 82px;
-      padding: 0 20px;
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 1200px; margin: 0 auto;
-      background: #fff;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s;
-    }
-    .mt-nav-wrap.scrolled .mt-nav {
+
+    .nav-wrap.scrolled nav {
       box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.18);
-    }
-    .mt-back-link {
-      display: flex; align-items: center; gap: 8px;
-      text-decoration: none;
-      font-family: var(--font-ui);
-      font-size: 15px; font-weight: 500;
-      color: #2b2b2b;
-      transition: opacity 0.2s;
-    }
-    .mt-back-link:hover { opacity: 0.6; }
-    .mt-nav-brand {
-      display: flex; align-items: center; gap: 9px;
-      text-decoration: none;
-    }
-    .mt-nav-name {
-      font-family: var(--font-ui);
-      font-size: 20px; font-weight: 700;
-      color: #2b2b2b; white-space: nowrap;
     }
 
     /* ─── HERO ───────────────────────────────────────────── */
@@ -476,8 +442,8 @@
       display: flex; align-items: center; justify-content: center;
       flex-direction: column; gap: 4px;
     }
-    .mt-circle:first-child { background: #E9BC48; margin-right: -60px; z-index: 1; }
-    .mt-circle:last-child { background: #FF3D3D; }
+    .mt-circle:first-child { background: var(--color-accent-alt); margin-right: -60px; z-index: 1; }
+    .mt-circle:last-child { background: var(--color-accent); }
     .mt-circle-label { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.6); }
     .mt-circle-hex { font-size: 12px; font-weight: 700; color: rgba(0,0,0,0.8); }
     .mt-gradient-note {
@@ -536,19 +502,19 @@
 <body>
 
 <!-- ═══ NAVIGATION ══════════════════════════════════════ -->
-<div class="mt-nav-wrap" id="nav-wrap">
-  <div class="mt-nav">
-    <a href="index.html" class="mt-back-link" aria-label="Go back to home">
+<div class="nav-wrap" id="nav-wrap">
+  <nav>
+    <a href="index.html" class="cs-back-link" aria-label="Go back to home">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       Back
     </a>
-    <a href="index.html" class="mt-nav-brand">
+    <a href="index.html" class="nav-brand">
       <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
-      <span class="mt-nav-name">Vivek Vasudevan</span>
+      <span class="nav-name">Vivek Vasudevan</span>
     </a>
-  </div>
+  </nav>
 </div>
 
 <!-- ═══ HERO SECTION ════════════════════════════════════ -->

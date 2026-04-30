@@ -19,7 +19,7 @@
 
     body {
       font-family: var(--font-ui);
-      color: #2b2b2b;
+      color: var(--color-text);
       background: linear-gradient(180deg, #f9f6f6 0%, #fff 30.3%, #fff 85%, #f9f6f6 100%);
       min-height: 100vh;
     }
@@ -83,14 +83,14 @@
     .nav-links a, .nav-links button {
       font-family: var(--font-ui);
       font-size: 16px; font-weight: 500;
-      color: #2b2b2b;
+      color: var(--color-text);
       text-decoration: none;
       background: none; border: none; cursor: pointer;
       padding: 8px; opacity: 0.4;
       transition: opacity 0.2s;
       display: block;
     }
-    .nav-links li.active a { opacity: 1; border-bottom: 2px solid #2b2b2b; }
+    .nav-links li.active a { opacity: 1; border-bottom: 2px solid var(--color-text); }
     .nav-links a:hover, .nav-links button:hover { opacity: 0.8; }
 
     /* ─── SECTION HEADERS ────────────────────────────────── */
@@ -101,7 +101,7 @@
     }
     .section-subtitle {
       font-size: 24px; font-weight: 400;
-      line-height: 34px; color: #2b2b2b;
+      line-height: 34px; color: var(--color-text);
       opacity: 0.8;
     }
 
@@ -128,7 +128,7 @@
     .about-text {
       flex: 1 0 0;
       font-size: 24px; font-weight: 400;
-      line-height: 34px; color: #2b2b2b;
+      line-height: 34px; color: var(--color-text);
       opacity: 0.8;
       min-width: 300px;
     }
@@ -181,15 +181,15 @@
     }
     .endorsement-quote {
       font-size: 20px; font-weight: 400;
-      line-height: 30px; color: #2b2b2b;
+      line-height: 30px; color: var(--color-text);
       opacity: 0.8;
       text-align: center;
     }
     .endorsement-author { display: flex; flex-direction: column; gap: 12px; width: 100%; text-align: center; }
-    .endorsement-name { font-size: 20px; font-weight: 700; line-height: 28px; color: #2b2b2b; }
+    .endorsement-name { font-size: 20px; font-weight: 700; line-height: 28px; color: var(--color-text); }
     .endorsement-role {
       font-size: 16px; font-weight: 500;
-      line-height: 24px; color: #2b2b2b;
+      line-height: 24px; color: var(--color-text);
       opacity: 0.6;
     }
 
@@ -225,9 +225,9 @@
       width: var(--inner-width);
     }
     .skill-group { display: flex; flex-direction: column; gap: 20px; }
-    .skill-title { font-size: 24px; font-weight: 700; line-height: 32px; color: #2b2b2b; }
+    .skill-title { font-size: 24px; font-weight: 700; line-height: 32px; color: var(--color-text); }
     .skill-items { display: flex; flex-direction: column; gap: 12px; }
-    .skill-item { font-size: 16px; font-weight: 400; line-height: 24px; color: #2b2b2b; }
+    .skill-item { font-size: 16px; font-weight: 400; line-height: 24px; color: var(--color-text); }
 
     /* ─── TOOLKIT ────────────────────────────────────────── */
     .toolkit-section { display: flex; flex-direction: column; gap: 80px; width: 100%; }
@@ -279,7 +279,7 @@
 
     /* ─── LINKEDIN BUTTON ────────────────────────────────── */
     .linkedin-btn {
-      background: #2b2b2b; color: #fff;
+      background: var(--color-text); color: #fff;
       padding: 16px 24px; border-radius: 8px;
       font-size: 24px; font-weight: 500;
       text-decoration: none;
@@ -316,7 +316,7 @@
       display: block;
       width: 32px;
       height: 4px;
-      background: #2b2b2b;
+      background: var(--color-text);
       border-radius: 22px;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
@@ -345,7 +345,7 @@
       font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 500;
-      color: #2b2b2b;
+      color: var(--color-text);
       text-decoration: none;
       background: none;
       border: none;

@@ -85,32 +85,43 @@
 
 /* ── AtisfyReach: Poppins headings + Lato body ───────── */
 [data-cs="atisfyreach"] {
-  --font-heading : 'Poppins', sans-serif;
-  --font-body    : 'Lato', sans-serif;
+  --font-heading    : 'Poppins', sans-serif;
+  --font-body       : 'Lato', sans-serif;
+  --color-accent    : #175cfe;
+  --color-accent-dk : #2f4476;  /* darker variant used in dark-mode bg */
 }
 
-/* ── Atisfyre: Work Sans throughout ─────────────────── */
+/* ── Atisfyre: Work Sans + Atisfyre brand red/yellow ─── */
 [data-cs="atisfyre"] {
-  --font-heading : 'Work Sans', sans-serif;
-  --font-body    : 'Work Sans', sans-serif;
+  --font-heading    : 'Work Sans', sans-serif;
+  --font-body       : 'Work Sans', sans-serif;
+  --color-accent    : #F7161D;  /* Atisfyre red */
+  --color-accent-alt: #FFE600;  /* Atisfyre yellow */
 }
 
-/* ── Jinance: Work Sans throughout ──────────────────── */
+/* ── Jinance: Work Sans + Jinance gold ───────────────── */
 [data-cs="jinance"] {
-  --font-heading : 'Work Sans', sans-serif;
-  --font-body    : 'Work Sans', sans-serif;
+  --font-heading    : 'Work Sans', sans-serif;
+  --font-body       : 'Work Sans', sans-serif;
+  --color-accent    : #EDB702;  /* Jinance gold */
+  --color-surface-dk: #171E28;  /* Jinance dark nav/bg */
 }
 
-/* ── Coinloop: Work Sans throughout ─────────────────── */
+/* ── Coinloop: Work Sans + Coinloop blue ─────────────── */
 [data-cs="coinloop"] {
-  --font-heading : 'Work Sans', sans-serif;
-  --font-body    : 'Work Sans', sans-serif;
+  --font-heading    : 'Work Sans', sans-serif;
+  --font-body       : 'Work Sans', sans-serif;
+  --color-accent    : #0264B6;  /* Coinloop blue */
+  --color-accent-50 : rgba(2, 100, 182, 0.5);
+  --color-muted-bg  : #B3B3B3;  /* Coinloop gray bg */
 }
 
-/* ── Mantro: Poppins throughout ─────────────────────── */
+/* ── Mantro: Poppins + Mantro red ────────────────────── */
 [data-cs="mantro"] {
-  --font-heading : 'Poppins', sans-serif;
-  --font-body    : 'Poppins', sans-serif;
+  --font-heading    : 'Poppins', sans-serif;
+  --font-body       : 'Poppins', sans-serif;
+  --color-accent    : #FF3D3D;  /* Mantro red */
+  --color-accent-alt: #E9BC48;  /* Mantro gold */
 }
 
 /* ── Cosmic Sentry: Moonglade DEMO headings ──────────── */
@@ -171,6 +182,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
   box-shadow: 0 2px 0 rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
   transition: box-shadow 0.3s ease;
 }
@@ -318,7 +331,9 @@ nav.scrolled {
   font-size: 15px;
   font-weight: 500;
   color: var(--color-text);
+  transition: opacity 0.2s;
 }
+.cs-back-link:hover { opacity: 0.6; }
 
 /* ═══════════════════════════════════════════════════════
    7. BUTTONS

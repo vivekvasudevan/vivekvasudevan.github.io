@@ -13,12 +13,12 @@
       --page-max: 1440px;
       --content-width: 1200px;
       --inner-width: 1160px;
-      --blue: #175cfe;
+      --blue: var(--color-accent);
     }
 
     body {
       font-family: var(--font-ui);
-      color: #2b2b2b;
+      color: var(--color-text);
       background: linear-gradient(180deg, #f9f6f6 0%, #fff 30.3%, #fff 85%, #f9f6f6 100%);
       min-height: 100vh;
       transition: background 0.3s, color 0.3s;
@@ -46,16 +46,16 @@
     nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
     .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%); }
 
-    .mode-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: #2b2b2b; padding: 8px 4px; transition: opacity 0.2s; white-space: nowrap; }
+    .mode-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: var(--color-text); padding: 8px 4px; transition: opacity 0.2s; white-space: nowrap; }
     .mode-toggle:hover { opacity: 0.6; }
     .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
     .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
     .nav-links a, .nav-links button {
       font-family: var(--font-ui); font-size: 16px; font-weight: 500;
-      color: #2b2b2b; text-decoration: none; background: none; border: none;
+      color: var(--color-text); text-decoration: none; background: none; border: none;
       cursor: pointer; padding: 8px; opacity: 0.4; transition: opacity 0.2s; display: block;
     }
-    .nav-links li.active a { opacity: 1; border-bottom: 2px solid #2b2b2b; }
+    .nav-links li.active a { opacity: 1; border-bottom: 2px solid var(--color-text); }
     .nav-links a:hover, .nav-links button:hover { opacity: 0.8; }
 
     /* ─── HAMBURGER ──────────────────────────────────────── */
@@ -64,7 +64,7 @@
       cursor: pointer; padding: 8px; flex-shrink: 0; width: 48px; height: 48px;
       align-items: center; justify-content: center;
     }
-    .nav-hamburger span { display: block; width: 32px; height: 4px; background: #2b2b2b; border-radius: 22px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .nav-hamburger span { display: block; width: 32px; height: 4px; background: var(--color-text); border-radius: 22px; transition: transform 0.3s ease, opacity 0.3s ease; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -78,7 +78,7 @@
     @media (min-width: 769px) { .mobile-menu { display: none !important; } }
     .mobile-menu a, .mobile-menu button {
       font-family: var(--font-ui); font-size: 16px; font-weight: 500;
-      color: #2b2b2b; text-decoration: none; background: none; border: none;
+      color: var(--color-text); text-decoration: none; background: none; border: none;
       cursor: pointer; padding: 10px 20px; text-align: left; width: 100%; display: block;
       transition: opacity 0.2s;
     }
@@ -112,12 +112,12 @@
     .cs-hero-heading {
       font-family: var(--font-heading);
       font-weight: 600; font-size: 40px; line-height: normal;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
     .cs-hero-sub {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
     .cs-hero-meta {
       background: #fff; border-radius: 20px;
@@ -151,12 +151,12 @@
     .cs-solution-heading {
       font-family: var(--font-heading);
       font-weight: 500; font-size: 32px; line-height: 1.3;
-      color: #2b2b2b; text-align: center; width: 100%;
+      color: var(--color-text); text-align: center; width: 100%;
     }
     .cs-solution-body {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
 
     /* ─── SECTION WRAPPER (full-width padded) ────────────── */
@@ -172,24 +172,24 @@
     .cs-section-heading {
       font-family: var(--font-heading);
       font-weight: 500; font-size: 32px; line-height: 48px;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
     .cs-section-sub {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
     .cs-body {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
     .cs-body strong { font-weight: 700; font-style: italic; opacity: 1; }
     .cs-body b { font-weight: 700; font-style: normal; }
     .cs-subheading {
       font-family: var(--font-heading);
       font-weight: 500; font-size: 24px; line-height: 32px;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
 
     /* ─── PERSONA OUTER BOX ──────────────────────────────── */
@@ -212,7 +212,7 @@
     .persona-intro {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
     .persona-card {
       background: #fff; border-radius: 20px;
@@ -342,7 +342,7 @@
     .sticky-cluster-title {
       font-family: var(--font-heading);
       font-weight: 500; font-size: 24px; line-height: 32px;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
     /* Staggered sticky notes using a relative positioned container */
     .sticky-notes-container {
@@ -368,12 +368,12 @@
     .interviews-conclusion {
       font-family: var(--font-body);
       font-weight: 400; font-size: 24px; line-height: 40px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
     .interviews-conclusion em {
       font-family: var(--font-heading);
       font-weight: 700; font-style: italic;
-      color: #2b2b2b; opacity: 1;
+      color: var(--color-text); opacity: 1;
     }
 
     /* ─── IDEATE / PAIN POINTS ───────────────────────────── */
@@ -383,7 +383,7 @@
     .ideate-heading {
       font-family: var(--font-heading);
       font-weight: 600; font-size: 32px; line-height: normal;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
 
     /* ─── DESIGN: ADOPTION ───────────────────────────────── */
@@ -395,12 +395,12 @@
     .principle-heading-row {
       display: flex; gap: 8px; align-items: flex-start;
       font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 32px;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
     .principle-num { flex-shrink: 0; white-space: nowrap; }
     .principle-body {
       font-family: var(--font-body); font-weight: 400;
-      font-size: 16px; line-height: 24px; color: #2b2b2b;
+      font-size: 16px; line-height: 24px; color: var(--color-text);
     }
     .principle-flow {
       display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
@@ -431,12 +431,12 @@
     .principle-footer {
       font-family: var(--font-body); font-weight: 400;
       font-size: 16px; line-height: 24px;
-      color: #2b2b2b; opacity: 0.6;
+      color: var(--color-text); opacity: 0.6;
     }
     .principle-footer-list {
       font-family: var(--font-body); font-weight: 400;
       font-size: 16px; line-height: 24px;
-      color: #2b2b2b; opacity: 0.6;
+      color: var(--color-text); opacity: 0.6;
       display: flex; flex-direction: column; gap: 8px;
     }
     .principle-footer-list ul { list-style: disc; padding-left: 24px; }
@@ -471,7 +471,7 @@
     .ia-list li {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
 
     /* ─── WIREFRAMES ─────────────────────────────────────── */
@@ -486,7 +486,7 @@
     .outcomes-heading {
       font-family: var(--font-heading);
       font-weight: 500; font-size: 40px; line-height: 50px;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
     .stats-card {
       background: #def8f0; border-radius: 40px;
@@ -507,7 +507,7 @@
     .stat-desc {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
 
     /* ─── FINAL THOUGHTS ─────────────────────────────────── */
@@ -515,7 +515,7 @@
     .final-heading {
       font-family: var(--font-heading);
       font-weight: 500; font-size: 40px; line-height: normal;
-      color: #2b2b2b;
+      color: var(--color-text);
     }
     .final-list {
       list-style: disc; padding-left: 22px;
@@ -524,7 +524,7 @@
     .final-list li {
       font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
 
     /* ─── THANK YOU ──────────────────────────────────────── */
@@ -536,7 +536,7 @@
     .thankyou-heading {
       font-family: var(--font-heading); font-weight: 600;
       font-size: 20px; line-height: 28px;
-      color: #175cfe; text-align: center;
+      color: var(--color-accent); text-align: center;
     }
     .thankyou-body {
       display: flex; align-items: center; gap: 80px;
@@ -547,7 +547,7 @@
     .thankyou-text {
       display: flex; flex-direction: column; gap: 16px;
       font-family: var(--font-ui); font-size: 18px; font-weight: 500;
-      line-height: 28px; color: #2b2b2b;
+      line-height: 28px; color: var(--color-text);
     }
     @media (max-width: 768px) {
       .thankyou-box { padding: 40px 28px; }
@@ -564,7 +564,7 @@
 
     /* ─── BACK BUTTON ────────────────────────────────────── */
     .back-btn-wrap { width: var(--inner-width); padding-top: 24px; }
-    .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: none; border-radius: 8px; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); cursor: pointer; padding: 12px 20px; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: #2b2b2b; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: none; border-radius: 8px; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); cursor: pointer; padding: 12px 20px; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: var(--color-text); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
     .back-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
     .back-btn svg { flex-shrink: 0; }
 
@@ -581,7 +581,7 @@
     .cs-glance {
       padding: 40px; display: flex; flex-direction: column; gap: 24px;
     }
-    .cs-link { color: #175cfe; font-weight: 700; text-decoration: underline; opacity: 1; }
+    .cs-link { color: var(--color-accent); font-weight: 700; text-decoration: underline; opacity: 1; }
 
     /* ─── PROBLEM BANNER ─────────────────────────────────── */
     .cs-problem {
@@ -592,7 +592,7 @@
     .cs-problem-statement {
       font-family: var(--font-heading);
       font-weight: 500; font-size: 32px; line-height: 1.5;
-      color: #2b2b2b; text-align: center; max-width: 998px;
+      color: var(--color-text); text-align: center; max-width: 998px;
     }
 
     /* ─── FEATURE CAROUSEL ──────────────────────────────── */
@@ -624,7 +624,7 @@
       background: rgba(23,92,254,0.2); border: none; cursor: pointer; padding: 0;
       transition: background 0.2s, width 0.2s;
     }
-    .carousel-dot.active { background: #175cfe; width: 24px; border-radius: 4px; }
+    .carousel-dot.active { background: var(--color-accent); width: 24px; border-radius: 4px; }
     .feature-carousel {
       display: flex;
       gap: 24px;
@@ -661,7 +661,7 @@
     .feature-card-desc {
       font-family: var(--font-body);
       font-weight: 400; font-size: 18px; line-height: 28px;
-      color: #2b2b2b; opacity: 0.75;
+      color: var(--color-text); opacity: 0.75;
     }
     .feature-card-img {
       width: 100%; border-radius: 12px; overflow: hidden;
@@ -683,34 +683,34 @@
     .pill-brand { background: rgba(249,152,183,0.3); border: 1px solid #f998b7; min-width: 95px; }
     .pill-agency { background: rgba(104,206,232,0.3); border: 1px solid #68cee8; min-width: 95px; }
     .pill-influencer { background: rgba(255,225,137,0.3); border: 1px solid #ffe189; min-width: 135px; }
-    .pill-ar { background: #175cfe; color: #fff; min-width: 190px; font-family: var(--font-heading); font-weight: 500; font-size: 20px; border-radius: 20px; }
+    .pill-ar { background: var(--color-accent); color: #fff; min-width: 190px; font-family: var(--font-heading); font-weight: 500; font-size: 20px; border-radius: 20px; }
     .pill-plain { background: rgba(249,152,183,0.15); border: 1px solid rgba(0,0,0,0.12); min-width: 95px; }
     .cs-diagram-arrow {
       flex: 1; display: flex; align-items: center; position: relative;
     }
     .cs-diagram-arrow::before {
-      content: ''; flex: 1; display: block; border-top: 1.5px solid #2b2b2b;
+      content: ''; flex: 1; display: block; border-top: 1.5px solid var(--color-text);
     }
     .arr-left::after {
       content: ''; width: 0; height: 0;
       border-top: 5px solid transparent; border-bottom: 5px solid transparent;
-      border-right: 8px solid #2b2b2b; flex-shrink: 0;
+      border-right: 8px solid var(--color-text); flex-shrink: 0;
       display: block; order: -1;
     }
     .arr-right::after {
       content: ''; width: 0; height: 0;
       border-top: 5px solid transparent; border-bottom: 5px solid transparent;
-      border-left: 8px solid #2b2b2b; flex-shrink: 0; display: block;
+      border-left: 8px solid var(--color-text); flex-shrink: 0; display: block;
     }
     .cs-diagram-dots {
       display: flex; align-items: center; gap: 8px;
-      font-family: var(--font-body); font-size: 16px; color: #2b2b2b;
+      font-family: var(--font-body); font-size: 16px; color: var(--color-text);
     }
-    .cs-diagram-dot { width: 3px; height: 3px; background: #2b2b2b; border-radius: 50%; display: inline-block; }
+    .cs-diagram-dot { width: 3px; height: 3px; background: var(--color-text); border-radius: 50%; display: inline-block; }
     .bg-arrows { display: flex; justify-content: space-between; width: 840px; max-width: 100%; }
     .bg-arrow-down { display: flex; flex-direction: column; align-items: center; }
-    .bg-arrow-down::before { content: ''; width: 1.5px; height: 20px; background: #2b2b2b; display: block; }
-    .bg-arrow-down::after { content: ''; width: 0; height: 0; border-top: 8px solid #2b2b2b; border-left: 5px solid transparent; border-right: 5px solid transparent; display: block; }
+    .bg-arrow-down::before { content: ''; width: 1.5px; height: 20px; background: var(--color-text); display: block; }
+    .bg-arrow-down::after { content: ''; width: 0; height: 0; border-top: 8px solid var(--color-text); border-left: 5px solid transparent; border-right: 5px solid transparent; display: block; }
 
     /* ─── BACKGROUND QUOTE ───────────────────────────────── */
     .bg-quote-box {
@@ -720,7 +720,7 @@
     .bg-quote {
       font-family: var(--font-heading); font-weight: 700;
       font-style: italic; font-size: 24px; line-height: 32px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
 
     /* ─── COMPETITOR ANALYSIS ────────────────────────────── */
@@ -735,7 +735,7 @@
       border-radius: 8px;
     }
     .competitor-name {
-      font-family: var(--font-body); font-size: 16px; color: #2b2b2b; text-align: center;
+      font-family: var(--font-body); font-size: 16px; color: var(--color-text); text-align: center;
     }
     .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .swot-box { display: flex; flex-direction: column; gap: 20px; }
@@ -746,7 +746,7 @@
       width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-heading); font-weight: 800; font-size: 28px;
-      color: #2b2b2b; border: 2px solid;
+      color: var(--color-text); border: 2px solid;
     }
     .swot-s .swot-icon { background: rgba(92,227,177,0.3);  border-color: #5ce3b1; }
     .swot-w .swot-icon { background: rgba(255,251,129,0.3); border-color: #ffe189; }
@@ -754,7 +754,7 @@
     .swot-t .swot-icon { background: rgba(255,144,131,0.3); border-color: #ff9083; }
     .swot-title {
       font-family: var(--font-heading); font-weight: 500; font-size: 32px; line-height: 56px;
-      line-height: 32px; color: #2b2b2b;
+      line-height: 32px; color: var(--color-text);
     }
     .swot-list {
       list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 0;
@@ -762,7 +762,7 @@
     }
     .swot-list li {
       font-family: var(--font-body); font-size: 16px; line-height: 32px;
-      color: #2b2b2b; opacity: 0.7;
+      color: var(--color-text); opacity: 0.7;
     }
     .swot-list li strong { font-family: var(--font-heading); font-weight: 700; opacity: 1; }
 
@@ -775,11 +775,11 @@
     }
     .hmw-label {
       font-family: var(--font-heading); font-weight: 600; font-size: 18px;
-      line-height: 26px; color: #175cfe;
+      line-height: 26px; color: var(--color-accent);
     }
     .hmw-question {
       font-family: var(--font-heading); font-weight: 600;
-      font-size: 32px; line-height: 48px; color: #2b2b2b;
+      font-size: 32px; line-height: 48px; color: var(--color-text);
     }
 
     /* ─── REVEAL ─────────────────────────────────────────── */
@@ -927,7 +927,7 @@
     [data-theme="dark"] .carousel-arrow-light { display: none; }
     [data-theme="dark"] .carousel-arrow-dark { display: block; }
     [data-theme="dark"] .carousel-dot { background: rgba(23,92,254,0.40); }
-    [data-theme="dark"] .carousel-dot.active { background: #175cfe; }
+    [data-theme="dark"] .carousel-dot.active { background: var(--color-accent); }
     [data-theme="dark"] .bg-quote-box { background: rgba(23,92,254,0.10); border: 1px solid rgba(23,92,254,0.20); }
     [data-theme="dark"] .bg-quote { color: rgba(255,255,255,0.70); opacity: 1; }
     [data-theme="dark"] .cs-diagram-arrow::before { border-top-color: rgba(255,255,255,0.55); }
@@ -969,7 +969,7 @@
     [data-theme="dark"] .thankyou-text { color: rgba(255,255,255,0.90); }
     [data-theme="dark"] .footer-eyebrow { color: rgba(255,255,255,0.80); opacity: 1; }
     [data-theme="dark"] .footer-headline { color: #fff; }
-    [data-theme="dark"] .btn-filled { background: #fff; color: #2b2b2b; }
+    [data-theme="dark"] .btn-filled { background: #fff; color: var(--color-text); }
     [data-theme="dark"] .btn-filled:hover { background: #e8e8e8; }
     [data-theme="dark"] .btn-outline { border-color: #fff; color: #fff; }
     [data-theme="dark"] .btn-outline:hover { background: rgba(255,255,255,0.10); }
@@ -1043,7 +1043,7 @@
     <!-- ─── AT A GLANCE ──────────────────────────────────── -->
     <div class="cs-glance reveal">
       <p class="cs-section-label">At a glance</p>
-      <h2 style="font-family:var(--font-heading);font-weight:600;font-size:48px;line-height:58px;color:#2b2b2b;">AtisfyReach – Influencer Marketing Platform</h2>
+      <h2 style="font-family:var(--font-heading);font-weight:600;font-size:48px;line-height:58px;color:var(--color-text);">AtisfyReach – Influencer Marketing Platform</h2>
       <p class="cs-body">Influencer marketing was broken, fragmented across tools, opaque in pricing, and inaccessible to brands without agency relationships or large budgets. AtisfyReach was built to change that.</p>
       <p class="cs-body">As Lead Product Designer, I designed a scalable, AI-powered platform that unifies creator discovery, campaign configuration, contracting, payments, and performance tracking into a single structured workflow. The design focused on reducing decision anxiety through guided simplicity, enabling team collaboration through modular campaign management, and building user confidence through real-time, data-backed feedback at every step.</p>
       <p class="cs-body">The launch validated both the product and the approach. <a href="#outcomes" class="cs-link">50+ brands onboarded</a> during the launch phase, and campaigns achieved <a href="#outcomes" class="cs-link">6× lower costs through optimised ad budgets</a>, delivering measurably stronger ROI.</p>
@@ -1143,8 +1143,8 @@
           <h2 class="cs-section-heading">Influencer marketing was manual, opaque, and relationship-driven.</h2>
         </div>
         <p class="cs-body" style="font-size:20px;line-height:40px;"><strong style="font-weight:700;font-style:normal;opacity:1;">Imagine:</strong> It's early October. Halloween is weeks away.</p>
-        <p class="cs-body" style="font-size:20px;line-height:40px;">Clayton, a jewellery brand owner is preparing a Halloween collection launch. With only weeks to go, Instagram and TikTok are critical channels. Agencies are overbooked during peak season, and his campaign budget is too small to prioritise. Without support, he faces the complexity of <strong style="font-weight:700;font-style:normal;color:#175cfe;opacity:1;">creator discovery, outreach, contracting, payments, and performance tracking alone</strong>, all under time pressure.</p>
-        <p class="cs-body" style="font-size:20px;line-height:40px;">This scenario reflects a broader systemic gap: influencer marketing was <strong style="font-weight:700;font-style:normal;color:#175cfe;opacity:1;">relationship-driven rather than system-driven</strong>. Access depended on networks and budget size, not merit or readiness. The opportunity was clear – to create an AI-powered, unified creator network that standardises workflows, automates execution, and makes influencer marketing transparent, scalable, and accessible to businesses of all sizes.</p>
+        <p class="cs-body" style="font-size:20px;line-height:40px;">Clayton, a jewellery brand owner is preparing a Halloween collection launch. With only weeks to go, Instagram and TikTok are critical channels. Agencies are overbooked during peak season, and his campaign budget is too small to prioritise. Without support, he faces the complexity of <strong style="font-weight:700;font-style:normal;color:var(--color-accent);opacity:1;">creator discovery, outreach, contracting, payments, and performance tracking alone</strong>, all under time pressure.</p>
+        <p class="cs-body" style="font-size:20px;line-height:40px;">This scenario reflects a broader systemic gap: influencer marketing was <strong style="font-weight:700;font-style:normal;color:var(--color-accent);opacity:1;">relationship-driven rather than system-driven</strong>. Access depended on networks and budget size, not merit or readiness. The opportunity was clear – to create an AI-powered, unified creator network that standardises workflows, automates execution, and makes influencer marketing transparent, scalable, and accessible to businesses of all sizes.</p>
         <!-- Old model diagram -->
         <div style="display:flex;justify-content:center;">
           <img class="theme-img-light" src="assets/images/Background%20Flow.svg" alt="Brand–Agency–Influencer old model" style="max-width:100%;display:block;" />
