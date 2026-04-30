@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cs="coinloop">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coinloop – Vivek Vasudevan Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/shared.css" />
   <style>
     /* ─── Reset ──────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     :root {
       --page-max: 1440px;
@@ -19,7 +18,7 @@
       --dark: #2b2b2b;
     }
     body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       color: var(--dark);
       background: #fff;
       min-height: 100vh;
@@ -52,7 +51,7 @@
     .cl-back-link {
       display: flex; align-items: center; gap: 8px;
       text-decoration: none;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 15px; font-weight: 500;
       color: var(--dark);
       transition: opacity 0.2s;
@@ -63,7 +62,7 @@
       text-decoration: none;
     }
     .cl-nav-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 20px; font-weight: 700;
       color: var(--dark); white-space: nowrap;
     }
@@ -95,7 +94,7 @@
     }
     .cl-hero-logo { width: 27.08vw; max-width: 390px; height: auto; display: block; }
     .cl-hero-tagline {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: clamp(18px, 2.08vw, 30px);
       color: #fff;
@@ -103,7 +102,7 @@
       white-space: nowrap;
     }
     .cl-hero-sub {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: clamp(14px, 1.39vw, 20px);
       color: #fff;
@@ -126,14 +125,14 @@
       align-items: center;
     }
     .cl-overview-title {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 50px;
       color: #000;
       text-align: center;
     }
     .cl-overview-body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 24px;
       line-height: 34px;
@@ -171,7 +170,7 @@
       display: block;
     }
     .cl-feature-text {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 30px;
       line-height: 38px;
@@ -189,7 +188,7 @@
       padding: 80px 120px 60px;
     }
     .cl-process-title {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 40px;
       line-height: 50px;
@@ -220,7 +219,7 @@
       z-index: 2;
     }
     .cl-process-num {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 30px;
       line-height: 38px;
@@ -233,7 +232,7 @@
       gap: 0;
     }
     .cl-process-items li {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 28px;
       line-height: 40px;
@@ -279,7 +278,7 @@
       margin-top: 60px;
     }
     .cl-section-title-white {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 40px;
       color: #fff;
@@ -299,7 +298,7 @@
       gap: 60px;
     }
     .cl-portfolio-desc {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 25px;
       line-height: 32px;
@@ -320,7 +319,7 @@
       gap: 40px;
     }
     .cl-section-title-dark {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 40px;
       color: #000;
@@ -338,7 +337,7 @@
       flex-wrap: wrap;
     }
     .cl-sendreceive-desc {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 25px;
       line-height: 32px;
@@ -360,14 +359,14 @@
       gap: 40px;
     }
     .cl-context-title {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 40px;
       color: #fff;
       text-align: center;
     }
     .cl-context-body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 25px;
       line-height: 40px;
@@ -383,7 +382,7 @@
       text-align: center;
     }
     .cl-thanks-heading {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: 72px;
       color: #fff;
@@ -391,7 +390,7 @@
       margin-bottom: 16px;
     }
     .cl-thanks-sub {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       color: rgba(255, 255, 255, 0.7);
@@ -420,7 +419,7 @@
     .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
     .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
     .footer-nav-links { display: flex; gap: 24px; list-style: none; }
-    .footer-nav-links a { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
+    .footer-nav-links a { font-family: var(--font-ui); font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
     .footer-nav-links a:hover { opacity: 0.8; }
 
     /* ─── SCROLL TO TOP ──────────────────────────────────── */
@@ -428,7 +427,7 @@
     .scroll-top.visible { opacity: 1; transform: translateY(0); }
     .scroll-top:hover { transform: translateY(-4px); }
     .scroll-top img { width: 98px; height: 98px; display: block; }
-    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
+    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: var(--font-ui); font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
     .scroll-top-tooltip.visible { opacity: 1; }
 
     /* ─── REVEAL ANIMATION ───────────────────────────────── */

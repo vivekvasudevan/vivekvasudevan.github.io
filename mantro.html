@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cs="mantro">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mantro – Vivek Vasudevan Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/shared.css" />
   <style>
     /* ─── Reset ──────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     :root {
       --page-max: 1440px;
@@ -18,7 +17,7 @@
       --mt-yellow-dim: rgba(232, 184, 75, 0.15);
     }
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       background: var(--mt-dark);
       color: #fff;
       min-height: 100vh;
@@ -48,7 +47,7 @@
     .mt-back-link {
       display: flex; align-items: center; gap: 8px;
       text-decoration: none;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 15px; font-weight: 500;
       color: #2b2b2b;
       transition: opacity 0.2s;
@@ -59,7 +58,7 @@
       text-decoration: none;
     }
     .mt-nav-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 20px; font-weight: 700;
       color: #2b2b2b; white-space: nowrap;
     }
@@ -85,7 +84,7 @@
     }
     /* Hero text common style */
     .mt-hero-text {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       line-height: 1.05;
       color: rgba(217, 217, 217, 0.10);
@@ -187,7 +186,7 @@
     .mt-about-meta {
       display: flex;
       gap: 32px;
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-size: 14px;
       font-weight: 400;
       color: rgba(255,255,255,0.6);
@@ -195,7 +194,7 @@
     }
     .mt-about-meta strong { color: #fff; font-weight: 600; }
     .mt-about-tagline {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600;
       font-size: 36px;
       line-height: 1.4;
@@ -258,14 +257,14 @@
       padding: 0 40px 60px;
     }
     .mt-objective-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 32px;
       color: var(--mt-yellow);
       margin-bottom: 20px;
     }
     .mt-objective-body {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 400;
       font-size: 24px;
       line-height: 1.6;
@@ -280,11 +279,11 @@
       max-width: 1200px; margin: 0 auto;
     }
     .mt-section-label {
-      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 40px;
+      font-family: var(--font-heading); font-weight: 700; font-size: 40px;
       color: var(--mt-yellow); margin-bottom: 28px;
     }
     .mt-overview-body {
-      font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 18px;
+      font-family: var(--font-heading); font-weight: 400; font-size: 18px;
       line-height: 1.8; color: rgba(255,255,255,0.85); max-width: 900px; margin-bottom: 64px;
     }
     .mt-features-title {
@@ -447,7 +446,7 @@
     }
     .mt-type-sub { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
     .mt-poppins-display {
-      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-family: var(--font-heading); font-weight: 700;
       font-size: clamp(80px, 14vw, 200px); color: #fff; line-height: 1;
       margin-bottom: 40px;
     }
@@ -500,7 +499,7 @@
     }
     .mt-screens-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
     .mt-screens-count {
-      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-family: var(--font-heading); font-weight: 800;
       font-size: clamp(36px, 5vw, 72px);
       color: var(--mt-yellow); margin-top: 48px;
     }
@@ -511,7 +510,7 @@
       padding: 80px 40px; text-align: center;
     }
     .mt-thanks-heading {
-      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-family: var(--font-heading); font-weight: 800;
       font-size: clamp(40px, 6vw, 96px); color: #fff; margin-bottom: 16px;
     }
     .mt-thanks-sub {
@@ -541,7 +540,7 @@
     .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
     .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
     .footer-nav-links { display: flex; gap: 24px; list-style: none; }
-    .footer-nav-links a { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
+    .footer-nav-links a { font-family: var(--font-heading); font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
     .footer-nav-links a:hover { opacity: 0.8; }
     .footer-page-wrap { width: 100%; background: #fff; display: flex; flex-direction: column; align-items: center; padding-bottom: 0; }
 
@@ -550,7 +549,7 @@
     .scroll-top.visible { opacity: 1; transform: translateY(0); }
     .scroll-top:hover { transform: translateY(-4px); }
     .scroll-top img { width: 98px; height: 98px; display: block; }
-    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
+    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: var(--font-ui); font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
     .scroll-top-tooltip.visible { opacity: 1; }
 
     /* ─── REVEAL ANIMATION ───────────────────────────────── */

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cs="jinance">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jinance – Vivek Vasudevan Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/shared.css" />
   <style>
     /* ─── Reset ──────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     :root {
       --page-max: 1440px;
@@ -18,7 +17,7 @@
       --body-text: #555555;
     }
     body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       color: #2b2b2b;
       background: #fff;
       min-height: 100vh;
@@ -41,7 +40,7 @@
     .cs-back-link {
       display: flex; align-items: center; gap: 8px;
       text-decoration: none;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 15px; font-weight: 500;
       color: #fff;
       transition: opacity 0.2s;
@@ -52,7 +51,7 @@
       text-decoration: none;
     }
     .nav-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 20px; font-weight: 700;
       color: #fff; white-space: nowrap;
     }
@@ -86,7 +85,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 28px;
       color: #000;
@@ -117,7 +116,7 @@
       gap: 24px;
     }
     .jn-meta-heading {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 25px;
       color: #000;
@@ -129,14 +128,14 @@
       gap: 16px;
     }
     .jn-meta-list li {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       color: var(--body-text);
       line-height: 30px;
     }
     .jn-meta-body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       line-height: 30px;
@@ -163,7 +162,7 @@
 
     /* ─── SECTION LABEL ──────────────────────────────────── */
     .jn-label {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 25px;
       color: #000;
@@ -199,7 +198,7 @@
       object-fit: contain;
     }
     .jn-process-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 20px;
       color: #000;
@@ -211,7 +210,7 @@
       gap: 6px;
     }
     .jn-process-items li {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 16px;
       color: var(--body-text);
@@ -246,7 +245,7 @@
 
     /* ─── PROBLEM ────────────────────────────────────────── */
     .jn-problem-headline {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 30px;
       line-height: 40px;
@@ -254,7 +253,7 @@
       margin-bottom: 20px;
     }
     .jn-body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       line-height: 1.7;
@@ -272,7 +271,7 @@
       padding: 24px;
       flex: 1;
       min-height: 240px;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       line-height: 32px;
@@ -282,7 +281,7 @@
       font-weight: 700;
     }
     .jn-sub-heading {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 25px;
       color: #000;
@@ -297,7 +296,7 @@
       gap: 12px;
     }
     .jn-bullet-list li {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       line-height: 1.7;
@@ -311,7 +310,7 @@
       gap: 32px;
     }
     .jn-persona-heading {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 25px;
       color: #000;
@@ -335,13 +334,13 @@
       gap: 6px;
     }
     .jn-persona-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 20px;
       color: var(--body-text);
     }
     .jn-persona-detail {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       color: var(--body-text);
@@ -366,14 +365,14 @@
     .jn-persona-cell-header {
       background: var(--dark);
       padding: 24px;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 20px;
       color: #fff;
     }
     .jn-persona-cell-body {
       padding: 12px 24px;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       color: var(--body-text);
@@ -445,14 +444,14 @@
 
     /* ─── RESULTS / OUTCOME ─────────────────────────────── */
     .jn-results-text {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       line-height: 1.7;
       color: var(--body-text);
     }
     .jn-results-highlight {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 32px;
       color: var(--body-text);
@@ -464,14 +463,14 @@
       width: 100%;
     }
     .jn-section-label {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 25px;
       color: #000;
       margin-bottom: 24px;
     }
     .jn-outcome-text {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 20px;
       font-weight: 400;
       line-height: 40px;
@@ -493,7 +492,7 @@
       text-align: center;
     }
     .jn-thanks-heading {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: 72px;
       color: #fff;
@@ -501,7 +500,7 @@
       margin-bottom: 16px;
     }
     .jn-thanks-sub {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 20px;
       color: rgba(255,255,255,0.8);
@@ -530,7 +529,7 @@
     .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
     .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
     .footer-nav-links { display: flex; gap: 24px; list-style: none; }
-    .footer-nav-links a { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
+    .footer-nav-links a { font-family: var(--font-ui); font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
     .footer-nav-links a:hover { opacity: 0.8; }
 
     /* ─── SCROLL TO TOP ──────────────────────────────────── */
@@ -538,7 +537,7 @@
     .scroll-top.visible { opacity: 1; transform: translateY(0); }
     .scroll-top:hover { transform: translateY(-4px); }
     .scroll-top img { width: 98px; height: 98px; display: block; }
-    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
+    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: var(--font-ui); font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
     .scroll-top-tooltip.visible { opacity: 1; }
 
     /* ─── REVEAL ANIMATION ───────────────────────────────── */

@@ -1,0 +1,237 @@
+/*
+ * ─────────────────────────────────────────────────────────
+ *  SHARED DESIGN SYSTEM — Vivek Vasudevan Portfolio
+ *  shared.css  |  v1.0
+ *
+ *  HOW IT WORKS
+ *  ────────────
+ *  1. Link this file BEFORE any page-specific <style> block.
+ *  2. Add data-cs="[case-study]" to the <html> tag of each page.
+ *     Valid values: atisfyreach | atisfyre | jinance | coinloop | mantro | cosmic-sentry
+ *  3. Use the CSS custom properties (var(--...)) in page styles.
+ *  4. Dark-mode toggle continues to use data-theme="dark" on <html>
+ *     (separate attribute, no conflict).
+ * ─────────────────────────────────────────────────────────
+ */
+
+/* ═══════════════════════════════════════════════════════
+   1. FONTS — all Google Fonts in one network request
+   ═══════════════════════════════════════════════════════ */
+
+/* Work Sans (index, about, atisfyre, jinance, coinloop — UI chrome on every page) */
+/* Poppins  (atisfyreach headings, mantro) */
+/* Lato     (atisfyreach body copy) */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Lato:ital,wght@0,400;0,700;1,700&display=swap');
+
+/* ─── Moonglade DEMO (Cosmic Sentry) ─────────────────── */
+/* Place the font file at: assets/fonts/MoongladeDemo.woff2  */
+/* (download from wherever you sourced Moonglade DEMO)       */
+@font-face {
+  font-family: 'Moonglade DEMO';
+  src: url('fonts/MoongladeDemo.woff2') format('woff2'),
+       url('fonts/MoongladeDemo.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════
+   2. BASE DESIGN TOKENS  (:root = default / Work Sans pages)
+   ═══════════════════════════════════════════════════════ */
+:root {
+  /* ── Typography ──────────────────────────────────────── */
+  --font-heading : 'Work Sans', sans-serif;
+  --font-body    : 'Work Sans', sans-serif;
+  --font-ui      : 'Work Sans', sans-serif; /* nav, labels, captions — always Work Sans */
+
+  /* ── Colour ──────────────────────────────────────────── */
+  --color-text        : #2b2b2b;
+  --color-text-light  : #555;
+  --color-text-muted  : #888;
+  --color-bg          : #fff;
+  --color-bg-alt      : #f9f6f6; /* page gradient start/end */
+  --color-surface     : #fff;    /* card / panel background */
+  --color-accent      : #175cfe; /* primary CTA blue */
+  --color-accent-hover: #0f4bdb;
+  --color-border      : #e5e5e5;
+
+  /* ── Spacing ─────────────────────────────────────────── */
+  --page-max      : 1440px;
+  --content-width : 1200px;
+  --inner-width   : 1160px;
+  --section-gap   : 120px;  /* vertical space between sections */
+
+  /* ── Radii ───────────────────────────────────────────── */
+  --radius-card : 20px;
+  --radius-btn  : 8px;
+  --radius-pill : 100px;
+  --radius-chip : 6px;
+
+  /* ── Shadows ─────────────────────────────────────────── */
+  --shadow-card : 0 4px 32px rgba(0,0,0,0.07);
+  --shadow-btn  : 0 2px 12px rgba(23,92,254,0.18);
+
+  /* ── Transitions ─────────────────────────────────────── */
+  --transition-fast   : 0.15s ease;
+  --transition-normal : 0.25s ease;
+  --transition-slow   : 0.4s ease;
+}
+
+/* ═══════════════════════════════════════════════════════
+   3. PER-CASE-STUDY TYPOGRAPHY OVERRIDES
+      These only change font tokens; all other tokens
+      inherit from :root above.
+   ═══════════════════════════════════════════════════════ */
+
+/* ── AtisfyReach: Poppins headings + Lato body ───────── */
+[data-cs="atisfyreach"] {
+  --font-heading : 'Poppins', sans-serif;
+  --font-body    : 'Lato', sans-serif;
+}
+
+/* ── Atisfyre: Work Sans throughout ─────────────────── */
+[data-cs="atisfyre"] {
+  --font-heading : 'Work Sans', sans-serif;
+  --font-body    : 'Work Sans', sans-serif;
+}
+
+/* ── Jinance: Work Sans throughout ──────────────────── */
+[data-cs="jinance"] {
+  --font-heading : 'Work Sans', sans-serif;
+  --font-body    : 'Work Sans', sans-serif;
+}
+
+/* ── Coinloop: Work Sans throughout ─────────────────── */
+[data-cs="coinloop"] {
+  --font-heading : 'Work Sans', sans-serif;
+  --font-body    : 'Work Sans', sans-serif;
+}
+
+/* ── Mantro: Poppins throughout ─────────────────────── */
+[data-cs="mantro"] {
+  --font-heading : 'Poppins', sans-serif;
+  --font-body    : 'Poppins', sans-serif;
+}
+
+/* ── Cosmic Sentry: Moonglade DEMO headings ──────────── */
+[data-cs="cosmic-sentry"] {
+  --font-heading : 'Moonglade DEMO', sans-serif;
+  --font-body    : 'Work Sans', sans-serif; /* body stays readable */
+}
+
+/* ═══════════════════════════════════════════════════════
+   4. MINIMAL BASE RESET
+      Safe to apply globally — matches existing page resets
+      so adding this file won't change anything visually.
+   ═══════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════════════════════════════════
+   5. SHARED UTILITY CLASSES
+      These are opt-in — only apply if the class is used.
+      Pages can adopt them gradually without breaking
+      existing styles.
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Reveal animation (already used on case study pages) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Scroll-to-top button (shared across all pages) ──── */
+.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  z-index: 999;
+}
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.scroll-top img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+/* ── Tooltip (shared) ─────────────────────────────────── */
+.scroll-top-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  background: #111;
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: var(--radius-chip);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.scroll-top:hover .scroll-top-tooltip {
+  opacity: 1;
+}
+@media (max-width: 1024px) {
+  .scroll-top-tooltip { display: none !important; }
+}
+
+/* ── Back link (shared nav element on case study pages) ─ */
+.cs-back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* ═══════════════════════════════════════════════════════
+   6. MIGRATION NOTES
+   ═══════════════════════════════════════════════════════
+   When updating a page to use this system:
+
+   Step A — In <html>, add:  data-cs="[case-study-name]"
+   Step B — In <head>, add before the page <style>:
+            <link rel="stylesheet" href="assets/shared.css" />
+   Step C — Remove the duplicate Google Fonts <link> tag
+             (this file handles all font loading).
+   Step D — Replace hardcoded font-family strings:
+            'Poppins'   → var(--font-heading)   [on heading elements]
+            'Lato'      → var(--font-body)       [on body copy elements]
+            'Work Sans' → var(--font-ui)         [on nav/UI chrome]
+   Step E — Replace hardcoded colour values gradually:
+            #2b2b2b → var(--color-text)
+            #175cfe → var(--color-accent)
+            #555    → var(--color-text-light)
+   ════════════════════════════════════════════════════════ */

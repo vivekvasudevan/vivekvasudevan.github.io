@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cs="atisfyre">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atisfyre – Vivek Vasudevan Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/shared.css" />
   <style>
     /* ─── Reset & Variables ──────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     :root {
       --page-max: 1440px;
@@ -21,7 +20,7 @@
     }
 
     body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       color: #2b2b2b;
       background: #fff;
       min-height: 100vh;
@@ -46,7 +45,7 @@
     }
     nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
     .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
-    .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; }
+    .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: #2b2b2b; }
     .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
 
     /* ─── HERO ───────────────────────────────────────────── */
@@ -93,7 +92,7 @@
     }
     .hero-description {
       color: #fff;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 18px;
       font-weight: 500;
       line-height: 28px;
@@ -122,7 +121,7 @@
       padding: 0 20px;
     }
     .toc-title {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: 28px;
       color: #1a1a1a;
@@ -139,7 +138,7 @@
       gap: 12px;
       text-decoration: none;
       color: #1a1a1a;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 15px;
       padding: 16px 20px;
@@ -152,7 +151,7 @@
       transform: translateY(-2px);
     }
     .toc-num {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: 13px;
       color: var(--red);
@@ -176,7 +175,7 @@
       margin-bottom: 40px;
     }
     .section-label {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 13px;
       color: var(--red);
@@ -184,14 +183,14 @@
       letter-spacing: 0.08em;
     }
     .section-heading {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: 36px;
       color: #1a1a1a;
       line-height: 1.2;
     }
     .section-sub {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 16px;
       color: #555;
@@ -239,14 +238,14 @@
       gap: 8px;
     }
     .colour-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
       font-size: 32px;
       text-align: justify;
       line-height: 1.2;
     }
     .colour-hex {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 24px;
       text-align: justify;
@@ -270,7 +269,7 @@
       min-width: 200px;
     }
     .type-font-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       font-size: 14px;
       color: var(--red);
@@ -279,7 +278,7 @@
       margin-bottom: 4px;
     }
     .type-usage {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 13px;
       color: #888;
@@ -291,21 +290,21 @@
       flex-shrink: 0;
     }
     .type-sample-montserrat-eb {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: 48px;
       color: #1a1a1a;
       line-height: 1;
     }
     .type-sample-worksans-m {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 32px;
       color: #1a1a1a;
       line-height: 1.2;
     }
     .type-sample-worksans-r {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 20px;
       color: #555;
@@ -313,7 +312,7 @@
       max-width: 500px;
     }
     .type-alphabet {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 13px;
       color: #aaa;
@@ -336,7 +335,7 @@
       gap: 20px;
     }
     .screen-split-title {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 48px;
       color: #1a1a1a;
@@ -350,7 +349,7 @@
       flex-shrink: 0;
     }
     .screen-split-body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 400;
       line-height: 1.75;
@@ -373,7 +372,7 @@
       gap: 32px;
     }
     .onboarding-title {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 48px;
       color: #1a1a1a;
@@ -387,7 +386,7 @@
       margin-top: -16px;
     }
     .onboarding-sub {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 400;
       line-height: 1.75;
@@ -411,7 +410,7 @@
       gap: 48px;
     }
     .phones-section-title {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 64px;
       color: #1a1a1a;
@@ -450,14 +449,14 @@
       gap: 16px;
     }
     .jobready-title {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 64px;
       color: #1a1a1a;
       line-height: 1.1;
     }
     .jobready-desc {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 400;
       line-height: 1.75;
@@ -483,7 +482,7 @@
       display: block;
     }
     .jobready-caption {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 400;
       line-height: 1.65;
@@ -553,7 +552,7 @@
       bottom: calc(40px + 98px + 12px);
       background: #fff;
       color: #2b2b2b;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 18px;
       font-weight: 400;
       padding: 14px 24px;
@@ -579,14 +578,14 @@
       text-align: center;
     }
     .thanks-heading {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       font-size: 48px;
       color: #fff;
       line-height: 1.15;
     }
     .thanks-disclaimer {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 400;
       font-size: 14px;
       color: rgba(255,255,255,0.75);
@@ -614,7 +613,7 @@
       width: 100%;
     }
     .footer-eyebrow {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 24px;
       font-weight: 500;
       color: #2b2b2b;
@@ -630,7 +629,7 @@
       gap: 8px;
     }
     .footer-headline {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-heading);
       font-size: 80px;
       font-weight: 700;
       color: #2b2b2b;
@@ -647,7 +646,7 @@
       color: #fff;
       padding: 16px 24px;
       border-radius: 8px;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 24px;
       font-weight: 500;
       text-decoration: none;
@@ -660,7 +659,7 @@
       color: #2b2b2b;
       padding: 16px 24px;
       border-radius: 8px;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 24px;
       font-weight: 500;
       text-decoration: none;
@@ -682,7 +681,7 @@
       padding: 16px;
       text-decoration: none;
       color: #2b2b2b;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 500;
       border-radius: 8px;
@@ -707,14 +706,14 @@
     }
     .footer-brand-text { display: flex; flex-direction: column; gap: 4px; }
     .footer-brand-name {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 500;
       color: #2b2b2b;
       white-space: nowrap;
     }
     .footer-brand-copy {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 12px;
       font-weight: 500;
       color: #2b2b2b;
@@ -726,7 +725,7 @@
       list-style: none;
     }
     .footer-nav-links a {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 500;
       color: #2b2b2b;

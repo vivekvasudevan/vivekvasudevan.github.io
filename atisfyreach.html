@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cs="atisfyreach">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AtisfyReach – Vivek Vasudevan Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Lato:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/shared.css" />
   <style>
     /* ─── Reset & Variables ──────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     :root {
       --page-max: 1440px;
@@ -18,11 +17,12 @@
     }
 
     body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       color: #2b2b2b;
       background: linear-gradient(180deg, #f9f6f6 0%, #fff 30.3%, #fff 85%, #f9f6f6 100%);
       min-height: 100vh;
       transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
     .page {
@@ -45,13 +45,13 @@
     }
     nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1); }
     .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%); }
-    .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; }
-    .mode-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; padding: 8px 4px; transition: opacity 0.2s; white-space: nowrap; }
+    .cs-back-link { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: #2b2b2b; }
+    .mode-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: #2b2b2b; padding: 8px 4px; transition: opacity 0.2s; white-space: nowrap; }
     .mode-toggle:hover { opacity: 0.6; }
     .nav-name { font-size: 20px; font-weight: 700; color: #000; white-space: nowrap; }
     .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
     .nav-links a, .nav-links button {
-      font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500;
+      font-family: var(--font-ui); font-size: 16px; font-weight: 500;
       color: #2b2b2b; text-decoration: none; background: none; border: none;
       cursor: pointer; padding: 8px; opacity: 0.4; transition: opacity 0.2s; display: block;
     }
@@ -77,7 +77,7 @@
     .mobile-menu.open { display: flex; }
     @media (min-width: 769px) { .mobile-menu { display: none !important; } }
     .mobile-menu a, .mobile-menu button {
-      font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500;
+      font-family: var(--font-ui); font-size: 16px; font-weight: 500;
       color: #2b2b2b; text-decoration: none; background: none; border: none;
       cursor: pointer; padding: 10px 20px; text-align: left; width: 100%; display: block;
       transition: opacity 0.2s;
@@ -87,6 +87,7 @@
     /* ─── CASE STUDY WRAPPER ─────────────────────────────── */
     .cs-wrap {
       width: var(--inner-width);
+      max-width: 100%;
       display: flex;
       flex-direction: column;
       gap: 120px;
@@ -104,17 +105,17 @@
       display: flex; flex-direction: column; gap: 16px; flex: 1;
     }
     .cs-hero-label {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 20px; line-height: 28px;
       color: var(--blue);
     }
     .cs-hero-heading {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 40px; line-height: normal;
       color: #2b2b2b;
     }
     .cs-hero-sub {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b; opacity: 0.7;
     }
@@ -126,13 +127,13 @@
     }
     .cs-meta-row { display: flex; gap: 24px; align-items: flex-start; }
     .cs-meta-label {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 16px; line-height: 22px;
       color: #000; white-space: nowrap; flex-shrink: 0;
       min-width: 56px;
     }
     .cs-meta-value {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 16px; line-height: 24px;
       color: #000; opacity: 0.7;
     }
@@ -148,12 +149,12 @@
       display: flex; flex-direction: column; gap: 16px; align-items: flex-start;
     }
     .cs-solution-heading {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 500; font-size: 32px; line-height: 1.3;
       color: #2b2b2b; text-align: center; width: 100%;
     }
     .cs-solution-body {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b; opacity: 0.7;
     }
@@ -164,29 +165,29 @@
     }
 
     .cs-section-label {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 20px; line-height: 28px;
       color: var(--blue);
     }
     .cs-section-heading {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 500; font-size: 32px; line-height: 48px;
       color: #2b2b2b;
     }
     .cs-section-sub {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b; opacity: 0.7;
     }
     .cs-body {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b; opacity: 0.7;
     }
     .cs-body strong { font-weight: 700; font-style: italic; opacity: 1; }
     .cs-body b { font-weight: 700; font-style: normal; }
     .cs-subheading {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 500; font-size: 24px; line-height: 32px;
       color: #2b2b2b;
     }
@@ -209,7 +210,7 @@
       width: 998px; max-width: 100%;
     }
     .persona-intro {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b; opacity: 0.7;
     }
@@ -236,12 +237,12 @@
       display: flex; flex-direction: column; gap: 8px;
     }
     .persona-photo-name {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 24px; line-height: normal;
       color: #fff;
     }
     .persona-photo-role {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 400; font-size: 12px; line-height: normal;
       color: #fff;
     }
@@ -251,7 +252,7 @@
     }
     .persona-photo-location svg { flex-shrink: 0; }
     .persona-photo-location span {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 400; font-size: 12px; line-height: 18px;
       color: #fff; white-space: nowrap;
     }
@@ -262,7 +263,7 @@
     }
     .persona-content.gap-32 { gap: 32px; }
     .persona-quote {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 400; font-size: 20px; line-height: 32px;
       color: #000;
     }
@@ -276,12 +277,12 @@
     .persona-details { display: flex; flex-direction: column; gap: 24px; }
     .persona-detail { display: flex; flex-direction: column; gap: 8px; }
     .persona-detail-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 20px; line-height: normal;
       color: var(--blue); text-transform: uppercase;
     }
     .persona-detail-body {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 16px; line-height: 24px;
       color: #000; opacity: 0.6;
     }
@@ -290,7 +291,7 @@
       display: flex; flex-direction: column; gap: 0;
     }
     .persona-detail ul li {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 16px; line-height: 24px;
       color: #000; opacity: 0.6;
     }
@@ -298,14 +299,14 @@
     /* Motivations bars */
     .persona-motivations { display: flex; flex-direction: column; gap: 8px; }
     .motivation-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 20px; line-height: 28px;
       color: var(--blue);
     }
     .motivation-bars { display: flex; flex-direction: column; gap: 12px; }
     .motivation-row { display: flex; gap: 20px; align-items: center; }
     .motivation-label {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 16px; line-height: 24px;
       color: #000; width: 146px; flex-shrink: 0;
     }
@@ -339,7 +340,7 @@
       display: flex; flex-direction: column; gap: 10px; align-items: center;
     }
     .sticky-cluster-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 500; font-size: 24px; line-height: 32px;
       color: #2b2b2b;
     }
@@ -354,7 +355,7 @@
       display: flex; align-items: center; justify-content: center;
       padding: 14px;
       box-shadow: 0px 2.553px 2.553px 0px rgba(0,0,0,0.25);
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 400; font-size: 16px; line-height: normal;
       color: #000; text-align: center;
     }
@@ -365,12 +366,12 @@
     .sn-4 { background: #7bdbff; left: 41px;  top: 189px; }
 
     .interviews-conclusion {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 24px; line-height: 40px;
       color: #2b2b2b; opacity: 0.7;
     }
     .interviews-conclusion em {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700; font-style: italic;
       color: #2b2b2b; opacity: 1;
     }
@@ -380,7 +381,7 @@
       display: flex; flex-direction: column; gap: 32px;
     }
     .ideate-heading {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 600; font-size: 32px; line-height: normal;
       color: #2b2b2b;
     }
@@ -393,12 +394,12 @@
     }
     .principle-heading-row {
       display: flex; gap: 8px; align-items: flex-start;
-      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; line-height: 32px;
+      font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 32px;
       color: #2b2b2b;
     }
     .principle-num { flex-shrink: 0; white-space: nowrap; }
     .principle-body {
-      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-family: var(--font-body); font-weight: 400;
       font-size: 16px; line-height: 24px; color: #2b2b2b;
     }
     .principle-flow {
@@ -407,7 +408,7 @@
     .flow-pill-dp {
       background: rgba(47,68,118,0.2); border-radius: 92px;
       padding: 16px 24px;
-      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 24px;
+      font-family: var(--font-body); font-size: 16px; line-height: 24px;
       color: #2f4476; white-space: nowrap;
     }
     .flow-arrow-dp {
@@ -428,12 +429,12 @@
       border-left: 7px solid #2f4476;
     }
     .principle-footer {
-      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-family: var(--font-body); font-weight: 400;
       font-size: 16px; line-height: 24px;
       color: #2b2b2b; opacity: 0.6;
     }
     .principle-footer-list {
-      font-family: 'Lato', sans-serif; font-weight: 400;
+      font-family: var(--font-body); font-weight: 400;
       font-size: 16px; line-height: 24px;
       color: #2b2b2b; opacity: 0.6;
       display: flex; flex-direction: column; gap: 8px;
@@ -450,7 +451,7 @@
     }
     .ds-white-card img { width: 100%; display: block; }
     .ds-sub-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700; font-size: 20px; color: #000;
     }
     .ds-examples-grid {
@@ -468,7 +469,7 @@
       display: flex; flex-direction: column; gap: 8px;
     }
     .ia-list li {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b; opacity: 0.7;
     }
@@ -483,27 +484,28 @@
 
     /* ─── OUTCOMES ───────────────────────────────────────── */
     .outcomes-heading {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 500; font-size: 40px; line-height: 50px;
       color: #2b2b2b;
     }
     .stats-card {
       background: #def8f0; border-radius: 40px;
       padding: 40px;
-      display: flex; gap: 32px; align-items: flex-start;
-      justify-content: center; text-align: center;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      column-gap: 32px; row-gap: 21px;
+      text-align: center;
     }
     .stat-item {
-      display: flex; flex-direction: column; gap: 21px;
-      align-items: center; width: 250px;
+      display: contents;
     }
     .stat-number {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800; font-size: 40px; line-height: normal;
       color: #000;
     }
     .stat-desc {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b;
     }
@@ -511,7 +513,7 @@
     /* ─── FINAL THOUGHTS ─────────────────────────────────── */
     .final-block { display: flex; flex-direction: column; gap: 16px; }
     .final-heading {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 500; font-size: 40px; line-height: normal;
       color: #2b2b2b;
     }
@@ -520,7 +522,7 @@
       display: flex; flex-direction: column; gap: 8px;
     }
     .final-list li {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 20px; line-height: 30px;
       color: #2b2b2b; opacity: 0.7;
     }
@@ -532,7 +534,7 @@
       display: flex; flex-direction: column; gap: 32px;
     }
     .thankyou-heading {
-      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-family: var(--font-heading); font-weight: 600;
       font-size: 20px; line-height: 28px;
       color: #175cfe; text-align: center;
     }
@@ -544,7 +546,7 @@
     }
     .thankyou-text {
       display: flex; flex-direction: column; gap: 16px;
-      font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 500;
+      font-family: var(--font-ui); font-size: 18px; font-weight: 500;
       line-height: 28px; color: #2b2b2b;
     }
     @media (max-width: 768px) {
@@ -577,12 +579,12 @@
     .footer-brand-name { font-size: 16px; font-weight: 500; color: #2b2b2b; white-space: nowrap; }
     .footer-brand-copy { font-size: 12px; font-weight: 500; color: #2b2b2b; opacity: 0.6; }
     .footer-nav-links { display: flex; gap: 24px; list-style: none; }
-    .footer-nav-links a { font-family: 'Work Sans', sans-serif; font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
+    .footer-nav-links a { font-family: var(--font-ui); font-size: 16px; font-weight: 500; color: #2b2b2b; opacity: 0.4; text-decoration: none; padding: 8px; transition: opacity 0.2s; }
     .footer-nav-links a:hover { opacity: 0.8; }
 
     /* ─── BACK BUTTON ────────────────────────────────────── */
     .back-btn-wrap { width: var(--inner-width); padding-top: 24px; }
-    .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: none; border-radius: 8px; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); cursor: pointer; padding: 12px 20px; font-family: 'Work Sans', sans-serif; font-size: 15px; font-weight: 500; color: #2b2b2b; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: none; border-radius: 8px; box-shadow: 0 9px 18.8px rgba(0,0,0,0.15); cursor: pointer; padding: 12px 20px; font-family: var(--font-ui); font-size: 15px; font-weight: 500; color: #2b2b2b; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
     .back-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
     .back-btn svg { flex-shrink: 0; }
 
@@ -595,8 +597,9 @@
     .scroll-top img.scroll-top-dark { display: none; width: 98px; height: 98px; }
     [data-theme="dark"] .scroll-top img:not(.scroll-top-dark) { display: none; }
     [data-theme="dark"] .scroll-top img.scroll-top-dark { display: block; }
-    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: 'Work Sans', sans-serif; font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
+    .scroll-top-tooltip { position: fixed; right: 20px; bottom: calc(40px + 98px + 12px); background: #fff; color: #2b2b2b; font-family: var(--font-ui); font-size: 18px; font-weight: 400; padding: 14px 24px; border-radius: 16px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 199; }
     .scroll-top-tooltip.visible { opacity: 1; }
+    @media (max-width: 1024px) { .scroll-top-tooltip { display: none !important; } }
 
     /* ─── AT A GLANCE ───────────────────────────────────── */
     .cs-glance {
@@ -611,7 +614,7 @@
       display: flex; flex-direction: column; align-items: center; gap: 32px;
     }
     .cs-problem-statement {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 500; font-size: 32px; line-height: 1.5;
       color: #2b2b2b; text-align: center; max-width: 998px;
     }
@@ -675,12 +678,12 @@
       display: flex; flex-direction: column; gap: 16px;
     }
     .feature-card-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700; font-size: 20px; line-height: 28px;
       color: var(--blue); text-transform: uppercase; letter-spacing: 0.04em;
     }
     .feature-card-desc {
-      font-family: 'Lato', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400; font-size: 18px; line-height: 28px;
       color: #2b2b2b; opacity: 0.75;
     }
@@ -698,13 +701,13 @@
     .cs-diagram-pill {
       display: flex; align-items: center; justify-content: center;
       padding: 16px; border-radius: 20px;
-      font-family: 'Lato', sans-serif; font-size: 24px; line-height: 34px;
+      font-family: var(--font-body); font-size: 24px; line-height: 34px;
       white-space: nowrap; flex-shrink: 0;
     }
     .pill-brand { background: rgba(249,152,183,0.3); border: 1px solid #f998b7; min-width: 95px; }
     .pill-agency { background: rgba(104,206,232,0.3); border: 1px solid #68cee8; min-width: 95px; }
     .pill-influencer { background: rgba(255,225,137,0.3); border: 1px solid #ffe189; min-width: 135px; }
-    .pill-ar { background: #175cfe; color: #fff; min-width: 190px; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 20px; border-radius: 20px; }
+    .pill-ar { background: #175cfe; color: #fff; min-width: 190px; font-family: var(--font-heading); font-weight: 500; font-size: 20px; border-radius: 20px; }
     .pill-plain { background: rgba(249,152,183,0.15); border: 1px solid rgba(0,0,0,0.12); min-width: 95px; }
     .cs-diagram-arrow {
       flex: 1; display: flex; align-items: center; position: relative;
@@ -725,7 +728,7 @@
     }
     .cs-diagram-dots {
       display: flex; align-items: center; gap: 8px;
-      font-family: 'Lato', sans-serif; font-size: 16px; color: #2b2b2b;
+      font-family: var(--font-body); font-size: 16px; color: #2b2b2b;
     }
     .cs-diagram-dot { width: 3px; height: 3px; background: #2b2b2b; border-radius: 50%; display: inline-block; }
     .bg-arrows { display: flex; justify-content: space-between; width: 840px; max-width: 100%; }
@@ -739,7 +742,7 @@
       padding: 40px 101px;
     }
     .bg-quote {
-      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-family: var(--font-heading); font-weight: 700;
       font-style: italic; font-size: 24px; line-height: 32px;
       color: #2b2b2b; opacity: 0.7;
     }
@@ -756,7 +759,7 @@
       border-radius: 8px;
     }
     .competitor-name {
-      font-family: 'Lato', sans-serif; font-size: 16px; color: #2b2b2b; text-align: center;
+      font-family: var(--font-body); font-size: 16px; color: #2b2b2b; text-align: center;
     }
     .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .swot-box { display: flex; flex-direction: column; gap: 20px; }
@@ -766,7 +769,7 @@
     .swot-icon {
       width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 28px;
+      font-family: var(--font-heading); font-weight: 800; font-size: 28px;
       color: #2b2b2b; border: 2px solid;
     }
     .swot-s .swot-icon { background: rgba(92,227,177,0.3);  border-color: #5ce3b1; }
@@ -774,7 +777,7 @@
     .swot-o .swot-icon { background: rgba(123,219,255,0.3); border-color: #7bdbff; }
     .swot-t .swot-icon { background: rgba(255,144,131,0.3); border-color: #ff9083; }
     .swot-title {
-      font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 32px; line-height: 56px;
+      font-family: var(--font-heading); font-weight: 500; font-size: 32px; line-height: 56px;
       line-height: 32px; color: #2b2b2b;
     }
     .swot-list {
@@ -782,10 +785,10 @@
       display: flex; flex-direction: column; gap: 8px;
     }
     .swot-list li {
-      font-family: 'Lato', sans-serif; font-size: 16px; line-height: 32px;
+      font-family: var(--font-body); font-size: 16px; line-height: 32px;
       color: #2b2b2b; opacity: 0.7;
     }
-    .swot-list li strong { font-family: 'Poppins', sans-serif; font-weight: 700; opacity: 1; }
+    .swot-list li strong { font-family: var(--font-heading); font-weight: 700; opacity: 1; }
 
     /* ─── HOW MIGHT WE ───────────────────────────────────── */
     .hmw-box {
@@ -795,11 +798,11 @@
       text-align: center;
     }
     .hmw-label {
-      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px;
+      font-family: var(--font-heading); font-weight: 600; font-size: 18px;
       line-height: 26px; color: #175cfe;
     }
     .hmw-question {
-      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-family: var(--font-heading); font-weight: 600;
       font-size: 32px; line-height: 48px; color: #2b2b2b;
     }
 
@@ -808,6 +811,25 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .cs-hero { animation: fadeUp 0.8s ease forwards 0.1s; opacity: 0; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── TABLET ≤ 1024px ───────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .cs-wrap { width: 100%; gap: 80px; padding: 60px 40px 0; }
+      .cs-hero { flex-direction: column; align-items: flex-start; }
+      .cs-hero-meta { width: 100%; max-width: 480px; }
+      .cs-solution-heading { font-size: 28px; }
+      .cs-section-heading { font-size: 28px; line-height: 1.3; }
+      .cs-hero-heading { font-size: 34px; }
+      .personas-header { width: 100%; }
+      .persona-wrap { width: 100%; }
+      .learnings-box { width: 100%; }
+      .cs-section[style*="padding:0 101px"] { padding: 0 !important; }
+      .sticky-notes-container { width: 100%; max-width: 388px; }
+      .interviews-outer { padding: 40px 24px; }
+      .persona-card { flex-direction: column; }
+      .persona-photo-col { width: 100%; height: 340px; }
+      .stats-card { grid-template-columns: repeat(2, 1fr); }
+    }
 
     /* ─── TABLET ≤ 768px ─────────────────────────────────── */
     @media (max-width: 768px) {
@@ -826,8 +848,8 @@
       .interviews-outer { padding: 40px 20px; }
       .sticky-row { flex-direction: column; gap: 40px; }
       .sticky-notes-container { width: 100%; height: 370px; }
-      .stats-card { flex-wrap: wrap; }
-      .stat-item { width: calc(50% - 16px); }
+      .stats-card { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { display: contents; }
 
       .footer { width: 100%; }
       .footer-headline { font-size: 64px; line-height: 1.2; }
@@ -836,7 +858,6 @@
       .back-btn-wrap { width: 100%; padding: 24px 20px 0; }
       .scroll-top { right: 14px; width: 72px; height: 72px; }
       .scroll-top img { width: 72px; height: 72px; }
-  .scroll-top img { width: 72px; height: 72px; }
       .cs-problem { padding: 40px 32px; }
       .cs-glance { padding: 28px; }
       .hmw-box { padding: 40px 28px; }
@@ -868,8 +889,8 @@
       .sticky-row { flex-direction: column; gap: 32px; }
       .sticky-notes-container { width: 350px; max-width: 100%; }
 
-      .stats-card { flex-direction: column; align-items: center; padding: 28px; }
-      .stat-item { width: 100%; }
+      .stats-card { grid-template-columns: 1fr; padding: 28px; }
+      .stat-item { display: contents; }
       .stat-number { font-size: 32px; }
 
       .final-heading { font-size: 28px; }
@@ -887,7 +908,6 @@
       .back-btn-wrap { width: 100%; padding: 20px 16px 0; }
       .scroll-top { right: 8px; width: 60px; height: 60px; }
       .scroll-top img { width: 60px; height: 60px; }
-  .scroll-top img { width: 60px; height: 60px; }
       .footer-brand-text { align-items: center; }
       .cs-problem { padding: 32px 20px; }
       .cs-problem-statement { font-size: 24px; }
@@ -1060,7 +1080,7 @@
     <!-- ─── AT A GLANCE ──────────────────────────────────── -->
     <div class="cs-glance reveal">
       <p class="cs-section-label">At a glance</p>
-      <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:48px;line-height:58px;color:#2b2b2b;">AtisfyReach – Influencer Marketing Platform</h2>
+      <h2 style="font-family:var(--font-heading);font-weight:600;font-size:48px;line-height:58px;color:#2b2b2b;">AtisfyReach – Influencer Marketing Platform</h2>
       <p class="cs-body">Influencer marketing was broken, fragmented across tools, opaque in pricing, and inaccessible to brands without agency relationships or large budgets. AtisfyReach was built to change that.</p>
       <p class="cs-body">As Lead Product Designer, I designed a scalable, AI-powered platform that unifies creator discovery, campaign configuration, contracting, payments, and performance tracking into a single structured workflow. The design focused on reducing decision anxiety through guided simplicity, enabling team collaboration through modular campaign management, and building user confidence through real-time, data-backed feedback at every step.</p>
       <p class="cs-body">The launch validated both the product and the approach. <a href="#outcomes" class="cs-link">50+ brands onboarded</a> during the launch phase, and campaigns achieved <a href="#outcomes" class="cs-link">6× lower costs through optimised ad budgets</a>, delivering measurably stronger ROI.</p>

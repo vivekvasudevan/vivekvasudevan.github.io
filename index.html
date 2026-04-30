@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-cs="home">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vivek Vasudevan Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/shared.css" />
   <style>
     /* ─── Grid system ───────────────────────────────────── */
     :root {
@@ -24,12 +24,11 @@
     }
 
     /* ─── Reset ─────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     /* ─── Base ──────────────────────────────────────────── */
     body {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       color: #2b2b2b;
       background: #ffffff;
       min-height: 100vh;
@@ -107,7 +106,7 @@
       list-style: none;
     }
     .nav-links a, .nav-links button {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 500;
       color: #2b2b2b;
@@ -351,14 +350,14 @@
       pointer-events: none;
     }
     .cs-img-mantro .mantro-title-text {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 80px;
       font-weight: 700;
       color: rgba(217,217,217,0.1);
       white-space: nowrap;
     }
     .cs-img-mantro .mantro-sub-text {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 28px;
       font-weight: 400;
       color: rgba(217,217,217,0.2);
@@ -379,7 +378,7 @@
       justify-content: center;
     }
     .cs-img-cosmic .cosmic-title-text {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 52px;
       font-weight: 700;
       color: #fff;
@@ -568,7 +567,7 @@
       list-style: none;
     }
     .footer-nav-links a, .footer-nav-links button {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 500;
       color: #2b2b2b;
@@ -613,7 +612,7 @@
       bottom: calc(40px + 98px + 12px);
       background: #fff;
       color: #2b2b2b;
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 18px;
       font-weight: 400;
       padding: 14px 24px;
@@ -714,7 +713,7 @@
     .mobile-menu.open { display: flex; }
     @media (min-width: 769px) { .mobile-menu { display: none !important; } }
     .mobile-menu a, .mobile-menu button {
-      font-family: 'Work Sans', sans-serif;
+      font-family: var(--font-ui);
       font-size: 16px;
       font-weight: 500;
       color: #2b2b2b;
